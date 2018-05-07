@@ -1,6 +1,6 @@
 # New Human Universe
 
-À faire:
+Pages à faire:
 - [ ] Homepage
 - [ ] Liste des romans
 - [ ] Un roman
@@ -16,3 +16,9 @@
 - [ ] Un lieu
 - [ ] Liste des pouvoirs
 - [ ] Un pouvoir
+
+Fonctionnalités à faire:
+- [ ] Google tag
+- [ ] Header
+- [ ] Footer
+- [ ] Navbar
