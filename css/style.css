@@ -9,3 +9,28 @@
 .text-justify {
     text-align: justify;
 }
+
+.navbar-top-links .dropdown-histoires,
+.navbar-top-links .dropdown-infos {
+    width: auto;
+    min-width: 0;
+}
+
+.navbar-top-links .dropdown-histoires,
+.navbar-top-links .dropdown-infos {
+    margin-left: 5px;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+    }
+
+    .navbar-top-links .dropdown-histoires,
+    .navbar-top-links .dropdown-infos {
+        margin-left: auto;
+    }
+}
