@@ -1,4 +1,13 @@
-﻿#page-wrapper {
+﻿body {
+	background-color: #ffffff;
+}
+
+#page-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
     margin: 0;
 }
 
