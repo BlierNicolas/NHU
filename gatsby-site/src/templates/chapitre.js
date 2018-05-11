@@ -1,44 +1,84 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Container,
+    Row,
+    Col,
+    Jumbotron,
+    Button,
+	Card, 
+	CardImg, 
+	CardText, 
+	CardBody,
+	CardTitle, 
+	CardSubtitle
+} from 'reactstrap';
 
 // var marked = require('marked');
 
 class Chapitre extends Component {
 	render() {
 		const {
-			titre,
-			texte
+			titreChapitre,
+			texte,
+			chapitreAvant,
+			chapitreApres,
+			nomRoman
 		} = this.props.data.contentfulChapitre
 		
+		console.log(chapitreAvant);
+		console.log(chapitreApres);
+		
 		return (
-			<div>
-				<div className="row"> 
-					<div className="col-lg-12">
-						<h1 className="page-header text-center">{titre}</h1>
-					</div>
-				</div>
-				<div className="row">  
-					<div className="col-lg-offset-2 col-lg-8">
-						<div className="panel panel-primary">
-							<div className="panel-body">
-								<div className="text-justify" dangerouslySetInnerHTML={{__html: texte.childMarkdownRemark.html}}/>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-lg-offset-2 col-lg-8">
-						<div className="panel panel-primary">
-							<div className="panel-body">
-								<div className="col-xs-4 text-center"></div>
-								<div className="col-xs-4 text-center"><a className="btn btn-default" href="https://venatusuniverse.com/Romans/LePremierCyborg-Tome1">Retourner au roman</a></div>
-								<div className="col-xs-4 text-center"><a className="btn btn-default" href="https://venatusuniverse.com/Romans/Chapitres/Chapitre-2-Les-modifications">Chapitre suivant</a></div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
+			<Container fluid="true"> 
+				<Row>
+					<Col lg={{size: 8, offset:2}}>
+						<Card>
+							<CardBody>
+								<CardText>
+									<h1 className="page-header text-center">{titreChapitre}</h1>
+									<div className="text-justify" dangerouslySetInnerHTML={{__html: texte.childMarkdownRemark.html}}/>
+								</CardText>
+							</CardBody>
+						</Card>
+					</Col>
+				</Row>
+				<Row>
+					<Col lg={{size: 8, offset:2}}>
+						<Card>
+							<CardBody>
+								<CardText>
+									<Row>
+										<Col xs="4" className="text-center">
+											{
+												chapitreAvant ?
+													(<Button color="primary" href={chapitreAvant}>Chapitre précédent</Button>) :
+													('')
+											}
+										</Col>
+										<Col xs="4" className="text-center"><Button color="primary" href={nomRoman}>Retourner au roman</Button></Col>
+										<Col xs="4" className="text-center">
+											{
+												chapitreApres ?
+													(<Button color="primary" href={chapitreApres}>Chapitre suivant</Button>) :
+													('')
+											}
+										</Col>
+									</Row>
+								</CardText>
+							</CardBody>
+						</Card>
+					</Col>
+				</Row>
+            </Container>
 		)
 	}
 }
@@ -51,12 +91,15 @@ export default Chapitre
 
 export const pageQuery = graphql`query chapitreQuery($slug: String!) {
 	contentfulChapitre(slug: {eq:$slug}) {
-		titre
+		titreChapitre
 		texte {
 			childMarkdownRemark {
 				html
 			}
 		}
+        chapitreAvant
+        chapitreApres
+        nomRoman
 		slug
 	}
 }`

@@ -5,11 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from '../components/header'
 import Footer from '../components/footer'
-import '../startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/css/bootstrap.min.css'
-import '../startbootstrap-sb-admin-2-gh-pages/vendor/metisMenu/metisMenu.min.css'
-import '../startbootstrap-sb-admin-2-gh-pages/dist/css/sb-admin-2.css'
-import '../startbootstrap-sb-admin-2-gh-pages/vendor/morrisjs/morris.css'
-import '../startbootstrap-sb-admin-2-gh-pages/vendor/font-awesome/css/font-awesome.min.css'
 import '../../../css/style.css'
 
 const Layout = ({ children, data }) => (
@@ -22,11 +17,11 @@ const Layout = ({ children, data }) => (
     />
     <div id="wrapper">
 		<div id="page-wrapper">
-			<Header siteTitle={data.site.siteMetadata.title} />
+			<Header/>
 			<div>
 			  {children()}
 			</div>
-			<Footer siteTitle={data.site.siteMetadata.title} />
+			<Footer/>
 		</div>
 	</div>
   </div>
