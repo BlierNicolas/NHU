@@ -7,9 +7,11 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 		const romanTemplate = path.resolve('src/templates/roman.js')
 		const personnageTemplate = path.resolve('src/templates/personnage.js')
 		const pouvoirTemplate = path.resolve('src/templates/pouvoir.js')
+		const nouvelleTemplate = path.resolve('src/templates/nouvelle.js')
 		const listeHistoireTemplate = path.resolve('src/templates/listeDesHistoires.js')
 		const listePersonnageTemplate = path.resolve('src/templates/listeDesPersonnages.js')
 		const listePouvoirTemplate = path.resolve('src/templates/listeDesPouvoirs.js')
+		const listeNouvelleTemplate = path.resolve('src/templates/listeDesNouvelles.js')
 		
 		resolve(
 			graphql(
@@ -83,6 +85,10 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				path: 'ListeDesPouvoirs',
 				component: listePouvoirTemplate
 			}),
+			createPage ({
+				path: 'ListeDesNouvelles',
+				component: listeNouvelleTemplate
+			}),
 			graphql(
 			`{
 				allContentfulPersonnage {
@@ -133,6 +139,35 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 						createPage ({
 							path: 'Pouvoir/'+edge.node.slug,
 							component: pouvoirTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			graphql(
+			`{
+				allContentfulNouvelle {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result); 
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulNouvelle.edges.forEach((edge) => {
+					if ((edge.node.id = 'Nouvelle') && (edge.node.slug != null)) {
+						createPage ({
+							path: 'Nouvelle/'+edge.node.slug,
+							component: nouvelleTemplate,
 							context: {
 								slug: edge.node.slug
 							}

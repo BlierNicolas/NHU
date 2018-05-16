@@ -39,7 +39,7 @@ class ListeDesPersonnages extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="/">Page d'accueil</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../">Page d'accueil</a></BreadcrumbItem>
 								<BreadcrumbItem active>Liste des personnages</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
@@ -58,7 +58,7 @@ class ListeDesPersonnages extends Component {
                                             <CardTitle>{edge.node.nomComplet}</CardTitle>
                                             <CardSubtitle>{edge.node.alignement}</CardSubtitle>
                                             <CardText></CardText>
-                                            <Button href={"Personnage/" + edge.node.slug}>Plus d'informations</Button>
+                                            <Button href={"../Personnage/" + edge.node.slug}>Plus d'informations</Button>
                                         </CardBody>
                                     </Card>
                                 </Col>

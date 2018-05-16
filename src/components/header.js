@@ -36,7 +36,7 @@ export default class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/nouvelles">Nouvelles</NavLink>
+                <NavLink href="/ListeDesNouvelles">Nouvelles</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -63,13 +63,13 @@ export default class Header extends React.Component {
                     <Link to="/ListeDesPouvoirs">Les pouvoirs</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="#">Les groupes</Link>
+                    <Link to="/ListeDesGroupes">Les groupes</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="#">La géographie</Link>
+                    <Link to="/Geographie">La géographie</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="#">Les théories</Link>
+                    <Link to="/ListeDesTheories">Les théories</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

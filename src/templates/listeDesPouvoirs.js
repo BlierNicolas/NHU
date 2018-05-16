@@ -39,7 +39,7 @@ class ListeDesPouvoirs extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="/">Page d'accueil</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../">Page d'accueil</a></BreadcrumbItem>
 								<BreadcrumbItem active>Liste des pouvoirs</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
@@ -47,7 +47,7 @@ class ListeDesPouvoirs extends Component {
 							<CardBody>
 								<CardText>
 									<h1 className="page-header text-center">Liste des pouvoirs</h1>
-									<div className="text-justify"><p>Voici tous les pouvoirs qui sont présents dans l'Univers des Nouveaux Humains</p></div>
+									<div className="text-justify"><p>Voici tous les pouvoirs qui sont présents dans l'Univers des Nouveaux Humains.</p></div>
 								</CardText>
 							</CardBody>
 						</Card>
@@ -61,7 +61,7 @@ class ListeDesPouvoirs extends Component {
 									<Row>
 										{
 											data.allContentfulPouvoir.edges.map(
-											(edge) => <Col lg="4" md="6" sm="12" className="text-center"> <Link to={'Pouvoir/'+edge.node.slug}>{edge.node.nomPouvoir}</Link></Col>)
+											(edge) => <Col lg="4" md="6" sm="12" className="text-center"> <Link to={'../Pouvoir/'+edge.node.slug}>{edge.node.nomPouvoir}</Link></Col>)
 										}
 									</Row>
 								</CardText>
