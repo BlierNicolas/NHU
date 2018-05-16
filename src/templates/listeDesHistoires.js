@@ -40,7 +40,7 @@ class ListeDesHistoires extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="/">Page d'accueil</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../">Page d'accueil</a></BreadcrumbItem>
 								<BreadcrumbItem active>Liste des histoires</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
@@ -48,7 +48,7 @@ class ListeDesHistoires extends Component {
 							<CardBody>
 								<CardText>
 									<h1 className="page-header text-center">Liste des histoires</h1>
-									<div className="text-justify"><p>Voici tous les romans et mini-histoires qui se rapportent à l'Univers des Nouveaux Humains</p></div>
+									<div className="text-justify"><p>Voici tous les romans et mini-histoires qui se rapportent à l'Univers des Nouveaux Humains.</p></div>
 								</CardText>
 							</CardBody>
 						</Card>
@@ -67,7 +67,7 @@ class ListeDesHistoires extends Component {
 											<CardBody>
 												<CardText>
 													<div className="text-justify" dangerouslySetInnerHTML={{__html: edge.node.resume.childMarkdownRemark.html}}/>
-													<Link to={'Roman/'+edge.node.slug}>Voir les détails</Link>
+													<Link to={'../Roman/'+edge.node.slug}>Voir les détails</Link>
 												</CardText>
 											</CardBody>
 										</Card>

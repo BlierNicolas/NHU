@@ -39,8 +39,8 @@ class Personnage extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="/">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../">Liste des personnages</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../">Page d'accueil</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../ListeDesPersonnages">Liste des personnages</a></BreadcrumbItem>
 								<BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
