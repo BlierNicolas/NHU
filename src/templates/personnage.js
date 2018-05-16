@@ -58,6 +58,7 @@ class Personnage extends Component {
                                     Âge: {data.contentfulPersonnage.age}</CardText>
                             </CardBody>
                         </Card>
+                        <br />
                         {
                             data.contentfulPersonnage.descriptionSommaire ?
                                 (<Card>
@@ -69,6 +70,7 @@ class Personnage extends Component {
                                 </Card>) :
                                 ('')
                         }
+                        <br />
                         {
                             data.contentfulPersonnage.descriptionPouvoir ?
                                 (<Card>
@@ -80,6 +82,7 @@ class Personnage extends Component {
                                 </Card>) :
                                 ('')
                         }
+                        <br />
                         {
                             data.contentfulPersonnage.descriptionPhysique ?
                                 (<Card>
@@ -91,6 +94,7 @@ class Personnage extends Component {
                                 </Card>) :
                                 ('')
                         }
+                        <br />
                         {
                             data.contentfulPersonnage.relation ?
                                 (<Card>
@@ -103,6 +107,7 @@ class Personnage extends Component {
                                 </Card>) :
                                 ('')
                         }
+                        <br />
                         {
                             data.allContentfulApparition ?
                                 (<Card>
@@ -114,7 +119,7 @@ class Personnage extends Component {
                                                     data.allContentfulApparition.edges.map(
                                                     (edge) => 
                                                         <ListGroupItem>
-                                                            <Link to={'../Roman/'+edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
+                                                            <Link to={'../../Roman/'+edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
                                                         </ListGroupItem>
                                                     )
                                                 }
