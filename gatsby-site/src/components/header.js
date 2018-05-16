@@ -44,7 +44,7 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <Link to="/ListeDesRomans">Les romans</Link>
+                    <Link to="/ListeDesHistoires">Liste des histoires</Link>
                   </DropdownItem>
                   <DropdownItem>
                     <Link to="#">Calendrier des sorties</Link>
@@ -57,10 +57,10 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <Link to="https://venatusuniverse.com/ListeDesPersonnages">Les personnages</Link>
+                    <Link to="/ListeDesPersonnages">Les personnages</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="#">Les pouvoirs</Link>
+                    <Link to="/ListeDesPouvoirs">Les pouvoirs</Link>
                   </DropdownItem>
                   <DropdownItem>
                     <Link to="#">Les groupes</Link>

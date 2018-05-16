@@ -19,7 +19,9 @@ import {
 	CardText, 
 	CardBody,
 	CardTitle, 
-	CardSubtitle
+	CardSubtitle,
+	Breadcrumb, 
+	BreadcrumbItem
 } from 'reactstrap';
 
 // var marked = require('marked');
@@ -41,6 +43,14 @@ class Chapitre extends Component {
 			<Container fluid="true"> 
 				<Row>
 					<Col lg={{size: 8, offset:2}}>
+						<div>
+							<Breadcrumb>
+								<BreadcrumbItem><a href="../../">Page d'accueil</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../ListeDesHistoires">Liste des histoires</a></BreadcrumbItem>
+								<BreadcrumbItem><a href={nomRoman}>Roman</a></BreadcrumbItem>
+								<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
+							</Breadcrumb>
+						</div>
 						<Card>
 							<CardBody>
 								<CardText>

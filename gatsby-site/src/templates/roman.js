@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col,
-    Jumbotron,
-    Button,
+	Collapse,
+	Navbar,
+	NavbarToggler,
+	NavbarBrand,
+	Nav,
+	NavItem,
+	NavLink,
+	Container,
+	Row,
+	Col,
+	Jumbotron,
+	Button,
 	Card, 
 	CardImg, 
 	CardText, 
@@ -22,31 +22,34 @@ import {
 	CardTitle, 
 	CardSubtitle,
 	ListGroup, 
-	ListGroupItem
+	ListGroupItem,
+	Breadcrumb, 
+	BreadcrumbItem
 } from 'reactstrap';
 
 class Roman extends Component {
 	render() {
 		const {
 			data
-			// titreRoman,
-			// resume,
-			// typeHistoire
 		} = this.props;
-		// const {
-			// titreChapitre,
-			// slug
-		// } = this.props.data.allContentfulChapitre
 		
 		return (
 			<Container fluid="true">
 				<Row>
 					<Col lg={{size: 8, offset:2}}>
+						<div>
+							<Breadcrumb>
+								<BreadcrumbItem><a href="../">Page d'accueil</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../ListeDesHistoires">Liste des histoires</a></BreadcrumbItem>
+								<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
+							</Breadcrumb>
+						</div>
 						<Card>
 							<CardBody>
 								<CardText>
 									<h1 className="page-header text-center">{data.contentfulRoman.titreRoman}</h1>
 									<div className="text-justify" dangerouslySetInnerHTML={{__html: data.contentfulRoman.resume.childMarkdownRemark.html}}/>
+									<p>Type d'histoire: {data.contentfulRoman.typeHistoire}</p>
 								</CardText>
 							</CardBody>
 						</Card>
@@ -68,7 +71,7 @@ class Roman extends Component {
 						</Card>
 					</Col>
 				</Row>
-            </Container> 
+      </Container> 
 		)
 	}
 }
@@ -87,7 +90,8 @@ export const pageQuery = graphql
       childMarkdownRemark {
         html
       }
-    }
+		}
+		typeHistoire
     slug
   }
   allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "en-US"}, nomRoman: {eq: $romanSlug}}) {
