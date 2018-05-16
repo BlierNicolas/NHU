@@ -1,5 +1,18 @@
-﻿#page-wrapper {
+﻿body {
+	background-color: #ffffff;
+}
+
+#page-wrapper {
     margin: 0;
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.around {
+	padding: 10px;
 }
 
 .text-center {
@@ -8,6 +21,14 @@
 
 .text-justify {
     text-align: justify;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
 }
 
 .navbar-top-links .dropdown-histoires,
@@ -33,4 +54,25 @@
     .navbar-top-links .dropdown-infos {
         margin-left: auto;
     }
+}
+
+.fff {	
+	height: calc(100% - 20px);
+}
+
+.fff .card-body {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	height: 100%;
+}
+
+.fff .card-body .card-text {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.fff .card-body .card-text a {
+	align-self: flex-end;
 }
