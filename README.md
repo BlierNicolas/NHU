@@ -1,14 +1,14 @@
 # New Human Universe
 
-Pages à faire:
+Pages Ã  faire:
 - [ ] Homepage
 - [ ] Liste des romans
 - [ ] Un roman
 - [ ] Un chapitre
 - [ ] Calendrier des sorties
 - [ ] Une nouvelle
-- [ ] Liste des théories
-- [ ] Une théorie
+- [ ] Liste des thÃ©ories
+- [ ] Une thÃ©orie
 - [ ] Liste des personnages
 - [ ] Un personnage
 - [ ] Liste des villes et lieux
@@ -17,7 +17,7 @@ Pages à faire:
 - [ ] Liste des pouvoirs
 - [ ] Un pouvoir
 
-Fonctionnalités à faire:
+FonctionnalitÃ©s Ã  faire:
 - [ ] Google tag
 - [ ] Header
 - [ ] Footer
