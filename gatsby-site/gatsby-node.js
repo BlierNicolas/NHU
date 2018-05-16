@@ -29,7 +29,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 					reject(result.errors)
 				}
 				result.data.allContentfulChapitre.edges.forEach((edge) => {
-					if (edge.node.id = 'Chapitre') {
+					if ((edge.node.id = 'Chapitre') && (edge.node.slug != null)) {
 						createPage ({
 							path: 'Roman/Chapitre/'+edge.node.slug,
 							component: chapitreTemplate,
@@ -58,7 +58,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 					reject(result.errors)
 				}
 				result.data.allContentfulRoman.edges.forEach((edge) => {
-					if (edge.node.id = 'Roman') {
+					if ((edge.node.id = 'Roman') && (edge.node.slug != null)) {
 						createPage ({
 							path: 'Roman/'+edge.node.slug,
 							component: romanTemplate,
@@ -100,7 +100,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 					reject(result.errors)
 				}
 				result.data.allContentfulPersonnage.edges.forEach((edge) => {
-					if (edge.node.id = 'Personnage') {
+					if ((edge.node.id = 'Personnage') && (edge.node.slug != null)) {
 						createPage ({
 							path: 'Personnage/'+edge.node.slug,
 							component: personnageTemplate,
@@ -129,7 +129,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 					reject(result.errors)
 				}
 				result.data.allContentfulPouvoir.edges.forEach((edge) => {
-					if (edge.node.id = 'Pouvoir') {
+					if ((edge.node.id = 'Pouvoir') && (edge.node.slug != null)) {
 						createPage ({
 							path: 'Pouvoir/'+edge.node.slug,
 							component: pouvoirTemplate,
