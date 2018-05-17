@@ -71,15 +71,15 @@ class Chapitre extends Component {
 										<Col xs="4" className="text-center">
 											{
 												chapitreAvant ?
-													(<Button color="primary" href={chapitreAvant}>Chapitre précédent</Button>) :
+													(<Link to={chapitreAvant}>Chapitre précédent</Link>) :
 													('')
 											}
 										</Col>
-										<Col xs="4" className="text-center"><Button color="primary" href={nomRoman}>Retourner au roman</Button></Col>
+										<Col xs="4" className="text-center"><Link to={nomRoman}>Retourner au roman</Link></Col>
 										<Col xs="4" className="text-center">
 											{
 												chapitreApres ?
-													(<Button color="primary" href={chapitreApres}>Chapitre suivant</Button>) :
+													(<Link to={chapitreApres}>Chapitre suivant</Link>) :
 													('')
 											}
 										</Col>
