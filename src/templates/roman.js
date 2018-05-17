@@ -40,7 +40,7 @@ class Roman extends Component {
 						<div>
 							<Breadcrumb>
 								<BreadcrumbItem><a href="../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../listeDesHistoires">Liste des histoires</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../liste-des-histoires">Liste des histoires</a></BreadcrumbItem>
 								<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
@@ -63,7 +63,7 @@ class Roman extends Component {
 									<ListGroup>
 										{
 											data.allContentfulChapitre.edges.map(
-											(edge) => <ListGroupItem className="text-center"> <Link to={'Chapitre/'+edge.node.slug}>{edge.node.titreChapitre}</Link>  </ListGroupItem>)
+											(edge) => <ListGroupItem className="text-center"> <Link to={'chapitre/'+edge.node.slug}>{edge.node.titreChapitre}</Link>  </ListGroupItem>)
 										}
 									</ListGroup>
 								</CardText>

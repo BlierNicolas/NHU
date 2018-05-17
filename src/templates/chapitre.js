@@ -46,7 +46,7 @@ class Chapitre extends Component {
 						<div>
 							<Breadcrumb>
 								<BreadcrumbItem><a href="../../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../../listeDesHistoires">Liste des histoires</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../../liste-des-histoires">Liste des histoires</a></BreadcrumbItem>
 								<BreadcrumbItem><a href={nomRoman}>Roman</a></BreadcrumbItem>
 								<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
 							</Breadcrumb>
