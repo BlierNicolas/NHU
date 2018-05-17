@@ -45,7 +45,7 @@ class Nouvelle extends Component {
 						<div>
 							<Breadcrumb>
 								<BreadcrumbItem><a href="../../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../../listedesnouvelles">Liste des nouvelles</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../../listeDesNouvelles">Liste des nouvelles</a></BreadcrumbItem>
 								<BreadcrumbItem active>{titreNouvelle}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
