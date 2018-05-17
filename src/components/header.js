@@ -47,7 +47,7 @@ export default class Header extends React.Component {
                     <Link to="/ListeDesHistoires">Liste des histoires</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="#">Calendrier des sorties</Link>
+                    <Link to="/Calendrier">Calendrier des sorties</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
