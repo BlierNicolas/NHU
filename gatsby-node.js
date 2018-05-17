@@ -33,7 +33,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				result.data.allContentfulChapitre.edges.forEach((edge) => {
 					if ((edge.node.id = 'Chapitre') && (edge.node.slug != null)) {
 						createPage ({
-							path: 'Roman/Chapitre/'+edge.node.slug,
+							path: 'roman/chapitre/'+edge.node.slug,
 							component: chapitreTemplate,
 							context: {
 								slug: edge.node.slug
@@ -62,7 +62,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				result.data.allContentfulRoman.edges.forEach((edge) => {
 					if ((edge.node.id = 'Roman') && (edge.node.slug != null)) {
 						createPage ({
-							path: 'Roman/'+edge.node.slug,
+							path: 'roman/'+edge.node.slug,
 							component: romanTemplate,
 							context: {
 								slug: edge.node.slug,
@@ -74,19 +74,19 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				return
 			}),
 			createPage ({
-				path: 'ListeDesHistoires',
+				path: 'liste-des-histoires',
 				component: listeHistoireTemplate
 			}),
 			createPage ({
-				path: 'ListeDesPersonnages',
+				path: 'liste-des-personnages',
 				component: listePersonnageTemplate
 			}),
 			createPage ({
-				path: 'ListeDesPouvoirs',
+				path: 'liste-des-pouvoirs',
 				component: listePouvoirTemplate
 			}),
 			createPage ({
-				path: 'ListeDesNouvelles',
+				path: 'liste-des-nouvelles',
 				component: listeNouvelleTemplate
 			}),
 			graphql(
@@ -108,7 +108,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				result.data.allContentfulPersonnage.edges.forEach((edge) => {
 					if ((edge.node.id = 'Personnage') && (edge.node.slug != null)) {
 						createPage ({
-							path: 'Personnage/'+edge.node.slug,
+							path: 'personnage/'+edge.node.slug,
 							component: personnageTemplate,
 							context: {
 								slug: edge.node.slug
@@ -137,7 +137,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				result.data.allContentfulPouvoir.edges.forEach((edge) => {
 					if ((edge.node.id = 'Pouvoir') && (edge.node.slug != null)) {
 						createPage ({
-							path: 'Pouvoir/'+edge.node.slug,
+							path: 'pouvoir/'+edge.node.slug,
 							component: pouvoirTemplate,
 							context: {
 								slug: edge.node.slug
@@ -166,7 +166,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				result.data.allContentfulNouvelle.edges.forEach((edge) => {
 					if ((edge.node.id = 'Nouvelle') && (edge.node.slug != null)) {
 						createPage ({
-							path: 'Nouvelle/'+edge.node.slug,
+							path: 'nouvelle/'+edge.node.slug,
 							component: nouvelleTemplate,
 							context: {
 								slug: edge.node.slug

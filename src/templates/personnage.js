@@ -40,7 +40,7 @@ class Personnage extends Component {
 						<div>
 							<Breadcrumb>
 								<BreadcrumbItem><a href="../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../listeDesPersonnages">Liste des personnages</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../liste-des-personnages">Liste des personnages</a></BreadcrumbItem>
 								<BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
@@ -119,7 +119,7 @@ class Personnage extends Component {
                                                     data.allContentfulApparition.edges.map(
                                                     (edge) => 
                                                         <ListGroupItem>
-                                                            <Link to={'../../Roman/'+edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
+                                                            <Link to={'../../roman/'+edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
                                                         </ListGroupItem>
                                                     )
                                                 }

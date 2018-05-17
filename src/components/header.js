@@ -36,7 +36,7 @@ export default class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/ListeDesNouvelles">Nouvelles</NavLink>
+                <NavLink href="/liste-des-nouvelles">Nouvelles</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -44,10 +44,10 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <Link to="/ListeDesHistoires">Liste des histoires</Link>
+                    <Link to="/liste-des-histoires">Liste des histoires</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/Calendrier">Calendrier des sorties</Link>
+                    <Link to="/calendrier">Calendrier des sorties</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -57,19 +57,19 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    <Link to="/ListeDesPersonnages">Les personnages</Link>
+                    <Link to="/liste-des-personnages">Les personnages</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/ListeDesPouvoirs">Les pouvoirs</Link>
+                    <Link to="/Liste-des-pouvoirs">Les pouvoirs</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/ListeDesGroupes">Les groupes</Link>
+                    <Link to="/Liste-des-groupes">Les groupes</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/Geographie">La géographie</Link>
+                    <Link to="/geographie">La géographie</Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/ListeDesTheories">Les théories</Link>
+                    <Link to="/liste-des-theories">Les théories</Link>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

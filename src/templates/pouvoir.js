@@ -40,7 +40,7 @@ class Pouvoir extends Component {
 						<div>
 							<Breadcrumb>
 								<BreadcrumbItem><a href="../../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../../listeDesPouvoirs">Liste des pouvoirs</a></BreadcrumbItem>
+								<BreadcrumbItem><a href="../../../liste-des-pouvoirs">Liste des pouvoirs</a></BreadcrumbItem>
 								<BreadcrumbItem active>{nomPouvoir}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
