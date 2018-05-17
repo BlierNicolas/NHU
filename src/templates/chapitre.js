@@ -45,9 +45,9 @@ class Chapitre extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="../../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../../liste-des-histoires">Liste des histoires</a></BreadcrumbItem>
-								<BreadcrumbItem><a href={nomRoman}>Roman</a></BreadcrumbItem>
+								<BreadcrumbItem><Link to="../../../">Page d'accueil</Link></BreadcrumbItem>
+								<BreadcrumbItem><Link to="../../../liste-des-histoires">Liste des histoires</Link></BreadcrumbItem>
+								<BreadcrumbItem><Link to={nomRoman}>Roman</Link></BreadcrumbItem>
 								<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
