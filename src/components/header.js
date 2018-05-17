@@ -31,12 +31,12 @@ export default class Header extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand to="/">New Human Universe</NavbarBrand>
+          <NavbarBrand><Link to="/">New Human Universe</Link></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink to="/liste-des-nouvelles">Nouvelles</NavLink>
+                <Link to="/liste-des-nouvelles">Nouvelles</Link>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
