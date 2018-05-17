@@ -68,7 +68,7 @@ class ListeDesNouvelles extends Component {
 																				<p className="text-right">{edge.node.date}</p>
 																				<CardText>
 																						<div dangerouslySetInnerHTML={{__html: edge.node.description.childMarkdownRemark.html}}/>
-																						<Link to={'../nouvelle/'+edge.node.slug}>Voir les détails</Link>
+																						<Link to={'../Nouvelle/'+edge.node.slug}>Voir les détails</Link>
 																				</CardText>
 																		</CardBody>
 																</Card>

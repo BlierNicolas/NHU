@@ -61,7 +61,7 @@ class ListeDesPouvoirs extends Component {
 									<Row>
 										{
 											data.allContentfulPouvoir.edges.map(
-											(edge) => <Col lg="4" md="6" sm="12" className="text-center"> <Link to={'../pouvoir/'+edge.node.slug}>{edge.node.nomPouvoir}</Link></Col>)
+											(edge) => <Col lg="4" md="6" sm="12" className="text-center"> <Link to={'../Pouvoir/'+edge.node.slug}>{edge.node.nomPouvoir}</Link></Col>)
 										}
 									</Row>
 								</CardText>

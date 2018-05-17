@@ -67,7 +67,7 @@ class ListeDesHistoires extends Component {
 											<CardBody>
 												<CardText>
 													<div className="text-justify" dangerouslySetInnerHTML={{__html: edge.node.resume.childMarkdownRemark.html}}/>
-													<Link to={'../roman/'+edge.node.slug}>Voir les détails</Link>
+													<Link to={'../Roman/'+edge.node.slug}>Voir les détails</Link>
 												</CardText>
 											</CardBody>
 										</Card>
