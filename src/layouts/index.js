@@ -12,7 +12,7 @@ const Layout = ({ children, data }) => (
     <Helmet
       title="New Human Universe"
       meta={[
-        { name: 'description', content: 'Sample' },
+        { name: 'description', content: 'L\'Univers des Nouveaux Humains' },
       ]}
     />
     <div id="wrapper">
