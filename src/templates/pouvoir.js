@@ -39,8 +39,8 @@ class Pouvoir extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="../../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../../liste-des-pouvoirs">Liste des pouvoirs</a></BreadcrumbItem>
+								<BreadcrumbItem><Link to="../../">Page d'accueil</Link></BreadcrumbItem>
+								<BreadcrumbItem><Link to="../../liste-des-pouvoirs">Liste des pouvoirs</Link></BreadcrumbItem>
 								<BreadcrumbItem active>{nomPouvoir}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>

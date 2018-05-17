@@ -39,8 +39,8 @@ class Roman extends Component {
 					<Col lg={{size: 8, offset:2}}>
 						<div>
 							<Breadcrumb>
-								<BreadcrumbItem><a href="../../">Page d'accueil</a></BreadcrumbItem>
-								<BreadcrumbItem><a href="../../liste-des-histoires">Liste des histoires</a></BreadcrumbItem>
+								<BreadcrumbItem><Link to="../../">Page d'accueil</Link></BreadcrumbItem>
+								<BreadcrumbItem><Link to="../../liste-des-histoires">Liste des histoires</Link></BreadcrumbItem>
 								<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
 							</Breadcrumb>
 						</div>
