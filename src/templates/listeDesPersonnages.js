@@ -58,7 +58,7 @@ class ListeDesPersonnages extends Component {
                                             <CardTitle>{edge.node.nomComplet}</CardTitle>
                                             <CardSubtitle>{edge.node.alignement}</CardSubtitle>
                                             <CardText></CardText>
-                                            <Button href={"../personnage/" + edge.node.slug}>Plus d'informations</Button>
+                                            <Link to={"../personnage/" + edge.node.slug}>Plus d'informations</Link>
                                         </CardBody>
                                     </Card>
                                 </Col>
