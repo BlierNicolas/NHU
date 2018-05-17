@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Gatsby Default Starter',
+		title: 'Univers des Nouveaux Humains',
 	},
 	plugins: [
 		{
