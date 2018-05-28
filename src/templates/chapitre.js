@@ -24,58 +24,8 @@ import {
 	Breadcrumb,
 	BreadcrumbItem
 } from 'reactstrap';
-import classnames from 'classnames';
-import FontAwesome from 'react-fontawesome';
 
 class Chapitre extends Component {
-	constructor(props) {
-		super(props);
-		this.onEntering = this.onEntering.bind(this);
-		this.onEntered = this.onEntered.bind(this);
-		this.onExiting = this.onExiting.bind(this);
-		this.onExited = this.onExited.bind(this);
-		this.toggle = this.toggle.bind(this);
-		this.state = { nightMode: false, status: 'inactif' };
-
-		this.checkActif();
-	}
-
-	onEntering() {
-		this.setState({ status: 'desactivation...' });
-	}
-
-	onEntered() {
-		this.setState({ status: 'inactif' });
-	}
-
-	onExiting() {
-		this.setState({ status: 'activation...' });
-	}
-
-	onExited() {
-		this.setState({ status: 'actif' });
-	}
-
-	componentDidMount() {
-		this.setState({ nightMode: !this.state.nightMode });
-	}
-
-	toggle() {
-		this.setState({ nightMode: !this.state.nightMode });
-
-		this.checkActif();
-	}
-
-	checkActif() {
-		console.log(this.state.nightMode);
-		if (this.state.nightMode) {
-			document.body.classList.add('darkClass')
-		} else {
-			document.body.classList.remove('darkClass')
-		}
-		console.log("Night mode " + this.state.status);
-	}
-
 	render() {
 		const {
 			titreChapitre,
@@ -100,25 +50,6 @@ class Chapitre extends Component {
 							<Col lg={{ size: 10, offset: 1 }} md="12">
 								<h1 className="page-header display-4 text-center my-5">{titreChapitre}</h1>
 								<div className="text-justify lecture-texte" dangerouslySetInnerHTML={{ __html: texte.childMarkdownRemark.html }} />
-							</Col>
-							<Col lg="1">
-								<Button color="primary my-5" onClick={this.toggle} style={{ marginBottom: '1rem' }}>
-									<FontAwesome
-										name='moon'
-										className='mr-2'
-										style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-									/>
-									Mode nuit {this.state.status}
-								</Button>
-
-								<Collapse
-									isOpen={this.state.nightMode}
-									onEntering={this.onEntering}
-									onEntered={this.onEntered}
-									onExiting={this.onExiting}
-									onExited={this.onExited}
-								>
-								</Collapse>
 							</Col>
 						</Row>
 					</Container>

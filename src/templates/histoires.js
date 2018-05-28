@@ -41,23 +41,8 @@ class ListeDesHistoires extends Component {
 		this.toggle = this.toggle.bind(this);
 		this.state = {
 			activeTab: '1',
-			nightMode: false,
-			status: 'inactif'
 		};
-
-		this.checkActif();
 	}
-
-	checkActif() {
-		console.log(this.state.nightMode);
-		if (this.state.nightMode) {
-			document.body.classList.add('darkClass')
-		} else {
-			document.body.classList.remove('darkClass')
-		}
-		console.log("Night mode " + this.state.status);
-	}
-
 
 	toggle(tab) {
 		if (this.state.activeTab !== tab) {
