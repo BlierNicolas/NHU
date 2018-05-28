@@ -41,12 +41,12 @@ class ListeDesHistoires extends Component {
 		this.toggle = this.toggle.bind(this);
 		this.state = {
 			activeTab: '1',
-			nightMode: false, 
+			nightMode: false,
 			status: 'inactif'
 		};
 
-        this.checkActif();
-    }
+		this.checkActif();
+	}
 
 	checkActif() {
 		console.log(this.state.nightMode);
@@ -106,16 +106,16 @@ class ListeDesHistoires extends Component {
 								{
 									data.allContentfulRoman.edges.map(
 										(edge) =>
-											<div>
+											<div key={edge.node.id}>
 												{
 													edge.node.typeHistoire == "Roman" ?
 														(
 															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
 																<ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<ListGroupItemText>
+																<div className="list-group-item-text">
 																	<div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
 																	<Link to={'/histoires/' + edge.node.slug}>Commencer à lire</Link>
-																</ListGroupItemText>
+																</div>
 															</ListGroupItem>
 														) :
 														('')
@@ -130,16 +130,16 @@ class ListeDesHistoires extends Component {
 								{
 									data.allContentfulRoman.edges.map(
 										(edge) =>
-											<div>
+											<div key={edge.node.id}>
 												{
 													edge.node.typeHistoire == "Mini-histoire" ?
 														(
 															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
 																<ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<ListGroupItemText>
+																<div className="list-group-item-text">
 																	<div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
 																	<Link to={'/histoires/' + edge.node.slug}>Commencer à lire</Link>
-																</ListGroupItemText>
+																</div>
 															</ListGroupItem>
 														) :
 														('')
@@ -166,6 +166,7 @@ export const pageQuery = graphql`query listeHistoireQueryFR {
     allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
       edges {
         node {
+			id
           titreRoman
 		  typeHistoire
 		  resume {
