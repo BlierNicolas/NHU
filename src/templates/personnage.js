@@ -28,6 +28,7 @@ import {
     TabContent,
     TabPane
 } from 'reactstrap';
+import classnames from 'classnames';
 
 class Personnage extends Component {
     constructor(props) {

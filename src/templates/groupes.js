@@ -28,6 +28,7 @@ import {
 	Breadcrumb,
 	BreadcrumbItem
 } from 'reactstrap';
+import classnames from 'classnames';
 
 class ListeDesGroupes extends Component {
     constructor(props) {
