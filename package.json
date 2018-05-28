@@ -13,6 +13,7 @@
     "gatsby-transformer-remark": "^1.7.40",
     "query-string": "^6.1.0",
     "react": "^16.3.2",
+    "react-cookies": "^0.1.0",
     "react-dom": "^16.4.0",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
