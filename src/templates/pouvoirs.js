@@ -28,6 +28,23 @@ import {
 } from 'reactstrap';
 
 class ListeDesPouvoirs extends Component {
+    constructor(props) {
+		super(props);
+        this.state = { nightMode: false, status: 'inactif' };
+
+        this.checkActif();
+    }
+
+	checkActif() {
+		console.log(this.state.nightMode);
+		if (this.state.nightMode) {
+			document.body.classList.add('darkClass')
+		} else {
+			document.body.classList.remove('darkClass')
+		}
+		console.log("Night mode " + this.state.status);
+	}
+
 	render() {
 		const {
 			data
@@ -48,7 +65,7 @@ class ListeDesPouvoirs extends Component {
 				</div>
 
 				<Container fluid className="p-0">
-					<Row>
+					<Row className="pb-5">
 						{
 							data.allContentfulPouvoir.edges.map(
 								(edge) =>

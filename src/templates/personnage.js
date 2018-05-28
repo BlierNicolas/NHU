@@ -31,21 +31,21 @@ import {
 
 class Personnage extends Component {
     constructor(props) {
-        super(props);
+		super(props);
+        this.state = { nightMode: false, status: 'inactif' };
 
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            activeTab: '1'
-        };
+        this.checkActif();
     }
 
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
-        }
-    }
+	checkActif() {
+		console.log(this.state.nightMode);
+		if (this.state.nightMode) {
+			document.body.classList.add('darkClass')
+		} else {
+			document.body.classList.remove('darkClass')
+		}
+		console.log("Night mode " + this.state.status);
+	}
 
     render() {
         const {
@@ -61,7 +61,7 @@ class Personnage extends Component {
                 </Breadcrumb>
 
                 <Container fluid>
-                    <Row>
+                    <Row className="pb-5">
                         <Col lg={{ size: 8, offset: 2 }} md="12">
                             <div className="mt-5 mb-3">
                                 <div>

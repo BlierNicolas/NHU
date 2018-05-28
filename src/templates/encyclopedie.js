@@ -30,6 +30,23 @@ import {
 } from 'reactstrap';
 
 class ListeDesTheories extends Component {
+    constructor(props) {
+		super(props);
+        this.state = { nightMode: false, status: 'inactif' };
+
+        this.checkActif();
+    }
+
+	checkActif() {
+		console.log(this.state.nightMode);
+		if (this.state.nightMode) {
+			document.body.classList.add('darkClass')
+		} else {
+			document.body.classList.remove('darkClass')
+		}
+		console.log("Night mode " + this.state.status);
+	}
+
 	render() {
 		const {
 			data
@@ -51,21 +68,34 @@ class ListeDesTheories extends Component {
 				</div>
 
 				<Container fluid className="p-0">
-					<Row>
-						{
-							data.allContentfulTheorie.edges.map(
-								(edge) =>
-									<Col lg="4" md="6" sm="12" key={edge.node.id}>
-										<Card>
-											<CardHeader><Link to={'encyclopedie/' + edge.node.slug}><h2><small>{edge.node.titre}</small></h2></Link></CardHeader>
-											<CardBody>
-												<div className="card-text" dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-												<Link className="float-right mb-2" to={'encyclopedie/' + edge.node.slug}>Voir les détails</Link>
-											</CardBody>
-										</Card>
-									</Col>
-							)
-						}
+					<Row className="pb-5">
+						<Col sm="12" lg="9" >
+							{
+								data.allContentfulTheorie.edges.map(
+									(edge) =>
+										<div className="clearfix border-bottom mb-2" key={edge.node.id}>
+											<div className="">
+												<Row className="no-gutters">
+													<Col md="9" sm="12">
+														<Link to={'encyclopedie/' + edge.node.slug}><h2><small>{edge.node.titre}</small></h2></Link>
+													</Col>
+												</Row>
+											</div>
+											<div>
+												<Row className="no-gutters">
+													<Col md="9" sm="12">
+														<div className="card-text" dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
+													</Col>
+
+													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
+														<Link className="float-right mb-2" to={'encyclopedie/' + edge.node.slug}>Voir les détails</Link>
+													</Col>
+												</Row>
+											</div>
+										</div>
+								)
+							}
+						</Col>
 					</Row>
 				</Container>
 			</div>

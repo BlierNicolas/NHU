@@ -36,6 +36,8 @@ class Chapitre extends Component {
 		this.onExited = this.onExited.bind(this);
 		this.toggle = this.toggle.bind(this);
 		this.state = { nightMode: false, status: 'inactif' };
+
+		this.checkActif();
 	}
 
 	onEntering() {

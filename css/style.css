@@ -7,6 +7,10 @@ body {
 #page-wrapper {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
 }
 
 .row {
@@ -100,4 +104,10 @@ body {
 
 .breadcrumb {
     border-radius: 0
+}
+
+footer {
+    background-color: #343a40;
+    min-height: 200px;
+    margin-top: auto;
 }

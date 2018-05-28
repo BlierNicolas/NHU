@@ -30,6 +30,23 @@ import {
 } from 'reactstrap';
 
 class ListeDesGroupes extends Component {
+    constructor(props) {
+		super(props);
+        this.state = { nightMode: false, status: 'inactif' };
+
+        this.checkActif();
+    }
+
+	checkActif() {
+		console.log(this.state.nightMode);
+		if (this.state.nightMode) {
+			document.body.classList.add('darkClass')
+		} else {
+			document.body.classList.remove('darkClass')
+		}
+		console.log("Night mode " + this.state.status);
+	}
+
 	render() {
 		const {
 			data
@@ -50,7 +67,7 @@ class ListeDesGroupes extends Component {
 				</div>
 
 				<Container fluid className="p-0">
-					<Row>
+					<Row className="pb-5">
 						<Col sm="12" lg="9" >
 							{
 								data.allContentfulGroupe.edges.map(
@@ -60,10 +77,6 @@ class ListeDesGroupes extends Component {
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
 														<Link to={'groupes/' + edge.node.slug}><h2><small>{edge.node.nomGroupe}</small></h2></Link>
-													</Col>
-
-													<Col md="3" sm="12">
-														<span className="float-right"><small>{edge.node.date}</small></span>
 													</Col>
 												</Row>
 											</div>

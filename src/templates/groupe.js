@@ -30,6 +30,23 @@ import {
 // var marked = require('marked');
 
 class Groupe extends Component {
+    constructor(props) {
+		super(props);
+        this.state = { nightMode: false, status: 'inactif' };
+
+        this.checkActif();
+    }
+
+	checkActif() {
+		console.log(this.state.nightMode);
+		if (this.state.nightMode) {
+			document.body.classList.add('darkClass')
+		} else {
+			document.body.classList.remove('darkClass')
+		}
+		console.log("Night mode " + this.state.status);
+	}
+
 	render() {
 		const {
 			data
@@ -44,13 +61,12 @@ class Groupe extends Component {
 				</Breadcrumb>
 
 				<Container fluid className="py-5">
-					<Row>
+					<Row className="pb-5">
 						<Col lg={{ size: 8, offset: 2 }} md="12">
 							<h1 className="display-4 page-header text-center">{data.contentfulGroupe.nomGroupe}</h1>
 							<div className="text-justify" dangerouslySetInnerHTML={{ __html: data.contentfulGroupe.description.childMarkdownRemark.html }} />
 						</Col>
-					</Row>
-					<Row>
+
 						<Col lg={{ size: 8, offset: 2 }} md="12">
 							{
 								data.allContentfulMembreGroupe ?
