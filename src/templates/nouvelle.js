@@ -1,28 +1,28 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col,
-    Jumbotron,
-    Button,
-	Card, 
+	Collapse,
+	Navbar,
+	NavbarToggler,
+	NavbarBrand,
+	Nav,
+	NavItem,
+	NavLink,
+	Container,
+	Row,
+	Col,
+	Jumbotron,
+	Button,
+	Card,
 	CardHeader,
-	CardImg, 
-	CardText, 
+	CardImg,
+	CardText,
 	CardBody,
-	CardTitle, 
+	CardTitle,
 	CardSubtitle,
-	Breadcrumb, 
+	Breadcrumb,
 	BreadcrumbItem
 } from 'reactstrap';
 
@@ -35,49 +35,49 @@ class Nouvelle extends Component {
 			description,
 			date,
 			slug,
-			lienReference
+			lienReference,
+			node_locale
 		} = this.props.data.contentfulNouvelle
-		
+
 		return (
-			<Container fluid="true"> 
-				<Row>
-					<Col lg={{size: 8, offset:2}}>
-						<div>
-							<Breadcrumb>
-								<BreadcrumbItem><Link to="../../">Page d'accueil</Link></BreadcrumbItem>
-								<BreadcrumbItem><Link to="../../liste-des-nouvelles">Liste des nouvelles</Link></BreadcrumbItem>
-								<BreadcrumbItem active>{titreNouvelle}</BreadcrumbItem>
-							</Breadcrumb>
-						</div>
-						<Card>
-							<CardHeader>{titreNouvelle}</CardHeader>
-							<CardBody>
-									<p className="text-right">{date}</p>
-									<CardText>
-										<div dangerouslySetInnerHTML={{__html: description.childMarkdownRemark.html}}/>
-										{
-											lienReference ?
-											(<Link to={lienReference}>Voir les détails</Link>) :
-											('')
-										}
-									</CardText>
-							</CardBody>
-						</Card>
-					</Col>
-				</Row>
-            </Container>
+			<div>
+				<Breadcrumb className="mb-0">
+					<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
+					<BreadcrumbItem><Link to="/nouvelles">Quoi de nouveau&nbsp;?</Link></BreadcrumbItem>
+					<BreadcrumbItem active>{titreNouvelle}</BreadcrumbItem>
+				</Breadcrumb>
+
+				<Container className="py-5">
+					<Row>
+						<Col>
+							<div className="mb-5">
+								<h1 className="display-4">{titreNouvelle}</h1>
+								<span><small>{date}</small></span>
+							</div>
+
+							<div dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
+							
+							{
+								lienReference ?
+									(<Link to={lienReference}>Voir les détails</Link>) :
+									('')
+							}
+						</Col>
+					</Row>
+				</Container>
+			</div>
 		)
 	}
 }
 
-Nouvelle.propTypes = { 
+Nouvelle.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
 export default Nouvelle
 
-export const pageQuery = graphql`query nouvelleQuery($slug: String!) {
-	contentfulNouvelle(slug: {eq:$slug}) {
+export const pageQuery = graphql`query nouvelleQueryFR ($slug: String!) {
+	contentfulNouvelle(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
 		titreNouvelle
 		description {
 			childMarkdownRemark {
@@ -87,5 +87,6 @@ export const pageQuery = graphql`query nouvelleQuery($slug: String!) {
 		date(formatString: "YYYY MMMM DD HH:MM")
 		slug
 		lienReference
+		node_locale
 	}
 }`
