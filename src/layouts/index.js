@@ -8,27 +8,30 @@ import Footer from '../components/footer'
 import '../../css/style.css'
 
 const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title="New Human Universe"
-      meta={[
-        { name: 'description', content: 'L\'Univers des Nouveaux Humains' },
-      ]}
-    />
-    <div id="wrapper">
-		<div id="page-wrapper">
-			<Header/>
-			<div>
-			  {children()}
-			</div>
-			<Footer/>
-		</div>
-	</div>
-  </div>
+    <div>
+        <div>
+            <Helmet
+                htmlAttributes={{ lang: "fr" }}
+                title="L'Univers des Nouveaux Humains"
+                meta={[
+                    { name: 'description', content: 'L\'Univers des Nouveaux Humains' },
+                ]}
+            />
+            <div id="wrapper">
+                <div id="page-wrapper">
+                    <Header />
+                    <div>
+                        {children()}
+                    </div>
+                    <Footer />
+                </div>
+            </div>
+        </div>
+    </div>
 )
 
 Layout.propTypes = {
-  children: PropTypes.func,
+    children: PropTypes.func,
 }
 
 export default Layout

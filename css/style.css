@@ -1,5 +1,7 @@
-﻿body {
-	background-color: #ffffff;
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
+body {
+    background-color: #ffffff;
 }
 
 #page-wrapper {
@@ -12,7 +14,7 @@
 }
 
 .around {
-	padding: 10px;
+    padding: 10px;
 }
 
 .text-center {
@@ -24,11 +26,11 @@
 }
 
 .text-left {
-	text-align: left;
+    text-align: left;
 }
 
 .text-right {
-	text-align: right;
+    text-align: right;
 }
 
 .navbar-top-links .dropdown-histoires,
@@ -49,30 +51,53 @@
         width: 250px;
         margin-top: 51px;
     }
-
     .navbar-top-links .dropdown-histoires,
     .navbar-top-links .dropdown-infos {
         margin-left: auto;
     }
 }
 
-.fff {	
-	height: calc(100% - 20px);
+.fff {
+    height: calc(100% - 20px);
 }
 
 .fff .card-body {
-	display: flex;
-	align-items: stretch;
-	justify-content: center;
-	height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 100%;
 }
 
 .fff .card-body .card-text {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .fff .card-body .card-text a {
-	align-self: flex-end;
+    align-self: flex-end;
+}
+
+.lecture-texte {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.lecture-mode-background {
+    background-color: #343a40;
+}
+
+.lecture-mode-text-color {
+    color: lightgray;
+}
+
+.darkClass {
+    background-color: #343a40;
+    color: lightgray;
+}
+
+.breadcrumb {
+    border-radius: 0
 }

@@ -34,44 +34,29 @@ class Roman extends Component {
 		} = this.props;
 		
 		return (
-			<Container fluid="true">
-				<Row>
-					<Col lg={{size: 8, offset:2}}>
-						<div>
-							<Breadcrumb>
-								<BreadcrumbItem><Link to="../../">Page d'accueil</Link></BreadcrumbItem>
-								<BreadcrumbItem><Link to="../../liste-des-histoires">Liste des histoires</Link></BreadcrumbItem>
-								<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
-							</Breadcrumb>
-						</div>
-						<Card>
-							<CardBody>
-								<CardText>
-									<h1 className="page-header text-center">{data.contentfulRoman.titreRoman}</h1>
-									<div className="text-justify" dangerouslySetInnerHTML={{__html: data.contentfulRoman.resume.childMarkdownRemark.html}}/>
-									<p>Type d'histoire: {data.contentfulRoman.typeHistoire}</p>
-								</CardText>
-							</CardBody>
-						</Card>
-					</Col>
-				</Row>
-				<Row>
-					<Col lg={{size: 8, offset:2}}>
-						<Card>
-							<CardBody>
-								<CardText>
-									<ListGroup>
-										{
-											data.allContentfulChapitre.edges.map(
-											(edge) => <ListGroupItem className="text-center"> <Link to={'chapitre/'+edge.node.slug}>{edge.node.titreChapitre}</Link>  </ListGroupItem>)
-										}
-									</ListGroup>
-								</CardText>
-							</CardBody>
-						</Card>
-					</Col>
-				</Row>
-      </Container> 
+			<div>
+				<Breadcrumb className="mb-0">
+					<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
+					<BreadcrumbItem><Link to="/histoires">Nos Histoires de l'Univers...</Link></BreadcrumbItem>
+					<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
+				</Breadcrumb>
+				
+				<div className="my-5">
+					<Container>
+						<h1 className="display-4">{data.contentfulRoman.titreRoman}</h1>
+						<p className="lead" dangerouslySetInnerHTML={{__html: data.contentfulRoman.resume.childMarkdownRemark.html}}/>
+					</Container>
+				</div>
+
+				<Container>
+							<ListGroup>
+								{
+									data.allContentfulChapitre.edges.map(
+									(edge) => <ListGroupItem className="border-0 pl-0 pt-0"><Link to={'chapitre/'+edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+								}
+							</ListGroup>
+				</Container> 
+			</div>
 		)
 	}
 }
@@ -83,8 +68,8 @@ Roman.propTypes = {
 export default Roman
 
 export const pageQuery = graphql
-`query romanQuery($slug: String!, $romanSlug: String!) {
-  contentfulRoman(slug: {eq: $slug}) {
+`query romanQueryFR ($slug: String!, $romanSlug: String!) {
+  contentfulRoman(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
     titreRoman
     resume {
       childMarkdownRemark {
@@ -94,7 +79,7 @@ export const pageQuery = graphql
 		typeHistoire
     slug
   }
-  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "en-US"}, nomRoman: {eq: $romanSlug}}) {
+  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $romanSlug}}) {
     edges {
       node {
         id

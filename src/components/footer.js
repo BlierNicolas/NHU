@@ -16,7 +16,12 @@ import {
 } from 'reactstrap';
 
 const Footer = ({ siteTitle }) => (
-	<div></div>
+    <div>
+        {/* <div className="p-3">
+            <hr />
+            <p className="float-right">Venatus Universe ©2018</p>
+        </div> */}
+    </div>
 )
 
 export default Footer

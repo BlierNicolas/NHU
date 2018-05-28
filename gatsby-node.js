@@ -1,21 +1,25 @@
 const path = require('path')
 
-exports.createPages = ({graphql, boundActionCreators}) => {
-	const {createPage} = boundActionCreators
+exports.createPages = ({ graphql, boundActionCreators }) => {
+	const { createPage } = boundActionCreators
 	return new Promise((resolve, reject) => {
 		const chapitreTemplate = path.resolve('src/templates/chapitre.js')
 		const romanTemplate = path.resolve('src/templates/roman.js')
 		const personnageTemplate = path.resolve('src/templates/personnage.js')
 		const pouvoirTemplate = path.resolve('src/templates/pouvoir.js')
 		const nouvelleTemplate = path.resolve('src/templates/nouvelle.js')
-		const listeHistoireTemplate = path.resolve('src/templates/listeDesHistoires.js')
-		const listePersonnageTemplate = path.resolve('src/templates/listeDesPersonnages.js')
-		const listePouvoirTemplate = path.resolve('src/templates/listeDesPouvoirs.js')
-		const listeNouvelleTemplate = path.resolve('src/templates/listeDesNouvelles.js')
-		
+		const groupeTemplate = path.resolve('src/templates/groupe.js')
+		const theorieTemplate = path.resolve('src/templates/theorie.js')
+		const listeHistoireTemplate = path.resolve('src/templates/histoires.js')
+		const listePersonnageTemplate = path.resolve('src/templates/personnages.js')
+		const listePouvoirTemplate = path.resolve('src/templates/pouvoirs.js')
+		const listeNouvelleTemplate = path.resolve('src/templates/nouvelles.js')
+		const listeGroupeTemplate = path.resolve('src/templates/groupes.js')
+		const listeTheorieTemplate = path.resolve('src/templates/encyclopedie.js')
+
 		resolve(
 			graphql(
-			`{
+				`{
 				allContentfulChapitre {
 					edges {
 						node {
@@ -26,14 +30,14 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result); 
+				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
 				result.data.allContentfulChapitre.edges.forEach((edge) => {
 					if ((edge.node.id = 'Chapitre') && (edge.node.slug != null)) {
-						createPage ({
-							path: 'roman/chapitre/'+edge.node.slug,
+						createPage({
+							path: 'histoires/chapitre/' + edge.node.slug,
 							component: chapitreTemplate,
 							context: {
 								slug: edge.node.slug
@@ -44,7 +48,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				return
 			}),
 			graphql(
-			`{
+				`{
 				allContentfulRoman {
 					edges {
 						node {
@@ -55,42 +59,50 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result); 
+				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
 				result.data.allContentfulRoman.edges.forEach((edge) => {
 					if ((edge.node.id = 'Roman') && (edge.node.slug != null)) {
-						createPage ({
-							path: 'roman/'+edge.node.slug,
+						createPage({
+							path: 'histoires/' + edge.node.slug,
 							component: romanTemplate,
 							context: {
 								slug: edge.node.slug,
-								romanSlug: "../"+edge.node.slug
+								romanSlug: "../" + edge.node.slug
 							}
 						})
 					}
 				})
 				return
 			}),
-			createPage ({
-				path: 'liste-des-histoires',
+			createPage({
+				path: 'histoires',
 				component: listeHistoireTemplate
 			}),
-			createPage ({
-				path: 'liste-des-personnages',
+			createPage({
+				path: 'personnages',
 				component: listePersonnageTemplate
 			}),
-			createPage ({
-				path: 'liste-des-pouvoirs',
+			createPage({
+				path: 'pouvoirs',
 				component: listePouvoirTemplate
 			}),
-			createPage ({
-				path: 'liste-des-nouvelles',
+			createPage({
+				path: 'nouvelles',
 				component: listeNouvelleTemplate
 			}),
+			createPage({
+				path: 'groupes',
+				component: listeGroupeTemplate
+			}),
+			createPage({
+				path: 'encyclopedie',
+				component: listeTheorieTemplate
+			}),
 			graphql(
-			`{
+				`{
 				allContentfulPersonnage {
 					edges {
 						node {
@@ -101,14 +113,14 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result); 
+				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
 				result.data.allContentfulPersonnage.edges.forEach((edge) => {
 					if ((edge.node.id = 'Personnage') && (edge.node.slug != null)) {
-						createPage ({
-							path: 'personnage/'+edge.node.slug,
+						createPage({
+							path: 'personnages/' + edge.node.slug,
 							component: personnageTemplate,
 							context: {
 								slug: edge.node.slug
@@ -119,7 +131,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				return
 			}),
 			graphql(
-			`{
+				`{
 				allContentfulPouvoir {
 					edges {
 						node {
@@ -130,14 +142,14 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result); 
+				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
 				result.data.allContentfulPouvoir.edges.forEach((edge) => {
 					if ((edge.node.id = 'Pouvoir') && (edge.node.slug != null)) {
-						createPage ({
-							path: 'pouvoir/'+edge.node.slug,
+						createPage({
+							path: 'pouvoirs/' + edge.node.slug,
 							component: pouvoirTemplate,
 							context: {
 								slug: edge.node.slug
@@ -148,26 +160,92 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 				return
 			}),
 			graphql(
-			`{
+				`{
 				allContentfulNouvelle {
 					edges {
 						node {
 							id
 							slug
+							node_locale
 						}
 					}
 				}
 			}`
 			).then((result) => {
-				console.log(result); 
+				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
+				this.test = 0;
 				result.data.allContentfulNouvelle.edges.forEach((edge) => {
 					if ((edge.node.id = 'Nouvelle') && (edge.node.slug != null)) {
-						createPage ({
-							path: 'nouvelle/'+edge.node.slug,
+						createPage({
+							path: 'nouvelles/' + edge.node.slug,
 							component: nouvelleTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			graphql(
+				`{
+				allContentfulGroupe {
+					edges {
+						node {
+							id
+							slug
+							nomGroupe
+							node_locale
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				this.test = 0;
+				result.data.allContentfulGroupe.edges.forEach((edge) => {
+					if ((edge.node.id = 'Groupe') && (edge.node.slug != null)) {
+						createPage({
+							path: 'groupes/' + edge.node.slug,
+							component: groupeTemplate,
+							context: {
+								slug: edge.node.slug,
+								nomGroupe: edge.node.nomGroupe
+							}
+						})
+					}
+				})
+				return
+			}),
+			graphql(
+				`{
+				allContentfulTheorie {
+					edges {
+						node {
+							id
+							slug
+							node_locale
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				this.test = 0;
+				result.data.allContentfulTheorie.edges.forEach((edge) => {
+					if ((edge.node.id = 'Theorie') && (edge.node.slug != null)) {
+						createPage({
+							path: 'encyclopedie/' + edge.node.slug,
+							component: theorieTemplate,
 							context: {
 								slug: edge.node.slug
 							}

@@ -1,149 +1,164 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-	Collapse,
-	Navbar,
-	NavbarToggler,
-	NavbarBrand,
-	Nav,
-	NavItem,
-	NavLink,
-	Container,
-	Row,
-	Col,
-	Jumbotron,
-	Button,
-	Card, 
-	CardImg, 
-	CardText, 
-	CardBody,
-	CardTitle, 
-	CardSubtitle,
-	ListGroup, 
-	ListGroupItem,
-	Breadcrumb, 
-	BreadcrumbItem
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Container,
+    Row,
+    Col,
+    Jumbotron,
+    Button,
+    Card,
+    CardImg,
+    CardText,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    ListGroup,
+    ListGroupItem,
+    Breadcrumb,
+    BreadcrumbItem,
+    TabContent,
+    TabPane
 } from 'reactstrap';
 
 class Personnage extends Component {
-	render() {
-		const {
-			data
-		} = this.props
+    constructor(props) {
+        super(props);
 
-		return (
-			<Container fluid="true"> 
-				<Row>
-					<Col lg={{size: 8, offset:2}}>
-						<div>
-							<Breadcrumb>
-								<BreadcrumbItem><Link to="../../">Page d'accueil</Link></BreadcrumbItem>
-								<BreadcrumbItem><Link to="../../liste-des-personnages">Liste des personnages</Link></BreadcrumbItem>
-								<BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
-							</Breadcrumb>
-						</div>
-					</Col>
-				</Row>
-				<Row>
-					<Col lg={{size: 8, offset:2}}>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>{data.contentfulPersonnage.nomComplet}</CardTitle>
-                                <CardText>
-                                    Pouvoir: {data.contentfulPersonnage.pouvoirNom}<br/>
-                                    Alignement: {data.contentfulPersonnage.alignement}<br/>
-                                    Data de naissance: {data.contentfulPersonnage.dateNaissance}<br/>
-                                    Âge: {data.contentfulPersonnage.age}</CardText>
-                            </CardBody>
-                        </Card>
-                        <br />
-                        {
-                            data.contentfulPersonnage.descriptionSommaire ?
-                                (<Card>
-                                    <CardBody>
-                                        <CardTitle>Description sommaire</CardTitle>
-                                        <CardText>
-                                        <div dangerouslySetInnerHTML={{__html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html}} /></CardText>
-                                    </CardBody>
-                                </Card>) :
-                                ('')
-                        }
-                        <br />
-                        {
-                            data.contentfulPersonnage.descriptionPouvoir ?
-                                (<Card>
-                                    <CardBody>
-                                        <CardTitle>Description du pouvoir</CardTitle>
-                                        <CardText>
-                                        <div dangerouslySetInnerHTML={{__html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html}} /></CardText>
-                                    </CardBody>
-                                </Card>) :
-                                ('')
-                        }
-                        <br />
-                        {
-                            data.contentfulPersonnage.descriptionPhysique ?
-                                (<Card>
-                                    <CardBody>
-                                        <CardTitle>Description physique</CardTitle>
-                                        <CardText>
-                                        <div dangerouslySetInnerHTML={{__html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html}} /></CardText>
-                                    </CardBody>
-                                </Card>) :
-                                ('')
-                        }
-                        <br />
-                        {
-                            data.contentfulPersonnage.relation ?
-                                (<Card>
-                                    <CardBody>
-                                        <CardTitle>Relations</CardTitle>
-                                        <CardText>
-                                            <div dangerouslySetInnerHTML={{__html: data.contentfulPersonnage.relation.childMarkdownRemark.html}} />
-                                        </CardText>
-                                    </CardBody>
-                                </Card>) :
-                                ('')
-                        }
-                        <br />
-                        {
-                            data.allContentfulApparition ?
-                                (<Card>
-                                    <CardBody>
-                                        <CardTitle>Apparitions</CardTitle>
-                                        <CardText>
-                                            <ListGroup>
-                                                {
-                                                    data.allContentfulApparition.edges.map(
-                                                    (edge) => 
-                                                        <ListGroupItem>
-                                                            <Link to={'../../roman/'+edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
-                                                        </ListGroupItem>
-                                                    )
-                                                }
-                                            </ListGroup>
-                                        </CardText>
-                                    </CardBody>
-                                </Card>) :
-                                ('')
-                        }
-					</Col>
-				</Row>
-			</Container>
-		)
-	}
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            activeTab: '1'
+        };
+    }
+
+    toggle(tab) {
+        if (this.state.activeTab !== tab) {
+            this.setState({
+                activeTab: tab
+            });
+        }
+    }
+
+    render() {
+        const {
+            data
+        } = this.props
+
+        return (
+            <div>
+                <Breadcrumb className="mb-0">
+                    <BreadcrumbItem><Link to="/">Page d'accueil</Link></BreadcrumbItem>
+                    <BreadcrumbItem><Link to="/personnages">Nos personnages</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
+                </Breadcrumb>
+
+                <Container fluid>
+                    <Row>
+                        <Col lg={{ size: 8, offset: 2 }} md="12">
+                            <div className="mt-5 mb-3">
+                                <div>
+                                    <h1 className="display-4">{data.contentfulPersonnage.nomComplet}</h1>
+                                    <div>
+                                        Pouvoir: {data.contentfulPersonnage.pouvoirNom}<br />
+                                        Alignement: {data.contentfulPersonnage.alignement}<br />
+                                        Data de naissance: {data.contentfulPersonnage.dateNaissance}<br />
+                                        Âge: {data.contentfulPersonnage.age}
+                                    </div>
+                                </div>
+                            </div>
+                            {
+                                data.contentfulPersonnage.descriptionSommaire ?
+                                    (<div className="my-3">
+                                        <div>
+                                            <h3>Description sommaire</h3>
+                                            <div>
+                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
+                                            </div>
+                                        </div>
+                                    </div>) :
+                                    ('')
+                            }
+                            {
+                                data.contentfulPersonnage.descriptionPouvoir ?
+                                    (<div className="my-3">
+                                        <div>
+                                            <h3>Description du pouvoir</h3>
+                                            <div>
+                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
+                                            </div>
+                                        </div>
+                                    </div>) :
+                                    ('')
+                            }
+                            {
+                                data.contentfulPersonnage.descriptionPhysique ?
+                                    (<div className="my-3">
+                                        <div>
+                                            <h3>Description physique</h3>
+                                            <div>
+                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
+                                            </div>
+                                        </div>
+                                    </div>) :
+                                    ('')
+                            }
+                            {
+                                data.contentfulPersonnage.relation ?
+                                    (<div className="my-3">
+                                        <div>
+                                            <h3>Relations</h3>
+                                            <div>
+                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.relation.childMarkdownRemark.html }} />
+                                            </div>
+                                        </div>
+                                    </div>) :
+                                    ('')
+                            }
+                            {
+                                data.allContentfulApparition ?
+                                    (<div className="my-3">
+                                        <div>
+                                            <h3>Apparitions</h3>
+                                            <div>
+                                                <ListGroup>
+                                                    {
+                                                        data.allContentfulApparition.edges.map(
+                                                            (edge) =>
+                                                                <ListGroupItem>
+                                                                    <Link to={'../../histoires/' + edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
+                                                                </ListGroupItem>
+                                                        )
+                                                    }
+                                                </ListGroup>
+                                            </div>
+                                        </div>
+                                    </div>) :
+                                    ('')
+                            }
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        )
+    }
 }
 
-Personnage.propTypes = { 
-	data: PropTypes.object.isRequired
+Personnage.propTypes = {
+    data: PropTypes.object.isRequired
 }
 
 export default Personnage
 
-export const pageQuery = graphql`query personnageQuery($slug: String!) {
-    contentfulPersonnage(slug: {eq: $slug}) {
+export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
+    contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
       nomComplet
       prenom
       nom
@@ -174,7 +189,7 @@ export const pageQuery = graphql`query personnageQuery($slug: String!) {
       typeGene
       slug
     }
-    allContentfulApparition(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "en-US"}, personnageSlug: {eq: $slug}}) {
+    allContentfulApparition(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, personnageSlug: {eq: $slug}}) {
       edges {
         node {
           titreHistoire
