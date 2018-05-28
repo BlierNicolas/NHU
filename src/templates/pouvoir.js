@@ -24,8 +24,7 @@ import {
 	Breadcrumb,
 	BreadcrumbItem
 } from 'reactstrap';
-
-// var marked = require('marked');
+import classnames from 'classnames';
 
 class Pouvoir extends Component {
     constructor(props) {

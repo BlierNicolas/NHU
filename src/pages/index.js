@@ -26,6 +26,7 @@ import {
     ListGroupItem,
     Jumbotron
 } from 'reactstrap';
+import classnames from 'classnames';
 
 class IndexPage extends Component {
     constructor(props) {
