@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import {
     Collapse,
@@ -11,23 +11,76 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
+    Button
 } from 'reactstrap';
+import classnames from 'classnames';
+import FontAwesome from 'react-fontawesome';
 
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
 
+        this.onEntering = this.onEntering.bind(this);
+        this.onEntered = this.onEntered.bind(this);
+        this.onExiting = this.onExiting.bind(this);
+        this.onExited = this.onExited.bind(this);
+
         this.toggle = this.toggle.bind(this);
+        this.toggleNight = this.toggleNight.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            nightMode: false,
+            status: 'inactif'
         };
+
+        this.checkActif();
     }
+
+    onEntering() {
+        this.setState({ status: 'desactivation...' });
+    }
+
+    onEntered() {
+        this.setState({ status: 'inactif' });
+    }
+
+    onExiting() {
+        this.setState({ status: 'activation...' });
+    }
+
+    onExited() {
+        this.setState({ status: 'actif' });
+    }
+
+    componentDidMount() {
+        this.setState({ nightMode: !this.state.nightMode });
+    }
+
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
+
+    toggleNight() {
+        this.setState({ nightMode: !this.state.nightMode });
+
+        this.checkActif();
+    }
+
+    checkActif() {
+        //console.log(this.state.nightMode);
+        if (typeof document !== "undefined") {
+            if (this.state.nightMode) {
+                document.body.classList.add('darkClass')
+            } else {
+                document.body.classList.remove('darkClass')
+            }
+        }
+        //console.log("Night mode " + this.state.status);
+    }
+
     render() {
         return (
             <div>
@@ -35,6 +88,25 @@ export default class Header extends React.Component {
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" pills>
+                            <NavItem>
+                                <Button color="primary" onClick={this.toggleNight}>
+                                    <FontAwesome
+                                        name='moon'
+                                        className='mr-2'
+                                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                                    />
+                                    Mode nuit {this.state.status}
+                                </Button>
+
+                                <div
+                                    isOpen={this.state.nightMode}
+                                    onEntering={this.onEntering}
+                                    onEntered={this.onEntered}
+                                    onExiting={this.onExiting}
+                                    onExited={this.onExited}
+                                >
+                                </div>
+                            </NavItem>
                             <NavItem>
                                 <Link to="/" className="text-white nav-link">Accueil</Link>
                             </NavItem>

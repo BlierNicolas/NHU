@@ -102,6 +102,23 @@ body {
     color: lightgray;
 }
 
+.darkClass .jumbotron {
+    background-color: #001c38;
+}
+
+.darkClass .list-group-item {
+    background-color: #343a40;
+    border-color: lightgray;
+}
+
+.darkClass .list-group-item-heading {
+    background-color: #343a40;
+}
+
+.darkClass .list-group-item-text {
+    background-color: #343a40;
+}
+
 .breadcrumb {
     border-radius: 0
 }
