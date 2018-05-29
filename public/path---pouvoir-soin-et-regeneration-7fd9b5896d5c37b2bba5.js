@@ -1,2 +1,0 @@
-webpackJsonp([38374243302988],{331:function(o,n){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Soin et régénération",description:{childMarkdownRemark:{html:"<p>Description</p>"}}}},pathContext:{slug:"soin-et-regeneration"}}}});
-//# sourceMappingURL=path---pouvoir-soin-et-regeneration-7fd9b5896d5c37b2bba5.js.map
