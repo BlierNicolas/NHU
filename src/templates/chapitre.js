@@ -40,7 +40,7 @@ class Chapitre extends Component {
 				<Breadcrumb className="mb-0">
 					<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
 					<BreadcrumbItem><Link to="/histoires">Nos Histoires de l'Univers...</Link></BreadcrumbItem>
-					<BreadcrumbItem><Link to={nomRoman}>Roman</Link></BreadcrumbItem>
+					<BreadcrumbItem><Link to={"/histoires/" + nomRoman}>Roman</Link></BreadcrumbItem>
 					<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
 				</Breadcrumb>
 
