@@ -16,6 +16,7 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import FontAwesome from 'react-fontawesome';
+import cookie from 'react-cookies';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -28,13 +29,13 @@ export default class Header extends React.Component {
 
         this.toggle = this.toggle.bind(this);
         this.toggleNight = this.toggleNight.bind(this);
+
         this.state = {
             isOpen: false,
             nightMode: false,
-            status: 'inactif'
+            status: 'inactif',
+            mounted: undefined
         };
-
-        this.checkActif();
     }
 
     onEntering() {
@@ -43,6 +44,8 @@ export default class Header extends React.Component {
 
     onEntered() {
         this.setState({ status: 'inactif' });
+        cookie.save('c_nightMode', 'off', { path: '/' });
+        //console.log("onEntered: " + cookie.load('c_nightMode'));
     }
 
     onExiting() {
@@ -51,6 +54,14 @@ export default class Header extends React.Component {
 
     onExited() {
         this.setState({ status: 'actif' });
+        cookie.save('c_nightMode', 'on', { path: '/' });
+        //console.log("onExited: " + cookie.load('c_nightMode'));
+    }
+
+    componentWillMount() {
+        this.state.mounted = cookie.load('c_nightMode');
+        //console.log("Will Mount : " + cookie.load('c_nightMode'));
+        this.checkActif();
     }
 
     componentDidMount() {
@@ -72,6 +83,12 @@ export default class Header extends React.Component {
     checkActif() {
         //console.log(this.state.nightMode);
         if (typeof document !== "undefined") {
+            //console.log(this.state.mounted);
+            if (this.state.mounted == 'on') {
+                this.state.nightMode = true;
+                this.state.status = 'actif';
+                this.state.mounted = undefined;
+            }
             if (this.state.nightMode) {
                 document.body.classList.add('darkClass')
             } else {
@@ -98,14 +115,14 @@ export default class Header extends React.Component {
                                     Mode nuit {this.state.status}
                                 </Button>
 
-                                <div
+                                <Collapse
                                     isOpen={this.state.nightMode}
                                     onEntering={this.onEntering}
                                     onEntered={this.onEntered}
                                     onExiting={this.onExiting}
                                     onExited={this.onExited}
                                 >
-                                </div>
+                                </Collapse>
                             </NavItem>
                             <NavItem>
                                 <Link to="/" className="text-white nav-link">Accueil</Link>

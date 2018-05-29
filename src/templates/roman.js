@@ -52,7 +52,7 @@ class Roman extends Component {
                     <ListGroup>
                         {
                             data.allContentfulChapitre.edges.map(
-                                (edge) => <ListGroupItem className="border-0 pl-0 pt-0"><Link to={'chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
                         }
                     </ListGroup>
                 </Container>
