@@ -11,6 +11,7 @@ module.exports = {
 			},
 		},
 		'gatsby-transformer-remark',
-		'gatsby-plugin-react-helmet'
+		'gatsby-plugin-react-helmet',
+		`gatsby-plugin-remove-trailing-slashes`
 	],
 }
