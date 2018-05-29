@@ -67,7 +67,7 @@ class Chapitre extends Component {
 												('')
 										}
 									</Col>
-									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={nomRoman}>Retourner au roman</Link></Col>
+									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={"/histoires/" + nomRoman}>Retourner au roman</Link></Col>
 									<Col xs="4" className="text-right pr-0">
 										{
 											chapitreApres ?
