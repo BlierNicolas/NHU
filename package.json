@@ -18,7 +18,8 @@
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-marked": "^0.3.1",
-    "reactstrap": "^6.0.1"
+    "reactstrap": "^6.0.1",
+    "reading-position-indicator": "^2.0.2"
   },
   "keywords": [
     "gatsby"
