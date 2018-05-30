@@ -44,7 +44,7 @@ class Roman extends Component {
                 <div className="my-5">
                     <Container>
                         <h1 className="display-4">{data.contentfulRoman.titreRoman}</h1>
-                        <p className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
+                        <div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
                     </Container>
                 </div>
 
