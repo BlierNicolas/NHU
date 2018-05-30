@@ -69,8 +69,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'histoires/' + edge.node.slug,
 							component: romanTemplate,
 							context: {
-								slug: edge.node.slug,
-								romanSlug: "../" + edge.node.slug
+								slug: edge.node.slug
 							}
 						})
 					}
