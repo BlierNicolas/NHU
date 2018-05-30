@@ -132,3 +132,7 @@ footer {
 .histoires-pills:hover {
     cursor: pointer;
 }
+
+.reading-progress {
+    border-radius: 0;
+}

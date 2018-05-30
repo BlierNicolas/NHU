@@ -22,7 +22,8 @@ import {
 	CardTitle,
 	CardSubtitle,
 	Breadcrumb,
-	BreadcrumbItem
+	BreadcrumbItem,
+	Progress
 } from 'reactstrap';
 
 class Chapitre extends Component {
@@ -43,6 +44,12 @@ class Chapitre extends Component {
 					<BreadcrumbItem><Link to={"/histoires/" + nomRoman}>Roman</Link></BreadcrumbItem>
 					<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
 				</Breadcrumb>
+
+				<div>
+					<Container fluid className="p-0">
+						<Progress className="reading-progress" value="50" />
+					</Container>
+				</div>
 
 				<div>
 					<Container>

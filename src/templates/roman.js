@@ -24,7 +24,8 @@ import {
     ListGroup,
     ListGroupItem,
     Breadcrumb,
-    BreadcrumbItem
+    BreadcrumbItem,
+    Progress
 } from 'reactstrap';
 
 class Roman extends Component {
@@ -45,6 +46,7 @@ class Roman extends Component {
                     <Container>
                         <h1 className="display-4">{data.contentfulRoman.titreRoman}</h1>
                         <div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
+                        <Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
                     </Container>
                 </div>
 
@@ -76,7 +78,9 @@ export const pageQuery = graphql
         html
       }
 		}
-		typeHistoire
+        typeHistoire
+        chapitreActuel
+        maximumChapitre
     slug
   }
   allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $slug}}) {
