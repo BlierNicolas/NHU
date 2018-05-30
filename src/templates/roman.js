@@ -52,7 +52,7 @@ class Roman extends Component {
                     <ListGroup>
                         {
                             data.allContentfulChapitre.edges.map(
-                                (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
                         }
                     </ListGroup>
                 </Container>
@@ -68,7 +68,7 @@ Roman.propTypes = {
 export default Roman
 
 export const pageQuery = graphql
-    `query romanQueryFR ($slug: String!, $romanSlug: String!) {
+    `query romanQueryFR ($slug: String!) {
   contentfulRoman(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
     titreRoman
     resume {
@@ -79,7 +79,7 @@ export const pageQuery = graphql
 		typeHistoire
     slug
   }
-  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $romanSlug}}) {
+  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $slug}}) {
     edges {
       node {
         id

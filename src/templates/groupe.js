@@ -57,7 +57,7 @@ class Groupe extends Component {
 												data.allContentfulMembreGroupe.edges.map(
 													(edge) =>
 														<ListGroupItem className="text-center">
-															<Link to={'personnages/' + edge.node.sulgMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
+															<Link to={'/personnages/' + edge.node.slugMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
 														</ListGroupItem>)
 											}
 										</ListGroup>) :

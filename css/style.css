@@ -128,3 +128,7 @@ footer {
     min-height: 200px;
     margin-top: auto;
 }
+
+.histoires-pills:hover {
+    cursor: pointer;
+}

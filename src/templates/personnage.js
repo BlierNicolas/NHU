@@ -116,7 +116,7 @@ class Personnage extends Component {
                                                         data.allContentfulApparition.edges.map(
                                                             (edge) =>
                                                                 <ListGroupItem>
-                                                                    <Link to={'../../histoires/' + edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
+                                                                    <Link to={'/histoires/' + edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
                                                                 </ListGroupItem>
                                                         )
                                                     }
