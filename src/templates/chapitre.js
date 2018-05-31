@@ -46,12 +46,6 @@ class Chapitre extends Component {
 				</Breadcrumb>
 
 				<div>
-					<Container fluid className="p-0">
-						<Progress className="reading-progress" value="50" />
-					</Container>
-				</div>
-
-				<div>
 					<Container>
 						<Row>
 							<Col lg={{ size: 10, offset: 1 }} md="12">
