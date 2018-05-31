@@ -141,6 +141,9 @@ export default class Header extends React.Component {
                                     {/* <DropdownItem>
                                         <Link to="/calendrier">Calendrier des sorties</Link>
                                     </DropdownItem> */}
+                                    <DropdownItem>
+                                        <Link to="/progression">Progression de l'Univers</Link>
+                                    </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                             <UncontrolledDropdown nav inNavbar>

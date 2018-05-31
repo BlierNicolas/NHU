@@ -11,6 +11,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const groupeTemplate = path.resolve('src/templates/groupe.js')
 		const theorieTemplate = path.resolve('src/templates/theorie.js')
 		const listeHistoireTemplate = path.resolve('src/templates/histoires.js')
+		const progressionTemplate = path.resolve('src/templates/progression.js')
 		const listePersonnageTemplate = path.resolve('src/templates/personnages.js')
 		const listePouvoirTemplate = path.resolve('src/templates/pouvoirs.js')
 		const listeNouvelleTemplate = path.resolve('src/templates/nouvelles.js')
@@ -79,6 +80,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			createPage({
 				path: 'histoires',
 				component: listeHistoireTemplate
+			}),
+			createPage({
+				path: 'progression',
+				component: progressionTemplate
 			}),
 			createPage({
 				path: 'personnages',
