@@ -125,7 +125,7 @@ body {
 
 footer {
     background-color: #343a40;
-    min-height: 200px;
+    /* min-height: 100px; */
     margin-top: auto;
 }
 
@@ -139,4 +139,22 @@ footer {
 
 .dropdown-item:active a:hover {
     color: white;
+}
+
+.contentful-logo{
+    max-width: 100px;
+    width: 100%;
+}
+
+.display-copy {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+@media (max-width: 450px) {
+    .display-copy {
+        justify-content: center;
+        padding-top: 5px;
+    }
 }
