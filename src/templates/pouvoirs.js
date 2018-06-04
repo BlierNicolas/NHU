@@ -74,6 +74,7 @@ export const pageQuery = graphql`query listePouvoirQueryFR {
     allContentfulPouvoir(sort: {fields: [nomPouvoir], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
         edges {
             node {
+				id
                 nomPouvoir
 				slug
 				description {

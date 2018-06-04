@@ -16,10 +16,33 @@ import {
 } from 'reactstrap';
 
 const Footer = ({ siteTitle }) => (
-    <footer>
-        <div className="p-3">
-            <p className="text-right text-white mb-0">Venatus Universe ©{new Date().getFullYear()}</p>
-        </div>
+    <footer className="py-3">
+        <Container fluid>
+            <Row>
+                <Col sm="12" lg="9">
+                    <div className="text-white">
+                        <Row className="pt-3">
+                            <Col sm="12" lg="6" className="text-center">
+                                <Link to="https://www.gatsbyjs.org/" rel="nofollow" target="_blank" className="mx-3 text-white">Gatsby</Link>
+                                <Link to="https://www.contentful.com/" rel="nofollow" target="_blank" className="mx-3 text-white">
+                                    <img src="https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg" className="contentful-logo" alt="Powered by Contentful" />
+                                </Link>
+                                <Link to="https://www.netlify.com/" rel="nofollow" target="_blank" className="mx-3 text-white">Netlify</Link>
+                            </Col>
+                            <Col sm="12" lg="6" className="text-center">
+                                <Link to="/nombre" className="text-white nav-link">L'Univers en nombre</Link>
+                            </Col>
+                        </Row>
+                    </div>
+                </Col>
+                <Col sm="12" lg="3 display-copy">
+                    <div className="">
+                        <p className="text-right text-white mb-0">Venatus Universe ©{new Date().getFullYear()}</p>
+                    </div>
+                </Col>
+            </Row>
+
+        </Container>
     </footer>
 )
 

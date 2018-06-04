@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const listeNouvelleTemplate = path.resolve('src/templates/nouvelles.js')
 		const listeGroupeTemplate = path.resolve('src/templates/groupes.js')
 		const listeTheorieTemplate = path.resolve('src/templates/encyclopedie.js')
+		const nombreTemplate = path.resolve('src/templates/nombre.js')
 
 		resolve(
 			graphql(
@@ -104,6 +105,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			createPage({
 				path: 'encyclopedie',
 				component: listeTheorieTemplate
+			}),
+			createPage({
+				path: 'nombre',
+				component: nombreTemplate
 			}),
 			graphql(
 				`{
