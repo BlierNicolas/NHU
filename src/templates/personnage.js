@@ -110,18 +110,7 @@ class Personnage extends Component {
                                     (<div className="my-3">
                                         <div>
                                             <h3>Apparitions</h3>
-                                            <div>
-                                                <ListGroup>
-                                                    {
-                                                        data.allContentfulApparition.edges.map(
-                                                            (edge) =>
-                                                                <ListGroupItem>
-                                                                    <Link to={'/histoires/' + edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
-                                                                </ListGroupItem>
-                                                        )
-                                                    }
-                                                </ListGroup>
-                                            </div>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
                                         </div>
                                     </div>) :
                                     ('')
@@ -143,8 +132,6 @@ export default Personnage
 export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
     contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
       nomComplet
-      prenom
-      nom
       dateNaissance
       age
       pouvoirNom
@@ -169,16 +156,12 @@ export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
           html
         }
       }
-      typeGene
-      slug
-    }
-    allContentfulApparition(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, personnageSlug: {eq: $slug}}) {
-      edges {
-        node {
-          titreHistoire
-          slugHistoire
-          role
+      apparition {
+        childMarkdownRemark {
+          html
         }
       }
+      typeGene
+      slug
     }
   }`
