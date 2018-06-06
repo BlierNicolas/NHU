@@ -164,13 +164,4 @@ export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
       typeGene
       slug
     }
-    allContentfulApparition(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, personnageSlug: {eq: $slug}}) {
-      edges {
-        node {
-          titreHistoire
-          slugHistoire
-          role
-        }
-      }
-    }
   }`

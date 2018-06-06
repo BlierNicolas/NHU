@@ -116,6 +116,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					edges {
 						node {
 							id
+							nomComplet
 							slug
 						}
 					}
@@ -127,6 +128,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					reject(result.errors)
 				}
 				result.data.allContentfulPersonnage.edges.forEach((edge) => {
+					console.log(edge.node.nomComplet)
 					if ((edge.node.id = 'Personnage') && (edge.node.slug != null)) {
 						createPage({
 							path: 'personnages/' + edge.node.slug,
