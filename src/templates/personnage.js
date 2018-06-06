@@ -110,7 +110,7 @@ class Personnage extends Component {
                                     (<div className="my-3">
                                         <div>
                                             <h3>Apparitions</h3>
-                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.aparition.childMarkdownRemark.html }} />
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
                                         </div>
                                     </div>) :
                                     ('')
@@ -158,7 +158,7 @@ export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
           html
         }
       }
-      aparition {
+      apparition {
         childMarkdownRemark {
           html
         }
