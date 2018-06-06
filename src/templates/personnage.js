@@ -132,8 +132,6 @@ export default Personnage
 export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
     contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
       nomComplet
-      prenom
-      nom
       dateNaissance
       age
       pouvoirNom
