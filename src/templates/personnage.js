@@ -110,18 +110,7 @@ class Personnage extends Component {
                                     (<div className="my-3">
                                         <div>
                                             <h3>Apparitions</h3>
-                                            <div>
-                                                <ListGroup>
-                                                    {
-                                                        data.allContentfulApparition.edges.map(
-                                                            (edge) =>
-                                                                <ListGroupItem>
-                                                                    <Link to={'/histoires/' + edge.node.slugHistoire}>{edge.node.titreHistoire}</Link> - {edge.node.role}
-                                                                </ListGroupItem>
-                                                        )
-                                                    }
-                                                </ListGroup>
-                                            </div>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.aparition.childMarkdownRemark.html }} />
                                         </div>
                                     </div>) :
                                     ('')
@@ -165,6 +154,11 @@ export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
         }
       }
       relation {
+        childMarkdownRemark {
+          html
+        }
+      }
+      aparition {
         childMarkdownRemark {
           html
         }
