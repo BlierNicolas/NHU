@@ -16,7 +16,7 @@ const Layout = ({ children, data }) => (
                 meta={[
                     { name: 'description', content: 'L\'Univers des Nouveaux Humains' },
                     { name: 'msapplication-TileColor', content: '#da532c'},
-                    { name: 'theme-color', content: '#ffffff'},
+                    { name: 'theme-color', content: '#007bff'},
                 ]}
                 link={[
                     {rel: "icon", type: "image/x-icon", href: "/favicon.ico"},
