@@ -3,24 +3,9 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-	Collapse,
-	Navbar,
-	NavbarToggler,
-	NavbarBrand,
-	Nav,
-	NavItem,
-	NavLink,
 	Container,
 	Row,
 	Col,
-	Jumbotron,
-	Button,
-	Card,
-	CardImg,
-	CardText,
-	CardBody,
-	CardTitle,
-	CardSubtitle,
 	Breadcrumb,
 	BreadcrumbItem
 } from 'reactstrap';
