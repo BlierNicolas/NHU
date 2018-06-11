@@ -87,7 +87,7 @@ class Personnage extends Component {
                                     ('')
                             }
                             {
-                                data.allContentfulPersonnage.apparition ?
+                                data.contentfulPersonnage.apparition ?
                                     (<div className="my-3">
                                         <div>
                                             <h3>Apparitions</h3>
