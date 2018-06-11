@@ -35,3 +35,4 @@ Fonctionnalités:
 - [ ] Login and like system
 - [ ] Firebase
 - [ ] Typographie
+- [ ] Favicon
