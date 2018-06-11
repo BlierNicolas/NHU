@@ -41,8 +41,6 @@ class Nombre extends Component {
     componentWillMount() {
         this.histoireEnCours = 0;
         this.histoireTerminees = 0;
-        console.log(this.histoireEnCours);
-        console.log(this.histoireTerminees);
     }
 
     render() {
