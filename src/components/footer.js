@@ -37,7 +37,7 @@ const Footer = ({ siteTitle }) => (
                 </Col>
                 <Col sm="12" lg="3 display-copy">
                     <div className="">
-                        <p className="text-right text-white mb-0">Venatus Universe ©{new Date().getFullYear()}</p>
+                        <p className="text-right text-white mb-0"><small>Venatus Universe ©{new Date().getFullYear()}</small></p>
                     </div>
                 </Col>
             </Row>
