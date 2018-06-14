@@ -2,8 +2,8 @@
 
 Pages:
 - [X] Homepage
-- [X] Liste des romans
-- [X] Un roman
+- [X] Liste des romans (Ajouter le cover)
+- [X] Un roman (Ajouter le cover)
 - [X] Un chapitre
 - [ ] Calendrier des sorties
 - [X] Liste des nouvelles
@@ -11,7 +11,7 @@ Pages:
 - [X] Liste des théories
 - [X] Une théorie
 - [X] Liste des personnages
-- [X] Un personnage
+- [X] Un personnage (Ajouter l'image)
 - [ ] Liste des villes et lieux
 - [ ] Une ville
 - [ ] Un lieu
@@ -23,7 +23,6 @@ Pages:
 - [X] L'Univers en nombres
 - [ ] Contributeurs
 - [ ] Technologies utilisées
-- [ ] Cover pour les histoires et les personnages
 
 Fonctionnalités:
 - [ ] Google analytics
@@ -36,3 +35,4 @@ Fonctionnalités:
 - [ ] Firebase
 - [ ] Typographie
 - [X] Favicon
+- [ ] Bilingual site
