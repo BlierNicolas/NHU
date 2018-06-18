@@ -23,11 +23,11 @@ const Footer = ({ siteTitle }) => (
                     <div className="text-white">
                         <Row className="pt-3">
                             <Col sm="12" lg="6" className="text-center">
-                                <Link to="https://www.gatsbyjs.org/" rel="nofollow" target="_blank" className="mx-3 text-white">Gatsby</Link>
-                                <Link to="https://www.contentful.com/" rel="nofollow" target="_blank" className="mx-3 text-white">
+                                <a href="https://www.gatsbyjs.org/" rel="nofollow" target="_blank" className="mx-3 text-white">Gatsby</a>
+                                <a href="https://www.contentful.com/" rel="nofollow" target="_blank" className="mx-3 text-white">
                                     <img src="https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg" className="contentful-logo" alt="Powered by Contentful" />
-                                </Link>
-                                <Link to="https://www.netlify.com/" rel="nofollow" target="_blank" className="mx-3 text-white">Netlify</Link>
+                                </a>
+                                <a href="https://www.netlify.com/" rel="nofollow" target="_blank" className="mx-3 text-white">Netlify</a>
                             </Col>
                             <Col sm="12" lg="6" className="text-center">
                                 <Link to="/nombre" className="text-white nav-link">L'Univers en nombre</Link>
