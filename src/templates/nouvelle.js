@@ -16,6 +16,7 @@ class Nouvelle extends Component {
 			titreNouvelle,
 			description,
 			date,
+			dateSpe,
 			slug,
 			lienReference,
 			node_locale
@@ -34,7 +35,7 @@ class Nouvelle extends Component {
 						<Col>
 							<div className="mb-5">
 								<h1 className="display-4">{titreNouvelle}</h1>
-								<span><small>{date}</small></span>
+								<span><small>{dateSpe} / {date}</small></span>
 							</div>
 
 							<div dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
@@ -66,7 +67,8 @@ export const pageQuery = graphql`query nouvelleQueryFR ($slug: String!) {
 				html
 			}
 		}
-		date(formatString: "YYYY MMMM DD HH:MM")
+		date(formatString: "YYYY MMMM DD")
+		dateSpe
 		slug
 		lienReference
 		node_locale

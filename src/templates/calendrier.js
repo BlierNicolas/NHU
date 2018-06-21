@@ -10,7 +10,7 @@ import {
 	BreadcrumbItem
 } from 'reactstrap';
 
-class ListeDesNouvelles extends Component {
+class Calendrier extends Component {
 	render() {
 		const {
 			data
@@ -20,12 +20,12 @@ class ListeDesNouvelles extends Component {
 			<div>
 				<Breadcrumb className="mb-0">
 					<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-					<BreadcrumbItem active>Quoi de nouveau&nbsp;?</BreadcrumbItem>
+					<BreadcrumbItem active>Calendrier des sorties</BreadcrumbItem>
 				</Breadcrumb>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Quoi de nouveau&nbsp;?</h1>
+						<h1 className="display-4">Calendrier des sorties</h1>
 						<p className="lead">Voici toutes les nouvelles par rapport au site et aux informations au sujet de l'Univers des Nouveaux Humains.</p>
 					</Container>
 				</div>
@@ -34,13 +34,13 @@ class ListeDesNouvelles extends Component {
 					<Row className="pb-5">
 						<Col sm="12" lg="9" >
 							{
-								data.allContentfulNouvelle.edges.map(
+								data.allContentfulCalendrier.edges.map(
 									(edge) =>
 										<div className="clearfix border-bottom mb-2" key={edge.node.id}>
 											<div className="">
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
-														<Link to={'nouvelles/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
+														<h3 className="float-left"><small>{edge.node.titre}</small></h3>
 													</Col>
 
 													<Col md="3" sm="12">
@@ -55,7 +55,7 @@ class ListeDesNouvelles extends Component {
 													</Col>
 
 													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={'nouvelles/' + edge.node.slug}>En savoir plus</Link>
+														<Link className="float-right mb-2" to={edge.node.romanSlug}>Aller voir l'histoire</Link>
 													</Col>
 												</Row>
 											</div>
@@ -72,26 +72,26 @@ class ListeDesNouvelles extends Component {
 	}
 }
 
-ListeDesNouvelles.propTypes = {
+Calendrier.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default ListeDesNouvelles
+export default Calendrier
 
-export const pageQuery = graphql`query listeNouvelleQueryFR2 {
-	allContentfulNouvelle (sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query calendrierQueryFR {
+	allContentfulCalendrier (sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
 		edges {
 			node {
 				id
-				titreNouvelle
+				titre
 				description {
 					childMarkdownRemark {
 						html
 					}
 				}
 				date(formatString: "YYYY MMMM DD")
-				dateSpe
-				slug
+                dateSpe
+                romanSlug
 			}
 		}
 	}

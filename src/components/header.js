@@ -27,12 +27,15 @@ export default class Header extends React.Component {
 
         this.toggle = this.toggle.bind(this);
         this.toggleNight = this.toggleNight.bind(this);
+        this.login = this.login.bind(this);
+        this.logout = this.logout.bind(this);
 
         this.state = {
             isOpen: false,
             nightMode: false,
             status: 'inactif',
-            mounted: undefined
+            mounted: undefined,
+            user: null
         };
     }
 
@@ -64,6 +67,12 @@ export default class Header extends React.Component {
 
     componentDidMount() {
         this.setState({ nightMode: !this.state.nightMode });
+
+        // auth.onAuthStateChanged((user) => {
+        //     if (user) {
+        //         this.setState({ user });
+        //     }
+        // });
     }
 
     toggle() {
@@ -94,6 +103,27 @@ export default class Header extends React.Component {
             }
         }
         //console.log("Night mode " + this.state.status);
+    }
+
+    logout() {
+        auth.signOut()
+            .then(() => {
+                this.setState({
+                    user: null
+                });
+            });
+    }
+
+    login() {
+        //auth.disableAutoSignIn()
+        console.log(provider)
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                const user = result.user;
+                this.setState({
+                    user
+                });
+            });
     }
 
     render() {
@@ -136,9 +166,9 @@ export default class Header extends React.Component {
                                     <DropdownItem>
                                         <Link to="/histoires">Nos Histoires de l'Univers...</Link>
                                     </DropdownItem>
-                                    {/* <DropdownItem>
+                                    <DropdownItem>
                                         <Link to="/calendrier">Calendrier des sorties</Link>
-                                    </DropdownItem> */}
+                                    </DropdownItem>
                                     <DropdownItem>
                                         <Link to="/progression">Progression de l'Univers</Link>
                                     </DropdownItem>
@@ -166,6 +196,30 @@ export default class Header extends React.Component {
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
+                            {/* <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret className="text-white">
+                                    {this.state.user ?
+                                        <div>
+                                            {this.state.user.displayName}
+                                        </div>
+                                        :
+                                        <div>
+                                            Connexion
+                                        </div>
+                                    }
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    {this.state.user ?
+                                        <div>
+                                            <button onClick={this.logout}>Log Out</button>
+                                        </div>
+                                        :
+                                        <div>
+                                            <button onClick={this.login}>Log In</button>
+                                        </div>
+                                    }
+                                </DropdownMenu>
+                            </UncontrolledDropdown> */}
                         </Nav>
                     </Collapse>
                 </Navbar>

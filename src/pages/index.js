@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import firebase, { auth, provider } from '../firebase.js';
 import {
     Container,
     Row,
@@ -10,6 +11,70 @@ import {
 } from 'reactstrap';
 
 class IndexPage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            currentItem: '',
+            username: '',
+            items: [],
+            connectedUser: 'Nico'
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    handleSubmit(e) {
+        // Empêche le refresh
+        e.preventDefault();
+
+        // Met la référence vers la database
+        const itemsRef = firebase.database().ref('items');
+
+        // Popule les champs dans une collection "item"
+        const item = {
+            title: this.state.currentItem,
+            user: this.state.username
+        }
+
+        // Pousse l'item créé dans la collection
+        itemsRef.push(item);
+
+        // Remet les champs vides
+        this.setState({
+            currentItem: '',
+            username: ''
+        });
+    }
+
+    componentDidMount() {
+        const itemsRef = firebase.database().ref('items');
+        itemsRef.on('value', (snapshot) => {
+            let items = snapshot.val();
+            let newState = [];
+            for (let item in items) {
+                newState.push({
+                    id: item,
+                    title: items[item].title,
+                    user: items[item].user
+                });
+            }
+            this.setState({
+                items: newState
+            });
+        });
+    }
+
+    removeItem(itemId) {
+        const itemRef = firebase.database().ref(`/items/${itemId}`);
+        itemRef.remove();
+    }
+
     render() {
         const {
             data
@@ -28,10 +93,37 @@ class IndexPage extends Component {
 
                 <Container fluid className="p-0">
                     <Row className="pb-5">
+                        {/* <Col sm="12" lg="9">
+                            <h2>Test firebase</h2>
+                            <div className='container'>
+                                <section className='add-item'>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username} />
+                                        <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+                                        <button>Add Item</button>
+                                    </form>
+                                </section>
+                                <section className='display-item'>
+                                    <div className="wrapper">
+                                        <ul>
+                                            {this.state.items.map((item) => {
+                                                if (item.user == this.state.connectedUser) {
+                                                    return (
+                                                        <li key={item.id}>
+                                                            <h3>{item.title}</h3>
+                                                            <p>brought by: {item.user}</p>
+                                                            <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
+                                                        </li>
+                                                    )
+                                                };
+                                            })}
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </Col> */}
                         <Col sm="12" lg="9" >
-                            <h2 className="mb-4">
-                                Dernières nouvelles
-                    </h2>
+                            <h2 className="mb-4">Dernières nouvelles</h2>
                             {
                                 data.allContentfulNouvelle.edges.map(
                                     (edge) =>
