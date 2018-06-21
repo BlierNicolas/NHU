@@ -68,11 +68,11 @@ export default class Header extends React.Component {
     componentDidMount() {
         this.setState({ nightMode: !this.state.nightMode });
 
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ user });
-            }
-        });
+        // auth.onAuthStateChanged((user) => {
+        //     if (user) {
+        //         this.setState({ user });
+        //     }
+        // });
     }
 
     toggle() {
