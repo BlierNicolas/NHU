@@ -15,7 +15,6 @@ import {
 import classnames from 'classnames';
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
-import { auth, provider } from '../firebase.js';
 
 export default class Header extends React.Component {
     constructor(props) {
