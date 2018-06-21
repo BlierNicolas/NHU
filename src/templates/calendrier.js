@@ -26,7 +26,7 @@ class Calendrier extends Component {
 				<div className="py-5">
 					<Container fluid>
 						<h1 className="display-4">Calendrier des sorties</h1>
-						<p className="lead">Voici toutes les nouvelles par rapport au site et aux informations au sujet de l'Univers des Nouveaux Humains.</p>
+						<p className="lead">Ici vous trouverez les dates de sortie des prochains chapitres au sujet de l'Univers des Nouveaux Humains.</p>
 					</Container>
 				</div>
 
