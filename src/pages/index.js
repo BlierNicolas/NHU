@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import firebase, { auth, provider } from '../firebase.js';
 import {
     Container,
     Row,
@@ -19,61 +18,61 @@ class IndexPage extends Component {
             items: [],
             connectedUser: 'Nico'
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    }
+    // handleChange(e) {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     });
+    // }
 
-    handleSubmit(e) {
-        // Empêche le refresh
-        e.preventDefault();
+    // handleSubmit(e) {
+    //     // Empêche le refresh
+    //     e.preventDefault();
 
-        // Met la référence vers la database
-        const itemsRef = firebase.database().ref('items');
+    //     // Met la référence vers la database
+    //     const itemsRef = firebase.database().ref('items');
 
-        // Popule les champs dans une collection "item"
-        const item = {
-            title: this.state.currentItem,
-            user: this.state.username
-        }
+    //     // Popule les champs dans une collection "item"
+    //     const item = {
+    //         title: this.state.currentItem,
+    //         user: this.state.username
+    //     }
 
-        // Pousse l'item créé dans la collection
-        itemsRef.push(item);
+    //     // Pousse l'item créé dans la collection
+    //     itemsRef.push(item);
 
-        // Remet les champs vides
-        this.setState({
-            currentItem: '',
-            username: ''
-        });
-    }
+    //     // Remet les champs vides
+    //     this.setState({
+    //         currentItem: '',
+    //         username: ''
+    //     });
+    // }
 
-    componentDidMount() {
-        const itemsRef = firebase.database().ref('items');
-        itemsRef.on('value', (snapshot) => {
-            let items = snapshot.val();
-            let newState = [];
-            for (let item in items) {
-                newState.push({
-                    id: item,
-                    title: items[item].title,
-                    user: items[item].user
-                });
-            }
-            this.setState({
-                items: newState
-            });
-        });
-    }
+    // componentDidMount() {
+    //     const itemsRef = firebase.database().ref('items');
+    //     itemsRef.on('value', (snapshot) => {
+    //         let items = snapshot.val();
+    //         let newState = [];
+    //         for (let item in items) {
+    //             newState.push({
+    //                 id: item,
+    //                 title: items[item].title,
+    //                 user: items[item].user
+    //             });
+    //         }
+    //         this.setState({
+    //             items: newState
+    //         });
+    //     });
+    // }
 
-    removeItem(itemId) {
-        const itemRef = firebase.database().ref(`/items/${itemId}`);
-        itemRef.remove();
-    }
+    // removeItem(itemId) {
+    //     const itemRef = firebase.database().ref(`/items/${itemId}`);
+    //     itemRef.remove();
+    // }
 
     render() {
         const {
