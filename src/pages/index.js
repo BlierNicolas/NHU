@@ -153,7 +153,7 @@ class IndexPage extends Component {
                                 )
                             }
                             <br />
-                            <h2 className="mb-4">Prochaines sorties de chapitre</h2>
+                            <h2 className="mb-4">Calendrier des prochaines sorties</h2>
                             {
                                 data.allContentfulCalendrier.edges.map(
                                     (edge) =>
@@ -223,7 +223,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
         }
       }
     }
-    allContentfulCalendrier (sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulCalendrier (limit: 6, sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
 		edges {
 			node {
 				id
