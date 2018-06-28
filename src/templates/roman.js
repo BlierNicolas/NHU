@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
+    Col,
+    Row,
     Container,
     ListGroup,
     ListGroupItem,
@@ -27,20 +29,53 @@ class Roman extends Component {
 
                 <div className="my-5">
                     <Container>
-                        <h1 className="display-4">{data.contentfulRoman.titreRoman}</h1>
-                        <div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
-                        <Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
+                        <Row>
+                            <Col lg="12">
+                                <h1 className="display-4 mb-5">{data.contentfulRoman.titreRoman}</h1>
+                            </Col>
+                        </Row>
+
+                        {data.contentfulRoman.imageCouverture ?
+                            (
+                                <Row>
+                                    <Col lg="4">
+                                        <img className="img-fluid mb-5" src={data.contentfulRoman.imageCouverture.file.url} />
+                                    </Col>
+
+                                    <Col lg="8">
+                                        <div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
+
+                                        <Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
+                                        
+                                        <ListGroup className="pt-5">
+                                            {
+                                                data.allContentfulChapitre.edges.map(
+                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                            }
+                                        </ListGroup>
+                                    </Col>
+                                </Row>
+                            ) :
+                            (
+                                <Row>
+                                    <Col lg="12">
+                                        <div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
+                                        
+                                        <Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
+
+                                        <ListGroup className="pt-5">
+                                            {
+                                                data.allContentfulChapitre.edges.map(
+                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                            }
+                                        </ListGroup>
+                                    </Col>
+                                </Row>
+                            )
+                        }
+                        <br />
                     </Container>
                 </div>
-
-                <Container className="pb-5">
-                    <ListGroup>
-                        {
-                            data.allContentfulChapitre.edges.map(
-                                (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
-                        }
-                    </ListGroup>
-                </Container>
             </div>
         )
     }
@@ -60,10 +95,15 @@ export const pageQuery = graphql
       childMarkdownRemark {
         html
       }
-		}
-        typeHistoire
-        chapitreActuel
-        maximumChapitre
+    }
+    imageCouverture {
+      file {
+        url
+      }
+    }
+    typeHistoire
+    chapitreActuel
+    maximumChapitre
     slug
   }
   allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $slug}}) {

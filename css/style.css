@@ -158,3 +158,8 @@ footer {
         padding-top: 5px;
     }
 }
+
+.image-display {
+    width: 258px;
+    height: 400px;
+}

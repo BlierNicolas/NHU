@@ -16,30 +16,23 @@ import {
 } from 'reactstrap';
 
 const Footer = ({ siteTitle }) => (
-    <footer className="py-3">
+    <footer className="py-5">
         <Container fluid>
             <Row>
-                <Col sm="12" lg="9">
-                    <div className="text-white">
-                        <Row className="pt-3">
-                            <Col sm="12" lg="6" className="text-center">
-                                <a href="https://www.gatsbyjs.org/" rel="nofollow" target="_blank" className="mx-3 text-white">Gatsby</a>
-                                <a href="https://www.contentful.com/" rel="nofollow" target="_blank" className="mx-3 text-white">
-                                    <img src="https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg" className="contentful-logo" alt="Powered by Contentful" />
-                                </a>
-                                <a href="https://www.netlify.com/" rel="nofollow" target="_blank" className="mx-3 text-white">Netlify</a>
-                            </Col>
-                            <Col sm="12" lg="6" className="text-center">
-                                <Link to="/contributeurs" className="text-white nav-link">Contributeurs</Link>
-                                <Link to="/nombre" className="text-white nav-link">L'Univers en nombre</Link>
-                            </Col>
-                        </Row>
+                <Col sm="12" className="text-white d-flex flex-column flex-lg-row align-items-center justify-content-between text-center">
+                    <a href="https://www.contentful.com/" rel="nofollow" target="_blank" className="mx-3 text-white">
+                        <img src="https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg" className="contentful-logo" alt="Powered by Contentful" />
+                    </a>
+
+                    <div className="my-3 my-lg-0">
+                        <Link to="/contributeurs" className="text-white nav-link d-inline">Contributeurs</Link>
+                        <Link to="/nombre" className="text-white nav-link d-inline">L'Univers en nombre</Link>
                     </div>
-                </Col>
-                <Col sm="12" lg="3 display-copy">
-                    <div className="">
-                        <p className="text-right text-white mb-0"><small>Venatus Universe ©{new Date().getFullYear()}</small></p>
-                    </div>
+
+                    <p className="text-right text-white mb-0"><small>Venatus Universe ©{new Date().getFullYear()}</small></p>
+
+                    {/* <a href="https://www.gatsbyjs.org/" rel="nofollow" target="_blank" className="mx-3 text-white">Gatsby</a>
+                    <a href="https://www.netlify.com/" rel="nofollow" target="_blank" className="mx-3 text-white">Netlify</a> */}
                 </Col>
             </Row>
 
