@@ -23,7 +23,7 @@ class Contributeurs extends Component {
 				<div className="py-5">
 					<Container fluid>
 						<h1 className="display-4">Contributeurs</h1>
-						<p className="lead">Voici tous les personnes qui ont contribués à l'Univers des Nouveaux Humains.</p>
+						<p className="lead">Voici toutes les personnes qui ont contribués à l'Univers des Nouveaux Humains.</p>
 					</Container>
 				</div>
 
@@ -34,7 +34,7 @@ class Contributeurs extends Component {
 								<Row className="no-gutters">
 									<Col lg="12">
 										<div><a href="https://thomas-desfossez.com">Thomas Desfossez</a> - Design du site</div>
-										<div><a href="https://thomas-desfossez.com">Sarah Bourque</a> - Illustrations</div>
+										<div><a href="http://sarahbourque.ca">Sarah Bourque</a> - Illustrations</div>
 										<div>Maeva G - Aide à la création de l'Univers</div>
 										<div>Marie-Josée Cloutier - Corrections</div>
 									</Col>
