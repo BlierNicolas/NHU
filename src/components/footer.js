@@ -30,6 +30,7 @@ const Footer = ({ siteTitle }) => (
                                 <a href="https://www.netlify.com/" rel="nofollow" target="_blank" className="mx-3 text-white">Netlify</a>
                             </Col>
                             <Col sm="12" lg="6" className="text-center">
+                                <Link to="/contributeurs" className="text-white nav-link">Contributeurs</Link>
                                 <Link to="/nombre" className="text-white nav-link">L'Univers en nombre</Link>
                             </Col>
                         </Row>
