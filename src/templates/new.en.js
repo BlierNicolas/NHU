@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Nouvelle extends Component {
+class Neww extends Component {
 	render() {
 		const {
 			titreNouvelle,
@@ -28,18 +28,18 @@ class Nouvelle extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/nouvelles">Quoi de nouveau&nbsp;?</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en/news">What's new&nbsp;?</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{titreNouvelle}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + equivalentUrl}>En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to={equivalentUrl}>Fr</Link></Button>
 				</div>
 
 				<Container className="py-5">
@@ -54,34 +54,34 @@ class Nouvelle extends Component {
 
 							{
 								lienReference ?
-									(<Link to={lienReference}>Voir les détails</Link>) :
+									(<Link to={lienReference}>See details</Link>) :
 									('')
 							}
 						</Col>
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Nouvelle.propTypes = {
+Neww.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Nouvelle
+export default Neww
 
-export const pageQuery = graphql`query nouvelleQueryFR ($slug: String!) {
-	contentfulNouvelle(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query nouvelleQueryEN ($slug: String!) {
+	contentfulNouvelle(slug: {eq:$slug}, node_locale: {eq: "en-US"}) {
 		titreNouvelle
 		description {
 			childMarkdownRemark {
 				html
 			}
 		}
-		date(formatString: "YYYY MMMM DD")
+		date(formatString: "YYYY-MM-DD")
 		dateSpe
 		slug
 		lienReference

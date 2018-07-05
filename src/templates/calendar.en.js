@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Calendrier extends Component {
+class Calendar extends Component {
 	render() {
 		const {
 			data
@@ -21,23 +21,23 @@ class Calendrier extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Calendrier des sorties</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Calendar of releases</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/calendar">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/calendrier">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Calendrier des sorties</h1>
-						<p className="lead">Ici vous trouverez les dates de sortie des prochains chapitres au sujet de l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">Calendar of releases</h1>
+						<p className="lead">Here you will find the release dates of the next chapters about the New Human Universe.</p>
 					</Container>
 				</div>
 
@@ -68,7 +68,11 @@ class Calendrier extends Component {
 															</Col>
 
 															<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-																<Link className="float-right mb-2" to={edge.node.romanSlug}>Aller voir l'histoire</Link>
+																{
+																	edge.node.romanSlug ?
+																		(<Link className="float-right mb-2" to={"/en" + edge.node.romanSlug}>Go see the story</Link>) :
+																		('')
+																}
 															</Col>
 														</Row>
 													</div>
@@ -84,20 +88,20 @@ class Calendrier extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Calendrier.propTypes = {
+Calendar.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Calendrier
+export default Calendar
 
-export const pageQuery = graphql`query calendrierQueryFR {
-	allContentfulCalendrier (sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query calendrierQueryEN {
+	allContentfulCalendrier (sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "en-US"}}) {
 		edges {
 			node {
 				id
@@ -107,7 +111,7 @@ export const pageQuery = graphql`query calendrierQueryFR {
 						html
 					}
 				}
-				date(formatString: "YYYY MMMM DD")
+				date(formatString: "YYYY-MM-DD")
                 dateSpe
 				romanSlug
 				affiche

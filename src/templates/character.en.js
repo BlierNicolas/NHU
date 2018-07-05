@@ -8,12 +8,12 @@ import {
     Col,
     Breadcrumb,
     BreadcrumbItem,
-	Button
+    Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Personnage extends Component {
+class Character extends Component {
     render() {
         const {
             data
@@ -21,19 +21,19 @@ class Personnage extends Component {
 
         return (
             <div id="page-wrapper">
-            <Header />
+                <HeaderEn />
 
-            <div>
-                <Breadcrumb className="mb-0">
-                    <BreadcrumbItem><Link to="/">Page d'accueil</Link></BreadcrumbItem>
-                    <BreadcrumbItem><Link to="/personnages">Nos personnages</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
-                </Breadcrumb>
-				</div>
+                <div>
+                    <Breadcrumb className="mb-0">
+                        <BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to="/personnages">Our characters</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
+                    </Breadcrumb>
+                </div>
 
-				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + data.contentfulPersonnage.equivalentUrl}>En</Link></Button>
-				</div>
+                <div className="equiv">
+                    <Button className="float-right" color="primary"><Link className="text-white" to={data.contentfulPersonnage.equivalentUrl}>Fr</Link></Button>
+                </div>
 
                 <Container fluid>
                     <Row className="pb-5">
@@ -42,10 +42,10 @@ class Personnage extends Component {
                                 <div>
                                     <h1 className="display-4">{data.contentfulPersonnage.nomComplet}</h1>
                                     <div>
-                                        Pouvoir: {data.contentfulPersonnage.pouvoirNom}<br />
-                                        Alignement: {data.contentfulPersonnage.alignement}<br />
-                                        Data de naissance: {data.contentfulPersonnage.dateNaissance}<br />
-                                        Âge: {data.contentfulPersonnage.age}
+                                        Power: {data.contentfulPersonnage.pouvoirNom}<br />
+                                        Alignment: {data.contentfulPersonnage.alignement}<br />
+                                        Birth date: {data.contentfulPersonnage.dateNaissance}<br />
+                                        Years-old: {data.contentfulPersonnage.age}
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.descriptionSommaire ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Description sommaire</h3>
+                                            <h3>Brief description</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
                                             </div>
@@ -65,7 +65,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.descriptionPouvoir ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Description du pouvoir</h3>
+                                            <h3>Power description</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
                                             </div>
@@ -77,7 +77,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.descriptionPhysique ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Description physique</h3>
+                                            <h3>Physical description</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
                                             </div>
@@ -101,7 +101,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.apparition ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Apparitions</h3>
+                                            <h3>Appearances</h3>
                                             <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
                                         </div>
                                     </div>) :
@@ -111,20 +111,20 @@ class Personnage extends Component {
                     </Row>
                 </Container>
 
-                <Footer />
+                <FooterEn />
             </div>
         )
     }
 }
 
-Personnage.propTypes = {
+Character.propTypes = {
     data: PropTypes.object.isRequired
 }
 
-export default Personnage
+export default Character
 
-export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
-    contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query personnageQueryEN ($slug: String!) {
+    contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: "en-US"}) {
       nomComplet
       dateNaissance
       age

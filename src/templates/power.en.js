@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Pouvoir extends Component {
+class Power extends Component {
 	render() {
 		const {
 			nomPouvoir,
@@ -23,18 +23,18 @@ class Pouvoir extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/pouvoirs">Abilités des personnages</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en/powers">Character abilities</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{nomPouvoir}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + equivalentUrl}>En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to={equivalentUrl}>Fr</Link></Button>
 				</div>
 
 				<Container fluid className="py-5">
@@ -46,20 +46,20 @@ class Pouvoir extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Pouvoir.propTypes = {
+Power.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Pouvoir
+export default Power
 
-export const pageQuery = graphql`query pouvoirQueryFR ($slug: String!) {
-	contentfulPouvoir(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query pouvoirQueryEN ($slug: String!) {
+	contentfulPouvoir(slug: {eq:$slug}, node_locale: {eq: "en-US"}) {
 		nomPouvoir
 		description {
 			childMarkdownRemark {

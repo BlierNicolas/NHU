@@ -7,8 +7,11 @@ import {
 	Row,
 	Col,
 	Breadcrumb,
-	BreadcrumbItem
+	BreadcrumbItem,
+	Button
 } from 'reactstrap';
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 class ListeDesGroupes extends Component {
 	render() {
@@ -17,11 +20,19 @@ class ListeDesGroupes extends Component {
 		} = this.props
 
 		return (
-			<div>
-				<Breadcrumb className="mb-0">
-					<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-					<BreadcrumbItem active>Groupes, clans et organisations...</BreadcrumbItem>
-				</Breadcrumb>
+			<div id="page-wrapper">
+				<Header />
+
+				<div>
+					<Breadcrumb className="mb-0">
+						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Groupes, clans et organisations...</BreadcrumbItem>
+					</Breadcrumb>
+				</div>
+
+				<div className="equiv">
+					<Button className="float-right" color="primary"><Link className="text-white" to="/en/groups">En</Link></Button>
+				</div>
 
 				<div className="py-5">
 					<Container fluid>
@@ -63,6 +74,8 @@ class ListeDesGroupes extends Component {
 						</Col>
 					</Row>
 				</Container>
+
+				<Footer />
 			</div>
 		)
 	}

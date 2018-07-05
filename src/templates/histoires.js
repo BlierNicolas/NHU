@@ -13,8 +13,11 @@ import {
 	Breadcrumb,
 	BreadcrumbItem,
 	TabContent,
-	TabPane
+	TabPane,
+	Button
 } from 'reactstrap';
+import Header from '../components/header'
+import Footer from '../components/footer'
 import classnames from 'classnames';
 
 class ListeDesHistoires extends Component {
@@ -41,11 +44,19 @@ class ListeDesHistoires extends Component {
 		} = this.props
 
 		return (
-			<div>
-				<Breadcrumb>
-					<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-					<BreadcrumbItem active>Nos Histoires de l'Univers...</BreadcrumbItem>
-				</Breadcrumb>
+			<div id="page-wrapper">
+				<Header />
+
+				<div>
+					<Breadcrumb className="mb-0">
+						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Nos Histoires de l'Univers...</BreadcrumbItem>
+					</Breadcrumb>
+				</div>
+
+				<div className="equiv">
+					<Button className="float-right" color="primary"><Link className="text-white" to="/en/stories">En</Link></Button>
+				</div>
 
 				<div className="my-5">
 					<Container>
@@ -57,7 +68,7 @@ class ListeDesHistoires extends Component {
 				<Container className="my-5">
 					<Nav pills>
 						<NavItem className="histoires-pills">
-							<NavLink className={ classnames({ active: this.state.activeTab === '1'})} onClick={() => { this.toggle('1'); }}>
+							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
 								Les romans
 							</NavLink>
 						</NavItem>
@@ -119,6 +130,8 @@ class ListeDesHistoires extends Component {
 						</TabPane>
 					</TabContent>
 				</Container>
+
+				<Footer />
 			</div>
 		)
 	}

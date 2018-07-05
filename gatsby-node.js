@@ -20,6 +20,25 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const nombreTemplate = path.resolve('src/templates/nombre.js')
 		const calendrierTemplate = path.resolve('src/templates/calendrier.js')
 		const contributeursTemplate = path.resolve('src/templates/contributeurs.js')
+		
+		const indexEnTemplate = path.resolve('src/templates/en.js')
+		const chapitreEnTemplate = path.resolve('src/templates/chapter.en.js')
+		const romanEnTemplate = path.resolve('src/templates/story.en.js')
+		const personnageEnTemplate = path.resolve('src/templates/character.en.js')
+		const pouvoirEnTemplate = path.resolve('src/templates/power.en.js')
+		const nouvelleEnTemplate = path.resolve('src/templates/new.en.js')
+		const groupeEnTemplate = path.resolve('src/templates/group.en.js')
+		const theorieEnTemplate = path.resolve('src/templates/theory.en.js')
+		const listeHistoireEnTemplate = path.resolve('src/templates/stories.en.js')
+		const progressionEnTemplate = path.resolve('src/templates/progression.en.js')
+		const listePersonnageEnTemplate = path.resolve('src/templates/characters.en.js')
+		const listePouvoirEnTemplate = path.resolve('src/templates/powers.en.js')
+		const listeNouvelleEnTemplate = path.resolve('src/templates/news.en.js')
+		const listeGroupeEnTemplate = path.resolve('src/templates/groups.en.js')
+		const listeTheorieEnTemplate = path.resolve('src/templates/encyclopedia.en.js')
+		const nombreEnTemplate = path.resolve('src/templates/number.en.js')
+		const calendrierEnTemplate = path.resolve('src/templates/calendar.en.js')
+		const contributeursEnTemplate = path.resolve('src/templates/contributors.en.js')
 
 		resolve(
 			graphql(
@@ -272,6 +291,261 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			createPage({
 				path: 'contributeurs',
 				component: contributeursTemplate
+			}),
+			createPage({
+				path: 'en',
+				component: indexEnTemplate
+			}),
+			createPage({
+				path: 'en/news',
+				component: listeNouvelleEnTemplate
+			}),
+			graphql(
+				`{
+				allContentfulNouvelle {
+					edges {
+						node {
+							id
+							slug
+							node_locale
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				this.test = 0;
+				result.data.allContentfulNouvelle.edges.forEach((edge) => {
+					if ((edge.node.id = 'Nouvelle') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/news/' + edge.node.slug,
+							component: nouvelleEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			createPage({
+				path: 'en/stories',
+				component: listeHistoireEnTemplate
+			}),
+			graphql(
+				`{
+				allContentfulRoman {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulRoman.edges.forEach((edge) => {
+					if ((edge.node.id = 'Roman') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/stories/' + edge.node.slug,
+							component: romanEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			graphql(
+				`{
+				allContentfulChapitre {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulChapitre.edges.forEach((edge) => {
+					if ((edge.node.id = 'Chapitre') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/stories/chapter/' + edge.node.slug,
+							component: chapitreEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			createPage({
+				path: 'en/calendar',
+				component: calendrierEnTemplate
+			}),
+			createPage({
+				path: 'en/progression',
+				component: progressionEnTemplate
+			}),
+			createPage({
+				path: 'en/characters',
+				component: listePersonnageEnTemplate
+			}),
+			graphql(
+				`{
+				allContentfulPersonnage {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulPersonnage.edges.forEach((edge) => {
+					if ((edge.node.id = 'Personnage') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/characters/' + edge.node.slug,
+							component: personnageEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			createPage({
+				path: 'en/powers',
+				component: listePouvoirEnTemplate
+			}),
+			graphql(
+				`{
+				allContentfulPouvoir {
+					edges {
+						node {
+							id
+							slug
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulPouvoir.edges.forEach((edge) => {
+					if ((edge.node.id = 'Pouvoir') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/powers/' + edge.node.slug,
+							component: pouvoirEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			createPage({
+				path: 'en/groups',
+				component: listeGroupeEnTemplate
+			}),
+			graphql(
+				`{
+				allContentfulGroupe {
+					edges {
+						node {
+							id
+							slug
+							nomGroupe
+							node_locale
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				this.test = 0;
+				result.data.allContentfulGroupe.edges.forEach((edge) => {
+					if ((edge.node.id = 'Groupe') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/groups/' + edge.node.slug,
+							component: groupeEnTemplate,
+							context: {
+								slug: edge.node.slug,
+								nomGroupe: edge.node.nomGroupe
+							}
+						})
+					}
+				})
+				return
+			}),
+			createPage({
+				path: 'en/encyclopedia',
+				component: listeTheorieEnTemplate
+			}),
+			graphql(
+				`{
+				allContentfulTheorie {
+					edges {
+						node {
+							id
+							slug
+							node_locale
+						}
+					}
+				}
+			}`
+			).then((result) => {
+				console.log(result);
+				if (result.errors) {
+					reject(result.errors)
+				}
+				this.test = 0;
+				result.data.allContentfulTheorie.edges.forEach((edge) => {
+					if ((edge.node.id = 'Theorie') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/encyclopedia/' + edge.node.slug,
+							component: theorieEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			createPage({
+				path: 'en/number',
+				component: nombreEnTemplate
+			}),
+			createPage({
+				path: 'en/contributors',
+				component: contributeursEnTemplate
 			})
 		)
 	})

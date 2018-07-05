@@ -12,10 +12,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Groupe extends Component {
+class Group extends Component {
 	render() {
 		const {
 			data
@@ -23,18 +23,18 @@ class Groupe extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/groupes">Groupes, clans et organisations...</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en/groups">Groups, clans and organisations...</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulGroupe.nomGroupe}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + data.contentfulGroupe.equivalentUrl}>En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to={data.contentfulGroupe.equivalentUrl}>Fr</Link></Button>
 				</div>
 
 				<Container fluid className="py-5">
@@ -53,7 +53,7 @@ class Groupe extends Component {
 												data.allContentfulMembreGroupe.edges.map(
 													(edge) =>
 														<ListGroupItem className="text-center">
-															<Link to={'/personnages/' + edge.node.slugMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
+															<Link to={'/en/characters/' + edge.node.slugMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
 														</ListGroupItem>)
 											}
 										</ListGroup>) :
@@ -63,20 +63,20 @@ class Groupe extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Groupe.propTypes = {
+Group.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Groupe
+export default Group
 
-export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe: String!) {
-	contentfulGroupe(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query groupeQueryEN ($slug: String!, $nomGroupe: String!) {
+	contentfulGroupe(slug: {eq:$slug}, node_locale: {eq: "en-US"}) {
 		nomGroupe
 		description {
 			childMarkdownRemark {
@@ -85,7 +85,7 @@ export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe
 		}
 		equivalentUrl
 	}
-	allContentfulMembreGroupe(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomGroupe: {eq: $nomGroupe}}) {
+	allContentfulMembreGroupe(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "en-US"}, nomGroupe: {eq: $nomGroupe}}) {
 		edges {
 		  node {
 			id

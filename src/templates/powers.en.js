@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class ListeDesPouvoirs extends Component {
+class ListOfPowers extends Component {
 	render() {
 		const {
 			data
@@ -21,23 +21,23 @@ class ListeDesPouvoirs extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Abilités des personnages</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Character abilities</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/powers">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/pouvoirs">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Abilités des personnages</h1>
-						<p className="lead">Voici tous les pouvoirs qui sont présents dans l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">Character abilities</h1>
+						<p className="lead">These are all the powers that are present in the New Human Universe.</p>
 					</Container>
 				</div>
 
@@ -47,27 +47,27 @@ class ListeDesPouvoirs extends Component {
 							data.allContentfulPouvoir.edges.map(
 								(edge) =>
 									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3">
-										<Link to={'/pouvoirs/' + edge.node.slug}>{edge.node.nomPouvoir}</Link>
+										<Link to={'/en/powers/' + edge.node.slug}>{edge.node.nomPouvoir}</Link>
 									</Col>
 							)
 						}
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-ListeDesPouvoirs.propTypes = {
+ListOfPowers.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default ListeDesPouvoirs
+export default ListOfPowers
 
-export const pageQuery = graphql`query listePouvoirQueryFR {
-    allContentfulPouvoir(sort: {fields: [nomPouvoir], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listePouvoirQueryEN {
+    allContentfulPouvoir(sort: {fields: [nomPouvoir], order: ASC}, filter: {node_locale: {eq: "en-US"}}) {
         edges {
             node {
 				id

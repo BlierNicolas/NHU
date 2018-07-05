@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class ListeDesTheories extends Component {
+class ListOfGroups extends Component {
 	render() {
 		const {
 			data
@@ -21,24 +21,23 @@ class ListeDesTheories extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>L'encyclopédie universelle</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Groups, clans and organisations...</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/encyclopedia">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/groupes">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">L'encyclopédie universelle</h1>
-						<p className="lead">Voici toutes les théories au sujet de l'Univers des Nouveaux Humains.</p>
-						<p className="lead">Attention au spoil!</p>
+						<h1 className="display-4">Groups, clans and organisations...</h1>
+						<p className="lead">These are all the groups from the New Human Universe.</p>
 					</Container>
 				</div>
 
@@ -46,24 +45,24 @@ class ListeDesTheories extends Component {
 					<Row className="pb-5">
 						<Col sm="12" lg="9" >
 							{
-								data.allContentfulTheorie.edges.map(
+								data.allContentfulGroupe.edges.map(
 									(edge) =>
 										<div className="clearfix border-bottom mb-2" key={edge.node.id}>
 											<div className="">
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
-														<Link to={'encyclopedie/' + edge.node.slug}><h2><small>{edge.node.titre}</small></h2></Link>
+														<Link to={'/en/groups/' + edge.node.slug}><h2><small>{edge.node.nomGroupe}</small></h2></Link>
 													</Col>
 												</Row>
 											</div>
 											<div>
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
-														<div className="card-text" dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
+														<div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
 													</Col>
 
 													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={'encyclopedie/' + edge.node.slug}>Voir les détails</Link>
+														<Link className="float-right mb-2" to={'/en/groups/' + edge.node.slug}>See details</Link>
 													</Col>
 												</Row>
 											</div>
@@ -71,33 +70,30 @@ class ListeDesTheories extends Component {
 								)
 							}
 						</Col>
+						<Col sm="12" lg="3" >
+						</Col>
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-ListeDesTheories.propTypes = {
+ListOfGroups.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default ListeDesTheories
+export default ListOfGroups
 
-export const pageQuery = graphql`query listeTheorieQueryFR {
-	allContentfulTheorie (filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeGroupeQueryEN {
+	allContentfulGroupe (filter: {node_locale: {eq: "en-US"}}) {
 		edges {
 			node {
 				id
-				titre
+				nomGroupe
 				description {
-					childMarkdownRemark {
-						html
-					}
-				}
-				texte {
 					childMarkdownRemark {
 						html
 					}

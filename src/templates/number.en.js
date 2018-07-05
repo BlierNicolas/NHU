@@ -11,10 +11,10 @@ import {
     Input,
     Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Nombre extends Component {
+class Number extends Component {
     constructor(props) {
         super(props);
 
@@ -34,30 +34,30 @@ class Nombre extends Component {
 
         return (
             <div id="page-wrapper">
-                <Header />
+                <HeaderEn />
 
                 <div>
                     <Breadcrumb className="mb-0">
-                        <BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>L'Univers en nombre!</BreadcrumbItem>
+                        <BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>The Universe in numbers!</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
 
                 <div className="equiv">
-                    <Button className="float-right" color="primary"><Link className="text-white" to="/en/number">En</Link></Button>
+                    <Button className="float-right" color="primary"><Link className="text-white" to="/nombre">Fr</Link></Button>
                 </div>
 
                 <div className="my-5">
                     <Container>
-                        <h1 className="display-4">L'Univers en nombre!</h1>
-                        <p className="lead">Voici une petite page informationnelle au sujet de l'Univers en lui même!</p>
+                        <h1 className="display-4">The Universe in numbers!</h1>
+                        <p className="lead">Here are all the novels and mini-stories that relate to the New Human Universe!</p>
                     </Container>
                 </div>
 
                 <Container className="pb-5">
                     <Row>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre d'histoires: {data.allContentfulRoman.totalCount}
+                            Number of stories: {data.allContentfulRoman.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
                             {
@@ -74,7 +74,7 @@ class Nombre extends Component {
                                     }
                                 )
                             }
-                            Nombre d'histoires en cours: {this.histoireEnCours}
+                            Amount of stories in progress: {this.histoireEnCours}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
                             {
@@ -91,44 +91,44 @@ class Nombre extends Component {
                                     }
                                 )
                             }
-                            Nombre d'histoires terminées: {this.histoireTerminees}
+                            Amount of finished stories: {this.histoireTerminees}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de chapitre: {data.allContentfulChapitre.totalCount}
+                            Amount of chapters: {data.allContentfulChapitre.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de groupe: {data.allContentfulGroupe.totalCount}
+                            Amout of groups: {data.allContentfulGroupe.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de théories: {data.allContentfulTheorie.totalCount}
+                            Amount of theories: {data.allContentfulTheorie.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de personnages: {data.allContentfulPersonnage.totalCount}
+                            Amount of characters: {data.allContentfulPersonnage.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de pouvoirs: {data.allContentfulPouvoir.totalCount}
+                            Amount of powers: {data.allContentfulPouvoir.totalCount}
                         </Col>
                     </Row>
                 </Container>
 
-                <Footer />
+                <FooterEn />
             </div>
         )
     }
 }
 
-Nombre.propTypes = {
+Number.propTypes = {
     data: PropTypes.object.isRequired
 }
 
-export default Nombre
+export default Number
 
 export const pageQuery = graphql
-    `query nombreQueryFR {
-    allContentfulChapitre(filter: {node_locale: {eq: "fr-CA"}}) {
+    `query nombreQueryEN {
+    allContentfulChapitre(filter: {node_locale: {eq: "en-US"}}) {
         totalCount
     }
-    allContentfulRoman(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulRoman(filter: {node_locale: {eq: "en-US"}}) {
         totalCount
         edges {
             node {
@@ -139,16 +139,16 @@ export const pageQuery = graphql
             }
         }
     }
-    allContentfulGroupe(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulGroupe(filter: {node_locale: {eq: "en-US"}}) {
         totalCount
     }
-    allContentfulTheorie(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulTheorie(filter: {node_locale: {eq: "en-US"}}) {
         totalCount
     }
-    allContentfulPouvoir(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulPouvoir(filter: {node_locale: {eq: "en-US"}}) {
         totalCount
     }
-    allContentfulPersonnage(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulPersonnage(filter: {node_locale: {eq: "en-US"}}) {
         totalCount
     }
 }`

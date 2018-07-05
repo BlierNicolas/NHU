@@ -10,31 +10,31 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Contributeurs extends Component {
+class Contributors extends Component {
 	render() {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Contributeurs</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Contributors</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/contributors">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/contributeurs">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Contributeurs</h1>
-						<p className="lead">Voici toutes les personnes qui ont contribués à l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">Contributors</h1>
+						<p className="lead">These are all the people who have contributed to the New Human Universe.</p>
 					</Container>
 				</div>
 
@@ -44,9 +44,9 @@ class Contributeurs extends Component {
 							<div className="clearfix mb-2">
 								<Row className="no-gutters">
 									<Col lg="12">
-										<div><a href="https://thomas-desfossez.com">Thomas Desfossez</a> - Design du site</div>
+										<div><a href="https://thomas-desfossez.com">Thomas Desfossez</a> - Design of the website</div>
 										<div><a href="http://sarahbourque.ca">Sarah Bourque</a> - Illustrations</div>
-										<div>Maeva G - Aide à la création de l'Univers</div>
+										<div>Maeva G - Help creating the Universe</div>
 										<div>Marie-Josée Cloutier - Corrections</div>
 									</Col>
 								</Row>
@@ -55,14 +55,14 @@ class Contributeurs extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Contributeurs.propTypes = {
+Contributors.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Contributeurs
+export default Contributors
