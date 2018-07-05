@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Theorie extends Component {
+class Theory extends Component {
 	render() {
 		const {
 			titre,
@@ -23,18 +23,18 @@ class Theorie extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/encyclopedie">L'encyclopédie universelle</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en/encyclopedia">The universal encyclopedia</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{titre}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + equivalentUrl}>En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to={equivalentUrl}>Fr</Link></Button>
 				</div>
 
 				<Container fluid className="py-5">
@@ -46,20 +46,20 @@ class Theorie extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Theorie.propTypes = {
+Theory.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Theorie
+export default Theory
 
-export const pageQuery = graphql`query theorieQueryFR ($slug: String!) {
-	contentfulTheorie(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query theorieQueryEN ($slug: String!) {
+	contentfulTheorie(slug: {eq:$slug}, node_locale: {eq: "en-US"}) {
 		titre
 		texte {
 			childMarkdownRemark {

@@ -17,11 +17,11 @@ import {
 	TabPane,
 	Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import classnames from 'classnames';
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Progression extends Component {
+class ProgressionEN extends Component {
 	constructor(props) {
 		super(props);
 
@@ -46,23 +46,23 @@ class Progression extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Progression de l'Univers</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Progression of the Universe</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/progression">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/progression">Fr</Link></Button>
 				</div>
 
 				<div className="my-5">
 					<Container>
-						<h1 className="display-4">Progression de l'Univers</h1>
-						<p className="lead">Voici la progression de toutes les histoires de l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">Progression of the Universe</h1>
+						<p className="lead">This is the progression of all the stories in the New Human Universe.</p>
 					</Container>
 				</div>
 
@@ -70,12 +70,12 @@ class Progression extends Component {
 					<Nav pills>
 						<NavItem className="histoires-pills">
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
-								Histoires en cours
+								Stories in progress
 							</NavLink>
 						</NavItem>
 						<NavItem className="histoires-pills">
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
-								Histoires terminées
+								Finished stories
 							</NavLink>
 						</NavItem>
 					</Nav>
@@ -91,10 +91,10 @@ class Progression extends Component {
 													edge.node.chapitreActuel < edge.node.maximumChapitre ?
 														(
 															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
+																<ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
 																<div className="list-group-item-text">
 																	<Progress animated value={(edge.node.chapitreActuel / edge.node.maximumChapitre) * 100}>{edge.node.chapitreActuel + "/" + edge.node.maximumChapitre}</Progress>
-																	<Link to={'/histoires/' + edge.node.slug}>Commencer à lire</Link>
+																	<Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
 																</div>
 															</ListGroupItem>
 														) :
@@ -115,10 +115,10 @@ class Progression extends Component {
 													edge.node.chapitreActuel == edge.node.maximumChapitre ?
 														(
 															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
+																<ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
 																<div className="list-group-item-text">
 																	<Progress animated value={(edge.node.chapitreActuel / edge.node.maximumChapitre) * 100}>{edge.node.chapitreActuel + "/" + edge.node.maximumChapitre}</Progress>
-																	<Link to={'/histoires/' + edge.node.slug}>Commencer à lire</Link>
+																	<Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
 																</div>
 															</ListGroupItem>
 														) :
@@ -132,21 +132,21 @@ class Progression extends Component {
 					</TabContent>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Progression.propTypes = {
+ProgressionEN.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Progression
+export default ProgressionEN
 
 export const pageQuery = graphql
-	`query listeHistoireQueryFR2 {
-        allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+	`query listeHistoireQueryEN2 {
+        allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: "en-US"}}) {
           edges {
             node {
                 id

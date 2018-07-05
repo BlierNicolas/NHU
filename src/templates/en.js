@@ -9,10 +9,10 @@ import {
     Jumbotron,
     Button
 } from 'reactstrap';
-import Header from '../components/header'
-import Footer from '../components/footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class IndexPage extends Component {
+class IndexPageEn extends Component {
     constructor() {
         super();
         this.state = {
@@ -82,18 +82,18 @@ class IndexPage extends Component {
 
         return (
             <div>
-                <Header />
+                <HeaderEn />
 
                 <div className="equiv">
-                    <Button className="float-right" color="primary"><Link className="text-white" to="/en">En</Link></Button>
+                    <Button className="float-right" color="primary"><Link className="text-white" to="/">Fr</Link></Button>
                 </div>
 
                 <Jumbotron fluid>
                     <Container fluid>
-                        <h1 className="display-3">L'Univers des Nouveaux Humains</h1>
-                        <p className="lead">L'Univers des Nouveaux Humains est un Univers fictif où 0.01% de la population mondiale possède des pouvoirs.</p>
-                        <p className="lead">Les pouvoirs sont détectables via un gène qui a été nommé le gène Drumel, au nom du scientifique qui a identifié les différents cas et possibilités de ce gène.</p>
-                        <Link className="btn btn-primary" to="/histoires">Entrer dans l'Univers</Link>
+                        <h1 className="display-3">New Humans Universe</h1>
+                        <p className="lead">New Human Universe is a fictive universe where 0.01% of the population have a power.</p>
+                        <p className="lead">The powers are detectable via a gene that has been named the Drumel gene, on behalf of the scientist who identified the different cases and possibilities of this gene.</p>
+                        <Link className="btn btn-primary" to="/en/stories">Enter in the Universe</Link>
                     </Container>
                 </Jumbotron>
 
@@ -129,7 +129,7 @@ class IndexPage extends Component {
                             </div>
                         </Col> */}
                         <Col sm="12" lg="9" >
-                            <h2 className="mb-4">Dernières nouvelles</h2>
+                            <h2 className="mb-4">Recents news</h2>
                             {
                                 data.allContentfulNouvelle.edges.map(
                                     (edge) =>
@@ -137,7 +137,7 @@ class IndexPage extends Component {
                                             <div className="">
                                                 <Row className="no-gutters">
                                                     <Col md="9" sm="12">
-                                                        <Link to={'nouvelles/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
+                                                        <Link to={'en/news/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
                                                     </Col>
 
                                                     <Col md="3" sm="12">
@@ -152,7 +152,7 @@ class IndexPage extends Component {
                                                     </Col>
 
                                                     <Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                        <Link className="float-right mb-2" to={'nouvelles/' + edge.node.slug}>En savoir plus</Link>
+                                                        <Link className="float-right mb-2" to={'en/news/' + edge.node.slug}>See more</Link>
                                                     </Col>
                                                 </Row>
                                             </div>
@@ -160,7 +160,7 @@ class IndexPage extends Component {
                                 )
                             }
                             <br />
-                            <h2 className="mb-4">Calendrier des prochaines sorties</h2>
+                            <h2 className="mb-4">Calendar of the next releases</h2>
                             {
                                 data.allContentfulCalendrier.edges.map(
                                     (edge) =>
@@ -185,7 +185,11 @@ class IndexPage extends Component {
                                                             </Col>
 
                                                             <Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                                <Link className="float-right mb-2" to={edge.node.romanSlug}>Aller voir l'histoire</Link>
+                                                            {
+																	edge.node.romanSlug ?
+																		(<Link className="float-right mb-2" to={"/en" + edge.node.romanSlug}>Go see the story</Link>) :
+																		('')
+																}
                                                             </Col>
                                                         </Row>
                                                     </div>
@@ -208,20 +212,20 @@ class IndexPage extends Component {
                     </Row>
                 </Container>
 
-                <Footer />
+                <FooterEn />
             </div>
         )
     }
 }
 
-IndexPage.propTypes = {
+IndexPageEn.propTypes = {
     data: PropTypes.object.isRequired
 }
 
-export default IndexPage
+export default IndexPageEn
 
-export const pageQuery = graphql`query listeNouvelleQueryFR {
-    allContentfulNouvelle (limit: 9, sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeNouvelleQueryEN {
+    allContentfulNouvelle (limit: 9, sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "en-US"}}) {
       edges {
         node {
           id
@@ -231,13 +235,13 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
               html
             }
           }
-          date(formatString: "YYYY MMMM DD")
+          date(formatString: "YYYY-MM-DD")
           dateSpe
           slug
         }
       }
     }
-    allContentfulCalendrier (limit: 6, sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulCalendrier (limit: 6, sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "en-US"}}) {
 		edges {
 			node {
 				id
@@ -247,7 +251,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
 						html
 					}
 				}
-				date(formatString: "YYYY MMMM DD")
+				date(formatString: "YYYY-MM-DD")
                 dateSpe
                 romanSlug
                 affiche

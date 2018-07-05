@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class ListeDesNouvelles extends Component {
+class ListOfNews extends Component {
 	render() {
 		const {
 			data
@@ -21,23 +21,23 @@ class ListeDesNouvelles extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Quoi de nouveau&nbsp;?</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>What's new&nbsp;?</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/news">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/nouvelles">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Quoi de nouveau&nbsp;?</h1>
-						<p className="lead">Voici toutes les nouvelles par rapport au site et aux informations au sujet de l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">What's new&nbsp;?</h1>
+						<p className="lead">Here is a small informational page about the Universe itself.</p>
 					</Container>
 				</div>
 
@@ -51,7 +51,7 @@ class ListeDesNouvelles extends Component {
 											<div className="">
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
-														<Link to={'nouvelles/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
+														<Link to={'/en/news/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
 													</Col>
 
 													<Col md="3" sm="12">
@@ -66,7 +66,7 @@ class ListeDesNouvelles extends Component {
 													</Col>
 
 													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={'nouvelles/' + edge.node.slug}>En savoir plus</Link>
+														<Link className="float-right mb-2" to={'/en/news/' + edge.node.slug}>Read more</Link>
 													</Col>
 												</Row>
 											</div>
@@ -79,20 +79,20 @@ class ListeDesNouvelles extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-ListeDesNouvelles.propTypes = {
+ListOfNews.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default ListeDesNouvelles
+export default ListOfNews
 
-export const pageQuery = graphql`query listeNouvelleQueryFR2 {
-	allContentfulNouvelle (sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeNouvelleQueryEN2 {
+	allContentfulNouvelle (sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "en-US"}}) {
 		edges {
 			node {
 				id

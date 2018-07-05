@@ -8,13 +8,12 @@ import {
 	Col,
 	Breadcrumb,
 	BreadcrumbItem,
-	Progress,
 	Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Chapitre extends Component {
+class Chapter extends Component {
 	render() {
 		const {
 			titreChapitre,
@@ -27,19 +26,19 @@ class Chapitre extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+			<HeaderEn />
 
-				<div>
-					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/histoires">Nos Histoires de l'Univers...</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={"/histoires/" + nomRoman}>Roman</Link></BreadcrumbItem>
-						<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
-					</Breadcrumb>
+			<div>
+				<Breadcrumb className="mb-0">
+					<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+					<BreadcrumbItem><Link to="/en/stories">Our Univese stories...</Link></BreadcrumbItem>
+					<BreadcrumbItem><Link to={"/en/stories/" + nomRoman}>Story</Link></BreadcrumbItem>
+					<BreadcrumbItem active>{titreChapitre}</BreadcrumbItem>
+				</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + equivalentUrl}>En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to={equivalentUrl}>Fr</Link></Button>
 				</div>
 
 				<div>
@@ -61,15 +60,15 @@ class Chapitre extends Component {
 									<Col xs="4" className="text-left pl-0">
 										{
 											chapitreAvant ?
-												(<Link className="btn btn-primary" to={chapitreAvant}>Chapitre précédent</Link>) :
+												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreAvant}>Previous chapitre</Link>) :
 												('')
 										}
 									</Col>
-									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={"/histoires/" + nomRoman}>Retourner au roman</Link></Col>
+									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={"/en/stories/" + nomRoman}>Go back to the story</Link></Col>
 									<Col xs="4" className="text-right pr-0">
 										{
 											chapitreApres ?
-												(<Link className="btn btn-primary" to={chapitreApres}>Chapitre suivant</Link>) :
+												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreApres}>Next chapitre</Link>) :
 												('')
 										}
 									</Col>
@@ -79,20 +78,20 @@ class Chapitre extends Component {
 					</Container>
 				</div>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-Chapitre.propTypes = {
+Chapter.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default Chapitre
+export default Chapter
 
-export const pageQuery = graphql`query chapitreQueryFR ($slug: String!) {
-	contentfulChapitre(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query chapitreQueryEN ($slug: String!) {
+	contentfulChapitre(slug: {eq:$slug}, node_locale: {eq: "en-US"}) {
 		titreChapitre
 		texte {
 			childMarkdownRemark {

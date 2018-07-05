@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class ListeDesTheories extends Component {
+class ListOfTheories extends Component {
 	render() {
 		const {
 			data
@@ -21,24 +21,24 @@ class ListeDesTheories extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>L'encyclopédie universelle</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>The universal encyclopedia</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/encyclopedia">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/encyclopedie">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">L'encyclopédie universelle</h1>
-						<p className="lead">Voici toutes les théories au sujet de l'Univers des Nouveaux Humains.</p>
-						<p className="lead">Attention au spoil!</p>
+						<h1 className="display-4">The universal encyclopedia</h1>
+						<p className="lead">Here are all the theories about the New Human Universe.</p>
+						<p className="lead">Watch out for spoilers!</p>
 					</Container>
 				</div>
 
@@ -52,7 +52,7 @@ class ListeDesTheories extends Component {
 											<div className="">
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
-														<Link to={'encyclopedie/' + edge.node.slug}><h2><small>{edge.node.titre}</small></h2></Link>
+														<Link to={'/en/encyclopedia/' + edge.node.slug}><h2><small>{edge.node.titre}</small></h2></Link>
 													</Col>
 												</Row>
 											</div>
@@ -63,7 +63,7 @@ class ListeDesTheories extends Component {
 													</Col>
 
 													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={'encyclopedie/' + edge.node.slug}>Voir les détails</Link>
+														<Link className="float-right mb-2" to={'/en/encyclopedia/' + edge.node.slug}>See details</Link>
 													</Col>
 												</Row>
 											</div>
@@ -74,20 +74,20 @@ class ListeDesTheories extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-ListeDesTheories.propTypes = {
+ListOfTheories.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default ListeDesTheories
+export default ListOfTheories
 
-export const pageQuery = graphql`query listeTheorieQueryFR {
-	allContentfulTheorie (filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeTheorieQueryEN {
+	allContentfulTheorie (filter: {node_locale: {eq: "en-US"}}) {
 		edges {
 			node {
 				id

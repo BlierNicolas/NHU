@@ -13,10 +13,10 @@ import {
     Progress,
     Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class Roman extends Component {
+class Story extends Component {
     render() {
         const {
             data
@@ -24,18 +24,18 @@ class Roman extends Component {
 
         return (
             <div id="page-wrapper">
-                <Header />
+                <HeaderEn />
 
                 <div>
                     <Breadcrumb className="mb-0">
-                        <BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to="/histoires">Nos Histoires de l'Univers...</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to="/en/stories">Our Univese stories...</Link></BreadcrumbItem>
                         <BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
 
                 <div className="equiv">
-                    <Button className="float-right" color="primary"><Link className="text-white" to={"/en" + data.contentfulRoman.equivalentUrl}>En</Link></Button>
+                    <Button className="float-right" color="primary"><Link className="text-white" to={data.contentfulRoman.equivalentUrl}>Fr</Link></Button>
                 </div>
 
                 <div className="my-5">
@@ -61,7 +61,7 @@ class Roman extends Component {
                                         <ListGroup className="pt-5">
                                             {
                                                 data.allContentfulChapitre.edges.map(
-                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
                                             }
                                         </ListGroup>
                                     </Col>
@@ -77,7 +77,7 @@ class Roman extends Component {
                                         <ListGroup className="pt-5">
                                             {
                                                 data.allContentfulChapitre.edges.map(
-                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
                                             }
                                         </ListGroup>
                                     </Col>
@@ -88,21 +88,21 @@ class Roman extends Component {
                     </Container>
                 </div>
 
-                <Footer />
+                <FooterEn />
             </div>
         )
     }
 }
 
-Roman.propTypes = {
+Story.propTypes = {
     data: PropTypes.object.isRequired
 }
 
-export default Roman
+export default Story
 
 export const pageQuery = graphql
-    `query romanQueryFR ($slug: String!) {
-  contentfulRoman(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
+    `query romanQueryEN ($slug: String!) {
+  contentfulRoman(slug: {eq: $slug}, node_locale: {eq: "en-US"}) {
     titreRoman
     resume {
       childMarkdownRemark {
@@ -120,7 +120,7 @@ export const pageQuery = graphql
     slug
     equivalentUrl
 }
-  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $slug}}) {
+  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "en-US"}, nomRoman: {eq: $slug}}) {
     edges {
       node {
         id

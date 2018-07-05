@@ -10,10 +10,10 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import HeaderEn from '../components/enHeader'
+import FooterEn from '../components/enFooter'
 
-class ListeDesPersonnages extends Component {
+class ListOfCharacter extends Component {
 	render() {
 		const {
 			data
@@ -21,23 +21,23 @@ class ListeDesPersonnages extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<HeaderEn />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Nos personnages</BreadcrumbItem>
+						<BreadcrumbItem><Link to="/en">Homepage</Link></BreadcrumbItem>
+						<BreadcrumbItem active>Our characters</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/characters">En</Link></Button>
+					<Button className="float-right" color="primary"><Link className="text-white" to="/personnages">Fr</Link></Button>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Nos personnages</h1>
-						<p className="lead">Voici la liste de tous les personnages présents (ou presque) dans l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">Our characters</h1>
+						<p className="lead">Here are all the news about the site and information about the New Human Universe.</p>
 					</Container>
 				</div>
 
@@ -47,27 +47,27 @@ class ListeDesPersonnages extends Component {
 							data.allContentfulPersonnage.edges.map(
 								(edge) =>
 									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3">
-										<Link to={"/personnages/" + edge.node.slug}>{edge.node.nomComplet}</Link>
+										<Link to={"/en/characters/" + edge.node.slug}>{edge.node.nomComplet}</Link>
 									</Col>
 							)
 						}
 					</Row>
 				</Container>
 
-				<Footer />
+				<FooterEn />
 			</div>
 		)
 	}
 }
 
-ListeDesPersonnages.propTypes = {
+ListOfCharacter.propTypes = {
 	data: PropTypes.object.isRequired
 }
 
-export default ListeDesPersonnages
+export default ListOfCharacter
 
-export const pageQuery = graphql`query listePersonnageQueryFR {
-    allContentfulPersonnage(sort: {fields: [nomComplet], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listePersonnageQueryEN {
+    allContentfulPersonnage(sort: {fields: [nomComplet], order: ASC}, filter: {node_locale: {eq: "en-US"}}) {
         edges {
             node {
 				id

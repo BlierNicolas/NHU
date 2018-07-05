@@ -6,7 +6,7 @@ import {
     Col
 } from 'reactstrap';
 
-const Footer = ({ siteTitle }) => (
+const FooterEn = ({ siteTitle }) => (
     <footer className="py-5">
         <Container fluid>
             <Row>
@@ -16,8 +16,8 @@ const Footer = ({ siteTitle }) => (
                     </a>
 
                     <div className="my-3 my-lg-0">
-                        <Link to="/contributeurs" className="text-white nav-link d-inline">Contributeurs</Link>
-                        <Link to="/nombre" className="text-white nav-link d-inline">L'Univers en nombre</Link>
+                        <Link to="/en/contributors" className="text-white nav-link d-inline">Contributors</Link>
+                        <Link to="/en/number" className="text-white nav-link d-inline">The Universe in numbers</Link>
                     </div>
 
                     <p className="text-right text-white mb-0"><small>Venatus Universe ©{new Date().getFullYear()}</small></p>
@@ -31,4 +31,4 @@ const Footer = ({ siteTitle }) => (
     </footer>
 )
 
-export default Footer
+export default FooterEn
