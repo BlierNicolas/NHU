@@ -84,9 +84,9 @@ class IndexPage extends Component {
             <div>
                 <Header />
 
-                {/* <div className="equiv">
+                <div className="equiv">
                     <Button className="float-right" color="primary"><Link className="text-white" to="/en">En</Link></Button>
-                </div> */}
+                </div>
 
                 <Jumbotron fluid>
                     <Container fluid>

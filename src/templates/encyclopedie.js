@@ -30,9 +30,9 @@ class ListeDesTheories extends Component {
 					</Breadcrumb>
 				</div>
 
-				{/* <div className="equiv">
+				<div className="equiv">
 					<Button className="float-right" color="primary"><Link className="text-white" to="/en/encyclopedia">En</Link></Button>
-				</div> */}
+				</div>
 
 				<div className="py-5">
 					<Container fluid>

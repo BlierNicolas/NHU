@@ -31,9 +31,9 @@ class Personnage extends Component {
                 </Breadcrumb>
 				</div>
 
-				{/* <div className="equiv">
+				<div className="equiv">
 					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + data.contentfulPersonnage.equivalentUrl}>En</Link></Button>
-				</div> */}
+				</div>
 
                 <Container fluid>
                     <Row className="pb-5">
