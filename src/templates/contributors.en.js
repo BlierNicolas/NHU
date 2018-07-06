@@ -27,9 +27,9 @@ class Contributors extends Component {
 					</Breadcrumb>
 				</div>
 
-				<div className="equiv">
+				{/* <div className="equiv">
 					<Button className="float-right" color="primary"><Link className="text-white" to="/contributeurs">Fr</Link></Button>
-				</div>
+				</div> */}
 
 				<div className="py-5">
 					<Container fluid>
