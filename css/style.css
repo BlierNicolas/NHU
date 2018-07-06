@@ -141,7 +141,7 @@ footer {
     color: white;
 }
 
-.contentful-logo{
+.contentful-logo {
     max-width: 100px;
     width: 100%;
 }
@@ -162,4 +162,17 @@ footer {
 .image-display {
     width: 258px;
     height: 400px;
+}
+
+@media (max-width: 700px) {
+    .nav-center {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-center li div {
+        left: 0;
+        right: auto;
+    }
 }
