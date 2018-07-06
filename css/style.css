@@ -167,6 +167,7 @@ footer {
 @media (max-width: 700px) {
     .nav-center {
         flex-direction: column;
+        margin-top: 1rem;
     }
 }
 
