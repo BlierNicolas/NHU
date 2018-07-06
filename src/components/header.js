@@ -132,7 +132,7 @@ export default class Header extends React.Component {
                 <Navbar color="dark" dark expand="md">
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" pills>
+                        <Nav className="ml-auto nav-center" pills>
                             <NavItem>
                                 <Button color="primary" onClick={this.toggleNight}>
                                     <FontAwesome
