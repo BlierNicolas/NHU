@@ -43,7 +43,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		resolve(
 			graphql(
 				`{
-				allContentfulChapitre {
+				allContentfulChapitre(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -366,7 +366,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulChapitre {
+				allContentfulChapitre(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
