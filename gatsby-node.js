@@ -72,7 +72,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulRoman {
+				allContentfulRoman(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -133,7 +133,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulPersonnage {
+				allContentfulPersonnage(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -162,7 +162,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulPouvoir {
+				allContentfulPouvoir(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -191,7 +191,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulNouvelle {
+				allContentfulNouvelle(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -222,7 +222,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulGroupe {
+				allContentfulGroupe(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -255,7 +255,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulTheorie {
+				allContentfulTheorie(filter: {node_locale: {eq: "fr-CA"}}) {
 					edges {
 						node {
 							id
@@ -302,7 +302,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulNouvelle {
+				allContentfulNouvelle(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
@@ -337,7 +337,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulRoman {
+				allContentfulRoman(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
@@ -407,7 +407,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulPersonnage {
+				allContentfulPersonnage(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
@@ -440,7 +440,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulPouvoir {
+				allContentfulPouvoir(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
@@ -473,7 +473,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulGroupe {
+				allContentfulGroupe(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
@@ -510,7 +510,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			graphql(
 				`{
-				allContentfulTheorie {
+				allContentfulTheorie(filter: {node_locale: {eq: "en-US"}}) {
 					edges {
 						node {
 							id
