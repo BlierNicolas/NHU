@@ -67,12 +67,12 @@ class ListOfStories extends Component {
 
 				<Container className="my-5">
 					<Nav pills>
-						<NavItem className="histoires-pills">
+						<NavItem>
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
 								The stories
 							</NavLink>
 						</NavItem>
-						<NavItem className="histoires-pills">
+						<NavItem>
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
 								The mini-stories
 							</NavLink>

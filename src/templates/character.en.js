@@ -42,10 +42,16 @@ class Character extends Component {
                                 <div>
                                     <h1 className="display-4">{data.contentfulPersonnage.nomComplet}</h1>
                                     <div>
-                                        Power: {data.contentfulPersonnage.pouvoirNom}<br />
+                                        {
+                                            data.contentfulPersonnage.pouvoirNom ?
+                                                (<div>
+                                                    Power: {data.contentfulPersonnage.pouvoirNom}<br />
+                                                </div>) :
+                                                ('')
+                                        }
                                         Alignment: {data.contentfulPersonnage.alignement}<br />
                                         Birth date: {data.contentfulPersonnage.dateNaissance}<br />
-                                        Years-old: {data.contentfulPersonnage.age}
+                                        Age: {data.contentfulPersonnage.age}
                                     </div>
                                 </div>
                             </div>

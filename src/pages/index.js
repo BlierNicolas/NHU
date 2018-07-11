@@ -13,68 +13,6 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 class IndexPage extends Component {
-    constructor() {
-        super();
-        this.state = {
-            currentItem: '',
-            username: ''
-        }
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    // handleChange(e) {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     });
-    // }
-
-    // handleSubmit(e) {
-    //     // Empêche le refresh
-    //     e.preventDefault();
-
-    //     // Met la référence vers la database
-    //     const itemsRef = firebase.database().ref('items');
-
-    //     // Popule les champs dans une collection "item"
-    //     const item = {
-    //         title: this.state.currentItem,
-    //         user: this.state.username
-    //     }
-
-    //     // Pousse l'item créé dans la collection
-    //     itemsRef.push(item);
-
-    //     // Remet les champs vides
-    //     this.setState({
-    //         currentItem: '',
-    //         username: ''
-    //     });
-    // }
-
-    // componentDidMount() {
-    //     const itemsRef = firebase.database().ref('items');
-    //     itemsRef.on('value', (snapshot) => {
-    //         let items = snapshot.val();
-    //         let newState = [];
-    //         for (let item in items) {
-    //             newState.push({
-    //                 id: item,
-    //                 title: items[item].title,
-    //                 user: items[item].user
-    //             });
-    //         }
-    //         this.setState({
-    //             items: newState
-    //         });
-    //     });
-    // }
-
-    // removeItem(itemId) {
-    //     const itemRef = firebase.database().ref(`/items/${itemId}`);
-    //     itemRef.remove();
-    // }
-
     render() {
         const {
             data
@@ -99,35 +37,6 @@ class IndexPage extends Component {
 
                 <Container fluid className="p-0">
                     <Row className="pb-5">
-                        {/* <Col sm="12" lg="9">
-                            <h2>Test firebase</h2>
-                            <div className='container'>
-                                <section className='add-item'>
-                                    <form onSubmit={this.handleSubmit}>
-                                        <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username} />
-                                        <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-                                        <button>Add Item</button>
-                                    </form>
-                                </section>
-                                <section className='display-item'>
-                                    <div className="wrapper">
-                                        <ul>
-                                            {this.state.items.map((item) => {
-                                                if (item.user == this.state.connectedUser) {
-                                                    return (
-                                                        <li key={item.id}>
-                                                            <h3>{item.title}</h3>
-                                                            <p>brought by: {item.user}</p>
-                                                            <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
-                                                        </li>
-                                                    )
-                                                };
-                                            })}
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                        </Col> */}
                         <Col sm="12" lg="9" >
                             <h2 className="mb-4">Dernières nouvelles</h2>
                             {
@@ -159,8 +68,9 @@ class IndexPage extends Component {
                                         </div>
                                 )
                             }
-                            <br />
-                            <h2 className="mb-4">Calendrier des prochaines sorties</h2>
+                        </Col>
+                        <Col sm="12" lg="3" >
+                            <h2 className="mb-4">Prochaines sorties</h2>
                             {
                                 data.allContentfulCalendrier.edges.map(
                                     (edge) =>
@@ -196,20 +106,19 @@ class IndexPage extends Component {
                                 )
                             }
                         </Col>
-                        <Col sm="12" lg="3" >
-                            {/* <aside className="">
-                        <h2 className="mb-4">Le Nic</h2>
-
-                        <p>
-                            lorem  
-                        </p>
-                    </aside> */}
+                    </Row>
+                    <Row className="pb-5">
+                        <Col>
+                            <h2 className="mb-4">La création de l'Univers</h2>
+                            <p>J'ai commencé à créer l'Univers autour de Janvier 2015, la première histoire que j'ai écrite était <a href="/histoires/le-premier-cyborg-tome-1">Le Premier Cyborg</a>, après le premier tome, j'ai commencé à écrire une suite.</p>
+                            <p>Rapidement, l'Univers a prit de l'expension, entraînant la création de plusieurs personnages, pouvoirs et groupes. Les concepts ce sont détaillés au fur et à mesure que le temps avançait.</p>
+                            <p>Éventuellement, tous les personnages auront leur histoire à raconter et l'Univers continuera de grandir encore et encore.</p>
                         </Col>
                     </Row>
                 </Container>
 
                 <Footer />
-            </div>
+            </div >
         )
     }
 }
@@ -231,7 +140,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
               html
             }
           }
-          date(formatString: "YYYY MMMM DD")
+          date(formatString: "YYYY-MM-DD")
           dateSpe
           slug
         }
@@ -247,7 +156,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
 						html
 					}
 				}
-				date(formatString: "YYYY MMMM DD")
+				date(formatString: "YYYY-MM-DD")
                 dateSpe
                 romanSlug
                 affiche

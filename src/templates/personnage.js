@@ -8,7 +8,7 @@ import {
     Col,
     Breadcrumb,
     BreadcrumbItem,
-	Button
+    Button
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -21,19 +21,19 @@ class Personnage extends Component {
 
         return (
             <div id="page-wrapper">
-            <Header />
+                <Header />
 
-            <div>
-                <Breadcrumb className="mb-0">
-                    <BreadcrumbItem><Link to="/">Page d'accueil</Link></BreadcrumbItem>
-                    <BreadcrumbItem><Link to="/personnages">Nos personnages</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
-                </Breadcrumb>
-				</div>
+                <div>
+                    <Breadcrumb className="mb-0">
+                        <BreadcrumbItem><Link to="/">Page d'accueil</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to="/personnages">Nos personnages</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
+                    </Breadcrumb>
+                </div>
 
-				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/en" + data.contentfulPersonnage.equivalentUrl}>En</Link></Button>
-				</div>
+                <div className="equiv">
+                    <Button className="float-right" color="primary"><Link className="text-white" to={"/en" + data.contentfulPersonnage.equivalentUrl}>En</Link></Button>
+                </div>
 
                 <Container fluid>
                     <Row className="pb-5">
@@ -42,7 +42,13 @@ class Personnage extends Component {
                                 <div>
                                     <h1 className="display-4">{data.contentfulPersonnage.nomComplet}</h1>
                                     <div>
-                                        Pouvoir: {data.contentfulPersonnage.pouvoirNom}<br />
+                                        {
+                                            data.contentfulPersonnage.pouvoirNom ?
+                                                (<div>
+                                                    Pouvoir: {data.contentfulPersonnage.pouvoirNom}<br />
+                                                </div>) :
+                                                ('')
+                                        }
                                         Alignement: {data.contentfulPersonnage.alignement}<br />
                                         Data de naissance: {data.contentfulPersonnage.dateNaissance}<br />
                                         Âge: {data.contentfulPersonnage.age}
