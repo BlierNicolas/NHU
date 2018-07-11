@@ -140,6 +140,7 @@ class Pays extends Component {
 										<th>Nom de la ville</th>
 										<th>Superficie</th>
 										<th>Population</th>
+										<th>Quantité de Nouveaux Humains</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -149,6 +150,7 @@ class Pays extends Component {
 												<td><Link to={'/giervia/abaltia/' + edge.node.slug}>{edge.node.nomVille}</Link></td>
 												<td>{edge.node.superficie} m<sup>2</sup></td>
 												<td>{edge.node.population}</td>
+												<td>{edge.node.quantiteNouvHumains}</td>
 											</tr>)
 									}
 								</tbody>
@@ -362,6 +364,7 @@ export const pageQuery = graphql`query paysQueryFR ($slug: String!) {
 				slug
 				superficie
 				population
+				quantiteNouvHumains
 			}
 		}
 	}
