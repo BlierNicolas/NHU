@@ -167,7 +167,7 @@ class Country extends Component {
 							<ListGroup>
 								<div>
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.climat ?
 											(<div className="my-3">
 												<div>
 													<h3>Temperature</h3>
@@ -179,7 +179,7 @@ class Country extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.ressources ?
 											(<div className="my-3">
 												<div>
 													<h3>Resources</h3>
@@ -191,7 +191,7 @@ class Country extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.typeTerrain ?
 											(<div className="my-3">
 												<div>
 													<h3>Field type</h3>
@@ -210,7 +210,7 @@ class Country extends Component {
 							<ListGroup>
 								<div>
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.dirigeants ?
 											(<div className="my-3">
 												<div>
 													<h3>Leaders</h3>
@@ -222,7 +222,7 @@ class Country extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.reputation ?
 											(<div className="my-3">
 												<div>
 													<h3>Reputation</h3>
@@ -234,7 +234,7 @@ class Country extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.conflit ?
 											(<div className="my-3">
 												<div>
 													<h3>Conflict</h3>
@@ -253,7 +253,7 @@ class Country extends Component {
 							<ListGroup>
 								<div>
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.langueCulture ?
 											(<div className="my-3">
 												<div>
 													<h3>Languages and cultures</h3>
@@ -265,7 +265,7 @@ class Country extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.religion ?
 											(<div className="my-3">
 												<div>
 													<h3>Religion</h3>

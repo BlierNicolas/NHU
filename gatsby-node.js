@@ -22,6 +22,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const contributeursTemplate = path.resolve('src/templates/contributeurs.js')
 		const mondeTemplate = path.resolve('src/templates/monde.js')
 		const paysTemplate = path.resolve('src/templates/pays.js')
+		const villeTemplate = path.resolve('src/templates/ville.js')
 
 		const indexEnTemplate = path.resolve('src/templates/en.js')
 		const chapitreEnTemplate = path.resolve('src/templates/chapter.en.js')
@@ -43,6 +44,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const contributeursEnTemplate = path.resolve('src/templates/contributors.en.js')
 		const mondeEnTemplate = path.resolve('src/templates/world.en.js')
 		const paysEnTemplate = path.resolve('src/templates/country.en.js')
+		const villeEnTemplate = path.resolve('src/templates/city.en.js')
 
 		resolve(
 			graphql(
@@ -57,7 +59,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -86,7 +87,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -147,7 +147,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -176,7 +175,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -206,7 +204,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -238,7 +235,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -270,7 +266,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -309,7 +304,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 				}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -341,7 +335,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 				}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -350,6 +343,36 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						createPage({
 							path: 'giervia/' + edge.node.slug,
 							component: paysTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			graphql(
+				`{
+				allContentfulVille(filter: {node_locale: {eq: "fr-CA"}}) {
+					edges {
+						node {
+							id
+							slug
+							slugPaysParent
+							node_locale
+						}
+					}
+				}
+				}`
+			).then((result) => {
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulVille.edges.forEach((edge) => {
+					if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
+						createPage({
+							path: 'giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
+							component: villeTemplate,
 							context: {
 								slug: edge.node.slug
 							}
@@ -379,7 +402,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -413,7 +435,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -442,7 +463,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -483,7 +503,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -516,7 +535,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -551,7 +569,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -583,7 +600,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 				}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -615,7 +631,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 				}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -624,6 +639,36 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 						createPage({
 							path: 'en/giervia/' + edge.node.slug,
 							component: paysEnTemplate,
+							context: {
+								slug: edge.node.slug
+							}
+						})
+					}
+				})
+				return
+			}),
+			graphql(
+				`{
+				allContentfulVille(filter: {node_locale: {eq: "en-US"}}) {
+					edges {
+						node {
+							id
+							slug
+							slugPaysParent
+							node_locale
+						}
+					}
+				}
+				}`
+			).then((result) => {
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulVille.edges.forEach((edge) => {
+					if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
+						createPage({
+							path: 'en/giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
+							component: villeEnTemplate,
 							context: {
 								slug: edge.node.slug
 							}
@@ -649,7 +694,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}

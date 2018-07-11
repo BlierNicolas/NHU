@@ -167,7 +167,7 @@ class Pays extends Component {
 							<ListGroup>
 								<div>
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.climat ?
 											(<div className="my-3">
 												<div>
 													<h3>Climat</h3>
@@ -179,7 +179,7 @@ class Pays extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.ressources ?
 											(<div className="my-3">
 												<div>
 													<h3>Ressources</h3>
@@ -191,7 +191,7 @@ class Pays extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.typeTerrain ?
 											(<div className="my-3">
 												<div>
 													<h3>Type de terrain</h3>
@@ -210,7 +210,7 @@ class Pays extends Component {
 							<ListGroup>
 								<div>
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.dirigeants ?
 											(<div className="my-3">
 												<div>
 													<h3>Dirigeants</h3>
@@ -222,7 +222,7 @@ class Pays extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.reputation ?
 											(<div className="my-3">
 												<div>
 													<h3>Réputation</h3>
@@ -234,7 +234,7 @@ class Pays extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.conflit ?
 											(<div className="my-3">
 												<div>
 													<h3>Conflit</h3>
@@ -253,7 +253,7 @@ class Pays extends Component {
 							<ListGroup>
 								<div>
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.langueCulture ?
 											(<div className="my-3">
 												<div>
 													<h3>Langues et cultures</h3>
@@ -265,7 +265,7 @@ class Pays extends Component {
 											('')
 									}
 									{
-										data.contentfulPays.histoire ?
+										data.contentfulPays.religion ?
 											(<div className="my-3">
 												<div>
 													<h3>Religion</h3>
