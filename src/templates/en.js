@@ -23,7 +23,7 @@ class IndexPageEn extends Component {
                 <HeaderEn />
 
                 <div className="equiv">
-                    <Button className="float-right" color="primary"><Link className="text-white" to="/">Fr</Link></Button>
+                    <Link className="text-white" to="/"><Button className="float-right" color="primary">Fr</Button></Link>
                 </div>
 
                 <Jumbotron fluid>

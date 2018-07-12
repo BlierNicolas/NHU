@@ -57,7 +57,7 @@ class Country extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={"/giervia" + data.contentfulPays.equivalentUrl}>Fr</Link></Button>
+					<Link className="text-white" to={"/giervia" + data.contentfulPays.equivalentUrl}><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<Container className="pb-5">

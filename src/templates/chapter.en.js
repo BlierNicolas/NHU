@@ -38,7 +38,7 @@ class Chapter extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={equivalentUrl}>Fr</Link></Button>
+					<Link className="text-white" to={equivalentUrl}><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<div>

@@ -55,7 +55,7 @@ class ListeDesHistoires extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/stories">En</Link></Button>
+					<Link className="text-white" to="/en/stories"><Button className="float-right" color="primary">En</Button></Link>
 				</div>
 
 				<div className="my-5">

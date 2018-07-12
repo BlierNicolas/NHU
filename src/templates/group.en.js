@@ -34,7 +34,7 @@ class Group extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={data.contentfulGroupe.equivalentUrl}>Fr</Link></Button>
+					<Link className="text-white" to={data.contentfulGroupe.equivalentUrl}><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<Container fluid className="py-5">
