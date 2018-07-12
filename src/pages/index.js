@@ -37,7 +37,7 @@ class IndexPage extends Component {
 
                 <Container fluid className="p-0">
                     <Row className="pb-5">
-                        <Col sm="12" lg="9" >
+                        <Col sm="12" lg="8" >
                             <h2 className="mb-4">Dernières nouvelles</h2>
                             {
                                 data.allContentfulNouvelle.edges.map(
@@ -69,7 +69,7 @@ class IndexPage extends Component {
                                 )
                             }
                         </Col>
-                        <Col sm="12" lg="3" >
+                        <Col sm="12" lg="4" >
                             <h2 className="mb-4">Prochaines sorties</h2>
                             {
                                 data.allContentfulCalendrier.edges.map(
