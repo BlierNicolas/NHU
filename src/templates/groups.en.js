@@ -31,7 +31,7 @@ class ListOfGroups extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/groupes">Fr</Link></Button>
+					<Link className="text-white" to="/groupes"><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<div className="py-5">

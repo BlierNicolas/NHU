@@ -56,7 +56,7 @@ class ProgressionEN extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/progression">Fr</Link></Button>
+					<Link className="text-white" to="/progression"><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<div className="my-5">

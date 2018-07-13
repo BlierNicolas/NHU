@@ -13,68 +13,6 @@ import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
 
 class IndexPageEn extends Component {
-    constructor() {
-        super();
-        this.state = {
-            currentItem: '',
-            username: ''
-        }
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    // handleChange(e) {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     });
-    // }
-
-    // handleSubmit(e) {
-    //     // Empêche le refresh
-    //     e.preventDefault();
-
-    //     // Met la référence vers la database
-    //     const itemsRef = firebase.database().ref('items');
-
-    //     // Popule les champs dans une collection "item"
-    //     const item = {
-    //         title: this.state.currentItem,
-    //         user: this.state.username
-    //     }
-
-    //     // Pousse l'item créé dans la collection
-    //     itemsRef.push(item);
-
-    //     // Remet les champs vides
-    //     this.setState({
-    //         currentItem: '',
-    //         username: ''
-    //     });
-    // }
-
-    // componentDidMount() {
-    //     const itemsRef = firebase.database().ref('items');
-    //     itemsRef.on('value', (snapshot) => {
-    //         let items = snapshot.val();
-    //         let newState = [];
-    //         for (let item in items) {
-    //             newState.push({
-    //                 id: item,
-    //                 title: items[item].title,
-    //                 user: items[item].user
-    //             });
-    //         }
-    //         this.setState({
-    //             items: newState
-    //         });
-    //     });
-    // }
-
-    // removeItem(itemId) {
-    //     const itemRef = firebase.database().ref(`/items/${itemId}`);
-    //     itemRef.remove();
-    // }
-
     render() {
         const {
             data
@@ -85,7 +23,7 @@ class IndexPageEn extends Component {
                 <HeaderEn />
 
                 <div className="equiv">
-                    <Button className="float-right" color="primary"><Link className="text-white" to="/">Fr</Link></Button>
+                    <Link className="text-white" to="/"><Button className="float-right" color="primary">Fr</Button></Link>
                 </div>
 
                 <Jumbotron fluid>
@@ -99,36 +37,7 @@ class IndexPageEn extends Component {
 
                 <Container fluid className="p-0">
                     <Row className="pb-5">
-                        {/* <Col sm="12" lg="9">
-                            <h2>Test firebase</h2>
-                            <div className='container'>
-                                <section className='add-item'>
-                                    <form onSubmit={this.handleSubmit}>
-                                        <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username} />
-                                        <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-                                        <button>Add Item</button>
-                                    </form>
-                                </section>
-                                <section className='display-item'>
-                                    <div className="wrapper">
-                                        <ul>
-                                            {this.state.items.map((item) => {
-                                                if (item.user == this.state.connectedUser) {
-                                                    return (
-                                                        <li key={item.id}>
-                                                            <h3>{item.title}</h3>
-                                                            <p>brought by: {item.user}</p>
-                                                            <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
-                                                        </li>
-                                                    )
-                                                };
-                                            })}
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                        </Col> */}
-                        <Col sm="12" lg="9" >
+                        <Col sm="12" lg="8" >
                             <h2 className="mb-4">Recents news</h2>
                             {
                                 data.allContentfulNouvelle.edges.map(
@@ -159,8 +68,8 @@ class IndexPageEn extends Component {
                                         </div>
                                 )
                             }
-                            <br />
-                            <h2 className="mb-4">Calendar of the next releases</h2>
+                        </Col>
+                        <Col sm="12" lg="4" ><h2 className="mb-4">Upcoming releases</h2>
                             {
                                 data.allContentfulCalendrier.edges.map(
                                     (edge) =>
@@ -185,11 +94,11 @@ class IndexPageEn extends Component {
                                                             </Col>
 
                                                             <Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                            {
-																	edge.node.romanSlug ?
-																		(<Link className="float-right mb-2" to={"/en" + edge.node.romanSlug}>Go see the story</Link>) :
-																		('')
-																}
+                                                                {
+                                                                    edge.node.romanSlug ?
+                                                                        (<Link className="float-right mb-2" to={"/en" + edge.node.romanSlug}>Go see the story</Link>) :
+                                                                        ('')
+                                                                }
                                                             </Col>
                                                         </Row>
                                                     </div>
@@ -200,14 +109,13 @@ class IndexPageEn extends Component {
                                 )
                             }
                         </Col>
-                        <Col sm="12" lg="3" >
-                            {/* <aside className="">
-                        <h2 className="mb-4">Le Nic</h2>
-
-                        <p>
-                            lorem  
-                        </p>
-                    </aside> */}
+                    </Row>
+                    <Row className="pb-5">
+                        <Col>
+                            <h2 className="mb-4">Creation of the Universe</h2>
+                            <p>I started creating the Universe around January 2015, the first story I wrote was <a href="/en/stories/the-first-cyborg-volume-1">The First Cyborg</a>, after the first volume, I started writing a sequel.</p>
+                            <p>Soon, the Universe expanded, leading to the creation of several characters, powers and groups. The concepts were detailed as time went on.</p>
+                            <p>Eventually, all the characters will have their stories to tell and the Universe will continue to grow again and again.</p>
                         </Col>
                     </Row>
                 </Container>

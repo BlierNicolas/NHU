@@ -20,7 +20,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const nombreTemplate = path.resolve('src/templates/nombre.js')
 		const calendrierTemplate = path.resolve('src/templates/calendrier.js')
 		const contributeursTemplate = path.resolve('src/templates/contributeurs.js')
-		
+		const mondeTemplate = path.resolve('src/templates/monde.js')
+		const paysTemplate = path.resolve('src/templates/pays.js')
+		const villeTemplate = path.resolve('src/templates/ville.js')
+
 		const indexEnTemplate = path.resolve('src/templates/en.js')
 		const chapitreEnTemplate = path.resolve('src/templates/chapter.en.js')
 		const romanEnTemplate = path.resolve('src/templates/story.en.js')
@@ -39,6 +42,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const nombreEnTemplate = path.resolve('src/templates/number.en.js')
 		const calendrierEnTemplate = path.resolve('src/templates/calendar.en.js')
 		const contributeursEnTemplate = path.resolve('src/templates/contributors.en.js')
+		const mondeEnTemplate = path.resolve('src/templates/world.en.js')
+		const paysEnTemplate = path.resolve('src/templates/country.en.js')
+		const villeEnTemplate = path.resolve('src/templates/city.en.js')
 
 		resolve(
 			graphql(
@@ -53,7 +59,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -82,7 +87,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -143,7 +147,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -172,7 +175,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -202,7 +204,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -234,7 +235,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -266,7 +266,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -292,6 +291,96 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				path: 'contributeurs',
 				component: contributeursTemplate
 			}),
+			// graphql(
+			// 	`{
+			// 	allContentfulMonde(filter: {node_locale: {eq: "fr-CA"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulMonde.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Monde') && (edge.node.slug != null)) {
+			// 			if (edge.node.slug == 'giervia') {
+			// 				createPage({
+			// 					path: edge.node.slug,
+			// 					component: mondeTemplate,
+			// 					context: {
+			// 						slug: edge.node.slug
+			// 					}
+			// 				})
+			// 			}
+			// 		}
+			// 	})
+			// 	return
+			// }),
+			// graphql(
+			// 	`{
+			// 	allContentfulPays(filter: {node_locale: {eq: "fr-CA"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulPays.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Pays') && (edge.node.slug != null)) {
+			// 			createPage({
+			// 				path: 'giervia/' + edge.node.slug,
+			// 				component: paysTemplate,
+			// 				context: {
+			// 					slug: edge.node.slug
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// 	return
+			// }),
+			// graphql(
+			// 	`{
+			// 	allContentfulVille(filter: {node_locale: {eq: "fr-CA"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				slugPaysParent
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulVille.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
+			// 			createPage({
+			// 				path: 'giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
+			// 				component: villeTemplate,
+			// 				context: {
+			// 					slug: edge.node.slug
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// 	return
+			// }),
 			createPage({
 				path: 'en',
 				component: indexEnTemplate
@@ -313,7 +402,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -347,7 +435,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -376,7 +463,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -417,7 +503,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -450,7 +535,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -485,7 +569,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}
@@ -504,6 +587,96 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				})
 				return
 			}),
+			// graphql(
+			// 	`{
+			// 	allContentfulMonde(filter: {node_locale: {eq: "en-US"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulMonde.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Monde') && (edge.node.slug != null)) {
+			// 			if (edge.node.slug == 'giervia') {
+			// 				createPage({
+			// 					path: "en/" + edge.node.slug,
+			// 					component: mondeEnTemplate,
+			// 					context: {
+			// 						slug: edge.node.slug
+			// 					}
+			// 				})
+			// 			}
+			// 		}
+			// 	})
+			// 	return
+			// }),
+			// graphql(
+			// 	`{
+			// 	allContentfulPays(filter: {node_locale: {eq: "en-US"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulPays.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Pays') && (edge.node.slug != null)) {
+			// 			createPage({
+			// 				path: 'en/giervia/' + edge.node.slug,
+			// 				component: paysEnTemplate,
+			// 				context: {
+			// 					slug: edge.node.slug
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// 	return
+			// }),
+			// graphql(
+			// 	`{
+			// 	allContentfulVille(filter: {node_locale: {eq: "en-US"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				slugPaysParent
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulVille.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
+			// 			createPage({
+			// 				path: 'en/giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
+			// 				component: villeEnTemplate,
+			// 				context: {
+			// 					slug: edge.node.slug
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// 	return
+			// }),
 			createPage({
 				path: 'en/encyclopedia',
 				component: listeTheorieEnTemplate
@@ -521,7 +694,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				}
 			}`
 			).then((result) => {
-				console.log(result);
 				if (result.errors) {
 					reject(result.errors)
 				}

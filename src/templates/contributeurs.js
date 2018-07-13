@@ -28,7 +28,7 @@ class Contributeurs extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/contributors">En</Link></Button>
+					<Link className="text-white" to="/en/contributors"><Button className="float-right" color="primary">En</Button></Link>
 				</div>
 
 				<div className="py-5">

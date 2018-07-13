@@ -31,7 +31,7 @@ class ListOfNews extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/nouvelles">Fr</Link></Button>
+					<Link className="text-white" to="/nouvelles"><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<div className="py-5">

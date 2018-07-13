@@ -55,7 +55,7 @@ class ListeDesHistoires extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to="/en/stories">En</Link></Button>
+					<Link className="text-white" to="/en/stories"><Button className="float-right" color="primary">En</Button></Link>
 				</div>
 
 				<div className="my-5">
@@ -67,12 +67,12 @@ class ListeDesHistoires extends Component {
 
 				<Container className="my-5">
 					<Nav pills>
-						<NavItem className="histoires-pills">
+						<NavItem>
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
 								Les romans
 							</NavLink>
 						</NavItem>
-						<NavItem className="histoires-pills">
+						<NavItem>
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
 								Les mini-histoires
 							</NavLink>

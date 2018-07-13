@@ -177,3 +177,7 @@ footer {
         right: auto;
     }
 }
+
+.font-weight-300 {
+    font-weight: 300;
+}

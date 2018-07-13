@@ -38,7 +38,7 @@ class Chapter extends Component {
 				</div>
 
 				<div className="equiv">
-					<Button className="float-right" color="primary"><Link className="text-white" to={equivalentUrl}>Fr</Link></Button>
+					<Link className="text-white" to={equivalentUrl}><Button className="float-right" color="primary">Fr</Button></Link>
 				</div>
 
 				<div>
@@ -60,7 +60,7 @@ class Chapter extends Component {
 									<Col xs="4" className="text-left pl-0">
 										{
 											chapitreAvant ?
-												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreAvant}>Previous chapitre</Link>) :
+												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreAvant}>Previous chapter</Link>) :
 												('')
 										}
 									</Col>
@@ -68,7 +68,7 @@ class Chapter extends Component {
 									<Col xs="4" className="text-right pr-0">
 										{
 											chapitreApres ?
-												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreApres}>Next chapitre</Link>) :
+												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreApres}>Next chapter</Link>) :
 												('')
 										}
 									</Col>
