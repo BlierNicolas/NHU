@@ -8,11 +8,11 @@ import {
 } from 'reactstrap';
 
 const FooterEn = ({ siteTitle }) => (
-    <div>
+    <footer>
         <Alert color="primary">
             Go like your Facebook page (in french): <a href="https://www.facebook.com/CreateurDesNouveauxHumains" target="_blank">New Humans Universe</a>
         </Alert>
-        <footer className="py-5">
+        <div className="py-5">
             <Container fluid>
                 <Row>
                     <Col sm="12" className="text-white d-flex flex-column flex-lg-row align-items-center justify-content-between text-center">
@@ -33,8 +33,8 @@ const FooterEn = ({ siteTitle }) => (
                 </Row>
 
             </Container>
-        </footer>
-    </div>
+        </div>
+    </footer>
 )
 
 export default FooterEn
