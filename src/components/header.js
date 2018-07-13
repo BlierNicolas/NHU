@@ -188,9 +188,9 @@ export default class Header extends React.Component {
                                     <DropdownItem>
                                         <Link to="/groupes">Groupes, clans et organisations...</Link>
                                     </DropdownItem>
-                                    <DropdownItem>
+                                    {/* <DropdownItem>
                                         <Link to="/giervia">Giervia</Link>
-                                    </DropdownItem>
+                                    </DropdownItem> */}
                                     <DropdownItem>
                                         <Link to="/encyclopedie">L'encyclopédie universelle</Link>
                                     </DropdownItem>
