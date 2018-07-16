@@ -14,6 +14,12 @@ import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
 
 class ListOfCharacter extends Component {
+	constructor(props) {
+		super(props);
+
+		this.firstLetter = '';
+	}
+
 	render() {
 		const {
 			data
@@ -46,9 +52,23 @@ class ListOfCharacter extends Component {
 						{
 							data.allContentfulPersonnage.edges.map(
 								(edge) =>
+								<React.Fragment>
+								{
+									this.firstLetter != edge.node.nomComplet.charAt(0) ?
+										(
+											<Col lg="12" className="text-center my-3">
+												<hr />
+												<h3>
+													{this.firstLetter = edge.node.nomComplet.charAt(0)}
+												</h3>
+											</Col>
+										) :
+										('')
+								}
 									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3">
 										<Link to={"/en/characters/" + edge.node.slug}>{edge.node.nomComplet}</Link>
 									</Col>
+							</React.Fragment>
 							)
 						}
 					</Row>
