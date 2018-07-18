@@ -84,32 +84,32 @@ class Pays extends Component {
 					</Row>
 
 					<Nav pills>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
 								Histoire
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
 								Villes
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }}>
 								Démographie
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }}>
 								Géographie
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '5' })} onClick={() => { this.toggle('5'); }}>
 								Politique
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '6' })} onClick={() => { this.toggle('6'); }}>
 								Sociologie
 							</NavLink>

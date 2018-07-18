@@ -102,7 +102,7 @@ export const pageQuery = graphql`query listeNouvelleQueryEN2 {
 						html
 					}
 				}
-				date(formatString: "YYYY MMMM DD")
+				date(formatString: "YYYY-MM-DD")
 				dateSpe
 				slug
 			}

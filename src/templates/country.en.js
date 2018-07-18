@@ -84,32 +84,32 @@ class Country extends Component {
 					</Row>
 
 					<Nav pills>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
 								History
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
 								Cities
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }}>
 								Demography
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }}>
 								Geography
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '5' })} onClick={() => { this.toggle('5'); }}>
 								Politics
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '6' })} onClick={() => { this.toggle('6'); }}>
 								Sociology
 							</NavLink>
