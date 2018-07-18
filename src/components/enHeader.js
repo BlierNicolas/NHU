@@ -192,6 +192,9 @@ export default class HeaderEn extends React.Component {
                                         <Link to="/en/giervia">Giervia</Link>
                                     </DropdownItem> */}
                                     <DropdownItem>
+                                        <Link to="/en/events">Major events</Link>
+                                    </DropdownItem>
+                                    <DropdownItem>
                                         <Link to="/en/encyclopedia">The universal encyclopedia</Link>
                                     </DropdownItem>
                                 </DropdownMenu>

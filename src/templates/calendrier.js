@@ -110,7 +110,7 @@ export const pageQuery = graphql`query calendrierQueryFR {
 						html
 					}
 				}
-				date(formatString: "YYYY MMMM DD")
+				date(formatString: "YYYY-MM-DD")
                 dateSpe
 				romanSlug
 				affiche

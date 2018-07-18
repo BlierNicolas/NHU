@@ -23,6 +23,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const mondeTemplate = path.resolve('src/templates/monde.js')
 		const paysTemplate = path.resolve('src/templates/pays.js')
 		const villeTemplate = path.resolve('src/templates/ville.js')
+		const evenementsTemplate = path.resolve('src/templates/evenements.js');
 
 		const indexEnTemplate = path.resolve('src/templates/en.js')
 		const chapitreEnTemplate = path.resolve('src/templates/chapter.en.js')
@@ -45,6 +46,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const mondeEnTemplate = path.resolve('src/templates/world.en.js')
 		const paysEnTemplate = path.resolve('src/templates/country.en.js')
 		const villeEnTemplate = path.resolve('src/templates/city.en.js')
+		const evenementsEnTemplate = path.resolve('src/templates/events.en.js');
 
 		resolve(
 			graphql(
@@ -382,6 +384,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 	return
 			// }),
 			createPage({
+				path: 'evenements',
+				component: evenementsTemplate
+			}),
+			createPage({
 				path: 'en',
 				component: indexEnTemplate
 			}),
@@ -710,6 +716,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					}
 				})
 				return
+			}),
+			createPage({
+				path: 'en/events',
+				component: evenementsEnTemplate
 			}),
 			createPage({
 				path: 'en/number',

@@ -81,7 +81,7 @@ export const pageQuery = graphql`query nouvelleQueryFR ($slug: String!) {
 				html
 			}
 		}
-		date(formatString: "YYYY MMMM DD")
+		date(formatString: "YYYY-MM-DD")
 		dateSpe
 		slug
 		lienReference
