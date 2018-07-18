@@ -189,3 +189,7 @@ footer {
 .cursor-update .active:hover {
     color: white !important;
 }
+
+.vertical-timeline-element-icon {
+    box-shadow: none !important;
+}
