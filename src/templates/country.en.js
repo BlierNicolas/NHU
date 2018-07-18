@@ -147,7 +147,7 @@ class Country extends Component {
 									{
 										data.allContentfulVille.edges.map(
 											(edge) => <tr key={edge.node.id}>
-												<td><Link to={'/giervia/abaltia/' + edge.node.slug}>{edge.node.nomVille}</Link></td>
+												<td><Link to={'/giervia' + data.contentfulPays.nomPays + '/' + edge.node.slug}>{edge.node.nomVille}</Link></td>
 												<td>{edge.node.superficie} m<sup>2</sup></td>
 												<td>{edge.node.population}</td>
 												<td>{edge.node.quantiteNouvHumains}</td>
