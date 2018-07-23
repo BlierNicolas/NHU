@@ -193,3 +193,22 @@ footer {
 .vertical-timeline-element-icon {
     box-shadow: none !important;
 }
+
+.vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+    visibility: visible;
+    animation: custom-animation 0.6s !important;
+}
+
+@keyframes custom-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
