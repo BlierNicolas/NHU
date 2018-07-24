@@ -19,6 +19,7 @@ import {
 import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
+import List_Histoire_Info from '../components/list_histoire_info';
 
 class ListeDesHistoires extends Component {
 	constructor(props) {
@@ -82,50 +83,12 @@ class ListeDesHistoires extends Component {
 					<TabContent activeTab={this.state.activeTab}>
 						<TabPane tabId="1">
 							<ListGroup>
-								{
-									data.allContentfulRoman.edges.map(
-										(edge) =>
-											<div key={edge.node.id}>
-												{
-													edge.node.typeHistoire == "Roman" ?
-														(
-															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<div className="list-group-item-text">
-																	<div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
-																	<Link to={'/histoires/' + edge.node.slug}>Commencer à lire</Link>
-																</div>
-															</ListGroupItem>
-														) :
-														('')
-												}
-											</div>
-									)
-								}
+								<List_Histoire_Info allHistoires={data.allContentfulRoman} typeHistoire="Roman" />
 							</ListGroup>
 						</TabPane>
 						<TabPane tabId="2">
 							<ListGroup>
-								{
-									data.allContentfulRoman.edges.map(
-										(edge) =>
-											<div key={edge.node.id}>
-												{
-													edge.node.typeHistoire == "Mini-histoire" ?
-														(
-															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<div className="list-group-item-text">
-																	<div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
-																	<Link to={'/histoires/' + edge.node.slug}>Commencer à lire</Link>
-																</div>
-															</ListGroupItem>
-														) :
-														('')
-												}
-											</div>
-									)
-								}
+								<List_Histoire_Info allHistoires={data.allContentfulRoman} typeHistoire="Mini-histoire" />
 							</ListGroup>
 						</TabPane>
 					</TabContent>

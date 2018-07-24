@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Block_Nouvelles from '../components/block_nouvelles';
 
 class ListeDesNouvelles extends Component {
 	render() {
@@ -44,35 +45,7 @@ class ListeDesNouvelles extends Component {
 				<Container fluid className="p-0">
 					<Row className="pb-5">
 						<Col sm="12" lg="9" >
-							{
-								data.allContentfulNouvelle.edges.map(
-									(edge) =>
-										<div className="clearfix border-bottom mb-2" key={edge.node.id}>
-											<div className="">
-												<Row className="no-gutters">
-													<Col md="9" sm="12">
-														<Link to={'nouvelles/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
-													</Col>
-
-													<Col md="3" sm="12">
-														<span className="float-right"><small>{edge.node.dateSpe} / {edge.node.date}</small></span>
-													</Col>
-												</Row>
-											</div>
-											<div>
-												<Row className="no-gutters">
-													<Col md="9" sm="12">
-														<div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-													</Col>
-
-													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={'nouvelles/' + edge.node.slug}>En savoir plus</Link>
-													</Col>
-												</Row>
-											</div>
-										</div>
-								)
-							}
+							<Block_Nouvelles allNouvelles={data.allContentfulNouvelle} />
 						</Col>
 						<Col sm="12" lg="3" >
 						</Col>

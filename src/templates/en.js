@@ -11,6 +11,8 @@ import {
 } from 'reactstrap';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
+import Block_News from '../components/block_news.en';
+import Block_Calendar from '../components/block_calendar.en';
 
 class IndexPageEn extends Component {
     render() {
@@ -39,75 +41,10 @@ class IndexPageEn extends Component {
                     <Row className="pb-5">
                         <Col sm="12" lg="8" >
                             <h2 className="mb-4">Recents news</h2>
-                            {
-                                data.allContentfulNouvelle.edges.map(
-                                    (edge) =>
-                                        <div className="clearfix border-bottom mb-2" key={edge.node.id}>
-                                            <div className="">
-                                                <Row className="no-gutters">
-                                                    <Col md="9" sm="12">
-                                                        <Link to={'en/news/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
-                                                    </Col>
-
-                                                    <Col md="3" sm="12">
-                                                        <span className="float-right"><small>{edge.node.dateSpe} / {edge.node.date}</small></span>
-                                                    </Col>
-                                                </Row>
-                                            </div>
-                                            <div>
-                                                <Row className="no-gutters">
-                                                    <Col md="9" sm="12">
-                                                        <div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-                                                    </Col>
-
-                                                    <Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                        <Link className="float-right mb-2" to={'en/news/' + edge.node.slug}>See more</Link>
-                                                    </Col>
-                                                </Row>
-                                            </div>
-                                        </div>
-                                )
-                            }
+                            <Block_News allNouvelles={data.allContentfulNouvelle} />
                         </Col>
                         <Col sm="12" lg="4" ><h2 className="mb-4">Upcoming releases</h2>
-                            {
-                                data.allContentfulCalendrier.edges.map(
-                                    (edge) =>
-                                        <div className="clearfix border-bottom mb-2" key={edge.node.id}>
-                                            {edge.node.affiche ?
-                                                (<div>
-                                                    <div className="">
-                                                        <Row className="no-gutters">
-                                                            <Col md="9" sm="12">
-                                                                <h3 className="float-left"><small>{edge.node.titre}</small></h3>
-                                                            </Col>
-
-                                                            <Col md="3" sm="12">
-                                                                <span className="float-right"><small>{edge.node.dateSpe} / {edge.node.date}</small></span>
-                                                            </Col>
-                                                        </Row>
-                                                    </div>
-                                                    <div>
-                                                        <Row className="no-gutters">
-                                                            <Col md="9" sm="12">
-                                                                <div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-                                                            </Col>
-
-                                                            {
-                                                                edge.node.romanSlug ?
-                                                                    (<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                                        <Link className="float-right mb-2" to={"/en" + edge.node.romanSlug}>Go see the story</Link>
-                                                                    </Col>) :
-                                                                    ('')
-                                                            }
-                                                        </Row>
-                                                    </div>
-                                                </div>) :
-                                                ('')
-                                            }
-                                        </div>
-                                )
-                            }
+                            <Block_Calendar allCalendrier={data.allContentfulCalendrier} />
                         </Col>
                     </Row>
                     <Row className="pb-5">

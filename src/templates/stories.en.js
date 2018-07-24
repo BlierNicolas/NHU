@@ -19,6 +19,7 @@ import {
 import classnames from 'classnames';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
+import List_Story_Info from '../components/list_story_info.en';
 
 class ListOfStories extends Component {
 	constructor(props) {
@@ -82,50 +83,12 @@ class ListOfStories extends Component {
 					<TabContent activeTab={this.state.activeTab}>
 						<TabPane tabId="1">
 							<ListGroup>
-								{
-									data.allContentfulRoman.edges.map(
-										(edge) =>
-											<div key={edge.node.id}>
-												{
-													edge.node.typeHistoire == "Roman" ?
-														(
-															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<div className="list-group-item-text">
-																	<div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
-																	<Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
-																</div>
-															</ListGroupItem>
-														) :
-														('')
-												}
-											</div>
-									)
-								}
+								<List_Story_Info allHistoires={data.allContentfulRoman} typeHistoire="Roman" />
 							</ListGroup>
 						</TabPane>
 						<TabPane tabId="2">
 							<ListGroup>
-								{
-									data.allContentfulRoman.edges.map(
-										(edge) =>
-											<div key={edge.node.id}>
-												{
-													edge.node.typeHistoire == "Mini-histoire" ?
-														(
-															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<div className="list-group-item-text">
-																	<div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
-																	<Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
-																</div>
-															</ListGroupItem>
-														) :
-														('')
-												}
-											</div>
-									)
-								}
+								<List_Story_Info allHistoires={data.allContentfulRoman} typeHistoire="Mini-histoire" />
 							</ListGroup>
 						</TabPane>
 					</TabContent>
