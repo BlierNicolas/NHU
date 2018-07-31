@@ -20,6 +20,7 @@ import {
 import classnames from 'classnames';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
+import List_Story_Progression from '../components/list_story_progression.en';
 
 class ProgressionEN extends Component {
 	constructor(props) {
@@ -90,13 +91,7 @@ class ProgressionEN extends Component {
 												{
 													edge.node.chapitreActuel < edge.node.maximumChapitre ?
 														(
-															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<div className="list-group-item-text">
-																	<Progress animated value={(edge.node.chapitreActuel / edge.node.maximumChapitre) * 100}>{edge.node.chapitreActuel + "/" + edge.node.maximumChapitre}</Progress>
-																	<Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
-																</div>
-															</ListGroupItem>
+															<List_Story_Progression histoire_progression={edge.node} />
 														) :
 														('')
 												}
@@ -114,13 +109,7 @@ class ProgressionEN extends Component {
 												{
 													edge.node.chapitreActuel == edge.node.maximumChapitre ?
 														(
-															<ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-																<ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
-																<div className="list-group-item-text">
-																	<Progress animated value={(edge.node.chapitreActuel / edge.node.maximumChapitre) * 100}>{edge.node.chapitreActuel + "/" + edge.node.maximumChapitre}</Progress>
-																	<Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
-																</div>
-															</ListGroupItem>
+															<List_Story_Progression histoire_progression={edge.node} />
 														) :
 														('')
 												}

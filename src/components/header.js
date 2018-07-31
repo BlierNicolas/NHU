@@ -12,9 +12,9 @@ import {
     DropdownItem,
     Button
 } from 'reactstrap';
-import classnames from 'classnames';
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
+import { auth, provider } from '../firebase.js';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -46,7 +46,6 @@ export default class Header extends React.Component {
     onEntered() {
         this.setState({ status: 'inactif' });
         cookie.save('c_nightMode', 'off', { path: '/' });
-        //console.log("onEntered: " + cookie.load('c_nightMode'));
     }
 
     onExiting() {
@@ -56,23 +55,21 @@ export default class Header extends React.Component {
     onExited() {
         this.setState({ status: 'actif' });
         cookie.save('c_nightMode', 'on', { path: '/' });
-        //console.log("onExited: " + cookie.load('c_nightMode'));
     }
 
     componentWillMount() {
         this.state.mounted = cookie.load('c_nightMode');
-        //console.log("Will Mount : " + cookie.load('c_nightMode'));
         this.checkActif();
     }
 
     componentDidMount() {
         this.setState({ nightMode: !this.state.nightMode });
 
-        // auth.onAuthStateChanged((user) => {
-        //     if (user) {
-        //         this.setState({ user });
-        //     }
-        // });
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({ user });
+            }
+        });
     }
 
     toggle() {
@@ -88,9 +85,7 @@ export default class Header extends React.Component {
     }
 
     checkActif() {
-        //console.log(this.state.nightMode);
         if (typeof document !== "undefined") {
-            //console.log(this.state.mounted);
             if (this.state.mounted == 'on') {
                 this.state.nightMode = true;
                 this.state.status = 'actif';
@@ -102,7 +97,6 @@ export default class Header extends React.Component {
                 document.body.classList.remove('darkClass')
             }
         }
-        //console.log("Night mode " + this.state.status);
     }
 
     logout() {
@@ -111,19 +105,22 @@ export default class Header extends React.Component {
                 this.setState({
                     user: null
                 });
+                cookie.save('lecteur', null, { path: '/' });
+
+                window.location.reload();
             });
     }
 
     login() {
-        //auth.disableAutoSignIn()
-        console.log(provider)
         auth.signInWithPopup(provider)
             .then((result) => {
                 const user = result.user;
                 this.setState({
                     user
                 });
+                cookie.save('lecteur', this.state.user, { path: '/' });
             });
+
     }
 
     render() {

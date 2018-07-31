@@ -15,9 +15,42 @@ import {
 } from 'reactstrap';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
+import { auth, provider } from '../firebase.js';
+import cookie from 'react-cookies';
+import EnBtn_like from '../components/enBtn_like'
+import EnBtn_read from '../components/enBtn_read'
+import EnBtn_like_disconnect from '../components/enBtn_like_disconnect'
 
 class Story extends Component {
-    render() {
+    constructor(props) {
+		super(props);
+
+		this.login = this.login.bind(this);
+
+		this.state = {
+			user: null,
+			lecteur: null
+		};
+	}
+
+	componentWillMount() {
+		this.state.lecteur = cookie.load('lecteur');
+	}
+
+	login() {
+		auth.signInWithPopup(provider)
+			.then((result) => {
+				const user = result.user;
+				this.setState({
+					user
+				});
+				cookie.save('lecteur', this.state.user, { path: '/' });
+
+				window.location.reload();
+			});
+	}
+
+	render() {
         const {
             data
         } = this.props;
@@ -61,7 +94,24 @@ class Story extends Component {
                                         <ListGroup className="pt-5">
                                             {
                                                 data.allContentfulChapitre.edges.map(
-                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
+														<Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link>
+														{
+															this.state.lecteur != "null" ?
+																(<React.Fragment>
+																	<span>
+																		&nbsp;<EnBtn_read contentChapitre={edge.node} />
+																	</span>
+																	<span>
+																		&nbsp;<EnBtn_like contentChapitre={edge.node} />
+																	</span>
+																</React.Fragment>) :
+																(<span>
+																	{/* &nbsp;<EnBtn_like_disconnect contentChapitre={edge.node} /> */}
+																</span>)
+
+														}
+													</ListGroupItem>)
                                             }
                                         </ListGroup>
                                     </Col>
@@ -77,7 +127,24 @@ class Story extends Component {
                                         <ListGroup className="pt-5">
                                             {
                                                 data.allContentfulChapitre.edges.map(
-                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}><Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link></ListGroupItem>)
+                                                    (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
+														<Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link>
+														{
+															this.state.lecteur != "null" ?
+																(<React.Fragment>
+																	<span>
+																		&nbsp;<EnBtn_read contentChapitre={edge.node} />
+																	</span>
+																	<span>
+																		&nbsp;<EnBtn_like contentChapitre={edge.node} />
+																	</span>
+																</React.Fragment>) :
+																(<span>
+																	{/* &nbsp;<EnBtn_like_disconnect contentChapitre={edge.node} /> */}
+																</span>)
+
+														}
+													</ListGroupItem>)
                                             }
                                         </ListGroup>
                                     </Col>
@@ -125,6 +192,9 @@ export const pageQuery = graphql
       node {
         id
         titreChapitre
+		nomRoman
+		chapitreApres
+		codeChapitre
         slug
       }
     }

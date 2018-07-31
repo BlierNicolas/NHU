@@ -11,8 +11,82 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Block_Nouvelles from '../components/block_nouvelles';
+import Block_Calendrier from '../components/block_calendrier';
+import Block_Continuer from '../components/block_continuer';
+import firebase from '../firebase.js';
+import cookie from 'react-cookies';
 
 class IndexPage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            currentItem: '',
+            username: '',
+            items: [],
+            connectedUser: 'Nico',
+            lecteur: null
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    handleSubmit(e) {
+        // Empêche le refresh
+        e.preventDefault();
+
+        // Met la référence vers la database
+        const itemsRef = firebase.database().ref('items');
+
+        // Popule les champs dans une collection "item"
+        const item = {
+            title: this.state.currentItem,
+            user: this.state.username
+        }
+
+        // Pousse l'item créé dans la collection
+        itemsRef.push(item);
+
+        // Remet les champs vides
+        this.setState({
+            currentItem: '',
+            username: ''
+        });
+    }
+
+    componentDidMount() {
+        const itemsRef = firebase.database().ref('items');
+        itemsRef.on('value', (snapshot) => {
+            let items = snapshot.val();
+            let newState = [];
+            for (let item in items) {
+                newState.push({
+                    id: item,
+                    title: items[item].title,
+                    user: items[item].user
+                });
+            }
+            this.setState({
+                items: newState
+            });
+        });
+    }
+
+    componentWillMount() {
+        this.state.lecteur = cookie.load('lecteur');
+    }
+
+    removeItem(itemId) {
+        const itemRef = firebase.database().ref(`/items/${itemId}`);
+        itemRef.remove();
+    }
+
     render() {
         const {
             data
@@ -35,79 +109,28 @@ class IndexPage extends Component {
                     </Container>
                 </Jumbotron>
 
+                {
+                    this.state.lecteur != "null" ?
+                        (<Container fluid className="p-0">
+                            <Row className="pb-5">
+                                <Col sm="12">
+                                    <h2 className="mb-4">Continuer à lire</h2>
+                                    <Block_Continuer allChapitre={data.allContentfulChapitre} />
+                                </Col>
+                            </Row>
+                        </Container>) :
+                        ('')
+                }
+
                 <Container fluid className="p-0">
                     <Row className="pb-5">
                         <Col sm="12" lg="8" >
                             <h2 className="mb-4">Dernières nouvelles</h2>
-                            {
-                                data.allContentfulNouvelle.edges.map(
-                                    (edge) =>
-                                        <div className="clearfix border-bottom mb-2" key={edge.node.id}>
-                                            <div className="">
-                                                <Row className="no-gutters">
-                                                    <Col md="9" sm="12">
-                                                        <Link to={'nouvelles/' + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
-                                                    </Col>
-
-                                                    <Col md="3" sm="12">
-                                                        <span className="float-right"><small>{edge.node.dateSpe} / {edge.node.date}</small></span>
-                                                    </Col>
-                                                </Row>
-                                            </div>
-                                            <div>
-                                                <Row className="no-gutters">
-                                                    <Col md="9" sm="12">
-                                                        <div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-                                                    </Col>
-
-                                                    <Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                        <Link className="float-right mb-2" to={'nouvelles/' + edge.node.slug}>En savoir plus</Link>
-                                                    </Col>
-                                                </Row>
-                                            </div>
-                                        </div>
-                                )
-                            }
+                            <Block_Nouvelles allNouvelles={data.allContentfulNouvelle} />
                         </Col>
                         <Col sm="12" lg="4" >
                             <h2 className="mb-4">Prochaines sorties</h2>
-                            {
-                                data.allContentfulCalendrier.edges.map(
-                                    (edge) =>
-                                        <div className="clearfix border-bottom mb-2" key={edge.node.id}>
-                                            {edge.node.affiche ?
-                                                (<div>
-                                                    <div className="">
-                                                        <Row className="no-gutters">
-                                                            <Col md="9" sm="12">
-                                                                <h3 className="float-left"><small>{edge.node.titre}</small></h3>
-                                                            </Col>
-
-                                                            <Col md="3" sm="12">
-                                                                <span className="float-right"><small>{edge.node.dateSpe} / {edge.node.date}</small></span>
-                                                            </Col>
-                                                        </Row>
-                                                    </div>
-                                                    <div>
-                                                        <Row className="no-gutters">
-                                                            <Col md="9" sm="12">
-                                                                <div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-                                                            </Col>
-                                                            {
-                                                                edge.node.romanSlug ?
-                                                                    (<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                                        <Link className="float-right mb-2" to={edge.node.romanSlug}>Aller voir l'histoire</Link>
-                                                                    </Col>) :
-                                                                    ('')
-                                                            }
-                                                        </Row>
-                                                    </div>
-                                                </div>) :
-                                                ('')
-                                            }
-                                        </div>
-                                )
-                            }
+                            <Block_Calendrier allCalendrier={data.allContentfulCalendrier} />
                         </Col>
                     </Row>
                     <Row className="pb-5">
@@ -165,5 +188,16 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
                 affiche
 			}
 		}
+	}
+	allContentfulChapitre(sort: {fields: [nomRoman, ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+	  edges {
+		node {
+		  id
+		  titreChapitre
+		  nomRoman
+		  chapitreApres
+		  slug
+		}
+	  }
 	}
   }`

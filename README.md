@@ -5,7 +5,7 @@ Pages:
 - [X] Liste des romans (Ajouter le cover)
 - [X] Un roman (Ajouter le cover)
 - [X] Un chapitre
-- [ ] Calendrier des sorties
+- [X] Calendrier des sorties
 - [X] Liste des nouvelles
 - [X] Une nouvelle
 - [X] Liste des théories
@@ -21,8 +21,8 @@ Pages:
 - [X] Un groupe
 - [X] Progression de l'Univers
 - [X] L'Univers en nombres
-- [ ] Contributeurs
-- [ ] Technologies utilisées
+- [X] Contributeurs
+- [X] Technologies utilisées
 
 Fonctionnalités:
 - [ ] Google analytics
@@ -31,8 +31,8 @@ Fonctionnalités:
 - [X] Navbar
 - [ ] Onesignal
 - [ ] PWA
-- [ ] Login and like system
-- [ ] Firebase
+- [X] Login and like system
+- [X] Firebase
 - [ ] Typographie
 - [X] Favicon
-- [ ] Bilingual site
+- [X] Bilingual site
