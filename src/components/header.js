@@ -65,11 +65,11 @@ export default class Header extends React.Component {
     componentDidMount() {
         this.setState({ nightMode: !this.state.nightMode });
 
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ user });
-            }
-        });
+        // auth.onAuthStateChanged((user) => {
+        //     if (user) {
+        //         this.setState({ user });
+        //     }
+        // });
     }
 
     toggle() {
@@ -100,27 +100,26 @@ export default class Header extends React.Component {
     }
 
     logout() {
-        auth.signOut()
-            .then(() => {
-                this.setState({
-                    user: null
-                });
-                cookie.save('lecteur', null, { path: '/' });
+        // auth.signOut()
+        //     .then(() => {
+        //         this.setState({
+        //             user: null
+        //         });
+        //         cookie.save('lecteur', null, { path: '/' });
 
-                window.location.reload();
-            });
+        //         window.location.reload();
+        //     });
     }
 
     login() {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                const user = result.user;
-                this.setState({
-                    user
-                });
-                cookie.save('lecteur', this.state.user, { path: '/' });
-            });
-
+        // auth.signInWithPopup(provider)
+        //     .then((result) => {
+        //         const user = result.user;
+        //         this.setState({
+        //             user
+        //         });
+        //         cookie.save('lecteur', this.state.user, { path: '/' });
+        //     });
     }
 
     render() {

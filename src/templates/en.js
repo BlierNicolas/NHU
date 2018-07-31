@@ -109,7 +109,7 @@ class IndexPageEn extends Component {
                     </Container>
                 </Jumbotron>
 
-                {
+                {/* {
                     this.state.lecteur != "null" ?
                         (<Container fluid className="p-0">
                             <Row className="pb-5">
@@ -120,7 +120,7 @@ class IndexPageEn extends Component {
                             </Row>
                         </Container>) :
                         ('')
-                }
+                } */}
 
                 <Container fluid className="p-0">
                     <Row className="pb-5">
