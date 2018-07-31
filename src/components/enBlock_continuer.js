@@ -4,7 +4,7 @@ import {
     Row,
     Col
 } from 'reactstrap';
-import firebase from '../firebase.js';
+//import firebase from '../firebase.js';
 import cookie from 'react-cookies';
 
 export default class Block_Continuer extends React.Component {
@@ -34,39 +34,39 @@ export default class Block_Continuer extends React.Component {
     }
 
     componentDidMount() {
-        if (this.state.lecteur != null) {
-            let itemsRefLu = firebase.database().ref('reads');
-            itemsRefLu = itemsRefLu.orderByChild("codeChapitre").startAt("H0001C000").endAt("H9999C999");
-            itemsRefLu.on('value', (snapshot) => {
-                let itemsLu = snapshot.val();
-                let newState = [];
-                for (let item in itemsLu) {
-                    if (itemsLu[item].user == this.state.lecteur.email) {
-                        newState.push({
-                            id: item,
-                            chapitre: itemsLu[item].chapitre,
-                            chapitreSlug: itemsLu[item].chapitreSlug,
-                            user: itemsLu[item].user,
-                            nomRoman: itemsLu[item].nomRoman,
-                            chapitreApres: itemsLu[item].chapitreApres,
-                            codeChapitre: itemsLu[item].codeChapitre,
-                            traite: "non"
-                        });
-                    }
-                }
+        // if (this.state.lecteur != null) {
+        //     let itemsRefLu = firebase.database().ref('reads');
+        //     itemsRefLu = itemsRefLu.orderByChild("codeChapitre").startAt("H0001C000").endAt("H9999C999");
+        //     itemsRefLu.on('value', (snapshot) => {
+        //         let itemsLu = snapshot.val();
+        //         let newState = [];
+        //         for (let item in itemsLu) {
+        //             if (itemsLu[item].user == this.state.lecteur.email) {
+        //                 newState.push({
+        //                     id: item,
+        //                     chapitre: itemsLu[item].chapitre,
+        //                     chapitreSlug: itemsLu[item].chapitreSlug,
+        //                     user: itemsLu[item].user,
+        //                     nomRoman: itemsLu[item].nomRoman,
+        //                     chapitreApres: itemsLu[item].chapitreApres,
+        //                     codeChapitre: itemsLu[item].codeChapitre,
+        //                     traite: "non"
+        //                 });
+        //             }
+        //         }
 
-                const myData = [].concat(newState).sort((a, b) => a.codeChapitre > b.codeChapitre)
+        //         const myData = [].concat(newState).sort((a, b) => a.codeChapitre > b.codeChapitre)
 
-                this.setState({
-                    itemsLu: myData
-                });
+        //         this.setState({
+        //             itemsLu: myData
+        //         });
 
-                if (!this.state.loaded) {
-                    this.checkUpReads();
-                    this.setState({ loaded: true });
-                }
-            });
-        }
+        //         if (!this.state.loaded) {
+        //             this.checkUpReads();
+        //             this.setState({ loaded: true });
+        //         }
+        //     });
+        // }
     }
 
     checkUpReads() {

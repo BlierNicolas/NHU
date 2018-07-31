@@ -4,7 +4,7 @@ import {
     Button,
     Collapse
 } from 'reactstrap';
-import firebase, { auth, provider } from '../firebase.js';
+//import firebase, { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 
 export default class Btn_read extends React.Component {
@@ -69,28 +69,28 @@ export default class Btn_read extends React.Component {
     }
 
     componentDidMount() {
-        const itemsRefLu = firebase.database().ref('reads');
-        itemsRefLu.on('value', (snapshot) => {
-            let itemsLu = snapshot.val();
-            let newState = [];
-            for (let item in itemsLu) {
-                newState.push({
-                    id: item,
-                    chapitre: itemsLu[item].chapitre,
-                    chapitreSlug: itemsLu[item].slug,
-                    user: itemsLu[item].user,
-                    nomRoman: itemsLu[item].nomRoman
-                });
-            }
-            this.setState({
-                itemsLu: newState
-            });
+        // const itemsRefLu = firebase.database().ref('reads');
+        // itemsRefLu.on('value', (snapshot) => {
+        //     let itemsLu = snapshot.val();
+        //     let newState = [];
+        //     for (let item in itemsLu) {
+        //         newState.push({
+        //             id: item,
+        //             chapitre: itemsLu[item].chapitre,
+        //             chapitreSlug: itemsLu[item].slug,
+        //             user: itemsLu[item].user,
+        //             nomRoman: itemsLu[item].nomRoman
+        //         });
+        //     }
+        //     this.setState({
+        //         itemsLu: newState
+        //     });
 
-            if (!this.state.loaded) {
-                this.checkUpReads();
-                this.setState({ loaded: true });
-            }
-        });
+        //     if (!this.state.loaded) {
+        //         this.checkUpReads();
+        //         this.setState({ loaded: true });
+        //     }
+        // });
     }
 
     checkUpReads() {
@@ -106,36 +106,36 @@ export default class Btn_read extends React.Component {
     }
 
     handleSubmitRead(e) {
-        // Empêche le refresh
-        e.preventDefault();
+        // // Empêche le refresh
+        // e.preventDefault();
 
-        // Met la référence vers la database
-        const itemsRef = firebase.database().ref('reads');
+        // // Met la référence vers la database
+        // const itemsRef = firebase.database().ref('reads');
 
-        if ((!this.state.readStatus) && (this.state.loaded)) {
-            this.state.items.map((itemLu) => {
-                if ((itemLu.chapitre == this.props.contentChapitre.titreChapitre) && (itemLu.user == this.state.lecteur.email)) {
-                    this.setState({ likeAutorise: false });
-                };
-            })
+        // if ((!this.state.readStatus) && (this.state.loaded)) {
+        //     this.state.items.map((itemLu) => {
+        //         if ((itemLu.chapitre == this.props.contentChapitre.titreChapitre) && (itemLu.user == this.state.lecteur.email)) {
+        //             this.setState({ likeAutorise: false });
+        //         };
+        //     })
 
-            if (this.state.likeAutorise) {
-                // Popule les champs dans une collection "item"
-                const itemLu = {
-                    user: this.state.lecteur.email,
-                    chapitre: this.props.contentChapitre.titreChapitre,
-                    chapitreSlug: this.props.contentChapitre.slug,
-                    nomRoman: this.props.contentChapitre.nomRoman,
-                    chapitreApres: this.props.contentChapitre.chapitreApres,
-                    codeChapitre: this.props.contentChapitre.codeChapitre
-                }
+        //     if (this.state.likeAutorise) {
+        //         // Popule les champs dans une collection "item"
+        //         const itemLu = {
+        //             user: this.state.lecteur.email,
+        //             chapitre: this.props.contentChapitre.titreChapitre,
+        //             chapitreSlug: this.props.contentChapitre.slug,
+        //             nomRoman: this.props.contentChapitre.nomRoman,
+        //             chapitreApres: this.props.contentChapitre.chapitreApres,
+        //             codeChapitre: this.props.contentChapitre.codeChapitre
+        //         }
 
-                // Pousse l'item créé dans la collection
-                itemsRef.push(itemLu);
-            }
-        }
+        //         // Pousse l'item créé dans la collection
+        //         itemsRef.push(itemLu);
+        //     }
+        // }
 
-        this.toggleRead();
+        // this.toggleRead();
     }
 
     login() {
@@ -152,10 +152,10 @@ export default class Btn_read extends React.Component {
     }
 
     removeItem(itemId) {
-        if (this.state.readText == "Non lu") {
-            const itemRef = firebase.database().ref(`/reads/${itemId}`);
-            itemRef.remove();
-        }
+        // if (this.state.readText == "Non lu") {
+        //     const itemRef = firebase.database().ref(`/reads/${itemId}`);
+        //     itemRef.remove();
+        // }
     }
 
     render() {

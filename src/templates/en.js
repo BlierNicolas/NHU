@@ -14,7 +14,7 @@ import FooterEn from '../components/enFooter'
 import Block_News from '../components/block_news.en';
 import Block_Calendar from '../components/block_calendar.en';
 import Block_Continuer from '../components/block_continuer';
-import firebase from '../firebase.js';
+//import firebase from '../firebase.js';
 import cookie from 'react-cookies';
 
 class IndexPageEn extends Component {
@@ -38,44 +38,44 @@ class IndexPageEn extends Component {
     }
 
     handleSubmit(e) {
-        // Empêche le refresh
-        e.preventDefault();
+        // // Empêche le refresh
+        // e.preventDefault();
 
-        // Met la référence vers la database
-        const itemsRef = firebase.database().ref('items');
+        // // Met la référence vers la database
+        // const itemsRef = firebase.database().ref('items');
 
-        // Popule les champs dans une collection "item"
-        const item = {
-            title: this.state.currentItem,
-            user: this.state.username
-        }
+        // // Popule les champs dans une collection "item"
+        // const item = {
+        //     title: this.state.currentItem,
+        //     user: this.state.username
+        // }
 
-        // Pousse l'item créé dans la collection
-        itemsRef.push(item);
+        // // Pousse l'item créé dans la collection
+        // itemsRef.push(item);
 
-        // Remet les champs vides
-        this.setState({
-            currentItem: '',
-            username: ''
-        });
+        // // Remet les champs vides
+        // this.setState({
+        //     currentItem: '',
+        //     username: ''
+        // });
     }
 
     componentDidMount() {
-        const itemsRef = firebase.database().ref('items');
-        itemsRef.on('value', (snapshot) => {
-            let items = snapshot.val();
-            let newState = [];
-            for (let item in items) {
-                newState.push({
-                    id: item,
-                    title: items[item].title,
-                    user: items[item].user
-                });
-            }
-            this.setState({
-                items: newState
-            });
-        });
+        // const itemsRef = firebase.database().ref('items');
+        // itemsRef.on('value', (snapshot) => {
+        //     let items = snapshot.val();
+        //     let newState = [];
+        //     for (let item in items) {
+        //         newState.push({
+        //             id: item,
+        //             title: items[item].title,
+        //             user: items[item].user
+        //         });
+        //     }
+        //     this.setState({
+        //         items: newState
+        //     });
+        // });
     }
 
     componentWillMount() {
@@ -83,8 +83,8 @@ class IndexPageEn extends Component {
     }
 
     removeItem(itemId) {
-        const itemRef = firebase.database().ref(`/items/${itemId}`);
-        itemRef.remove();
+        // const itemRef = firebase.database().ref(`/items/${itemId}`);
+        // itemRef.remove();
     }
 
     render() {

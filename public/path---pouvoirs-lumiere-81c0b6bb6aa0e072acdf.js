@@ -1,2 +1,2 @@
-webpackJsonp([0xe286a3d22096],{1105:function(e,r){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Lumière",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de générer et projeter de la lumière via l'épiderme.</p>"}},equivalentUrl:"/powers/light"}},pathContext:{slug:"lumiere"}}}});
+webpackJsonp([0xe286a3d22096],{1098:function(e,r){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Lumière",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de générer et projeter de la lumière via l'épiderme.</p>"}},equivalentUrl:"/powers/light"}},pathContext:{slug:"lumiere"}}}});
 //# sourceMappingURL=path---pouvoirs-lumiere-81c0b6bb6aa0e072acdf.js.map

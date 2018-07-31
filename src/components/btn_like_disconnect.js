@@ -4,7 +4,7 @@ import {
     Button,
     Collapse
 } from 'reactstrap';
-import firebase, { auth, provider } from '../firebase.js';
+//import firebase, { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 
 export default class Btn_like_disconnect extends React.Component {
@@ -31,26 +31,26 @@ export default class Btn_like_disconnect extends React.Component {
     }
 
     componentDidMount() {
-        const itemsRef = firebase.database().ref('likes');
-        itemsRef.on('value', (snapshot) => {
-            let items = snapshot.val();
-            let newState = [];
-            for (let item in items) {
-                newState.push({
-                    id: item,
-                    chapitre: items[item].chapitre,
-                    user: items[item].user
-                });
-            }
-            this.setState({
-                items: newState
-            });
+        // const itemsRef = firebase.database().ref('likes');
+        // itemsRef.on('value', (snapshot) => {
+        //     let items = snapshot.val();
+        //     let newState = [];
+        //     for (let item in items) {
+        //         newState.push({
+        //             id: item,
+        //             chapitre: items[item].chapitre,
+        //             user: items[item].user
+        //         });
+        //     }
+        //     this.setState({
+        //         items: newState
+        //     });
 
-            if (!this.state.loaded) {
-                this.checkUpLikes();
-                this.setState({ loaded: true });
-            }
-        });
+        //     if (!this.state.loaded) {
+        //         this.checkUpLikes();
+        //         this.setState({ loaded: true });
+        //     }
+        // });
     }
 
     checkUpLikes() {

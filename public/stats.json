@@ -81,8 +81,8 @@
       "path---en-characters-kyna-gamay-18d8aedcdd1b8702be09.js.map"
     ],
     "component---src-templates-story-en-js": [
-      "component---src-templates-story-en-js-a2b468b8692040ac72cb.js",
-      "component---src-templates-story-en-js-a2b468b8692040ac72cb.js.map"
+      "component---src-templates-story-en-js-3e4413b300318c334456.js",
+      "component---src-templates-story-en-js-3e4413b300318c334456.js.map"
     ],
     "path---histoires-chapitre-chapitre-3-les-apprentis": [
       "path---histoires-chapitre-chapitre-3-les-apprentis-d179a727148407010578.js",
@@ -201,8 +201,8 @@
       "component---src-templates-powers-en-js-447821190caa0f637442.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-babdef06bee53d462f7c.js",
-      "component---src-pages-index-js-babdef06bee53d462f7c.js.map"
+      "component---src-pages-index-js-5ac8118dfbb724df97ea.js",
+      "component---src-pages-index-js-5ac8118dfbb724df97ea.js.map"
     ],
     "path---en-stories-chapter-chapter-2-recruitment": [
       "path---en-stories-chapter-chapter-2-recruitment-9be6474eb4bac0f33bc8.js",
@@ -637,8 +637,8 @@
       "path---en-stories-chapter-chapter-1-saeko-the-vampire-b785f2305e52f1958dc5.js.map"
     ],
     "component---src-templates-roman-js": [
-      "component---src-templates-roman-js-c5a9824368648a4561cc.js",
-      "component---src-templates-roman-js-c5a9824368648a4561cc.js.map"
+      "component---src-templates-roman-js-e1095ff7fa0a61a9dfe4.js",
+      "component---src-templates-roman-js-e1095ff7fa0a61a9dfe4.js.map"
     ],
     "component---src-layouts-index-js": [
       "component---src-layouts-index-js-85e3dd87abe9517c28ec.js",
@@ -937,8 +937,8 @@
       "path---histoires-chapitre-chapitre-6-la-rencontre-aa243c7c956170d329b3.js.map"
     ],
     "component---src-templates-chapitre-js": [
-      "component---src-templates-chapitre-js-9a7e2fc57bab9ff7b88f.js",
-      "component---src-templates-chapitre-js-9a7e2fc57bab9ff7b88f.js.map"
+      "component---src-templates-chapitre-js-617b40d672126616f1aa.js",
+      "component---src-templates-chapitre-js-617b40d672126616f1aa.js.map"
     ],
     "path---personnages-louann-koris": [
       "path---personnages-louann-koris-fb4d945b30d2182264b6.js",
@@ -977,9 +977,9 @@
       "path---en-characters-hiro-zapur-5b781e5224f50d772835.js.map"
     ],
     "commons": [
-      "commons-d071da49947e080cd44f.js",
+      "commons-9ca95ab33d4caecf799d.js",
       "build-js-styles.css",
-      "commons-d071da49947e080cd44f.js.map",
+      "commons-9ca95ab33d4caecf799d.js.map",
       "build-js-styles.css.map"
     ],
     "path---en-encyclopedia": [
@@ -1347,9 +1347,9 @@
       "path---personnages-ray-vazot-5a2b74f4d51bbd5788f1.js.map"
     ],
     "app": [
-      "app-2997a47ff5cc335396f9.js",
+      "app-4cc93a16559cf104fdae.js",
       "build-js-styles.css",
-      "app-2997a47ff5cc335396f9.js.map",
+      "app-4cc93a16559cf104fdae.js.map",
       "build-js-styles.css.map"
     ],
     "path---histoires-chapitre-chapitre-2-depart-pour-gencorp": [
@@ -1489,8 +1489,8 @@
       "path---encyclopedie-nouveaux-humains-de-synthese-48e436cbe257a860a9ae.js.map"
     ],
     "component---src-templates-en-js": [
-      "component---src-templates-en-js-3e221389014a1f45ee0b.js",
-      "component---src-templates-en-js-3e221389014a1f45ee0b.js.map"
+      "component---src-templates-en-js-cad95693fbb8fdaba24d.js",
+      "component---src-templates-en-js-cad95693fbb8fdaba24d.js.map"
     ],
     "path---en-characters-alexis-bunakod": [
       "path---en-characters-alexis-bunakod-6085a97e5d5f55801d01.js",
@@ -1717,8 +1717,8 @@
       "path---en-stories-chapter-chapter-25-preparations-244f0d53cd8540c18c00.js.map"
     ],
     "component---src-templates-chapter-en-js": [
-      "component---src-templates-chapter-en-js-ce8e921d34588fe7cf44.js",
-      "component---src-templates-chapter-en-js-ce8e921d34588fe7cf44.js.map"
+      "component---src-templates-chapter-en-js-ffa407c62711ab45394c.js",
+      "component---src-templates-chapter-en-js-ffa407c62711ab45394c.js.map"
     ]
   }
 }
