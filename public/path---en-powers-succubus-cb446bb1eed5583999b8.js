@@ -1,0 +1,2 @@
+webpackJsonp([0x79adb5bad679],{840:function(o,e){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Succubus",description:{childMarkdownRemark:{html:"<p>This power allows individuals to take control of members of the opposite sex with ease simply by vocal or physical exchange. The control lasts a few seconds up to a few hours.</p>"}},equivalentUrl:"/pouvoirs/succube"}},pathContext:{slug:"succubus"}}}});
+//# sourceMappingURL=path---en-powers-succubus-cb446bb1eed5583999b8.js.map

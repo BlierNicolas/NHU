@@ -14,7 +14,7 @@ import {
 } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
-import { auth, provider } from '../firebase.js';
+//import { auth, provider } from '../firebase.js';
 
 export default class HeaderEn extends React.Component {
     constructor(props) {

@@ -81,7 +81,7 @@ class Chapitre extends Component {
 					</Container>
 				</div>
 
-				<div className="py-5">
+				{/* <div className="py-5">
 					<Container>
 						<Row>
 							<Col lg={{ size: 10, offset: 1 }} md="12">
@@ -97,7 +97,7 @@ class Chapitre extends Component {
 										</Row>) :
 										(<Row>
 											<Col xs="12" className="text-center">
-												{/* <Btn_like_disconnect contentChapitre={data.contentfulChapitre} /> */}
+												<Btn_like_disconnect contentChapitre={data.contentfulChapitre} />
 											</Col>
 										</Row>)
 
@@ -105,22 +105,7 @@ class Chapitre extends Component {
 							</Col>
 						</Row>
 					</Container>
-					{/* <section className='display-item'>
-						<div className="wrapper">
-							<ul>
-								{this.state.items.map((item) => {
-									if (item.user == this.state.lecteur.email) {
-										return (
-											<li key={item.id}>
-												<p>{item.chapitre} liked by: {item.user}</p>
-											</li>
-										)
-									};
-								})}
-							</ul>
-						</div>
-					</section> */}
-				</div>
+				</div> */}
 
 				<div className="py-5">
 					<Container>

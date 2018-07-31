@@ -80,7 +80,7 @@ class Chapter extends Component {
 					</Container>
 				</div>
 
-				<div className="py-5">
+				{/* <div className="py-5">
 					<Container>
 						<Row>
 							<Col lg={{ size: 10, offset: 1 }} md="12">
@@ -96,7 +96,7 @@ class Chapter extends Component {
 										</Row>) :
 										(<Row>
 											<Col xs="12" className="text-center">
-												{/* <EnBtn_like_disconnect contentChapitre={data.contentfulChapitre} /> */}
+												<EnBtn_like_disconnect contentChapitre={data.contentfulChapitre} />
 											</Col>
 										</Row>)
 
@@ -104,22 +104,7 @@ class Chapter extends Component {
 							</Col>
 						</Row>
 					</Container>
-					{/* <section className='display-item'>
-						<div className="wrapper">
-							<ul>
-								{this.state.items.map((item) => {
-									if (item.user == this.state.lecteur.email) {
-										return (
-											<li key={item.id}>
-												<p>{item.chapitre} liked by: {item.user}</p>
-											</li>
-										)
-									};
-								})}
-							</ul>
-						</div>
-					</section> */}
-				</div>
+				</div> */}
 
 				<div className="py-5">
 					<Container>
@@ -129,7 +114,7 @@ class Chapter extends Component {
 									<Col xs="4" className="text-left pl-0">
 										{
 											data.contentfulChapitre.chapitreAvant ?
-												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreAvant}>Previous chapter</Link>) :
+												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + data.contentfulChapitre.chapitreAvant}>Previous chapter</Link>) :
 												('')
 										}
 									</Col>
@@ -137,7 +122,7 @@ class Chapter extends Component {
 									<Col xs="4" className="text-right pr-0">
 										{
 											data.contentfulChapitre.chapitreApres ?
-												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + chapitreApres}>Next chapter</Link>) :
+												(<Link className="btn btn-primary" to={"/en/stories/chapter/" + data.contentfulChapitre.chapitreApres}>Next chapter</Link>) :
 												('')
 										}
 									</Col>

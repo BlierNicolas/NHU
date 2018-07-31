@@ -1,0 +1,2 @@
+webpackJsonp([9957956778414],{1091:function(e,i){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Flexibilité",description:{childMarkdownRemark:{html:"<p>Le pouvoir de flexibilité permet aux articulations de l'individus de bouger dans tous les sens qu'il le souhaite et ce sans causer de blessures.</p>"}},equivalentUrl:"/powers/flexibility"}},pathContext:{slug:"flexibilite"}}}});
+//# sourceMappingURL=path---pouvoirs-flexibilite-81f99abb73968d5a1bd9.js.map

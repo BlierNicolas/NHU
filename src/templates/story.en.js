@@ -15,7 +15,7 @@ import {
 } from 'reactstrap';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
-import { auth, provider } from '../firebase.js';
+//import { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 import EnBtn_like from '../components/enBtn_like'
 import EnBtn_read from '../components/enBtn_read'
@@ -96,7 +96,7 @@ class Story extends Component {
                                                 data.allContentfulChapitre.edges.map(
                                                     (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
 														<Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link>
-														{
+														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
 																	<span>
@@ -107,10 +107,9 @@ class Story extends Component {
 																	</span>
 																</React.Fragment>) :
 																(<span>
-																	{/* &nbsp;<EnBtn_like_disconnect contentChapitre={edge.node} /> */}
+																	&nbsp;<EnBtn_like_disconnect contentChapitre={edge.node} />
 																</span>)
-
-														}
+														} */}
 													</ListGroupItem>)
                                             }
                                         </ListGroup>
@@ -129,7 +128,7 @@ class Story extends Component {
                                                 data.allContentfulChapitre.edges.map(
                                                     (edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
 														<Link to={'/en/stories/chapter/' + edge.node.slug}>{edge.node.titreChapitre}</Link>
-														{
+														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
 																	<span>
@@ -140,10 +139,9 @@ class Story extends Component {
 																	</span>
 																</React.Fragment>) :
 																(<span>
-																	{/* &nbsp;<EnBtn_like_disconnect contentChapitre={edge.node} /> */}
+																	&nbsp;<EnBtn_like_disconnect contentChapitre={edge.node} />
 																</span>)
-
-														}
+														} */}
 													</ListGroupItem>)
                                             }
                                         </ListGroup>

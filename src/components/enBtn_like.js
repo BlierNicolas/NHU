@@ -4,7 +4,7 @@ import {
     Button,
     Collapse
 } from 'reactstrap';
-import firebase, { auth, provider } from '../firebase.js';
+//import firebase, { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 
 export default class EnBtn_like extends React.Component {
@@ -71,26 +71,26 @@ export default class EnBtn_like extends React.Component {
     }
 
     componentDidMount() {
-        const itemsRef = firebase.database().ref('likes');
-        itemsRef.on('value', (snapshot) => {
-            let items = snapshot.val();
-            let newState = [];
-            for (let item in items) {
-                newState.push({
-                    id: item,
-                    chapitre: items[item].chapitre,
-                    user: items[item].user
-                });
-            }
-            this.setState({
-                items: newState
-            });
+        // const itemsRef = firebase.database().ref('likes');
+        // itemsRef.on('value', (snapshot) => {
+        //     let items = snapshot.val();
+        //     let newState = [];
+        //     for (let item in items) {
+        //         newState.push({
+        //             id: item,
+        //             chapitre: items[item].chapitre,
+        //             user: items[item].user
+        //         });
+        //     }
+        //     this.setState({
+        //         items: newState
+        //     });
 
-            if (!this.state.loaded) {
-                this.checkUpLikes();
-                this.setState({ loaded: true });
-            }
-        });
+        //     if (!this.state.loaded) {
+        //         this.checkUpLikes();
+        //         this.setState({ loaded: true });
+        //     }
+        // });
     }
 
     checkUpLikes() {
@@ -111,33 +111,33 @@ export default class EnBtn_like extends React.Component {
     }
 
     handleSubmitLike(e) {
-        // Empêche le refresh
-        e.preventDefault();
+        // // Empêche le refresh
+        // e.preventDefault();
 
-        // Met la référence vers la database
-        const itemsRef = firebase.database().ref('likes');
+        // // Met la référence vers la database
+        // const itemsRef = firebase.database().ref('likes');
 
-        if ((!this.state.likeStatus) && (this.state.loaded)) {
-            this.state.items.map((item) => {
-                if ((item.chapitre == this.props.contentChapitre.titreChapitre) && (item.user == this.state.lecteur.email)) {
-                    this.setState({ likeAutorise: false });
-                };
-            })
+        // if ((!this.state.likeStatus) && (this.state.loaded)) {
+        //     this.state.items.map((item) => {
+        //         if ((item.chapitre == this.props.contentChapitre.titreChapitre) && (item.user == this.state.lecteur.email)) {
+        //             this.setState({ likeAutorise: false });
+        //         };
+        //     })
 
-            if (this.state.likeAutorise) {
-                // Popule les champs dans une collection "item"
-                const item = {
-                    user: this.state.lecteur.email,
-                    chapitre: this.props.contentChapitre.titreChapitre,
-                    nomRoman: this.props.contentChapitre.nomRoman
-                }
+        //     if (this.state.likeAutorise) {
+        //         // Popule les champs dans une collection "item"
+        //         const item = {
+        //             user: this.state.lecteur.email,
+        //             chapitre: this.props.contentChapitre.titreChapitre,
+        //             nomRoman: this.props.contentChapitre.nomRoman
+        //         }
 
-                // Pousse l'item créé dans la collection
-                itemsRef.push(item);
-            }
-        }
+        //         // Pousse l'item créé dans la collection
+        //         itemsRef.push(item);
+        //     }
+        // }
 
-        this.toggleLike();
+        // this.toggleLike();
     }
 
     login() {
@@ -154,10 +154,10 @@ export default class EnBtn_like extends React.Component {
     }
 
     removeItem(itemId) {
-        if (this.state.likeText == "Unlike") {
-            const itemRef = firebase.database().ref(`/likes/${itemId}`);
-            itemRef.remove();
-        }
+        // if (this.state.likeText == "Unlike") {
+        //     const itemRef = firebase.database().ref(`/likes/${itemId}`);
+        //     itemRef.remove();
+        // }
     }
 
     render() {

@@ -1,0 +1,2 @@
+webpackJsonp([0xd165886daba0],{818:function(i,o){i.exports={data:{contentfulPouvoir:{nomPouvoir:"Flexibility",description:{childMarkdownRemark:{html:"<p>The power of flexibility allows the individual's joints to move in any direction without causing injury.</p>"}},equivalentUrl:"/pouvoirs/flexibilite"}},pathContext:{slug:"flexibility"}}}});
+//# sourceMappingURL=path---en-powers-flexibility-6cfc6a54cfa149150e42.js.map

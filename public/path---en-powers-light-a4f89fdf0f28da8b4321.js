@@ -1,0 +1,2 @@
+webpackJsonp([71305378499402],{827:function(o,e){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Light",description:{childMarkdownRemark:{html:"<p>This power allows the possessor to generate and project light through the epiderm.</p>"}},equivalentUrl:"/pouvoirs/lumiere"}},pathContext:{slug:"light"}}}});
+//# sourceMappingURL=path---en-powers-light-a4f89fdf0f28da8b4321.js.map

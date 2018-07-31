@@ -1,0 +1,2 @@
+webpackJsonp([0xd4c141d34e4e],{832:function(o,e){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Mood Control",description:{childMarkdownRemark:{html:"<p>This power allows the possessor to control the emotions of others by brain waves, the control is temporary and the duration is also temporary. The owner also has much stronger and more intense emotions than normal.</p>"}},equivalentUrl:"/pouvoirs/controle-de-l-humeur"}},pathContext:{slug:"mood-control"}}}});
+//# sourceMappingURL=path---en-powers-mood-control-318a4cbb7e8941b60c0f.js.map
