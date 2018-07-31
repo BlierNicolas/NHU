@@ -1,2 +1,0 @@
-webpackJsonp([75777515442879],{817:function(a,e){a.exports={data:{contentfulPouvoir:{nomPouvoir:"Fire and magma",description:{childMarkdownRemark:{html:"<p>Individuals who possess the power to manipulate fire and magma have both an offensive and a defensive advantage when it comes to combat. In most cases, the individual has immunity or strong resistance to this element.</p>"}},equivalentUrl:"/pouvoirs/feu-et-magma"}},pathContext:{slug:"fire-and-magma"}}}});
-//# sourceMappingURL=path---en-powers-fire-and-magma-9ae2b99b062abddd2cb3.js.map

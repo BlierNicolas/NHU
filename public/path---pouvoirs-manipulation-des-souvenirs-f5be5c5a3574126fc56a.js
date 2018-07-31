@@ -1,2 +1,0 @@
-webpackJsonp([0x79e60b74e13b],{1101:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Manipulation des souvenirs",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de manipuler les souvenirs des autres, donc modifier, faire oublier ou implanter des souvenirs qui ne sont pas réels.</p>"}},equivalentUrl:"/powers/manipulation-of-memories"}},pathContext:{slug:"manipulation-des-souvenirs"}}}});
-//# sourceMappingURL=path---pouvoirs-manipulation-des-souvenirs-f5be5c5a3574126fc56a.js.map

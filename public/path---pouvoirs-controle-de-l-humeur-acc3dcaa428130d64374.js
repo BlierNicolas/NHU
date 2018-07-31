@@ -1,2 +1,0 @@
-webpackJsonp([41337672407898],{1075:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Contrôle de l'humeur",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de contrôler les émotions des autres par ondes cérébrales, le contrôle est temporaire et la durée est aussi temporaire. Le possesseur a aussi des émotions beaucoup plus fortes et intenses que la normale.</p>"}},equivalentUrl:"/powers/mood-control"}},pathContext:{slug:"controle-de-l-humeur"}}}});
-//# sourceMappingURL=path---pouvoirs-controle-de-l-humeur-acc3dcaa428130d64374.js.map

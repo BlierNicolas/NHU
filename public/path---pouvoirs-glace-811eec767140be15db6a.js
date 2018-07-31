@@ -1,2 +1,0 @@
-webpackJsonp([0xa2d09ec5f9fb],{1092:function(e,t){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Glace",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet à celui qui le possède de générer de la glace de différentes épaisseurs et pressions. Naturellement, le possesseur a une immunité à cet élément.</p>"}},equivalentUrl:"/powers/ice"}},pathContext:{slug:"glace"}}}});
-//# sourceMappingURL=path---pouvoirs-glace-811eec767140be15db6a.js.map

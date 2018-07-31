@@ -1,2 +1,0 @@
-webpackJsonp([0x7bc268a7666c],{819:function(e,i){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Flight",description:{childMarkdownRemark:{html:"<p>Individuals who possess this power have the ability to fly and glide in the air, some are able to retract their wings to hide them and others not. Certain criteria such as wing power, size, endurance and aerodynamics depend on each individual.</p>"}},equivalentUrl:"/pouvoirs/vol"}},pathContext:{slug:"flight"}}}});
-//# sourceMappingURL=path---en-powers-flight-de7221cda2b0f79b87c2.js.map

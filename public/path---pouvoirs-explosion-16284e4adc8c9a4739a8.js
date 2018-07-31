@@ -1,2 +1,0 @@
-webpackJsonp([0x855b2bccc0c1],{1088:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Explosion",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet à l'individus de créer des explosions de manière spontanée depuis son épiderme. Une maîtrise plus avancée du pouvoir permet de lancer des explosions à retardement qui se produiront lorsqu'il y aura contact ou intession d'explosion.</p>"}},equivalentUrl:"/powers/explosion"}},pathContext:{slug:"explosion"}}}});
-//# sourceMappingURL=path---pouvoirs-explosion-16284e4adc8c9a4739a8.js.map

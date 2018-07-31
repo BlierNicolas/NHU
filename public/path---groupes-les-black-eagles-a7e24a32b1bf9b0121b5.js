@@ -1,2 +1,0 @@
-webpackJsonp([0xfae845ab5040],{353:function(e,r){e.exports={data:{contentfulGroupe:{nomGroupe:"Les Black Eagles",description:{childMarkdownRemark:{html:"<p>Les Black Eagles sont dirigés par Drake Tarcion, leur objectif est de s'enrichir et d'inspirer la peur aux humains qui leur font face. Ils n'hésiteront pas à commettre des meurtres pour arriver à leur fin.</p>"}}},allContentfulMembreGroupe:null},pathContext:{slug:"les-black-eagles",nomGroupe:"Les Black Eagles"}}}});
-//# sourceMappingURL=path---groupes-les-black-eagles-a7e24a32b1bf9b0121b5.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([0xe980ae8a550c],{829:function(o,e){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Lycanthropy",description:{childMarkdownRemark:{html:"<p>People who possess this power have the possibility to change the shape of their body into a kind of half-man, half-wolf creature, which gives great strength and agility.</p>"}},equivalentUrl:"/pouvoirs/lycanthropie"}},pathContext:{slug:"lycanthropy"}}}});
-//# sourceMappingURL=path---en-powers-lycanthropy-773c2d2cf977d35c80e3.js.map

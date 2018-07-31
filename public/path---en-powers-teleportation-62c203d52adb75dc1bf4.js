@@ -1,2 +1,0 @@
-webpackJsonp([0x686cfac10772],{845:function(o,e){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Teleportation",description:{childMarkdownRemark:{html:"<p>This power allows the possessor to teleport to places he has already photographed or physically seen. With an exceptional mastery of power, it is possible for the possessor to change dimensions.</p>"}},equivalentUrl:"/pouvoirs/teleportation"}},pathContext:{slug:"teleportation"}}}});
-//# sourceMappingURL=path---en-powers-teleportation-62c203d52adb75dc1bf4.js.map

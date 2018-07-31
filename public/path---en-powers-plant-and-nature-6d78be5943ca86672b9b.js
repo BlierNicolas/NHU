@@ -1,2 +1,0 @@
-webpackJsonp([0x9591b7cdf7d],{836:function(e,n){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Plant and nature",description:{childMarkdownRemark:{html:"<p>This power allows the possessor to control the plants in various ways and to feel their needs. The individual can also create new hybrid plants according to his desires.</p>"}},equivalentUrl:"/pouvoirs/plante-et-nature"}},pathContext:{slug:"plant-and-nature"}}}});
-//# sourceMappingURL=path---en-powers-plant-and-nature-6d78be5943ca86672b9b.js.map
