@@ -14,7 +14,7 @@ import FooterEn from '../components/enFooter'
 import Block_News from '../components/block_news.en';
 import Block_Calendar from '../components/block_calendar.en';
 import Block_Continuer from '../components/block_continuer';
-import firebase, { auth, provider } from '../firebase.js';
+import firebase from '../firebase.js';
 import cookie from 'react-cookies';
 
 class IndexPageEn extends Component {

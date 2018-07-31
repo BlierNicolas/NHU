@@ -16,7 +16,7 @@ import Footer from '../components/footer'
 import Btn_like from '../components/btn_like'
 import Btn_read from '../components/btn_read'
 import Btn_like_disconnect from '../components/btn_like_disconnect'
-import firebase, { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 
 class Chapitre extends Component {

@@ -4,9 +4,8 @@ import {
     Row,
     Col
 } from 'reactstrap';
-import firebase, { auth, provider } from '../firebase.js';
+import firebase from '../firebase.js';
 import cookie from 'react-cookies';
-import { timingSafeEqual } from 'crypto';
 
 export default class Block_Continuer extends React.Component {
     constructor(props) {

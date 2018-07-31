@@ -15,7 +15,7 @@ import {
 } from 'reactstrap';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
-import firebase, { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 import EnBtn_like from '../components/enBtn_like'
 import EnBtn_read from '../components/enBtn_read'

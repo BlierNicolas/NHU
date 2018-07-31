@@ -14,7 +14,7 @@ import Footer from '../components/footer'
 import Block_Nouvelles from '../components/block_nouvelles';
 import Block_Calendrier from '../components/block_calendrier';
 import Block_Continuer from '../components/block_continuer';
-import firebase, { auth, provider } from '../firebase.js';
+import firebase from '../firebase.js';
 import cookie from 'react-cookies';
 
 class IndexPage extends Component {

@@ -10,13 +10,12 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import classnames from 'classnames';
 import HeaderEn from '../components/enHeader'
 import FooterEn from '../components/enFooter'
 import EnBtn_like from '../components/enBtn_like'
 import EnBtn_read from '../components/enBtn_read'
 import EnBtn_like_disconnect from '../components/enBtn_like_disconnect'
-import firebase, { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 
 class Chapter extends Component {
