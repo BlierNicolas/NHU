@@ -1,2 +1,0 @@
-webpackJsonp([0xf3113e43ea0f],{813:function(t,o){t.exports={data:{contentfulPouvoir:{nomPouvoir:"Elasticity",description:{childMarkdownRemark:{html:"<p>This power allows the possessor to have an elastic body, to extend his body to extraordinary distances and to pass through narrow slits with ease.</p>"}},equivalentUrl:"/pouvoirs/elasticite"}},pathContext:{slug:"elasticity"}}}});
-//# sourceMappingURL=path---en-powers-elasticity-4afe24638f424ce12c3d.js.map

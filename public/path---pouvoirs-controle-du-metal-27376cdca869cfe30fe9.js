@@ -1,2 +1,0 @@
-webpackJsonp([0xe6c0a826d687],{1079:function(e,t){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Contrôle du métal",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de contrôler le métal, leur faire changer de former et de solidité. Plus le pouvoir est maîtrisé, plus la distance qui sépare l'individus et le métal en question est grande.</p>"}},equivalentUrl:"/powers/metal-control"}},pathContext:{slug:"controle-du-metal"}}}});
-//# sourceMappingURL=path---pouvoirs-controle-du-metal-27376cdca869cfe30fe9.js.map

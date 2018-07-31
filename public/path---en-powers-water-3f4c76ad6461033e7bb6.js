@@ -1,2 +1,0 @@
-webpackJsonp([0xdd6d7fdb155c],{847:function(t,o){t.exports={data:{contentfulPouvoir:{nomPouvoir:"Water",description:{childMarkdownRemark:{html:"<p>This power allows the owner to control the water and use it to his advantage in several situations.</p>"}},equivalentUrl:"/pouvoirs/eau"}},pathContext:{slug:"water"}}}});
-//# sourceMappingURL=path---en-powers-water-3f4c76ad6461033e7bb6.js.map
