@@ -1,0 +1,2 @@
+webpackJsonp([0xb64602307d91],{1102:function(e,s){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Invocation d'armes",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet à l'individus de créer ou d'invoquer des armes blanches depuis son corps. Les armes disparaîssent si l'individus les lâches, mais avec une meilleure maîtrise, elle resteront présentes.</p>"}},equivalentUrl:"/powers/weapons-summoning"}},pathContext:{slug:"invocation-d-armes"}}}});
+//# sourceMappingURL=path---pouvoirs-invocation-d-armes-4a120bc9dcc24ca6b972.js.map

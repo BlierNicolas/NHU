@@ -1,0 +1,2 @@
+webpackJsonp([0xf7f4e4dfc63],{849:function(e,t){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Super strength",description:{childMarkdownRemark:{html:"<p>This power allows the individuals who possess it to increase their strength tenfold, allowing them to lift tons of weights with ease. This power frequently leads to an increase in muscle mass which may be permanent or temporary depending on the cases.</p>"}},equivalentUrl:"/pouvoirs/super-force"}},pathContext:{slug:"super-strength"}}}});
+//# sourceMappingURL=path---en-powers-super-strength-7bb3e86147b2795f7f4b.js.map

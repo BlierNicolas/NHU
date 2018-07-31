@@ -1,0 +1,2 @@
+webpackJsonp([81508077049872],{829:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Ice",description:{childMarkdownRemark:{html:"<p>This power allows the owner to generate ice of different thicknesses and pressures. Naturally, the possessor has immunity to this element.</p>"}},equivalentUrl:"/pouvoirs/glace"}},pathContext:{slug:"ice"}}}});
+//# sourceMappingURL=path---en-powers-ice-0484f1025c8e367b84cd.js.map

@@ -1,0 +1,2 @@
+webpackJsonp([0xaf309a2b48c],{840:function(e,n){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Nuclear energy",description:{childMarkdownRemark:{html:"<p>This power allows individuals to generate, manipulate and absorb nuclear energy. It is an extremely difficult power to control and master.</p>"}},equivalentUrl:"/pouvoirs/energie-nucleaire"}},pathContext:{slug:"nuclear-energy"}}}});
+//# sourceMappingURL=path---en-powers-nuclear-energy-e93f49a82d3142762059.js.map

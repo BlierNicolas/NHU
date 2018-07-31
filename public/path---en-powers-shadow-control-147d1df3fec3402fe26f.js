@@ -1,0 +1,2 @@
+webpackJsonp([0x97346e9a3c5c],{845:function(o,s){o.exports={data:{contentfulPouvoir:{nomPouvoir:"Shadow control",description:{childMarkdownRemark:{html:"<p>This power allows the possessor to manipulate the shadows around him and perform complex actions with the shadows such as moving objects.</p>"}},equivalentUrl:"/pouvoirs/controle-des-ombres"}},pathContext:{slug:"shadow-control"}}}});
+//# sourceMappingURL=path---en-powers-shadow-control-147d1df3fec3402fe26f.js.map

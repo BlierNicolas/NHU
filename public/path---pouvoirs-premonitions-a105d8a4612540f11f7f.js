@@ -1,0 +1,2 @@
+webpackJsonp([0xcde10075a1cc],{1113:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Prémonitions",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de voir des choses en avance qu'il y ait quelques secondes ou quelques années entre les deux temps. Cependant, le choses qui sont vues restent limités à ce que la personne va voir plus tard.</p>"}},equivalentUrl:"/powers/premonitions"}},pathContext:{slug:"premonitions"}}}});
+//# sourceMappingURL=path---pouvoirs-premonitions-a105d8a4612540f11f7f.js.map

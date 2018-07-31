@@ -1,0 +1,2 @@
+webpackJsonp([75225204419900],{1091:function(e,i){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Électricité filaire",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de contrôler le flux électrique dans les files. Avec une bonne maîtrise, il sera possible de voir ce qui est perçue par les caméras des appareils manipulés.</p>"}},equivalentUrl:"/powers/wired-electricity"}},pathContext:{slug:"electricite-filaire"}}}});
+//# sourceMappingURL=path---pouvoirs-electricite-filaire-8ed0166e694494e1b88b.js.map

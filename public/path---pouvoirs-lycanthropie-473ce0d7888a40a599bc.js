@@ -1,0 +1,2 @@
+webpackJsonp([0x9d4bff65a6d8],{1106:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Lycanthropie",description:{childMarkdownRemark:{html:"<p>Les gens qui possèdent ce pouvoir ont la possibilité de changer la forme de leur corps en sorte de créature mi-homme, mi-loup, ce qui donne une grande force et grande agilité.</p>"}},equivalentUrl:"/powers/lycanthropy"}},pathContext:{slug:"lycanthropie"}}}});
+//# sourceMappingURL=path---pouvoirs-lycanthropie-473ce0d7888a40a599bc.js.map

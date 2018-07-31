@@ -1,0 +1,2 @@
+webpackJsonp([0xe35b65d5667b],{1089:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Eau",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de contrôler l'eau et de l'utiliser à son avantage dans plusieurs situations.</p>"}},equivalentUrl:"/powers/water"}},pathContext:{slug:"eau"}}}});
+//# sourceMappingURL=path---pouvoirs-eau-745aed6f1a5442d8096b.js.map

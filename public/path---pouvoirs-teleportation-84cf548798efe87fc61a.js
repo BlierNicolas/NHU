@@ -1,0 +1,2 @@
+webpackJsonp([0xf20d3983e5e8],{1119:function(e,o){e.exports={data:{contentfulPouvoir:{nomPouvoir:"Téléportation",description:{childMarkdownRemark:{html:"<p>Ce pouvoir permet au possesseur de se téléporter à des endroits qu'il a déjà vu en photo ou physiquement. Avec une exceptionnelle maîtrise du pouvoir, il est possible pour le possesseur de changer de dimensions.</p>"}},equivalentUrl:"/powers/teleportation"}},pathContext:{slug:"teleportation"}}}});
+//# sourceMappingURL=path---pouvoirs-teleportation-84cf548798efe87fc61a.js.map

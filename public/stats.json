@@ -1,420 +1,1724 @@
 {
   "assetsByChunkName": {
+    "path---personnages-carlos-hennors": [
+      "path---personnages-carlos-hennors-dd04ae7abcc366ec4aee.js",
+      "path---personnages-carlos-hennors-dd04ae7abcc366ec4aee.js.map"
+    ],
+    "path---en-characters-flynn-gamay": [
+      "path---en-characters-flynn-gamay-108deb5da99760e736ec.js",
+      "path---en-characters-flynn-gamay-108deb5da99760e736ec.js.map"
+    ],
+    "path---en-characters-angelique-ramber": [
+      "path---en-characters-angelique-ramber-35ad00586d4134d5561c.js",
+      "path---en-characters-angelique-ramber-35ad00586d4134d5561c.js.map"
+    ],
+    "component---src-templates-contributors-en-js": [
+      "component---src-templates-contributors-en-js-e3bcfb5eccc7cb2150d6.js",
+      "component---src-templates-contributors-en-js-e3bcfb5eccc7cb2150d6.js.map"
+    ],
+    "path---personnages-hug-arur": [
+      "path---personnages-hug-arur-528a58170532b8a3530c.js",
+      "path---personnages-hug-arur-528a58170532b8a3530c.js.map"
+    ],
+    "path---en-news-new-and-final-chapter-of-tim-story": [
+      "path---en-news-new-and-final-chapter-of-tim-story-e0b062b21b02fabfc623.js",
+      "path---en-news-new-and-final-chapter-of-tim-story-e0b062b21b02fabfc623.js.map"
+    ],
+    "component---src-templates-group-en-js": [
+      "component---src-templates-group-en-js-2408f74f0da01d832eaf.js",
+      "component---src-templates-group-en-js-2408f74f0da01d832eaf.js.map"
+    ],
+    "path---personnages-bailey-thotokan": [
+      "path---personnages-bailey-thotokan-9bc6bb580099379a65fc.js",
+      "path---personnages-bailey-thotokan-9bc6bb580099379a65fc.js.map"
+    ],
+    "path---en-characters-alicia-natir": [
+      "path---en-characters-alicia-natir-2c780c326f149cd473b3.js",
+      "path---en-characters-alicia-natir-2c780c326f149cd473b3.js.map"
+    ],
     "path---histoires-la-puissance-de-la-nature": [
-      "path---histoires-la-puissance-de-la-nature-c25209f08ed51b245f73.js",
-      "path---histoires-la-puissance-de-la-nature-c25209f08ed51b245f73.js.map"
+      "path---histoires-la-puissance-de-la-nature-cb1eaf9614b70ece2255.js",
+      "path---histoires-la-puissance-de-la-nature-cb1eaf9614b70ece2255.js.map"
+    ],
+    "path---en-stories-chapter-chapter-5-first-mission": [
+      "path---en-stories-chapter-chapter-5-first-mission-74a4c7707cdfabe3639a.js",
+      "path---en-stories-chapter-chapter-5-first-mission-74a4c7707cdfabe3639a.js.map"
+    ],
+    "path---en-stories-chapter-chapter-6-the-encounter": [
+      "path---en-stories-chapter-chapter-6-the-encounter-7cffa9efdda8fa42dd0d.js",
+      "path---en-stories-chapter-chapter-6-the-encounter-7cffa9efdda8fa42dd0d.js.map"
+    ],
+    "path---en-powers-technology-control": [
+      "path---en-powers-technology-control-20f348a38c6ed08b6a88.js",
+      "path---en-powers-technology-control-20f348a38c6ed08b6a88.js.map"
+    ],
+    "path---pouvoirs-flexibilite": [
+      "path---pouvoirs-flexibilite-81f99abb73968d5a1bd9.js",
+      "path---pouvoirs-flexibilite-81f99abb73968d5a1bd9.js.map"
+    ],
+    "path---en-powers-plant-and-nature": [
+      "path---en-powers-plant-and-nature-6d78be5943ca86672b9b.js",
+      "path---en-powers-plant-and-nature-6d78be5943ca86672b9b.js.map"
+    ],
+    "path---personnages-flynn-gamay": [
+      "path---personnages-flynn-gamay-b4864b846fb5d7bef2ef.js",
+      "path---personnages-flynn-gamay-b4864b846fb5d7bef2ef.js.map"
+    ],
+    "path---en-powers-nuclear-energy": [
+      "path---en-powers-nuclear-energy-e93f49a82d3142762059.js",
+      "path---en-powers-nuclear-energy-e93f49a82d3142762059.js.map"
+    ],
+    "path---en-stories-power-of-nature": [
+      "path---en-stories-power-of-nature-575b209b19e9262581dc.js",
+      "path---en-stories-power-of-nature-575b209b19e9262581dc.js.map"
+    ],
+    "path---en-powers-electricity": [
+      "path---en-powers-electricity-cf5e27c6cb273a7cba24.js",
+      "path---en-powers-electricity-cf5e27c6cb273a7cba24.js.map"
+    ],
+    "path---en-characters-kyna-gamay": [
+      "path---en-characters-kyna-gamay-18d8aedcdd1b8702be09.js",
+      "path---en-characters-kyna-gamay-18d8aedcdd1b8702be09.js.map"
+    ],
+    "component---src-templates-story-en-js": [
+      "component---src-templates-story-en-js-a2b468b8692040ac72cb.js",
+      "component---src-templates-story-en-js-a2b468b8692040ac72cb.js.map"
     ],
     "path---histoires-chapitre-chapitre-3-les-apprentis": [
-      "path---histoires-chapitre-chapitre-3-les-apprentis-4642944d3007210e6af5.js",
-      "path---histoires-chapitre-chapitre-3-les-apprentis-4642944d3007210e6af5.js.map"
+      "path---histoires-chapitre-chapitre-3-les-apprentis-d179a727148407010578.js",
+      "path---histoires-chapitre-chapitre-3-les-apprentis-d179a727148407010578.js.map"
+    ],
+    "path---pouvoirs-feu-et-magma": [
+      "path---pouvoirs-feu-et-magma-dee6c4cbe3891c791e10.js",
+      "path---pouvoirs-feu-et-magma-dee6c4cbe3891c791e10.js.map"
+    ],
+    "path---en-stories-chapter-chapter-6-union": [
+      "path---en-stories-chapter-chapter-6-union-44814ca21edafa01a219.js",
+      "path---en-stories-chapter-chapter-6-union-44814ca21edafa01a219.js.map"
+    ],
+    "path---personnages-kemyanne-hitaram": [
+      "path---personnages-kemyanne-hitaram-457cad4ec18557126803.js",
+      "path---personnages-kemyanne-hitaram-457cad4ec18557126803.js.map"
+    ],
+    "path---personnages-saeko-black": [
+      "path---personnages-saeko-black-c2bbf4f2aff26dd46227.js",
+      "path---personnages-saeko-black-c2bbf4f2aff26dd46227.js.map"
+    ],
+    "path---en-powers-super-strength": [
+      "path---en-powers-super-strength-7bb3e86147b2795f7f4b.js",
+      "path---en-powers-super-strength-7bb3e86147b2795f7f4b.js.map"
+    ],
+    "path---en-powers-shape-shifting": [
+      "path---en-powers-shape-shifting-70d7ca4a6d209a7b971b.js",
+      "path---en-powers-shape-shifting-70d7ca4a6d209a7b971b.js.map"
     ],
     "path---histoires-chapitre-chapitre-7-escapade": [
-      "path---histoires-chapitre-chapitre-7-escapade-0c2482c0352526b6e641.js",
-      "path---histoires-chapitre-chapitre-7-escapade-0c2482c0352526b6e641.js.map"
+      "path---histoires-chapitre-chapitre-7-escapade-b12a3e28c5eb746967aa.js",
+      "path---histoires-chapitre-chapitre-7-escapade-b12a3e28c5eb746967aa.js.map"
+    ],
+    "path---en-news-a-new-story-begin": [
+      "path---en-news-a-new-story-begin-29b5c1e450df99ccdd07.js",
+      "path---en-news-a-new-story-begin-29b5c1e450df99ccdd07.js.map"
     ],
     "component---src-templates-nouvelles-js": [
-      "component---src-templates-nouvelles-js-3b064b6daf881951ff77.js",
-      "component---src-templates-nouvelles-js-3b064b6daf881951ff77.js.map"
+      "component---src-templates-nouvelles-js-d7763a491d3a881b07a4.js",
+      "component---src-templates-nouvelles-js-d7763a491d3a881b07a4.js.map"
+    ],
+    "path---en-characters-saeko-black": [
+      "path---en-characters-saeko-black-4e64dd456aa07c7e1d6b.js",
+      "path---en-characters-saeko-black-4e64dd456aa07c7e1d6b.js.map"
+    ],
+    "path---en-characters-clara-nairo": [
+      "path---en-characters-clara-nairo-6109dae4772c3a704234.js",
+      "path---en-characters-clara-nairo-6109dae4772c3a704234.js.map"
+    ],
+    "path---en-powers-weapons-mastering": [
+      "path---en-powers-weapons-mastering-470b8fa0d3cd59976e9d.js",
+      "path---en-powers-weapons-mastering-470b8fa0d3cd59976e9d.js.map"
+    ],
+    "path---personnages-darakei-drumel": [
+      "path---personnages-darakei-drumel-7a21d5bfaa8747885c96.js",
+      "path---personnages-darakei-drumel-7a21d5bfaa8747885c96.js.map"
+    ],
+    "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-tim": [
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-tim-8ad5899e864fcd8bc417.js",
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-tim-8ad5899e864fcd8bc417.js.map"
+    ],
+    "path---en-stories-the-red-ravens": [
+      "path---en-stories-the-red-ravens-de89b273e32bc7b10418.js",
+      "path---en-stories-the-red-ravens-de89b273e32bc7b10418.js.map"
+    ],
+    "path---en-powers-control-of-others": [
+      "path---en-powers-control-of-others-5716283cbd428ab919cb.js",
+      "path---en-powers-control-of-others-5716283cbd428ab919cb.js.map"
+    ],
+    "path---en-stories-chapter-chapter-12-theft": [
+      "path---en-stories-chapter-chapter-12-theft-97370ea865dd099f7507.js",
+      "path---en-stories-chapter-chapter-12-theft-97370ea865dd099f7507.js.map"
+    ],
+    "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-jack": [
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-jack-ddc8567b903a5991da9a.js",
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-jack-ddc8567b903a5991da9a.js.map"
+    ],
+    "path---pouvoirs-gravite": [
+      "path---pouvoirs-gravite-44b433491404c32a8600.js",
+      "path---pouvoirs-gravite-44b433491404c32a8600.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-disruptions-in-class": [
+      "path---en-stories-chapter-chapter-2-disruptions-in-class-ebcba9004d581f3090ac.js",
+      "path---en-stories-chapter-chapter-2-disruptions-in-class-ebcba9004d581f3090ac.js.map"
+    ],
+    "path---en-powers-bones-extensions": [
+      "path---en-powers-bones-extensions-e6b7ddacfef8f76ad26a.js",
+      "path---en-powers-bones-extensions-e6b7ddacfef8f76ad26a.js.map"
+    ],
+    "path---personnages-lyliane-drumel": [
+      "path---personnages-lyliane-drumel-5b90c94157baf176ecba.js",
+      "path---personnages-lyliane-drumel-5b90c94157baf176ecba.js.map"
     ],
     "component---src-templates-theorie-js": [
-      "component---src-templates-theorie-js-d2b63946a979f9e1d653.js",
-      "component---src-templates-theorie-js-d2b63946a979f9e1d653.js.map"
+      "component---src-templates-theorie-js-664d19bd96f7f26d52ec.js",
+      "component---src-templates-theorie-js-664d19bd96f7f26d52ec.js.map"
+    ],
+    "component---src-templates-theory-en-js": [
+      "component---src-templates-theory-en-js-f73bfc04df5164aeb9ec.js",
+      "component---src-templates-theory-en-js-f73bfc04df5164aeb9ec.js.map"
     ],
     "path---histoires-chapitre-chapitre-4-l-entrainement": [
-      "path---histoires-chapitre-chapitre-4-l-entrainement-bd56ca64836b05e5f42a.js",
-      "path---histoires-chapitre-chapitre-4-l-entrainement-bd56ca64836b05e5f42a.js.map"
+      "path---histoires-chapitre-chapitre-4-l-entrainement-9a9eb175ae584b001557.js",
+      "path---histoires-chapitre-chapitre-4-l-entrainement-9a9eb175ae584b001557.js.map"
+    ],
+    "path---en-powers-metal-control": [
+      "path---en-powers-metal-control-614bd9a67bb14e0957c8.js",
+      "path---en-powers-metal-control-614bd9a67bb14e0957c8.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-the-escape": [
+      "path---en-stories-chapter-chapter-3-the-escape-0e889dc810c81f6338b6.js",
+      "path---en-stories-chapter-chapter-3-the-escape-0e889dc810c81f6338b6.js.map"
+    ],
+    "component---src-templates-powers-en-js": [
+      "component---src-templates-powers-en-js-447821190caa0f637442.js",
+      "component---src-templates-powers-en-js-447821190caa0f637442.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-aef7851b526395d81ff9.js",
-      "component---src-pages-index-js-aef7851b526395d81ff9.js.map"
+      "component---src-pages-index-js-babdef06bee53d462f7c.js",
+      "component---src-pages-index-js-babdef06bee53d462f7c.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-recruitment": [
+      "path---en-stories-chapter-chapter-2-recruitment-9be6474eb4bac0f33bc8.js",
+      "path---en-stories-chapter-chapter-2-recruitment-9be6474eb4bac0f33bc8.js.map"
     ],
     "path---personnages-wamien-mata": [
-      "path---personnages-wamien-mata-190aad033216a200cee7.js",
-      "path---personnages-wamien-mata-190aad033216a200cee7.js.map"
+      "path---personnages-wamien-mata-10a9b28415a5cbec686b.js",
+      "path---personnages-wamien-mata-10a9b28415a5cbec686b.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-the-vigilante": [
+      "path---en-stories-chapter-chapter-3-the-vigilante-d25282a029abdde00e8a.js",
+      "path---en-stories-chapter-chapter-3-the-vigilante-d25282a029abdde00e8a.js.map"
+    ],
+    "path---en-news": [
+      "path---en-news-b2a6609f473a33e930ae.js",
+      "path---en-news-b2a6609f473a33e930ae.js.map"
     ],
     "path---histoires-chapitre-chapitre-2-les-modifications": [
-      "path---histoires-chapitre-chapitre-2-les-modifications-406825cc2bb825388667.js",
-      "path---histoires-chapitre-chapitre-2-les-modifications-406825cc2bb825388667.js.map"
+      "path---histoires-chapitre-chapitre-2-les-modifications-4a1091bde1d30be132f0.js",
+      "path---histoires-chapitre-chapitre-2-les-modifications-4a1091bde1d30be132f0.js.map"
+    ],
+    "path---en-stories-chapter-chapter-11-the-drumel-genes": [
+      "path---en-stories-chapter-chapter-11-the-drumel-genes-5f568b2dd6dfe13a5891.js",
+      "path---en-stories-chapter-chapter-11-the-drumel-genes-5f568b2dd6dfe13a5891.js.map"
+    ],
+    "path---pouvoirs-controle-de-l-humeur": [
+      "path---pouvoirs-controle-de-l-humeur-acc3dcaa428130d64374.js",
+      "path---pouvoirs-controle-de-l-humeur-acc3dcaa428130d64374.js.map"
+    ],
+    "path---en-stories-chapter-chapter-9-new-familly": [
+      "path---en-stories-chapter-chapter-9-new-familly-440e6c2d3ec9a7f551ae.js",
+      "path---en-stories-chapter-chapter-9-new-familly-440e6c2d3ec9a7f551ae.js.map"
+    ],
+    "path---personnages-elea-drumel": [
+      "path---personnages-elea-drumel-17ece39c3e00f82caaf0.js",
+      "path---personnages-elea-drumel-17ece39c3e00f82caaf0.js.map"
+    ],
+    "path---personnages-todd-brapus": [
+      "path---personnages-todd-brapus-4ca636302dd1d8db88fe.js",
+      "path---personnages-todd-brapus-4ca636302dd1d8db88fe.js.map"
+    ],
+    "path---personnages-alexis-bunakod": [
+      "path---personnages-alexis-bunakod-32744be12da804767de2.js",
+      "path---personnages-alexis-bunakod-32744be12da804767de2.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-angelique": [
+      "path---en-stories-chapter-chapter-2-angelique-b7f2633182f28bcd7a62.js",
+      "path---en-stories-chapter-chapter-2-angelique-b7f2633182f28bcd7a62.js.map"
+    ],
+    "path---en-events": [
+      "path---en-events-82c8906465bbd8d3c3c1.js",
+      "path---en-events-82c8906465bbd8d3c3c1.js.map"
+    ],
+    "path---en-powers-intengibility": [
+      "path---en-powers-intengibility-bc1b19edba703deb3426.js",
+      "path---en-powers-intengibility-bc1b19edba703deb3426.js.map"
     ],
     "path---histoires-chapitre-chapitre-11-la-nouvelle-maison": [
-      "path---histoires-chapitre-chapitre-11-la-nouvelle-maison-8d6133aaa176ac345d1a.js",
-      "path---histoires-chapitre-chapitre-11-la-nouvelle-maison-8d6133aaa176ac345d1a.js.map"
+      "path---histoires-chapitre-chapitre-11-la-nouvelle-maison-352533cbe83cd57e25ee.js",
+      "path---histoires-chapitre-chapitre-11-la-nouvelle-maison-352533cbe83cd57e25ee.js.map"
+    ],
+    "path---en-characters-elea-drumel": [
+      "path---en-characters-elea-drumel-d6bc3971de1edaf14a5a.js",
+      "path---en-characters-elea-drumel-d6bc3971de1edaf14a5a.js.map"
+    ],
+    "path---personnages-tiana-gresas": [
+      "path---personnages-tiana-gresas-7ec9bc07e276413815e9.js",
+      "path---personnages-tiana-gresas-7ec9bc07e276413815e9.js.map"
     ],
     "path---nouvelles": [
-      "path---nouvelles-d58dbaa4fd1443f75397.js",
-      "path---nouvelles-d58dbaa4fd1443f75397.js.map"
+      "path---nouvelles-e91f8ba0606d6f7a264c.js",
+      "path---nouvelles-e91f8ba0606d6f7a264c.js.map"
     ],
     "component---src-templates-personnages-js": [
-      "component---src-templates-personnages-js-5319bf1f455351d27bda.js",
-      "component---src-templates-personnages-js-5319bf1f455351d27bda.js.map"
+      "component---src-templates-personnages-js-bab8389ca37ff4fa91d3.js",
+      "component---src-templates-personnages-js-bab8389ca37ff4fa91d3.js.map"
+    ],
+    "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-sam": [
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-sam-63b3ba3165760f05d284.js",
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-sam-63b3ba3165760f05d284.js.map"
     ],
     "path---histoires-chapitre-chapitre-9-nouvelle-famille": [
-      "path---histoires-chapitre-chapitre-9-nouvelle-famille-1a20c91a79c790e90d05.js",
-      "path---histoires-chapitre-chapitre-9-nouvelle-famille-1a20c91a79c790e90d05.js.map"
+      "path---histoires-chapitre-chapitre-9-nouvelle-famille-a0336401a556c5f77cd4.js",
+      "path---histoires-chapitre-chapitre-9-nouvelle-famille-a0336401a556c5f77cd4.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-une-rencontre-improbable": [
-      "path---histoires-chapitre-chapitre-1-une-rencontre-improbable-a421b9fe3ec1d0afeea8.js",
-      "path---histoires-chapitre-chapitre-1-une-rencontre-improbable-a421b9fe3ec1d0afeea8.js.map"
+      "path---histoires-chapitre-chapitre-1-une-rencontre-improbable-d7d6309cc7952f173145.js",
+      "path---histoires-chapitre-chapitre-1-une-rencontre-improbable-d7d6309cc7952f173145.js.map"
+    ],
+    "path---personnages-sarah-lirtan": [
+      "path---personnages-sarah-lirtan-13dfa730a8427a0d83d3.js",
+      "path---personnages-sarah-lirtan-13dfa730a8427a0d83d3.js.map"
     ],
     "path---histoires-chapitre-chapitre-21-les-reveils": [
-      "path---histoires-chapitre-chapitre-21-les-reveils-285faa64c80d46cb13ee.js",
-      "path---histoires-chapitre-chapitre-21-les-reveils-285faa64c80d46cb13ee.js.map"
+      "path---histoires-chapitre-chapitre-21-les-reveils-865af88ad23bbf234b72.js",
+      "path---histoires-chapitre-chapitre-21-les-reveils-865af88ad23bbf234b72.js.map"
+    ],
+    "path---en-characters-kemyanne-hitaram": [
+      "path---en-characters-kemyanne-hitaram-b0946dafa51f6be50a1f.js",
+      "path---en-characters-kemyanne-hitaram-b0946dafa51f6be50a1f.js.map"
+    ],
+    "path---en-characters-kellan-brogran": [
+      "path---en-characters-kellan-brogran-3c576cb8b7d3e3024925.js",
+      "path---en-characters-kellan-brogran-3c576cb8b7d3e3024925.js.map"
     ],
     "path---": [
       "path----21b71487510a315721eb.js",
       "path----21b71487510a315721eb.js.map"
     ],
+    "path---en-calendar": [
+      "path---en-calendar-1c8683d7759e213948c2.js",
+      "path---en-calendar-1c8683d7759e213948c2.js.map"
+    ],
+    "path---en-powers-cloning": [
+      "path---en-powers-cloning-8663ab8c019d78d7a371.js",
+      "path---en-powers-cloning-8663ab8c019d78d7a371.js.map"
+    ],
+    "path---personnages-renji-prepas": [
+      "path---personnages-renji-prepas-e67abac6102557f1a578.js",
+      "path---personnages-renji-prepas-e67abac6102557f1a578.js.map"
+    ],
     "path---histoires-chapitre-chapitre-13-la-rebellion-partie-1": [
-      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-1-d802e44b840647bd4bd8.js",
-      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-1-d802e44b840647bd4bd8.js.map"
+      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-1-2100dcf48b1c9f3614da.js",
+      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-1-2100dcf48b1c9f3614da.js.map"
+    ],
+    "path---pouvoirs-telekinesie": [
+      "path---pouvoirs-telekinesie-95637ad7894c3f6bbc91.js",
+      "path---pouvoirs-telekinesie-95637ad7894c3f6bbc91.js.map"
+    ],
+    "path---en-characters-gaia-dodirin": [
+      "path---en-characters-gaia-dodirin-9d47128d92061c6a7bbb.js",
+      "path---en-characters-gaia-dodirin-9d47128d92061c6a7bbb.js.map"
+    ],
+    "path---en-stories-the-invisible-defender": [
+      "path---en-stories-the-invisible-defender-8753979f804d9b9ab8ac.js",
+      "path---en-stories-the-invisible-defender-8753979f804d9b9ab8ac.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-modifications": [
+      "path---en-stories-chapter-chapter-2-modifications-12dfc56cf966380c521e.js",
+      "path---en-stories-chapter-chapter-2-modifications-12dfc56cf966380c521e.js.map"
+    ],
+    "path---en-characters-jack-amidus": [
+      "path---en-characters-jack-amidus-6196eee9e02dbcd385c3.js",
+      "path---en-characters-jack-amidus-6196eee9e02dbcd385c3.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-les-nouveaux": [
-      "path---histoires-chapitre-chapitre-1-les-nouveaux-4ab4a6dbcd939cb294e2.js",
-      "path---histoires-chapitre-chapitre-1-les-nouveaux-4ab4a6dbcd939cb294e2.js.map"
+      "path---histoires-chapitre-chapitre-1-les-nouveaux-1465d9cbd2bd0a811a21.js",
+      "path---histoires-chapitre-chapitre-1-les-nouveaux-1465d9cbd2bd0a811a21.js.map"
+    ],
+    "path---en-stories-chapter-chapter-19-perfecting-skills": [
+      "path---en-stories-chapter-chapter-19-perfecting-skills-0027dd67e5d5524a635c.js",
+      "path---en-stories-chapter-chapter-19-perfecting-skills-0027dd67e5d5524a635c.js.map"
+    ],
+    "component---src-templates-progression-js": [
+      "component---src-templates-progression-js-efd953302f29669540ae.js",
+      "component---src-templates-progression-js-efd953302f29669540ae.js.map"
+    ],
+    "path---pouvoirs-duplication-d-objets": [
+      "path---pouvoirs-duplication-d-objets-9e53ef0f4f1759be4aaf.js",
+      "path---pouvoirs-duplication-d-objets-9e53ef0f4f1759be4aaf.js.map"
     ],
     "path---personnages": [
-      "path---personnages-f82dce5199d586653aa1.js",
-      "path---personnages-f82dce5199d586653aa1.js.map"
+      "path---personnages-144be0be18703cb5e7c8.js",
+      "path---personnages-144be0be18703cb5e7c8.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-fragile": [
+      "path---en-stories-chapter-chapter-1-fragile-5fe994b2680fae1c0113.js",
+      "path---en-stories-chapter-chapter-1-fragile-5fe994b2680fae1c0113.js.map"
+    ],
+    "path---en-powers-wired-electricity": [
+      "path---en-powers-wired-electricity-804309abdf6ba41a0669.js",
+      "path---en-powers-wired-electricity-804309abdf6ba41a0669.js.map"
+    ],
+    "path---en-powers-gravity": [
+      "path---en-powers-gravity-12ae0b268a14872921c1.js",
+      "path---en-powers-gravity-12ae0b268a14872921c1.js.map"
+    ],
+    "path---en-powers-light": [
+      "path---en-powers-light-a4f89fdf0f28da8b4321.js",
+      "path---en-powers-light-a4f89fdf0f28da8b4321.js.map"
+    ],
+    "path---en-stories-chapter-chapter-7-the-getaway": [
+      "path---en-stories-chapter-chapter-7-the-getaway-27aeadc180e70d3ab6e1.js",
+      "path---en-stories-chapter-chapter-7-the-getaway-27aeadc180e70d3ab6e1.js.map"
+    ],
+    "path---pouvoirs-vol": [
+      "path---pouvoirs-vol-cc72f1f024d086c3c663.js",
+      "path---pouvoirs-vol-cc72f1f024d086c3c663.js.map"
+    ],
+    "path---en-groups-the-legion": [
+      "path---en-groups-the-legion-c66e9565021e26d7ce80.js",
+      "path---en-groups-the-legion-c66e9565021e26d7ce80.js.map"
+    ],
+    "component---src-templates-calendar-en-js": [
+      "component---src-templates-calendar-en-js-e41505b59dc4b6a324b4.js",
+      "component---src-templates-calendar-en-js-e41505b59dc4b6a324b4.js.map"
+    ],
+    "path---personnages-thomas-unif": [
+      "path---personnages-thomas-unif-83ff1c8ce95698b4a637.js",
+      "path---personnages-thomas-unif-83ff1c8ce95698b4a637.js.map"
+    ],
+    "path---en-powers-super-speed": [
+      "path---en-powers-super-speed-2316f449e7623f486cba.js",
+      "path---en-powers-super-speed-2316f449e7623f486cba.js.map"
+    ],
+    "path---en-stories-chapter-chapter-13-rebellion-part-2": [
+      "path---en-stories-chapter-chapter-13-rebellion-part-2-4650c52f848a50236793.js",
+      "path---en-stories-chapter-chapter-13-rebellion-part-2-4650c52f848a50236793.js.map"
+    ],
+    "path---pouvoirs-electricite-filaire": [
+      "path---pouvoirs-electricite-filaire-8ed0166e694494e1b88b.js",
+      "path---pouvoirs-electricite-filaire-8ed0166e694494e1b88b.js.map"
+    ],
+    "path---en-characters-daryl-koido": [
+      "path---en-characters-daryl-koido-4ec102e07028f45fcc74.js",
+      "path---en-characters-daryl-koido-4ec102e07028f45fcc74.js.map"
     ],
     "path---histoires": [
-      "path---histoires-9fb64a2f92e1ad508914.js",
-      "path---histoires-9fb64a2f92e1ad508914.js.map"
+      "path---histoires-68fab604b59d095de6c7.js",
+      "path---histoires-68fab604b59d095de6c7.js.map"
+    ],
+    "path---pouvoirs-super-vitesse": [
+      "path---pouvoirs-super-vitesse-09f20fb888f543eda04b.js",
+      "path---pouvoirs-super-vitesse-09f20fb888f543eda04b.js.map"
+    ],
+    "path---en-powers-fire-and-magma": [
+      "path---en-powers-fire-and-magma-9ae2b99b062abddd2cb3.js",
+      "path---en-powers-fire-and-magma-9ae2b99b062abddd2cb3.js.map"
+    ],
+    "path---pouvoirs-invisibilite": [
+      "path---pouvoirs-invisibilite-6a820e08de2c6aae2789.js",
+      "path---pouvoirs-invisibilite-6a820e08de2c6aae2789.js.map"
+    ],
+    "path---en-characters-ezekiel-huyme": [
+      "path---en-characters-ezekiel-huyme-41631c6aa81095392e9d.js",
+      "path---en-characters-ezekiel-huyme-41631c6aa81095392e9d.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-course-poursuite": [
-      "path---histoires-chapitre-chapitre-1-course-poursuite-119a16e2905894dace79.js",
-      "path---histoires-chapitre-chapitre-1-course-poursuite-119a16e2905894dace79.js.map"
+      "path---histoires-chapitre-chapitre-1-course-poursuite-2e16994666f877c913d2.js",
+      "path---histoires-chapitre-chapitre-1-course-poursuite-2e16994666f877c913d2.js.map"
+    ],
+    "path---calendrier": [
+      "path---calendrier-2a328138c50a02f537c2.js",
+      "path---calendrier-2a328138c50a02f537c2.js.map"
+    ],
+    "path---en-powers-object-duplication": [
+      "path---en-powers-object-duplication-09700c0811b9587c4c7d.js",
+      "path---en-powers-object-duplication-09700c0811b9587c4c7d.js.map"
     ],
     "path---histoires-chapitre-chapitre-2-rencontre": [
-      "path---histoires-chapitre-chapitre-2-rencontre-563949b9a70c2b64bebd.js",
-      "path---histoires-chapitre-chapitre-2-rencontre-563949b9a70c2b64bebd.js.map"
+      "path---histoires-chapitre-chapitre-2-rencontre-28760968d9f3fac76540.js",
+      "path---histoires-chapitre-chapitre-2-rencontre-28760968d9f3fac76540.js.map"
+    ],
+    "path---pouvoirs-super-force": [
+      "path---pouvoirs-super-force-ce4ff4d08828de7ba1cd.js",
+      "path---pouvoirs-super-force-ce4ff4d08828de7ba1cd.js.map"
+    ],
+    "path---en-powers-ice": [
+      "path---en-powers-ice-0484f1025c8e367b84cd.js",
+      "path---en-powers-ice-0484f1025c8e367b84cd.js.map"
+    ],
+    "path---en-stories-chapter-chapter-10-william": [
+      "path---en-stories-chapter-chapter-10-william-caa56e6efd4046b16179.js",
+      "path---en-stories-chapter-chapter-10-william-caa56e6efd4046b16179.js.map"
+    ],
+    "path---en-stories-chapter-chapter-8-without-success": [
+      "path---en-stories-chapter-chapter-8-without-success-f4f6ad0faca91bfcc93c.js",
+      "path---en-stories-chapter-chapter-8-without-success-f4f6ad0faca91bfcc93c.js.map"
+    ],
+    "path---personnages-kameron-daunasod": [
+      "path---personnages-kameron-daunasod-3e2e40c0c4640714af7f.js",
+      "path---personnages-kameron-daunasod-3e2e40c0c4640714af7f.js.map"
+    ],
+    "path---en-groups-red-ravens": [
+      "path---en-groups-red-ravens-96353ba0a53f0e105937.js",
+      "path---en-groups-red-ravens-96353ba0a53f0e105937.js.map"
+    ],
+    "path---en-characters-lyliane-drumel": [
+      "path---en-characters-lyliane-drumel-e5d67339ff55a5fe3b7d.js",
+      "path---en-characters-lyliane-drumel-e5d67339ff55a5fe3b7d.js.map"
+    ],
+    "path---pouvoirs-clonage": [
+      "path---pouvoirs-clonage-aced4136897d85be9c6c.js",
+      "path---pouvoirs-clonage-aced4136897d85be9c6c.js.map"
+    ],
+    "path---personnages-william-drumel": [
+      "path---personnages-william-drumel-e0dec80d752c0ba70ddf.js",
+      "path---personnages-william-drumel-e0dec80d752c0ba70ddf.js.map"
+    ],
+    "path---en-powers-manipulation-of-memories": [
+      "path---en-powers-manipulation-of-memories-fb21f84d5771c3804880.js",
+      "path---en-powers-manipulation-of-memories-fb21f84d5771c3804880.js.map"
+    ],
+    "path---en-stories-the-first-cyborg-volume-1": [
+      "path---en-stories-the-first-cyborg-volume-1-09dca120fb47ffd7bb05.js",
+      "path---en-stories-the-first-cyborg-volume-1-09dca120fb47ffd7bb05.js.map"
+    ],
+    "component---src-templates-contributeurs-js": [
+      "component---src-templates-contributeurs-js-eb108c991e28ce299547.js",
+      "component---src-templates-contributeurs-js-eb108c991e28ce299547.js.map"
     ],
     "path---histoires-chapitre-chapitre-13-la-rebellion-partie-2": [
-      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-2-9032e0fc8962bdd7543c.js",
-      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-2-9032e0fc8962bdd7543c.js.map"
+      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-2-6fdb5d7c729da6cb923d.js",
+      "path---histoires-chapitre-chapitre-13-la-rebellion-partie-2-6fdb5d7c729da6cb923d.js.map"
     ],
     "path---pouvoirs-soin-et-regeneration": [
-      "path---pouvoirs-soin-et-regeneration-a212c2457e6d70d50c4f.js",
-      "path---pouvoirs-soin-et-regeneration-a212c2457e6d70d50c4f.js.map"
+      "path---pouvoirs-soin-et-regeneration-fd0b3bcd871e487dbfbf.js",
+      "path---pouvoirs-soin-et-regeneration-fd0b3bcd871e487dbfbf.js.map"
+    ],
+    "path---en-news-new-chapter-of-kellan-story": [
+      "path---en-news-new-chapter-of-kellan-story-25c47c7ecde22548aee2.js",
+      "path---en-news-new-chapter-of-kellan-story-25c47c7ecde22548aee2.js.map"
+    ],
+    "component---src-templates-events-en-js": [
+      "component---src-templates-events-en-js-8cebf9a8eaa6df5b7dd0.js",
+      "component---src-templates-events-en-js-8cebf9a8eaa6df5b7dd0.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-chase-race": [
+      "path---en-stories-chapter-chapter-1-chase-race-6726d5f1b95d533aa014.js",
+      "path---en-stories-chapter-chapter-1-chase-race-6726d5f1b95d533aa014.js.map"
     ],
     "component---src-templates-pouvoir-js": [
-      "component---src-templates-pouvoir-js-200b38dcd54a7181d47d.js",
-      "component---src-templates-pouvoir-js-200b38dcd54a7181d47d.js.map"
+      "component---src-templates-pouvoir-js-5accf885d45a1df5d979.js",
+      "component---src-templates-pouvoir-js-5accf885d45a1df5d979.js.map"
+    ],
+    "path---personnages-sandrine-lirtan": [
+      "path---personnages-sandrine-lirtan-5ff92709aa401f2c2ef7.js",
+      "path---personnages-sandrine-lirtan-5ff92709aa401f2c2ef7.js.map"
+    ],
+    "path---personnages-yuu-gamay": [
+      "path---personnages-yuu-gamay-c378a4d22e5515bc501c.js",
+      "path---personnages-yuu-gamay-c378a4d22e5515bc501c.js.map"
+    ],
+    "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-kellan": [
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-kellan-0de4d69a37cf682b9454.js",
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-kellan-0de4d69a37cf682b9454.js.map"
     ],
     "path---histoires-chapitre-chapitre-2-perturbations-en-classe": [
-      "path---histoires-chapitre-chapitre-2-perturbations-en-classe-c31a40d2501ba025fbf5.js",
-      "path---histoires-chapitre-chapitre-2-perturbations-en-classe-c31a40d2501ba025fbf5.js.map"
+      "path---histoires-chapitre-chapitre-2-perturbations-en-classe-b33acd9d3c0ba0e052d5.js",
+      "path---histoires-chapitre-chapitre-2-perturbations-en-classe-b33acd9d3c0ba0e052d5.js.map"
     ],
     "path---histoires-chapitre-chapitre-5-la-premiere-mission": [
-      "path---histoires-chapitre-chapitre-5-la-premiere-mission-e58a5d282633556d1624.js",
-      "path---histoires-chapitre-chapitre-5-la-premiere-mission-e58a5d282633556d1624.js.map"
+      "path---histoires-chapitre-chapitre-5-la-premiere-mission-d513b676f7c6bf74f1a1.js",
+      "path---histoires-chapitre-chapitre-5-la-premiere-mission-d513b676f7c6bf74f1a1.js.map"
     ],
     "path---histoires-chapitre-chapitre-3-emprisonnement": [
-      "path---histoires-chapitre-chapitre-3-emprisonnement-bb6dda7c4a8ba3fa885c.js",
-      "path---histoires-chapitre-chapitre-3-emprisonnement-bb6dda7c4a8ba3fa885c.js.map"
+      "path---histoires-chapitre-chapitre-3-emprisonnement-48e50df7501afb77709b.js",
+      "path---histoires-chapitre-chapitre-3-emprisonnement-48e50df7501afb77709b.js.map"
+    ],
+    "path---en-groups-the-guild": [
+      "path---en-groups-the-guild-5266b6be5eed38915d98.js",
+      "path---en-groups-the-guild-5266b6be5eed38915d98.js.map"
+    ],
+    "path---en-powers-weapons-summoning": [
+      "path---en-powers-weapons-summoning-c8221a4f7a1edfc7f44f.js",
+      "path---en-powers-weapons-summoning-c8221a4f7a1edfc7f44f.js.map"
+    ],
+    "path---en-powers-healing-and-regeneration": [
+      "path---en-powers-healing-and-regeneration-fcab38b1a82b3b6bec3c.js",
+      "path---en-powers-healing-and-regeneration-fcab38b1a82b3b6bec3c.js.map"
+    ],
+    "path---en-characters-vincent-ortiz": [
+      "path---en-characters-vincent-ortiz-d4ea41bc2192d52056bf.js",
+      "path---en-characters-vincent-ortiz-d4ea41bc2192d52056bf.js.map"
+    ],
+    "path---en-stories-chapter-chapter-18-revelation": [
+      "path---en-stories-chapter-chapter-18-revelation-c8179acec174b0de9c63.js",
+      "path---en-stories-chapter-chapter-18-revelation-c8179acec174b0de9c63.js.map"
+    ],
+    "path---en-stories-the-first-cyborg-volume-2": [
+      "path---en-stories-the-first-cyborg-volume-2-33efb28d7d760c3ca374.js",
+      "path---en-stories-the-first-cyborg-volume-2-33efb28d7d760c3ca374.js.map"
+    ],
+    "path---en-news-new-and-last-chapter-of-jack-story": [
+      "path---en-news-new-and-last-chapter-of-jack-story-58b4e6269633e72ab027.js",
+      "path---en-news-new-and-last-chapter-of-jack-story-58b4e6269633e72ab027.js.map"
     ],
     "path---histoires-chapitre-chapitre-22-l-intervention-partie-1": [
-      "path---histoires-chapitre-chapitre-22-l-intervention-partie-1-8547b3af258fe26d980d.js",
-      "path---histoires-chapitre-chapitre-22-l-intervention-partie-1-8547b3af258fe26d980d.js.map"
+      "path---histoires-chapitre-chapitre-22-l-intervention-partie-1-4429986fc45eb8b0a7e4.js",
+      "path---histoires-chapitre-chapitre-22-l-intervention-partie-1-4429986fc45eb8b0a7e4.js.map"
+    ],
+    "path---en-characters-evie-drumel": [
+      "path---en-characters-evie-drumel-430594815196743c9a11.js",
+      "path---en-characters-evie-drumel-430594815196743c9a11.js.map"
+    ],
+    "path---pouvoirs-plante-et-nature": [
+      "path---pouvoirs-plante-et-nature-62bf5e0ba6c95dfd043e.js",
+      "path---pouvoirs-plante-et-nature-62bf5e0ba6c95dfd043e.js.map"
     ],
     "path---histoires-chapitre-chapitre-12-la-verite": [
-      "path---histoires-chapitre-chapitre-12-la-verite-e89d09f8a7b32ee3111a.js",
-      "path---histoires-chapitre-chapitre-12-la-verite-e89d09f8a7b32ee3111a.js.map"
+      "path---histoires-chapitre-chapitre-12-la-verite-f6eb5aa2e30a0f524d37.js",
+      "path---histoires-chapitre-chapitre-12-la-verite-f6eb5aa2e30a0f524d37.js.map"
+    ],
+    "path---nouvelles-une-nouvelle-histoire-commence": [
+      "path---nouvelles-une-nouvelle-histoire-commence-52247e8bdb69e3a0ea3a.js",
+      "path---nouvelles-une-nouvelle-histoire-commence-52247e8bdb69e3a0ea3a.js.map"
     ],
     "path---histoires-les-red-ravens": [
-      "path---histoires-les-red-ravens-c108d4df2052fce26e4b.js",
-      "path---histoires-les-red-ravens-c108d4df2052fce26e4b.js.map"
+      "path---histoires-les-red-ravens-03dd19ae8726fadb28b7.js",
+      "path---histoires-les-red-ravens-03dd19ae8726fadb28b7.js.map"
+    ],
+    "path---pouvoirs-petrification": [
+      "path---pouvoirs-petrification-ed320142a4e3d8d48322.js",
+      "path---pouvoirs-petrification-ed320142a4e3d8d48322.js.map"
     ],
     "path---histoires-le-premier-cyborg-tome-2": [
-      "path---histoires-le-premier-cyborg-tome-2-3eaa487b2aef53b6ca33.js",
-      "path---histoires-le-premier-cyborg-tome-2-3eaa487b2aef53b6ca33.js.map"
+      "path---histoires-le-premier-cyborg-tome-2-40637947c17096199e6c.js",
+      "path---histoires-le-premier-cyborg-tome-2-40637947c17096199e6c.js.map"
+    ],
+    "path---personnages-gwen-zalvard": [
+      "path---personnages-gwen-zalvard-db9d89a415c222bab5e1.js",
+      "path---personnages-gwen-zalvard-db9d89a415c222bab5e1.js.map"
+    ],
+    "path---en-stories-chapter-chapter-16-get-tatooed": [
+      "path---en-stories-chapter-chapter-16-get-tatooed-df817f8f21d5a83c2c9e.js",
+      "path---en-stories-chapter-chapter-16-get-tatooed-df817f8f21d5a83c2c9e.js.map"
     ],
     "path---encyclopedie-les-genes-drumel": [
-      "path---encyclopedie-les-genes-drumel-63f486a59bbc580824b7.js",
-      "path---encyclopedie-les-genes-drumel-63f486a59bbc580824b7.js.map"
+      "path---encyclopedie-les-genes-drumel-7b6e20cb363195acffa4.js",
+      "path---encyclopedie-les-genes-drumel-7b6e20cb363195acffa4.js.map"
+    ],
+    "path---en-characters-theo-magodil": [
+      "path---en-characters-theo-magodil-120ff84c7b09b619d9e9.js",
+      "path---en-characters-theo-magodil-120ff84c7b09b619d9e9.js.map"
+    ],
+    "path---en-characters-marie-dithos": [
+      "path---en-characters-marie-dithos-4c915ddfffb90e0d840d.js",
+      "path---en-characters-marie-dithos-4c915ddfffb90e0d840d.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-saeko-the-vampire": [
+      "path---en-stories-chapter-chapter-1-saeko-the-vampire-b785f2305e52f1958dc5.js",
+      "path---en-stories-chapter-chapter-1-saeko-the-vampire-b785f2305e52f1958dc5.js.map"
     ],
     "component---src-templates-roman-js": [
-      "component---src-templates-roman-js-a274079345da55db02fe.js",
-      "component---src-templates-roman-js-a274079345da55db02fe.js.map"
+      "component---src-templates-roman-js-c5a9824368648a4561cc.js",
+      "component---src-templates-roman-js-c5a9824368648a4561cc.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-f90f7951887a6b3a9c4e.js",
-      "component---src-layouts-index-js-f90f7951887a6b3a9c4e.js.map"
+      "component---src-layouts-index-js-85e3dd87abe9517c28ec.js",
+      "component---src-layouts-index-js-85e3dd87abe9517c28ec.js.map"
     ],
     "path---histoires-les-ailes-de-la-guilde": [
-      "path---histoires-les-ailes-de-la-guilde-6b95bd82a4b730f16d91.js",
-      "path---histoires-les-ailes-de-la-guilde-6b95bd82a4b730f16d91.js.map"
+      "path---histoires-les-ailes-de-la-guilde-7f930e47d938adf8cf81.js",
+      "path---histoires-les-ailes-de-la-guilde-7f930e47d938adf8cf81.js.map"
+    ],
+    "path---en-powers-teleportation": [
+      "path---en-powers-teleportation-62c203d52adb75dc1bf4.js",
+      "path---en-powers-teleportation-62c203d52adb75dc1bf4.js.map"
+    ],
+    "path---pouvoirs-maniement-d-armes": [
+      "path---pouvoirs-maniement-d-armes-198d505640acfa7fdb4e.js",
+      "path---pouvoirs-maniement-d-armes-198d505640acfa7fdb4e.js.map"
+    ],
+    "path---en-characters-yuu-gamay": [
+      "path---en-characters-yuu-gamay-4b3c5175cdaf0a152a0c.js",
+      "path---en-characters-yuu-gamay-4b3c5175cdaf0a152a0c.js.map"
+    ],
+    "path---en-stories-chapter-chapter-17-the-report": [
+      "path---en-stories-chapter-chapter-17-the-report-1e5f051c9c9a90df2b65.js",
+      "path---en-stories-chapter-chapter-17-the-report-1e5f051c9c9a90df2b65.js.map"
+    ],
+    "path---en-characters-suna-gidirel": [
+      "path---en-characters-suna-gidirel-011239033664b3230ca1.js",
+      "path---en-characters-suna-gidirel-011239033664b3230ca1.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-l-incendie": [
-      "path---histoires-chapitre-chapitre-1-l-incendie-e5b740c06f38d420e8da.js",
-      "path---histoires-chapitre-chapitre-1-l-incendie-e5b740c06f38d420e8da.js.map"
+      "path---histoires-chapitre-chapitre-1-l-incendie-6813a8e9530505bb2e53.js",
+      "path---histoires-chapitre-chapitre-1-l-incendie-6813a8e9530505bb2e53.js.map"
+    ],
+    "path---personnages-thalie-tullan": [
+      "path---personnages-thalie-tullan-5b35a10dba33a27ce4aa.js",
+      "path---personnages-thalie-tullan-5b35a10dba33a27ce4aa.js.map"
+    ],
+    "path---en-news-new-and-last-chapter-of-kellan-story": [
+      "path---en-news-new-and-last-chapter-of-kellan-story-71eb4105e078965a8a68.js",
+      "path---en-news-new-and-last-chapter-of-kellan-story-71eb4105e078965a8a68.js.map"
+    ],
+    "path---en-powers-petrification": [
+      "path---en-powers-petrification-4bcebe9f0cf1d8e8c6bb.js",
+      "path---en-powers-petrification-4bcebe9f0cf1d8e8c6bb.js.map"
+    ],
+    "path---en-stories-chapter-chapter-16-tracking": [
+      "path---en-stories-chapter-chapter-16-tracking-c19d7f23a1cd60846600.js",
+      "path---en-stories-chapter-chapter-16-tracking-c19d7f23a1cd60846600.js.map"
     ],
     "path---histoires-chapitre-chapitre-15-black-eagles": [
-      "path---histoires-chapitre-chapitre-15-black-eagles-6f0e64f09d98fb77d4ef.js",
-      "path---histoires-chapitre-chapitre-15-black-eagles-6f0e64f09d98fb77d4ef.js.map"
+      "path---histoires-chapitre-chapitre-15-black-eagles-38411611d9d85e9d69c4.js",
+      "path---histoires-chapitre-chapitre-15-black-eagles-38411611d9d85e9d69c4.js.map"
+    ],
+    "path---personnages-evie-drumel": [
+      "path---personnages-evie-drumel-2764d52cec021eaf67b5.js",
+      "path---personnages-evie-drumel-2764d52cec021eaf67b5.js.map"
+    ],
+    "path---en-powers-elementarist": [
+      "path---en-powers-elementarist-05e28050cf28c36760e8.js",
+      "path---en-powers-elementarist-05e28050cf28c36760e8.js.map"
     ],
     "path---histoires-chapitre-chapitre-11-les-genes-drumel": [
-      "path---histoires-chapitre-chapitre-11-les-genes-drumel-4d52a20f30b04869f637.js",
-      "path---histoires-chapitre-chapitre-11-les-genes-drumel-4d52a20f30b04869f637.js.map"
+      "path---histoires-chapitre-chapitre-11-les-genes-drumel-212215df85afe4cec17e.js",
+      "path---histoires-chapitre-chapitre-11-les-genes-drumel-212215df85afe4cec17e.js.map"
     ],
     "path---histoires-chapitre-chapitre-14-l-inhibiteur": [
-      "path---histoires-chapitre-chapitre-14-l-inhibiteur-366372d2559f91ba3058.js",
-      "path---histoires-chapitre-chapitre-14-l-inhibiteur-366372d2559f91ba3058.js.map"
+      "path---histoires-chapitre-chapitre-14-l-inhibiteur-60f8a099eb3fa3971693.js",
+      "path---histoires-chapitre-chapitre-14-l-inhibiteur-60f8a099eb3fa3971693.js.map"
+    ],
+    "path---personnages-jack-amidus": [
+      "path---personnages-jack-amidus-312cc1601bf7833ff217.js",
+      "path---personnages-jack-amidus-312cc1601bf7833ff217.js.map"
     ],
     "path---pouvoirs": [
-      "path---pouvoirs-f6d458ee23fd08c0c30f.js",
-      "path---pouvoirs-f6d458ee23fd08c0c30f.js.map"
+      "path---pouvoirs-1d32a89c63221b6569fe.js",
+      "path---pouvoirs-1d32a89c63221b6569fe.js.map"
+    ],
+    "path---personnages-tim-allam": [
+      "path---personnages-tim-allam-b87f2bb099660878d648.js",
+      "path---personnages-tim-allam-b87f2bb099660878d648.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-17-localisation": [
+      "path---histoires-chapitre-chapitre-17-localisation-6e4968916568ba666be3.js",
+      "path---histoires-chapitre-chapitre-17-localisation-6e4968916568ba666be3.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-new-friend": [
+      "path---en-stories-chapter-chapter-3-new-friend-9d90151516f48f59bd1e.js",
+      "path---en-stories-chapter-chapter-3-new-friend-9d90151516f48f59bd1e.js.map"
     ],
     "path---histoires-chapitre-chapitre-16-le-reperage": [
-      "path---histoires-chapitre-chapitre-16-le-reperage-7a7536b3040da7a4aa65.js",
-      "path---histoires-chapitre-chapitre-16-le-reperage-7a7536b3040da7a4aa65.js.map"
+      "path---histoires-chapitre-chapitre-16-le-reperage-431d92b93f69bd840fec.js",
+      "path---histoires-chapitre-chapitre-16-le-reperage-431d92b93f69bd840fec.js.map"
     ],
     "path---histoires-chapitre-chapitre-2-attaque-au-parc": [
-      "path---histoires-chapitre-chapitre-2-attaque-au-parc-126290d85e9b051f19fe.js",
-      "path---histoires-chapitre-chapitre-2-attaque-au-parc-126290d85e9b051f19fe.js.map"
+      "path---histoires-chapitre-chapitre-2-attaque-au-parc-09b223903a297420638e.js",
+      "path---histoires-chapitre-chapitre-2-attaque-au-parc-09b223903a297420638e.js.map"
+    ],
+    "path---en-progression": [
+      "path---en-progression-d5091290c055833b6cea.js",
+      "path---en-progression-d5091290c055833b6cea.js.map"
+    ],
+    "path---progression": [
+      "path---progression-2ec2d2fd25aef9852207.js",
+      "path---progression-2ec2d2fd25aef9852207.js.map"
     ],
     "component---src-templates-groupe-js": [
-      "component---src-templates-groupe-js-814d020c9cacb7ededf6.js",
-      "component---src-templates-groupe-js-814d020c9cacb7ededf6.js.map"
+      "component---src-templates-groupe-js-d7a864c4c0ba9f1d34e8.js",
+      "component---src-templates-groupe-js-d7a864c4c0ba9f1d34e8.js.map"
+    ],
+    "path---en-news-all-the-chapters-of-all-the-stories-are-online": [
+      "path---en-news-all-the-chapters-of-all-the-stories-are-online-ac2c189a9bdf2e1e8bc2.js",
+      "path---en-news-all-the-chapters-of-all-the-stories-are-online-ac2c189a9bdf2e1e8bc2.js.map"
+    ],
+    "path---en-powers-succubus": [
+      "path---en-powers-succubus-cb446bb1eed5583999b8.js",
+      "path---en-powers-succubus-cb446bb1eed5583999b8.js.map"
     ],
     "component---src-templates-personnage-js": [
-      "component---src-templates-personnage-js-f489ca92680fd3c4874e.js",
-      "component---src-templates-personnage-js-f489ca92680fd3c4874e.js.map"
+      "component---src-templates-personnage-js-dd04fea6aeb3b65e5d49.js",
+      "component---src-templates-personnage-js-dd04fea6aeb3b65e5d49.js.map"
+    ],
+    "path---pouvoirs-manipulation-des-souvenirs": [
+      "path---pouvoirs-manipulation-des-souvenirs-f5be5c5a3574126fc56a.js",
+      "path---pouvoirs-manipulation-des-souvenirs-f5be5c5a3574126fc56a.js.map"
+    ],
+    "component---src-templates-news-en-js": [
+      "component---src-templates-news-en-js-52f1d1c5d03cea1795ab.js",
+      "component---src-templates-news-en-js-52f1d1c5d03cea1795ab.js.map"
+    ],
+    "path---pouvoirs-succube": [
+      "path---pouvoirs-succube-afba31c42c567858f86c.js",
+      "path---pouvoirs-succube-afba31c42c567858f86c.js.map"
+    ],
+    "path---nouvelles-nouveau-chapitre-pour-le-premier-cyborg-tome-2": [
+      "path---nouvelles-nouveau-chapitre-pour-le-premier-cyborg-tome-2-5c485cf9789baf0b8e76.js",
+      "path---nouvelles-nouveau-chapitre-pour-le-premier-cyborg-tome-2-5c485cf9789baf0b8e76.js.map"
+    ],
+    "component---src-templates-encyclopedia-en-js": [
+      "component---src-templates-encyclopedia-en-js-0c54156823cd39330f9d.js",
+      "component---src-templates-encyclopedia-en-js-0c54156823cd39330f9d.js.map"
+    ],
+    "path---personnages-suna-gidirel": [
+      "path---personnages-suna-gidirel-1ad06183143a8ee18226.js",
+      "path---personnages-suna-gidirel-1ad06183143a8ee18226.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-an-unlikely-meeting": [
+      "path---en-stories-chapter-chapter-1-an-unlikely-meeting-6dbacf935a30e34ce785.js",
+      "path---en-stories-chapter-chapter-1-an-unlikely-meeting-6dbacf935a30e34ce785.js.map"
+    ],
+    "path---en-powers-flight": [
+      "path---en-powers-flight-de7221cda2b0f79b87c2.js",
+      "path---en-powers-flight-de7221cda2b0f79b87c2.js.map"
+    ],
+    "path---en-news-new-chapter-for-the-red-ravens": [
+      "path---en-news-new-chapter-for-the-red-ravens-d692761489334cd29b96.js",
+      "path---en-news-new-chapter-for-the-red-ravens-d692761489334cd29b96.js.map"
     ],
     "path---histoires-chapitre-chapitre-19-le-perfectionnement": [
-      "path---histoires-chapitre-chapitre-19-le-perfectionnement-c3ccd8b470bbd63e2aa8.js",
-      "path---histoires-chapitre-chapitre-19-le-perfectionnement-c3ccd8b470bbd63e2aa8.js.map"
+      "path---histoires-chapitre-chapitre-19-le-perfectionnement-588fe2b849e2222fb77f.js",
+      "path---histoires-chapitre-chapitre-19-le-perfectionnement-588fe2b849e2222fb77f.js.map"
     ],
     "path---histoires-chapitre-chapitre-8-les-amis": [
-      "path---histoires-chapitre-chapitre-8-les-amis-6003d6bb40e1064e61d7.js",
-      "path---histoires-chapitre-chapitre-8-les-amis-6003d6bb40e1064e61d7.js.map"
+      "path---histoires-chapitre-chapitre-8-les-amis-5449a0ed683ae821dbdb.js",
+      "path---histoires-chapitre-chapitre-8-les-amis-5449a0ed683ae821dbdb.js.map"
+    ],
+    "path---en-characters-bailey-thotokan": [
+      "path---en-characters-bailey-thotokan-0e9721687d5e9018a9a6.js",
+      "path---en-characters-bailey-thotokan-0e9721687d5e9018a9a6.js.map"
+    ],
+    "path---en-powers-liquefaction": [
+      "path---en-powers-liquefaction-ed3330e216ab4074c6e6.js",
+      "path---en-powers-liquefaction-ed3330e216ab4074c6e6.js.map"
+    ],
+    "path---pouvoirs-vampirisme": [
+      "path---pouvoirs-vampirisme-9e9a18bee81c845b1fdb.js",
+      "path---pouvoirs-vampirisme-9e9a18bee81c845b1fdb.js.map"
+    ],
+    "path---en-characters-sandrine-lirtan": [
+      "path---en-characters-sandrine-lirtan-c82458cc05db61444636.js",
+      "path---en-characters-sandrine-lirtan-c82458cc05db61444636.js.map"
     ],
     "path---nouvelles-nouvelles-pages-sur-le-site": [
-      "path---nouvelles-nouvelles-pages-sur-le-site-7804642085d3188af1d1.js",
-      "path---nouvelles-nouvelles-pages-sur-le-site-7804642085d3188af1d1.js.map"
+      "path---nouvelles-nouvelles-pages-sur-le-site-eda99228d17ddc1311b9.js",
+      "path---nouvelles-nouvelles-pages-sur-le-site-eda99228d17ddc1311b9.js.map"
+    ],
+    "path---pouvoirs-controle-des-ombres": [
+      "path---pouvoirs-controle-des-ombres-3b13957df6866bcfd9d9.js",
+      "path---pouvoirs-controle-des-ombres-3b13957df6866bcfd9d9.js.map"
     ],
     "path---index": [
-      "path---index-d58dbaa4fd1443f75397.js",
-      "path---index-d58dbaa4fd1443f75397.js.map"
+      "path---index-9705fbc19f93f23a8923.js",
+      "path---index-9705fbc19f93f23a8923.js.map"
     ],
     "component---src-templates-groupes-js": [
-      "component---src-templates-groupes-js-64108cc84c7a16ac2945.js",
-      "component---src-templates-groupes-js-64108cc84c7a16ac2945.js.map"
+      "component---src-templates-groupes-js-0d2bd452e11fda7512cc.js",
+      "component---src-templates-groupes-js-0d2bd452e11fda7512cc.js.map"
+    ],
+    "path---en-stories-chapter-chapter-12-truth": [
+      "path---en-stories-chapter-chapter-12-truth-28760b800b9d7a69b4e0.js",
+      "path---en-stories-chapter-chapter-12-truth-28760b800b9d7a69b4e0.js.map"
+    ],
+    "path---personnages-gabriel-daurikir": [
+      "path---personnages-gabriel-daurikir-7e36839329492a744887.js",
+      "path---personnages-gabriel-daurikir-7e36839329492a744887.js.map"
+    ],
+    "path---en-news-new-chapter-for-the-first-cyborg-volume-2": [
+      "path---en-news-new-chapter-for-the-first-cyborg-volume-2-02daf2e1a3e19d977830.js",
+      "path---en-news-new-chapter-for-the-first-cyborg-volume-2-02daf2e1a3e19d977830.js.map"
     ],
     "component---src-templates-nouvelle-js": [
-      "component---src-templates-nouvelle-js-2c82d2f617500a9c741b.js",
-      "component---src-templates-nouvelle-js-2c82d2f617500a9c741b.js.map"
+      "component---src-templates-nouvelle-js-6485cd42a4ec5a82322e.js",
+      "component---src-templates-nouvelle-js-6485cd42a4ec5a82322e.js.map"
     ],
     "path---nouvelles-tous-les-chapitres-de-toutes-les-histoires-sont-en-ligne": [
-      "path---nouvelles-tous-les-chapitres-de-toutes-les-histoires-sont-en-ligne-7c5139cf06ec55af2107.js",
-      "path---nouvelles-tous-les-chapitres-de-toutes-les-histoires-sont-en-ligne-7c5139cf06ec55af2107.js.map"
+      "path---nouvelles-tous-les-chapitres-de-toutes-les-histoires-sont-en-ligne-8e2dbe9f2c2651c7ae42.js",
+      "path---nouvelles-tous-les-chapitres-de-toutes-les-histoires-sont-en-ligne-8e2dbe9f2c2651c7ae42.js.map"
+    ],
+    "path---pouvoirs-explosion": [
+      "path---pouvoirs-explosion-16284e4adc8c9a4739a8.js",
+      "path---pouvoirs-explosion-16284e4adc8c9a4739a8.js.map"
     ],
     "path---histoires-le-premier-cyborg-tome-1": [
-      "path---histoires-le-premier-cyborg-tome-1-a3c2053b1ccee4528185.js",
-      "path---histoires-le-premier-cyborg-tome-1-a3c2053b1ccee4528185.js.map"
+      "path---histoires-le-premier-cyborg-tome-1-0ab8320e79f95b284e06.js",
+      "path---histoires-le-premier-cyborg-tome-1-0ab8320e79f95b284e06.js.map"
+    ],
+    "path---personnages-ezekiel-huyme": [
+      "path---personnages-ezekiel-huyme-654b739ec1cff274fffe.js",
+      "path---personnages-ezekiel-huyme-654b739ec1cff274fffe.js.map"
     ],
     "path---histoires-chapitre-chapitre-4-la-legion": [
-      "path---histoires-chapitre-chapitre-4-la-legion-37717191139c545aed96.js",
-      "path---histoires-chapitre-chapitre-4-la-legion-37717191139c545aed96.js.map"
+      "path---histoires-chapitre-chapitre-4-la-legion-b71b6699888c7917f4fa.js",
+      "path---histoires-chapitre-chapitre-4-la-legion-b71b6699888c7917f4fa.js.map"
+    ],
+    "path---pouvoirs-electricite": [
+      "path---pouvoirs-electricite-8c37e9900d0d89a2eb5b.js",
+      "path---pouvoirs-electricite-8c37e9900d0d89a2eb5b.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-blessure": [
-      "path---histoires-chapitre-chapitre-1-blessure-3cfc5df8a71f181076f0.js",
-      "path---histoires-chapitre-chapitre-1-blessure-3cfc5df8a71f181076f0.js.map"
+      "path---histoires-chapitre-chapitre-1-blessure-cbddb389c7a13c612960.js",
+      "path---histoires-chapitre-chapitre-1-blessure-cbddb389c7a13c612960.js.map"
     ],
     "path---histoires-chapitre-chapitre-9-la-cle-usb": [
-      "path---histoires-chapitre-chapitre-9-la-cle-usb-36e50d367ee1f0119b33.js",
-      "path---histoires-chapitre-chapitre-9-la-cle-usb-36e50d367ee1f0119b33.js.map"
+      "path---histoires-chapitre-chapitre-9-la-cle-usb-99dd02da0ba0bff3cbb6.js",
+      "path---histoires-chapitre-chapitre-9-la-cle-usb-99dd02da0ba0bff3cbb6.js.map"
+    ],
+    "component---src-templates-stories-en-js": [
+      "component---src-templates-stories-en-js-25b241bf29ebbcdf3436.js",
+      "component---src-templates-stories-en-js-25b241bf29ebbcdf3436.js.map"
+    ],
+    "path---en-characters-hug-arur": [
+      "path---en-characters-hug-arur-6df796c438b7ccb4b200.js",
+      "path---en-characters-hug-arur-6df796c438b7ccb4b200.js.map"
+    ],
+    "path---en-powers-telekinesis": [
+      "path---en-powers-telekinesis-1510334367d1998a1b41.js",
+      "path---en-powers-telekinesis-1510334367d1998a1b41.js.map"
+    ],
+    "path---en-characters-renji-prepas": [
+      "path---en-characters-renji-prepas-ec13dc439b88f0da0535.js",
+      "path---en-characters-renji-prepas-ec13dc439b88f0da0535.js.map"
+    ],
+    "path---pouvoirs-adaptation": [
+      "path---pouvoirs-adaptation-c4e90b897636d49df984.js",
+      "path---pouvoirs-adaptation-c4e90b897636d49df984.js.map"
     ],
     "path---histoires-chapitre-chapitre-10-elea": [
-      "path---histoires-chapitre-chapitre-10-elea-b386aa7d42b39ed445be.js",
-      "path---histoires-chapitre-chapitre-10-elea-b386aa7d42b39ed445be.js.map"
+      "path---histoires-chapitre-chapitre-10-elea-78e29f4b15d6001030b6.js",
+      "path---histoires-chapitre-chapitre-10-elea-78e29f4b15d6001030b6.js.map"
+    ],
+    "path---personnages-kaya-serembion": [
+      "path---personnages-kaya-serembion-f00ff6a36de00c144f20.js",
+      "path---personnages-kaya-serembion-f00ff6a36de00c144f20.js.map"
+    ],
+    "path---en-stories-chapter-chapter-13-rebellion-part-1": [
+      "path---en-stories-chapter-chapter-13-rebellion-part-1-699ddf230bbbae535292.js",
+      "path---en-stories-chapter-chapter-13-rebellion-part-1-699ddf230bbbae535292.js.map"
+    ],
+    "path---en-characters-william-drumel": [
+      "path---en-characters-william-drumel-c3ff6440e7aa16559962.js",
+      "path---en-characters-william-drumel-c3ff6440e7aa16559962.js.map"
     ],
     "path---histoires-chapitre-chapitre-12-vol": [
-      "path---histoires-chapitre-chapitre-12-vol-dda08e9fad0ff3d4c37a.js",
-      "path---histoires-chapitre-chapitre-12-vol-dda08e9fad0ff3d4c37a.js.map"
+      "path---histoires-chapitre-chapitre-12-vol-8bab70341d633014b54c.js",
+      "path---histoires-chapitre-chapitre-12-vol-8bab70341d633014b54c.js.map"
+    ],
+    "path---histoires-gout-du-sang": [
+      "path---histoires-gout-du-sang-87417fe484971f93f677.js",
+      "path---histoires-gout-du-sang-87417fe484971f93f677.js.map"
+    ],
+    "path---personnages-gaia-dodirin": [
+      "path---personnages-gaia-dodirin-c08e9191475027fc6348.js",
+      "path---personnages-gaia-dodirin-c08e9191475027fc6348.js.map"
     ],
     "path---histoires-chapitre-chapitre-6-la-rencontre": [
-      "path---histoires-chapitre-chapitre-6-la-rencontre-f8dc8135e32473d9b6e3.js",
-      "path---histoires-chapitre-chapitre-6-la-rencontre-f8dc8135e32473d9b6e3.js.map"
+      "path---histoires-chapitre-chapitre-6-la-rencontre-aa243c7c956170d329b3.js",
+      "path---histoires-chapitre-chapitre-6-la-rencontre-aa243c7c956170d329b3.js.map"
     ],
     "component---src-templates-chapitre-js": [
-      "component---src-templates-chapitre-js-68165b05bad34f0bfc31.js",
-      "component---src-templates-chapitre-js-68165b05bad34f0bfc31.js.map"
+      "component---src-templates-chapitre-js-9a7e2fc57bab9ff7b88f.js",
+      "component---src-templates-chapitre-js-9a7e2fc57bab9ff7b88f.js.map"
+    ],
+    "path---personnages-louann-koris": [
+      "path---personnages-louann-koris-fb4d945b30d2182264b6.js",
+      "path---personnages-louann-koris-fb4d945b30d2182264b6.js.map"
+    ],
+    "path---en-stories-chapter-chapter-5-the-attack": [
+      "path---en-stories-chapter-chapter-5-the-attack-bc6548485962e2c83496.js",
+      "path---en-stories-chapter-chapter-5-the-attack-bc6548485962e2c83496.js.map"
+    ],
+    "path---en-characters-sam-mithus": [
+      "path---en-characters-sam-mithus-54763eeb2311b5d88799.js",
+      "path---en-characters-sam-mithus-54763eeb2311b5d88799.js.map"
     ],
     "component---src-pages-404-js": [
-      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
-      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+      "component---src-pages-404-js-62f72d6754bcfe9eed97.js",
+      "component---src-pages-404-js-62f72d6754bcfe9eed97.js.map"
+    ],
+    "path---en-characters-kameron-daunasod": [
+      "path---en-characters-kameron-daunasod-e0e4c8e067187d9058f5.js",
+      "path---en-characters-kameron-daunasod-e0e4c8e067187d9058f5.js.map"
+    ],
+    "path---en-stories-chapter-chapter-26-the-guild": [
+      "path---en-stories-chapter-chapter-26-the-guild-be72f98348f0f77cef1d.js",
+      "path---en-stories-chapter-chapter-26-the-guild-be72f98348f0f77cef1d.js.map"
+    ],
+    "path---en-powers-shadow-control": [
+      "path---en-powers-shadow-control-147d1df3fec3402fe26f.js",
+      "path---en-powers-shadow-control-147d1df3fec3402fe26f.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-danger-imminent": [
-      "path---histoires-chapitre-chapitre-1-danger-imminent-aeec65c06b9faf3cff2e.js",
-      "path---histoires-chapitre-chapitre-1-danger-imminent-aeec65c06b9faf3cff2e.js.map"
+      "path---histoires-chapitre-chapitre-1-danger-imminent-f4fcf93e150611ecd3f3.js",
+      "path---histoires-chapitre-chapitre-1-danger-imminent-f4fcf93e150611ecd3f3.js.map"
+    ],
+    "path---en-characters-hiro-zapur": [
+      "path---en-characters-hiro-zapur-5b781e5224f50d772835.js",
+      "path---en-characters-hiro-zapur-5b781e5224f50d772835.js.map"
     ],
     "commons": [
-      "commons-d88f52cff5548eddb89a.js",
+      "commons-d071da49947e080cd44f.js",
       "build-js-styles.css",
-      "commons-d88f52cff5548eddb89a.js.map",
+      "commons-d071da49947e080cd44f.js.map",
       "build-js-styles.css.map"
     ],
+    "path---en-encyclopedia": [
+      "path---en-encyclopedia-5df2318f95aaa24128a3.js",
+      "path---en-encyclopedia-5df2318f95aaa24128a3.js.map"
+    ],
     "path---histoires-chapitre-chapitre-7-les-donnees": [
-      "path---histoires-chapitre-chapitre-7-les-donnees-db16a4a394075289951f.js",
-      "path---histoires-chapitre-chapitre-7-les-donnees-db16a4a394075289951f.js.map"
+      "path---histoires-chapitre-chapitre-7-les-donnees-9a71ae0c5d80651e4bcc.js",
+      "path---histoires-chapitre-chapitre-7-les-donnees-9a71ae0c5d80651e4bcc.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-1-saeko-la-vampire": [
+      "path---histoires-chapitre-chapitre-1-saeko-la-vampire-9edc86120f254d6b692b.js",
+      "path---histoires-chapitre-chapitre-1-saeko-la-vampire-9edc86120f254d6b692b.js.map"
+    ],
+    "path---nouvelles-tous-le-site-est-maintenant-disponible-en-francais-et-en-anglais": [
+      "path---nouvelles-tous-le-site-est-maintenant-disponible-en-francais-et-en-anglais-7b44b8888da63d6c4d0f.js",
+      "path---nouvelles-tous-le-site-est-maintenant-disponible-en-francais-et-en-anglais-7b44b8888da63d6c4d0f.js.map"
+    ],
+    "path---en-stories-chapter-chapter-22-intervention-part-2": [
+      "path---en-stories-chapter-chapter-22-intervention-part-2-ce95e64989ef2d3b1077.js",
+      "path---en-stories-chapter-chapter-22-intervention-part-2-ce95e64989ef2d3b1077.js.map"
+    ],
+    "path---en-stories-the-black-eagles-mastodon": [
+      "path---en-stories-the-black-eagles-mastodon-1d9c4353fd0c5b04a42b.js",
+      "path---en-stories-the-black-eagles-mastodon-1d9c4353fd0c5b04a42b.js.map"
+    ],
+    "path---personnages-drake-tarcion": [
+      "path---personnages-drake-tarcion-a9a1f9917efe43f88c94.js",
+      "path---personnages-drake-tarcion-a9a1f9917efe43f88c94.js.map"
+    ],
+    "path---personnages-sebastien-dalam": [
+      "path---personnages-sebastien-dalam-5c0143245436b6882fed.js",
+      "path---personnages-sebastien-dalam-5c0143245436b6882fed.js.map"
+    ],
+    "path---pouvoirs-extensions-osseuses": [
+      "path---pouvoirs-extensions-osseuses-55f20197ddec05934268.js",
+      "path---pouvoirs-extensions-osseuses-55f20197ddec05934268.js.map"
+    ],
+    "component---src-templates-new-en-js": [
+      "component---src-templates-new-en-js-21815e99a0caedd14981.js",
+      "component---src-templates-new-en-js-21815e99a0caedd14981.js.map"
     ],
     "path---histoires-chapitre-chapitre-2-angelique": [
-      "path---histoires-chapitre-chapitre-2-angelique-79c49f5907e7dab2efde.js",
-      "path---histoires-chapitre-chapitre-2-angelique-79c49f5907e7dab2efde.js.map"
+      "path---histoires-chapitre-chapitre-2-angelique-ad52ae573a7ba4691d7e.js",
+      "path---histoires-chapitre-chapitre-2-angelique-ad52ae573a7ba4691d7e.js.map"
+    ],
+    "path---pouvoirs-lycanthropie": [
+      "path---pouvoirs-lycanthropie-473ce0d7888a40a599bc.js",
+      "path---pouvoirs-lycanthropie-473ce0d7888a40a599bc.js.map"
+    ],
+    "path---en-number": [
+      "path---en-number-bf2d10baeeae4e3770fb.js",
+      "path---en-number-bf2d10baeeae4e3770fb.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-injury": [
+      "path---en-stories-chapter-chapter-1-injury-358ac1da09078b651e5d.js",
+      "path---en-stories-chapter-chapter-1-injury-358ac1da09078b651e5d.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-3-la-nouvelle-amie": [
+      "path---histoires-chapitre-chapitre-3-la-nouvelle-amie-a755aa7427dbbff21c67.js",
+      "path---histoires-chapitre-chapitre-3-la-nouvelle-amie-a755aa7427dbbff21c67.js.map"
+    ],
+    "path---en-powers-vampirism": [
+      "path---en-powers-vampirism-842db37b7f49cae8fc93.js",
+      "path---en-powers-vampirism-842db37b7f49cae8fc93.js.map"
+    ],
+    "path---en-stories-chapter-chapter-7-the-datas": [
+      "path---en-stories-chapter-chapter-7-the-datas-96f31a17669fa4b61ce7.js",
+      "path---en-stories-chapter-chapter-7-the-datas-96f31a17669fa4b61ce7.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
+    "path---en-characters-kaya-serembion": [
+      "path---en-characters-kaya-serembion-528f2d21c5a5773cd5e6.js",
+      "path---en-characters-kaya-serembion-528f2d21c5a5773cd5e6.js.map"
+    ],
+    "path---pouvoirs-glace": [
+      "path---pouvoirs-glace-811eec767140be15db6a.js",
+      "path---pouvoirs-glace-811eec767140be15db6a.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-imprisonment": [
+      "path---en-stories-chapter-chapter-3-imprisonment-9c0e46298a280cd2a380.js",
+      "path---en-stories-chapter-chapter-3-imprisonment-9c0e46298a280cd2a380.js.map"
+    ],
     "path---histoires-chapitre-chapitre-1-fragile": [
-      "path---histoires-chapitre-chapitre-1-fragile-228736e981408a551d66.js",
-      "path---histoires-chapitre-chapitre-1-fragile-228736e981408a551d66.js.map"
+      "path---histoires-chapitre-chapitre-1-fragile-1e32989bb4fb9416987f.js",
+      "path---histoires-chapitre-chapitre-1-fragile-1e32989bb4fb9416987f.js.map"
+    ],
+    "path---personnages-isao-gircas": [
+      "path---personnages-isao-gircas-732aa1c4c14afe1d1148.js",
+      "path---personnages-isao-gircas-732aa1c4c14afe1d1148.js.map"
+    ],
+    "path---pouvoirs-energie-nucleaire": [
+      "path---pouvoirs-energie-nucleaire-446e28bcd3b4b456fb7f.js",
+      "path---pouvoirs-energie-nucleaire-446e28bcd3b4b456fb7f.js.map"
+    ],
+    "path---evenements": [
+      "path---evenements-343811b6e784d743e71e.js",
+      "path---evenements-343811b6e784d743e71e.js.map"
     ],
     "path---groupes": [
-      "path---groupes-b07fcbe2a69522764ed5.js",
-      "path---groupes-b07fcbe2a69522764ed5.js.map"
+      "path---groupes-197bb5abad504d3d800b.js",
+      "path---groupes-197bb5abad504d3d800b.js.map"
+    ],
+    "path---pouvoirs-liquefaction": [
+      "path---pouvoirs-liquefaction-2f299556e019aa228769.js",
+      "path---pouvoirs-liquefaction-2f299556e019aa228769.js.map"
     ],
     "component---src-templates-encyclopedie-js": [
-      "component---src-templates-encyclopedie-js-f8e702c34d8ef0ed35fa.js",
-      "component---src-templates-encyclopedie-js-f8e702c34d8ef0ed35fa.js.map"
+      "component---src-templates-encyclopedie-js-2fe391fd1ddc19e5efbe.js",
+      "component---src-templates-encyclopedie-js-2fe391fd1ddc19e5efbe.js.map"
+    ],
+    "path---en-characters-tom-tralvan": [
+      "path---en-characters-tom-tralvan-f121bbce4989c7cbe138.js",
+      "path---en-characters-tom-tralvan-f121bbce4989c7cbe138.js.map"
+    ],
+    "path---en-powers-lie-detection": [
+      "path---en-powers-lie-detection-ab3efe28958b5138da89.js",
+      "path---en-powers-lie-detection-ab3efe28958b5138da89.js.map"
+    ],
+    "path---en-stories": [
+      "path---en-stories-52934dbbb7f54af2158c.js",
+      "path---en-stories-52934dbbb7f54af2158c.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-fire": [
+      "path---en-stories-chapter-chapter-1-fire-6a0a16d682f1b4fc15b8.js",
+      "path---en-stories-chapter-chapter-1-fire-6a0a16d682f1b4fc15b8.js.map"
     ],
     "path---histoires-chapitre-chapitre-6-union": [
-      "path---histoires-chapitre-chapitre-6-union-ef9d8a76a2614877f543.js",
-      "path---histoires-chapitre-chapitre-6-union-ef9d8a76a2614877f543.js.map"
+      "path---histoires-chapitre-chapitre-6-union-dd0000596a115c8e7dcb.js",
+      "path---histoires-chapitre-chapitre-6-union-dd0000596a115c8e7dcb.js.map"
+    ],
+    "path---en-powers-premonitions": [
+      "path---en-powers-premonitions-4a4fa8b3845be658faaf.js",
+      "path---en-powers-premonitions-4a4fa8b3845be658faaf.js.map"
     ],
     "path---histoires-chapitre-chapitre-26-la-guilde": [
-      "path---histoires-chapitre-chapitre-26-la-guilde-e1155aba3676b1b06080.js",
-      "path---histoires-chapitre-chapitre-26-la-guilde-e1155aba3676b1b06080.js.map"
+      "path---histoires-chapitre-chapitre-26-la-guilde-5b1435141b3ec53c094a.js",
+      "path---histoires-chapitre-chapitre-26-la-guilde-5b1435141b3ec53c094a.js.map"
+    ],
+    "path---en-stories-chapter-chapter-14-the-inhibitor": [
+      "path---en-stories-chapter-chapter-14-the-inhibitor-b82d9b4f01fe198471e0.js",
+      "path---en-stories-chapter-chapter-14-the-inhibitor-b82d9b4f01fe198471e0.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-2-recrutement": [
+      "path---histoires-chapitre-chapitre-2-recrutement-a556e45c670727fad2e5.js",
+      "path---histoires-chapitre-chapitre-2-recrutement-a556e45c670727fad2e5.js.map"
+    ],
+    "path---en-groups-the-black-eagles": [
+      "path---en-groups-the-black-eagles-ed3f18135f4516430c26.js",
+      "path---en-groups-the-black-eagles-ed3f18135f4516430c26.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-departure-for-gencorp": [
+      "path---en-stories-chapter-chapter-2-departure-for-gencorp-c66c461d7da067c2ba23.js",
+      "path---en-stories-chapter-chapter-2-departure-for-gencorp-c66c461d7da067c2ba23.js.map"
     ],
     "path---histoires-chapitre-chapitre-20-la-trahison": [
-      "path---histoires-chapitre-chapitre-20-la-trahison-14aa415971d532dbb129.js",
-      "path---histoires-chapitre-chapitre-20-la-trahison-14aa415971d532dbb129.js.map"
+      "path---histoires-chapitre-chapitre-20-la-trahison-b886a7313505087c4638.js",
+      "path---histoires-chapitre-chapitre-20-la-trahison-b886a7313505087c4638.js.map"
     ],
     "path---histoires-chapitre-chapitre-16-tatouez-vous": [
-      "path---histoires-chapitre-chapitre-16-tatouez-vous-74f9d876192eae3dfe24.js",
-      "path---histoires-chapitre-chapitre-16-tatouez-vous-74f9d876192eae3dfe24.js.map"
+      "path---histoires-chapitre-chapitre-16-tatouez-vous-e93ea0ea06ec28776068.js",
+      "path---histoires-chapitre-chapitre-16-tatouez-vous-e93ea0ea06ec28776068.js.map"
     ],
     "path---histoires-chapitre-chapitre-24-l-histoire": [
-      "path---histoires-chapitre-chapitre-24-l-histoire-d46b6df3527e4beceddf.js",
-      "path---histoires-chapitre-chapitre-24-l-histoire-d46b6df3527e4beceddf.js.map"
+      "path---histoires-chapitre-chapitre-24-l-histoire-388bb34bcaf61fccf6e8.js",
+      "path---histoires-chapitre-chapitre-24-l-histoire-388bb34bcaf61fccf6e8.js.map"
     ],
     "path---nouvelles-nouveau-chapitre-de-l-histoire-de-kellan": [
-      "path---nouvelles-nouveau-chapitre-de-l-histoire-de-kellan-039eb7d783f577f7a1d2.js",
-      "path---nouvelles-nouveau-chapitre-de-l-histoire-de-kellan-039eb7d783f577f7a1d2.js.map"
+      "path---nouvelles-nouveau-chapitre-de-l-histoire-de-kellan-6d3abbaffff6653ec094.js",
+      "path---nouvelles-nouveau-chapitre-de-l-histoire-de-kellan-6d3abbaffff6653ec094.js.map"
+    ],
+    "path---en-characters-thalie-tullan": [
+      "path---en-characters-thalie-tullan-2b045b9d88e0fd3f7e55.js",
+      "path---en-characters-thalie-tullan-2b045b9d88e0fd3f7e55.js.map"
+    ],
+    "path---en-characters-wamien-mata": [
+      "path---en-characters-wamien-mata-8899bc9da876f95e34c8.js",
+      "path---en-characters-wamien-mata-8899bc9da876f95e34c8.js.map"
+    ],
+    "component---src-templates-nombre-js": [
+      "component---src-templates-nombre-js-4de3cab6492e683f2d88.js",
+      "component---src-templates-nombre-js-4de3cab6492e683f2d88.js.map"
+    ],
+    "path---en-stories-chapter-chapter-20-betrayal": [
+      "path---en-stories-chapter-chapter-20-betrayal-8826ad19f3b9328883b3.js",
+      "path---en-stories-chapter-chapter-20-betrayal-8826ad19f3b9328883b3.js.map"
+    ],
+    "path---en-stories-the-calpeo-monster": [
+      "path---en-stories-the-calpeo-monster-6cf73ccb848d221a9b82.js",
+      "path---en-stories-the-calpeo-monster-6cf73ccb848d221a9b82.js.map"
+    ],
+    "path---en-characters-sebastien-dalam": [
+      "path---en-characters-sebastien-dalam-9e88716d09edde68d945.js",
+      "path---en-characters-sebastien-dalam-9e88716d09edde68d945.js.map"
+    ],
+    "component---src-templates-calendrier-js": [
+      "component---src-templates-calendrier-js-25b0f316aba46357a572.js",
+      "component---src-templates-calendrier-js-25b0f316aba46357a572.js.map"
+    ],
+    "path---en-characters-carlos-hennors": [
+      "path---en-characters-carlos-hennors-69add5bd7c8ba243d9e6.js",
+      "path---en-characters-carlos-hennors-69add5bd7c8ba243d9e6.js.map"
+    ],
+    "path---pouvoirs-invocation-d-armes": [
+      "path---pouvoirs-invocation-d-armes-4a120bc9dcc24ca6b972.js",
+      "path---pouvoirs-invocation-d-armes-4a120bc9dcc24ca6b972.js.map"
+    ],
+    "path---en-characters-gwen-zalvard": [
+      "path---en-characters-gwen-zalvard-158e2cb085cbb38a8ca0.js",
+      "path---en-characters-gwen-zalvard-158e2cb085cbb38a8ca0.js.map"
+    ],
+    "path---personnages-tom-tralvan": [
+      "path---personnages-tom-tralvan-ace23b0ed39dfd590fb2.js",
+      "path---personnages-tom-tralvan-ace23b0ed39dfd590fb2.js.map"
+    ],
+    "path---pouvoirs-levitation": [
+      "path---pouvoirs-levitation-4a5e369c85cdc2071fd9.js",
+      "path---pouvoirs-levitation-4a5e369c85cdc2071fd9.js.map"
     ],
     "path---histoires-chapitre-chapitre-5-l-attaque": [
-      "path---histoires-chapitre-chapitre-5-l-attaque-2344d71ed89b06588636.js",
-      "path---histoires-chapitre-chapitre-5-l-attaque-2344d71ed89b06588636.js.map"
+      "path---histoires-chapitre-chapitre-5-l-attaque-cb0a5885781215397309.js",
+      "path---histoires-chapitre-chapitre-5-l-attaque-cb0a5885781215397309.js.map"
+    ],
+    "component---src-templates-power-en-js": [
+      "component---src-templates-power-en-js-5cda150616e593318103.js",
+      "component---src-templates-power-en-js-5cda150616e593318103.js.map"
     ],
     "path---histoires-chapitre-chapitre-3-la-fuite": [
-      "path---histoires-chapitre-chapitre-3-la-fuite-a28f9e1fd991d2643585.js",
-      "path---histoires-chapitre-chapitre-3-la-fuite-a28f9e1fd991d2643585.js.map"
+      "path---histoires-chapitre-chapitre-3-la-fuite-a22bc3269b804478cd68.js",
+      "path---histoires-chapitre-chapitre-3-la-fuite-a22bc3269b804478cd68.js.map"
+    ],
+    "path---en-stories-taste-of-blood": [
+      "path---en-stories-taste-of-blood-50ab5becabfe807f31a5.js",
+      "path---en-stories-taste-of-blood-50ab5becabfe807f31a5.js.map"
+    ],
+    "component---src-templates-character-en-js": [
+      "component---src-templates-character-en-js-060a7caf869fc68d8698.js",
+      "component---src-templates-character-en-js-060a7caf869fc68d8698.js.map"
     ],
     "path---histoires-chapitre-chapitre-14-les-presentations": [
-      "path---histoires-chapitre-chapitre-14-les-presentations-20a9ffb068c477eb63ec.js",
-      "path---histoires-chapitre-chapitre-14-les-presentations-20a9ffb068c477eb63ec.js.map"
+      "path---histoires-chapitre-chapitre-14-les-presentations-5578feaceb2348fb7706.js",
+      "path---histoires-chapitre-chapitre-14-les-presentations-5578feaceb2348fb7706.js.map"
+    ],
+    "path---personnages-alicia-natir": [
+      "path---personnages-alicia-natir-d528e10bbf7e10c275f7.js",
+      "path---personnages-alicia-natir-d528e10bbf7e10c275f7.js.map"
+    ],
+    "path---personnages-sam-mithus": [
+      "path---personnages-sam-mithus-41dc30581790e965b1fc.js",
+      "path---personnages-sam-mithus-41dc30581790e965b1fc.js.map"
     ],
     "path---histoires-chapitre-chapitre-18-la-revelation": [
-      "path---histoires-chapitre-chapitre-18-la-revelation-4f96a01e9940214a7595.js",
-      "path---histoires-chapitre-chapitre-18-la-revelation-4f96a01e9940214a7595.js.map"
+      "path---histoires-chapitre-chapitre-18-la-revelation-64c5a5a427dbe5234193.js",
+      "path---histoires-chapitre-chapitre-18-la-revelation-64c5a5a427dbe5234193.js.map"
     ],
     "path---histoires-le-defenseur-invisible": [
-      "path---histoires-le-defenseur-invisible-6efbcd10819a9b4314e8.js",
-      "path---histoires-le-defenseur-invisible-6efbcd10819a9b4314e8.js.map"
+      "path---histoires-le-defenseur-invisible-65711b00e867d0c38ff8.js",
+      "path---histoires-le-defenseur-invisible-65711b00e867d0c38ff8.js.map"
+    ],
+    "path---personnages-angelique-ramber": [
+      "path---personnages-angelique-ramber-3bc03b79f0370de9b4a4.js",
+      "path---personnages-angelique-ramber-3bc03b79f0370de9b4a4.js.map"
+    ],
+    "path---en-stories-chapter-chapter-24-the-story": [
+      "path---en-stories-chapter-chapter-24-the-story-3375d22103d8cfdbe4c9.js",
+      "path---en-stories-chapter-chapter-24-the-story-3375d22103d8cfdbe4c9.js.map"
+    ],
+    "path---en-stories-chapter-chapter-21-the-awakenings": [
+      "path---en-stories-chapter-chapter-21-the-awakenings-ba2a4c98c43fe5a98f7d.js",
+      "path---en-stories-chapter-chapter-21-the-awakenings-ba2a4c98c43fe5a98f7d.js.map"
+    ],
+    "path---en-stories-chapter-chapter-15-out-of-control": [
+      "path---en-stories-chapter-chapter-15-out-of-control-01ccf5b344fd69e7e93a.js",
+      "path---en-stories-chapter-chapter-15-out-of-control-01ccf5b344fd69e7e93a.js.map"
     ],
     "path---histoires-chapitre-chapitre-17-le-rapport": [
-      "path---histoires-chapitre-chapitre-17-le-rapport-3b4f494d9eabf2b91d58.js",
-      "path---histoires-chapitre-chapitre-17-le-rapport-3b4f494d9eabf2b91d58.js.map"
+      "path---histoires-chapitre-chapitre-17-le-rapport-cafc348eeacc513cc119.js",
+      "path---histoires-chapitre-chapitre-17-le-rapport-cafc348eeacc513cc119.js.map"
+    ],
+    "path---en-groups": [
+      "path---en-groups-c9b1bf7181bb8f6c4cc0.js",
+      "path---en-groups-c9b1bf7181bb8f6c4cc0.js.map"
+    ],
+    "path---en-stories-chapter-chapter-22-intervention-part-1": [
+      "path---en-stories-chapter-chapter-22-intervention-part-1-b37bf9b51b5e5cc59f2a.js",
+      "path---en-stories-chapter-chapter-22-intervention-part-1-b37bf9b51b5e5cc59f2a.js.map"
+    ],
+    "path---en-stories-chapter-chapter-4-the-legion": [
+      "path---en-stories-chapter-chapter-4-the-legion-dad4e5a391c10f2e51f6.js",
+      "path---en-stories-chapter-chapter-4-the-legion-dad4e5a391c10f2e51f6.js.map"
     ],
     "path---personnages-clara-nairo": [
-      "path---personnages-clara-nairo-2e09f160a0d79f4bba8c.js",
-      "path---personnages-clara-nairo-2e09f160a0d79f4bba8c.js.map"
+      "path---personnages-clara-nairo-3bae048a6c852388a9c6.js",
+      "path---personnages-clara-nairo-3bae048a6c852388a9c6.js.map"
+    ],
+    "path---en-characters-drake-tarcion": [
+      "path---en-characters-drake-tarcion-f22a2cf4891f844ff7d9.js",
+      "path---en-characters-drake-tarcion-f22a2cf4891f844ff7d9.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-3-le-justicier": [
+      "path---histoires-chapitre-chapitre-3-le-justicier-42d5a8e7c23f4e17d067.js",
+      "path---histoires-chapitre-chapitre-3-le-justicier-42d5a8e7c23f4e17d067.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-the-newcomers": [
+      "path---en-stories-chapter-chapter-1-the-newcomers-dfff401e08938448ac35.js",
+      "path---en-stories-chapter-chapter-1-the-newcomers-dfff401e08938448ac35.js.map"
+    ],
+    "path---en-stories-chapter-chapter-8-friends": [
+      "path---en-stories-chapter-chapter-8-friends-4fd393e95f5fe11a6de4.js",
+      "path---en-stories-chapter-chapter-8-friends-4fd393e95f5fe11a6de4.js.map"
+    ],
+    "path---en-news-the-website-is-now-available-in-french-and-english": [
+      "path---en-news-the-website-is-now-available-in-french-and-english-8933ce0679c876fccb82.js",
+      "path---en-news-the-website-is-now-available-in-french-and-english-8933ce0679c876fccb82.js.map"
+    ],
+    "path---en-characters-thomas-unif": [
+      "path---en-characters-thomas-unif-3617a45d6070695f0b77.js",
+      "path---en-characters-thomas-unif-3617a45d6070695f0b77.js.map"
+    ],
+    "path---pouvoirs-metamorphisme": [
+      "path---pouvoirs-metamorphisme-679606a581de49d16ec0.js",
+      "path---pouvoirs-metamorphisme-679606a581de49d16ec0.js.map"
+    ],
+    "path---pouvoirs-premonitions": [
+      "path---pouvoirs-premonitions-a105d8a4612540f11f7f.js",
+      "path---pouvoirs-premonitions-a105d8a4612540f11f7f.js.map"
+    ],
+    "path---en-encyclopedia-the-drumel-genes": [
+      "path---en-encyclopedia-the-drumel-genes-d0bc3d49b0caaedbb8e0.js",
+      "path---en-encyclopedia-the-drumel-genes-d0bc3d49b0caaedbb8e0.js.map"
     ],
     "path---histoires-chapitre-chapitre-25-la-preparation": [
-      "path---histoires-chapitre-chapitre-25-la-preparation-f01a3ec9ca13334d2f9f.js",
-      "path---histoires-chapitre-chapitre-25-la-preparation-f01a3ec9ca13334d2f9f.js.map"
+      "path---histoires-chapitre-chapitre-25-la-preparation-ae5280410d988d871030.js",
+      "path---histoires-chapitre-chapitre-25-la-preparation-ae5280410d988d871030.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-news-allies": [
+      "path---en-stories-chapter-chapter-3-news-allies-a163a55f4694de474e5d.js",
+      "path---en-stories-chapter-chapter-3-news-allies-a163a55f4694de474e5d.js.map"
     ],
     "path---histoires-chapitre-chapitre-2-que-l-entrainement-commence": [
-      "path---histoires-chapitre-chapitre-2-que-l-entrainement-commence-f0033bf57878109cbfca.js",
-      "path---histoires-chapitre-chapitre-2-que-l-entrainement-commence-f0033bf57878109cbfca.js.map"
+      "path---histoires-chapitre-chapitre-2-que-l-entrainement-commence-f18e66c5c9aa380fbf62.js",
+      "path---histoires-chapitre-chapitre-2-que-l-entrainement-commence-f18e66c5c9aa380fbf62.js.map"
+    ],
+    "path---en-characters-tim-allam": [
+      "path---en-characters-tim-allam-dfdea2c0a1550c3d0e48.js",
+      "path---en-characters-tim-allam-dfdea2c0a1550c3d0e48.js.map"
+    ],
+    "path---en-stories-chapter-chapter-14-presentations": [
+      "path---en-stories-chapter-chapter-14-presentations-05b0ecf365f85485ad2c.js",
+      "path---en-stories-chapter-chapter-14-presentations-05b0ecf365f85485ad2c.js.map"
+    ],
+    "path---en-powers-flexibility": [
+      "path---en-powers-flexibility-6cfc6a54cfa149150e42.js",
+      "path---en-powers-flexibility-6cfc6a54cfa149150e42.js.map"
+    ],
+    "path---en-stories-chapter-chapter-15-black-eagles": [
+      "path---en-stories-chapter-chapter-15-black-eagles-d5eb33c24f23f1082f9f.js",
+      "path---en-stories-chapter-chapter-15-black-eagles-d5eb33c24f23f1082f9f.js.map"
+    ],
+    "path---personnages-ray-vazot": [
+      "path---personnages-ray-vazot-5a2b74f4d51bbd5788f1.js",
+      "path---personnages-ray-vazot-5a2b74f4d51bbd5788f1.js.map"
     ],
     "app": [
-      "app-373e2870fac89bfad598.js",
+      "app-2997a47ff5cc335396f9.js",
       "build-js-styles.css",
-      "app-373e2870fac89bfad598.js.map",
+      "app-2997a47ff5cc335396f9.js.map",
       "build-js-styles.css.map"
     ],
     "path---histoires-chapitre-chapitre-2-depart-pour-gencorp": [
-      "path---histoires-chapitre-chapitre-2-depart-pour-gencorp-c018d76a1946bc169dd3.js",
-      "path---histoires-chapitre-chapitre-2-depart-pour-gencorp-c018d76a1946bc169dd3.js.map"
+      "path---histoires-chapitre-chapitre-2-depart-pour-gencorp-c4b252f22e147420cb5f.js",
+      "path---histoires-chapitre-chapitre-2-depart-pour-gencorp-c4b252f22e147420cb5f.js.map"
+    ],
+    "path---en-characters": [
+      "path---en-characters-7fd1974d5d381bd75ce1.js",
+      "path---en-characters-7fd1974d5d381bd75ce1.js.map"
+    ],
+    "path---en-news-new-pages-on-the-website": [
+      "path---en-news-new-pages-on-the-website-316bfbe44b6f8b0ca55e.js",
+      "path---en-news-new-pages-on-the-website-316bfbe44b6f8b0ca55e.js.map"
+    ],
+    "path---pouvoirs-passe-muraille": [
+      "path---pouvoirs-passe-muraille-6b1d0037312cd777545f.js",
+      "path---pouvoirs-passe-muraille-6b1d0037312cd777545f.js.map"
+    ],
+    "path---en-characters-darakei-drumel": [
+      "path---en-characters-darakei-drumel-eda22244e84281ca25d9.js",
+      "path---en-characters-darakei-drumel-eda22244e84281ca25d9.js.map"
+    ],
+    "path---en-characters-todd-brapus": [
+      "path---en-characters-todd-brapus-b91329a03b7cb30f5b36.js",
+      "path---en-characters-todd-brapus-b91329a03b7cb30f5b36.js.map"
+    ],
+    "path---en-powers-mood-control": [
+      "path---en-powers-mood-control-318a4cbb7e8941b60c0f.js",
+      "path---en-powers-mood-control-318a4cbb7e8941b60c0f.js.map"
+    ],
+    "path---personnages-theo-magodil": [
+      "path---personnages-theo-magodil-79b5e208064a9e6d7c4f.js",
+      "path---personnages-theo-magodil-79b5e208064a9e6d7c4f.js.map"
+    ],
+    "path---en-encyclopedia-new-synthetic-humans": [
+      "path---en-encyclopedia-new-synthetic-humans-426e0e7f794e5cf0030a.js",
+      "path---en-encyclopedia-new-synthetic-humans-426e0e7f794e5cf0030a.js.map"
     ],
     "component---src-templates-histoires-js": [
-      "component---src-templates-histoires-js-8a502fe8884e844edf23.js",
-      "component---src-templates-histoires-js-8a502fe8884e844edf23.js.map"
+      "component---src-templates-histoires-js-d2885cef45143ff8b3bc.js",
+      "component---src-templates-histoires-js-d2885cef45143ff8b3bc.js.map"
+    ],
+    "path---personnages-jon-drabod": [
+      "path---personnages-jon-drabod-dd1e33202286d0211b97.js",
+      "path---personnages-jon-drabod-dd1e33202286d0211b97.js.map"
+    ],
+    "path---en-powers-levitation": [
+      "path---en-powers-levitation-61c1b5cd934433d5b460.js",
+      "path---en-powers-levitation-61c1b5cd934433d5b460.js.map"
     ],
     "path---groupes-la-guilde": [
-      "path---groupes-la-guilde-6391351ae7feb539f992.js",
-      "path---groupes-la-guilde-6391351ae7feb539f992.js.map"
+      "path---groupes-la-guilde-f104d43e6a0a17519028.js",
+      "path---groupes-la-guilde-f104d43e6a0a17519028.js.map"
+    ],
+    "path---en-powers-adaptation": [
+      "path---en-powers-adaptation-98213ad4efdd07d50b83.js",
+      "path---en-powers-adaptation-98213ad4efdd07d50b83.js.map"
+    ],
+    "path---groupes-red-ravens": [
+      "path---groupes-red-ravens-c8c20b658bf2612a28af.js",
+      "path---groupes-red-ravens-c8c20b658bf2612a28af.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-attack-in-the-park": [
+      "path---en-stories-chapter-chapter-2-attack-in-the-park-1170663d7753024d067f.js",
+      "path---en-stories-chapter-chapter-2-attack-in-the-park-1170663d7753024d067f.js.map"
+    ],
+    "path---en-characters-gabriel-daurikir": [
+      "path---en-characters-gabriel-daurikir-35813774c57e51a05f88.js",
+      "path---en-characters-gabriel-daurikir-35813774c57e51a05f88.js.map"
+    ],
+    "path---nouvelles-nouveau-chapitre-pour-les-red-ravens": [
+      "path---nouvelles-nouveau-chapitre-pour-les-red-ravens-2510cb97e5d143633ad7.js",
+      "path---nouvelles-nouveau-chapitre-pour-les-red-ravens-2510cb97e5d143633ad7.js.map"
+    ],
+    "path---en-news-new-and-last-chapter-of-sam-story": [
+      "path---en-news-new-and-last-chapter-of-sam-story-d9677e8fde4d6c2b475b.js",
+      "path---en-news-new-and-last-chapter-of-sam-story-d9677e8fde4d6c2b475b.js.map"
+    ],
+    "component---src-templates-evenements-js": [
+      "component---src-templates-evenements-js-01a84b3d5524bb111872.js",
+      "component---src-templates-evenements-js-01a84b3d5524bb111872.js.map"
+    ],
+    "path---en-stories-the-guild-wings": [
+      "path---en-stories-the-guild-wings-69e316aa7e74329ca23c.js",
+      "path---en-stories-the-guild-wings-69e316aa7e74329ca23c.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-spores": [
+      "path---en-stories-chapter-chapter-1-spores-deb21b7766b01133ca7a.js",
+      "path---en-stories-chapter-chapter-1-spores-deb21b7766b01133ca7a.js.map"
+    ],
+    "component---src-templates-number-en-js": [
+      "component---src-templates-number-en-js-62055ad342c10c99d339.js",
+      "component---src-templates-number-en-js-62055ad342c10c99d339.js.map"
+    ],
+    "path---en-powers-water": [
+      "path---en-powers-water-3f4c76ad6461033e7bb6.js",
+      "path---en-powers-water-3f4c76ad6461033e7bb6.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-the-apprentices": [
+      "path---en-stories-chapter-chapter-3-the-apprentices-77b3c861128200313a0b.js",
+      "path---en-stories-chapter-chapter-3-the-apprentices-77b3c861128200313a0b.js.map"
+    ],
+    "path---pouvoirs-elasticite": [
+      "path---pouvoirs-elasticite-7f01ede16ae1b93bd9d6.js",
+      "path---pouvoirs-elasticite-7f01ede16ae1b93bd9d6.js.map"
+    ],
+    "path---en-characters-ray-vazot": [
+      "path---en-characters-ray-vazot-7633272d2120d14e82c8.js",
+      "path---en-characters-ray-vazot-7633272d2120d14e82c8.js.map"
     ],
     "path---histoires-chapitre-chapitre-8-sans-succes": [
-      "path---histoires-chapitre-chapitre-8-sans-succes-07cac945f4a3ea268556.js",
-      "path---histoires-chapitre-chapitre-8-sans-succes-07cac945f4a3ea268556.js.map"
+      "path---histoires-chapitre-chapitre-8-sans-succes-61afed75b8a8edf747c9.js",
+      "path---histoires-chapitre-chapitre-8-sans-succes-61afed75b8a8edf747c9.js.map"
+    ],
+    "path---en-stories-chapter-chapter-4-training": [
+      "path---en-stories-chapter-chapter-4-training-20f7d028f4db18f243ae.js",
+      "path---en-stories-chapter-chapter-4-training-20f7d028f4db18f243ae.js.map"
+    ],
+    "path---personnages-hiro-zapur": [
+      "path---personnages-hiro-zapur-59b6767183b2cb9a7fc0.js",
+      "path---personnages-hiro-zapur-59b6767183b2cb9a7fc0.js.map"
+    ],
+    "path---nombre": [
+      "path---nombre-468cf874dde3ba59d9fc.js",
+      "path---nombre-468cf874dde3ba59d9fc.js.map"
+    ],
+    "path---pouvoirs-lumiere": [
+      "path---pouvoirs-lumiere-81c0b6bb6aa0e072acdf.js",
+      "path---pouvoirs-lumiere-81c0b6bb6aa0e072acdf.js.map"
+    ],
+    "path---pouvoirs-eau": [
+      "path---pouvoirs-eau-745aed6f1a5442d8096b.js",
+      "path---pouvoirs-eau-745aed6f1a5442d8096b.js.map"
     ],
     "path---encyclopedie-nouveaux-humains-de-synthese": [
-      "path---encyclopedie-nouveaux-humains-de-synthese-da7725f8ba2c081eee05.js",
-      "path---encyclopedie-nouveaux-humains-de-synthese-da7725f8ba2c081eee05.js.map"
+      "path---encyclopedie-nouveaux-humains-de-synthese-48e436cbe257a860a9ae.js",
+      "path---encyclopedie-nouveaux-humains-de-synthese-48e436cbe257a860a9ae.js.map"
+    ],
+    "component---src-templates-en-js": [
+      "component---src-templates-en-js-3e221389014a1f45ee0b.js",
+      "component---src-templates-en-js-3e221389014a1f45ee0b.js.map"
+    ],
+    "path---en-characters-alexis-bunakod": [
+      "path---en-characters-alexis-bunakod-6085a97e5d5f55801d01.js",
+      "path---en-characters-alexis-bunakod-6085a97e5d5f55801d01.js.map"
     ],
     "path---histoires-chapitre-chapitre-23-le-pouvoir": [
-      "path---histoires-chapitre-chapitre-23-le-pouvoir-44a367919082d0870ac8.js",
-      "path---histoires-chapitre-chapitre-23-le-pouvoir-44a367919082d0870ac8.js.map"
+      "path---histoires-chapitre-chapitre-23-le-pouvoir-7a1a6727729083de108c.js",
+      "path---histoires-chapitre-chapitre-23-le-pouvoir-7a1a6727729083de108c.js.map"
+    ],
+    "path---personnages-kellan-brogran": [
+      "path---personnages-kellan-brogran-a872799117e98c0c2a63.js",
+      "path---personnages-kellan-brogran-a872799117e98c0c2a63.js.map"
+    ],
+    "path---en-news-new-and-last-chapter-of-gaia-story": [
+      "path---en-news-new-and-last-chapter-of-gaia-story-c1d1c828e74627a8105b.js",
+      "path---en-news-new-and-last-chapter-of-gaia-story-c1d1c828e74627a8105b.js.map"
+    ],
+    "path---pouvoirs-controle-du-metal": [
+      "path---pouvoirs-controle-du-metal-27376cdca869cfe30fe9.js",
+      "path---pouvoirs-controle-du-metal-27376cdca869cfe30fe9.js.map"
+    ],
+    "path---en": [
+      "path---en-34f0a83bffaa218e4ae9.js",
+      "path---en-34f0a83bffaa218e4ae9.js.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
+    "path---en-stories-chapter-chapter-13-escape-for-freedom": [
+      "path---en-stories-chapter-chapter-13-escape-for-freedom-24f2d46b89ec400582b8.js",
+      "path---en-stories-chapter-chapter-13-escape-for-freedom-24f2d46b89ec400582b8.js.map"
+    ],
+    "path---en-characters-isao-gircas": [
+      "path---en-characters-isao-gircas-a721ca071dfce3b05cc7.js",
+      "path---en-characters-isao-gircas-a721ca071dfce3b05cc7.js.map"
+    ],
+    "path---en-powers": [
+      "path---en-powers-c9f630e7ccdb3ec1ba60.js",
+      "path---en-powers-c9f630e7ccdb3ec1ba60.js.map"
+    ],
+    "component---src-templates-progression-en-js": [
+      "component---src-templates-progression-en-js-70b5ff2f47f66f27dc09.js",
+      "component---src-templates-progression-en-js-70b5ff2f47f66f27dc09.js.map"
+    ],
     "component---src-templates-pouvoirs-js": [
-      "component---src-templates-pouvoirs-js-e67234d223fc2293c2ec.js",
-      "component---src-templates-pouvoirs-js-e67234d223fc2293c2ec.js.map"
+      "component---src-templates-pouvoirs-js-77a5ea9a996fbfc1ca6f.js",
+      "component---src-templates-pouvoirs-js-77a5ea9a996fbfc1ca6f.js.map"
+    ],
+    "path---en-characters-jon-drabod": [
+      "path---en-characters-jon-drabod-7e97b360b947661e1074.js",
+      "path---en-characters-jon-drabod-7e97b360b947661e1074.js.map"
+    ],
+    "path---en-powers-lycanthropy": [
+      "path---en-powers-lycanthropy-773c2d2cf977d35c80e3.js",
+      "path---en-powers-lycanthropy-773c2d2cf977d35c80e3.js.map"
+    ],
+    "path---groupes-la-legion": [
+      "path---groupes-la-legion-e48e1a631599a7cf847e.js",
+      "path---groupes-la-legion-e48e1a631599a7cf847e.js.map"
     ],
     "path---histoires-chapitre-chapitre-13-fuite-pour-la-liberte": [
-      "path---histoires-chapitre-chapitre-13-fuite-pour-la-liberte-4de985928ea57f4dcb8f.js",
-      "path---histoires-chapitre-chapitre-13-fuite-pour-la-liberte-4de985928ea57f4dcb8f.js.map"
+      "path---histoires-chapitre-chapitre-13-fuite-pour-la-liberte-c71c4e8f60d3fabcef4b.js",
+      "path---histoires-chapitre-chapitre-13-fuite-pour-la-liberte-c71c4e8f60d3fabcef4b.js.map"
     ],
     "path---histoires-chapitre-chapitre-1-spores": [
-      "path---histoires-chapitre-chapitre-1-spores-77b7e953dc1ae40655ee.js",
-      "path---histoires-chapitre-chapitre-1-spores-77b7e953dc1ae40655ee.js.map"
+      "path---histoires-chapitre-chapitre-1-spores-6bc8f30c348060064c32.js",
+      "path---histoires-chapitre-chapitre-1-spores-6bc8f30c348060064c32.js.map"
     ],
     "path---histoires-le-mastodonte-des-black-eagles": [
-      "path---histoires-le-mastodonte-des-black-eagles-81e0de1fcfffaf54f4d4.js",
-      "path---histoires-le-mastodonte-des-black-eagles-81e0de1fcfffaf54f4d4.js.map"
+      "path---histoires-le-mastodonte-des-black-eagles-4e5377d811df2b762ff5.js",
+      "path---histoires-le-mastodonte-des-black-eagles-4e5377d811df2b762ff5.js.map"
+    ],
+    "path---en-stories-chapter-chapter-10-elea": [
+      "path---en-stories-chapter-chapter-10-elea-67129cc568d4f8f50b49.js",
+      "path---en-stories-chapter-chapter-10-elea-67129cc568d4f8f50b49.js.map"
     ],
     "path---encyclopedie": [
-      "path---encyclopedie-7539a4c6c1e2f7afcada.js",
-      "path---encyclopedie-7539a4c6c1e2f7afcada.js.map"
+      "path---encyclopedie-be258b9f095a924fb716.js",
+      "path---encyclopedie-be258b9f095a924fb716.js.map"
+    ],
+    "path---personnages-marie-dithos": [
+      "path---personnages-marie-dithos-8ad72141668bdd70407c.js",
+      "path---personnages-marie-dithos-8ad72141668bdd70407c.js.map"
+    ],
+    "path---en-stories-chapter-chapter-1-imminent-danger": [
+      "path---en-stories-chapter-chapter-1-imminent-danger-a95855bbe9f7cbd409d8.js",
+      "path---en-stories-chapter-chapter-1-imminent-danger-a95855bbe9f7cbd409d8.js.map"
+    ],
+    "path---en-stories-chapter-chapter-11-the-new-house": [
+      "path---en-stories-chapter-chapter-11-the-new-house-4b26f83ef352c69f5914.js",
+      "path---en-stories-chapter-chapter-11-the-new-house-4b26f83ef352c69f5914.js.map"
     ],
     "path---histoires-chapitre-chapitre-22-l-intervention-partie-2": [
-      "path---histoires-chapitre-chapitre-22-l-intervention-partie-2-76f313c375ad0cf2fdb0.js",
-      "path---histoires-chapitre-chapitre-22-l-intervention-partie-2-76f313c375ad0cf2fdb0.js.map"
+      "path---histoires-chapitre-chapitre-22-l-intervention-partie-2-7136b416de439eb58f42.js",
+      "path---histoires-chapitre-chapitre-22-l-intervention-partie-2-7136b416de439eb58f42.js.map"
+    ],
+    "path---en-stories-chapter-chapter-9-the-usb-key": [
+      "path---en-stories-chapter-chapter-9-the-usb-key-36d71abe611a5a3fa4b7.js",
+      "path---en-stories-chapter-chapter-9-the-usb-key-36d71abe611a5a3fa4b7.js.map"
+    ],
+    "path---en-stories-chapter-chapter-3-be-strong": [
+      "path---en-stories-chapter-chapter-3-be-strong-651a3dd38d5ee2e4d267.js",
+      "path---en-stories-chapter-chapter-3-be-strong-651a3dd38d5ee2e4d267.js.map"
+    ],
+    "path---en-characters-sarah-lirtan": [
+      "path---en-characters-sarah-lirtan-5eb6b42bf3e6e7200f57.js",
+      "path---en-characters-sarah-lirtan-5eb6b42bf3e6e7200f57.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-3-soit-fort": [
+      "path---histoires-chapitre-chapitre-3-soit-fort-f5cbaeeb18021d73d611.js",
+      "path---histoires-chapitre-chapitre-3-soit-fort-f5cbaeeb18021d73d611.js.map"
+    ],
+    "path---personnages-vincent-ortiz": [
+      "path---personnages-vincent-ortiz-d2babe817ab355b559b2.js",
+      "path---personnages-vincent-ortiz-d2babe817ab355b559b2.js.map"
+    ],
+    "path---en-stories-chapter-chapter-17-localization": [
+      "path---en-stories-chapter-chapter-17-localization-4c4ef2f6ecc82e47ec59.js",
+      "path---en-stories-chapter-chapter-17-localization-4c4ef2f6ecc82e47ec59.js.map"
+    ],
+    "path---pouvoirs-teleportation": [
+      "path---pouvoirs-teleportation-84cf548798efe87fc61a.js",
+      "path---pouvoirs-teleportation-84cf548798efe87fc61a.js.map"
+    ],
+    "path---pouvoirs-elementariste": [
+      "path---pouvoirs-elementariste-01e0c05f86b9345ebedf.js",
+      "path---pouvoirs-elementariste-01e0c05f86b9345ebedf.js.map"
+    ],
+    "path---en-contributors": [
+      "path---en-contributors-a0e39f21c11f6a62c5ab.js",
+      "path---en-contributors-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---en-characters-louann-koris": [
+      "path---en-characters-louann-koris-db7126d58c03cae183b7.js",
+      "path---en-characters-louann-koris-db7126d58c03cae183b7.js.map"
+    ],
+    "path---en-powers-elasticity": [
+      "path---en-powers-elasticity-4afe24638f424ce12c3d.js",
+      "path---en-powers-elasticity-4afe24638f424ce12c3d.js.map"
+    ],
+    "path---en-powers-explosion": [
+      "path---en-powers-explosion-ef66e9f7a986450e371f.js",
+      "path---en-powers-explosion-ef66e9f7a986450e371f.js.map"
     ],
     "path---histoires-chapitre-chapitre-15-hors-de-controle": [
-      "path---histoires-chapitre-chapitre-15-hors-de-controle-b55dae6e99c2d20705c8.js",
-      "path---histoires-chapitre-chapitre-15-hors-de-controle-b55dae6e99c2d20705c8.js.map"
+      "path---histoires-chapitre-chapitre-15-hors-de-controle-fc7aa5898c2796410df3.js",
+      "path---histoires-chapitre-chapitre-15-hors-de-controle-fc7aa5898c2796410df3.js.map"
+    ],
+    "path---en-stories-chapter-chapter-23-power": [
+      "path---en-stories-chapter-chapter-23-power-df198b6f87b4c16ccf87.js",
+      "path---en-stories-chapter-chapter-23-power-df198b6f87b4c16ccf87.js.map"
+    ],
+    "path---pouvoirs-controle-des-autres": [
+      "path---pouvoirs-controle-des-autres-aee0a9d257b154d8f3a9.js",
+      "path---pouvoirs-controle-des-autres-aee0a9d257b154d8f3a9.js.map"
+    ],
+    "path---personnages-kyna-gamay": [
+      "path---personnages-kyna-gamay-856eefd0f4db9216a000.js",
+      "path---personnages-kyna-gamay-856eefd0f4db9216a000.js.map"
+    ],
+    "path---pouvoirs-detection-de-mensonge": [
+      "path---pouvoirs-detection-de-mensonge-36fa5cba6801f2d803a1.js",
+      "path---pouvoirs-detection-de-mensonge-36fa5cba6801f2d803a1.js.map"
+    ],
+    "component---src-templates-groups-en-js": [
+      "component---src-templates-groups-en-js-4b25474d55934dc6a113.js",
+      "component---src-templates-groups-en-js-4b25474d55934dc6a113.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-let-the-training-begin": [
+      "path---en-stories-chapter-chapter-2-let-the-training-begin-3a192359e8321fce3c25.js",
+      "path---en-stories-chapter-chapter-2-let-the-training-begin-3a192359e8321fce3c25.js.map"
+    ],
+    "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-gaia": [
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-gaia-3e72e27bbbcdcc230573.js",
+      "path---nouvelles-nouveau-et-dernier-chapitre-de-l-histoire-de-gaia-3e72e27bbbcdcc230573.js.map"
+    ],
+    "path---contributeurs": [
+      "path---contributeurs-a0e39f21c11f6a62c5ab.js",
+      "path---contributeurs-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---groupes-les-black-eagles": [
-      "path---groupes-les-black-eagles-a7e24a32b1bf9b0121b5.js",
-      "path---groupes-les-black-eagles-a7e24a32b1bf9b0121b5.js.map"
+      "path---groupes-les-black-eagles-d3f4e4e8910820d3fb38.js",
+      "path---groupes-les-black-eagles-d3f4e4e8910820d3fb38.js.map"
+    ],
+    "component---src-templates-characters-en-js": [
+      "component---src-templates-characters-en-js-7ff4329c9a57dce3fd20.js",
+      "component---src-templates-characters-en-js-7ff4329c9a57dce3fd20.js.map"
     ],
     "path---histoires-chapitre-chapitre-10-william": [
-      "path---histoires-chapitre-chapitre-10-william-218710ec86944682d980.js",
-      "path---histoires-chapitre-chapitre-10-william-218710ec86944682d980.js.map"
+      "path---histoires-chapitre-chapitre-10-william-63b654f753f3327ee785.js",
+      "path---histoires-chapitre-chapitre-10-william-63b654f753f3327ee785.js.map"
     ],
     "path---histoires-le-monstre-de-calpeo": [
-      "path---histoires-le-monstre-de-calpeo-bcd240a6c9afcd05bcba.js",
-      "path---histoires-le-monstre-de-calpeo-bcd240a6c9afcd05bcba.js.map"
+      "path---histoires-le-monstre-de-calpeo-c874f05d1b88ab1ad4cd.js",
+      "path---histoires-le-monstre-de-calpeo-c874f05d1b88ab1ad4cd.js.map"
     ],
     "path---pouvoirs-controle-des-technologies": [
-      "path---pouvoirs-controle-des-technologies-543fe5faff819ce2f805.js",
-      "path---pouvoirs-controle-des-technologies-543fe5faff819ce2f805.js.map"
+      "path---pouvoirs-controle-des-technologies-0d9e1e6a3087ac87dc90.js",
+      "path---pouvoirs-controle-des-technologies-0d9e1e6a3087ac87dc90.js.map"
+    ],
+    "path---en-characters-tiana-gresas": [
+      "path---en-characters-tiana-gresas-7a9e2e48d81a528d53af.js",
+      "path---en-characters-tiana-gresas-7a9e2e48d81a528d53af.js.map"
+    ],
+    "path---en-stories-chapter-chapter-2-meeting": [
+      "path---en-stories-chapter-chapter-2-meeting-030df6f9ef1248bc98e0.js",
+      "path---en-stories-chapter-chapter-2-meeting-030df6f9ef1248bc98e0.js.map"
+    ],
+    "path---personnages-daryl-koido": [
+      "path---personnages-daryl-koido-5a124ef34ed68997ea44.js",
+      "path---personnages-daryl-koido-5a124ef34ed68997ea44.js.map"
+    ],
+    "path---en-powers-invisibility": [
+      "path---en-powers-invisibility-62dd0867c038c61d9ded.js",
+      "path---en-powers-invisibility-62dd0867c038c61d9ded.js.map"
+    ],
+    "path---histoires-chapitre-chapitre-3-nouveaux-allies": [
+      "path---histoires-chapitre-chapitre-3-nouveaux-allies-7562dcf714b887227990.js",
+      "path---histoires-chapitre-chapitre-3-nouveaux-allies-7562dcf714b887227990.js.map"
+    ],
+    "path---en-stories-chapter-chapter-25-preparations": [
+      "path---en-stories-chapter-chapter-25-preparations-244f0d53cd8540c18c00.js",
+      "path---en-stories-chapter-chapter-25-preparations-244f0d53cd8540c18c00.js.map"
+    ],
+    "component---src-templates-chapter-en-js": [
+      "component---src-templates-chapter-en-js-ce8e921d34588fe7cf44.js",
+      "component---src-templates-chapter-en-js-ce8e921d34588fe7cf44.js.map"
     ]
   }
 }
