@@ -16,9 +16,9 @@ export default class Block_Calendar extends React.Component {
                 {
                     this.props.allCalendrier.edges.map(
                         (edge) =>
-                            <div className="clearfix border-bottom mb-2" key={edge.node.id}>
-                                {edge.node.affiche ?
-                                    (<div>
+                            edge.node.affiche ?
+                                (<div className="clearfix border-bottom mb-2" key={edge.node.id}>
+                                    <div>
                                         <div className="">
                                             <Row className="no-gutters">
                                                 <Col md="9" sm="12">
@@ -35,7 +35,6 @@ export default class Block_Calendar extends React.Component {
                                                 <Col md="9" sm="12">
                                                     <div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
                                                 </Col>
-
                                                 {
                                                     edge.node.romanSlug ?
                                                         (<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
@@ -45,10 +44,9 @@ export default class Block_Calendar extends React.Component {
                                                 }
                                             </Row>
                                         </div>
-                                    </div>) :
-                                    ('')
-                                }
-                            </div>
+                                    </div>
+                                </div>) :
+                                ('')
                     )
                 }
             </div>

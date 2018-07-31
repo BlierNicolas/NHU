@@ -21,10 +21,10 @@ export default class List_Story_Info extends React.Component {
                                     edge.node.typeHistoire == this.props.typeHistoire ?
                                         (
                                             <ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0">
-                                                <ListGroupItemHeading><Link to={'/histoires/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
+                                                <ListGroupItemHeading><Link to={'/en/stories/' + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
                                                 <div className="list-group-item-text">
                                                     <div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
-                                                    <Link to={'/histoires/' + edge.node.slug}>Start reading</Link>
+                                                    <Link to={'/en/stories/' + edge.node.slug}>Start reading</Link>
                                                 </div>
                                             </ListGroupItem>
                                         ) :

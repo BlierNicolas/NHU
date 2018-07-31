@@ -16,9 +16,9 @@ export default class Block_Calendrier extends React.Component {
                 {
                     this.props.allCalendrier.edges.map(
                         (edge) =>
-                            <div className="clearfix border-bottom mb-2" key={edge.node.id}>
-                                {edge.node.affiche ?
-                                    (<div>
+                            edge.node.affiche ?
+                                (<div className="clearfix border-bottom mb-2" key={edge.node.id}>
+                                    <div>
                                         <div className="">
                                             <Row className="no-gutters">
                                                 <Col md="9" sm="12">
@@ -44,10 +44,9 @@ export default class Block_Calendrier extends React.Component {
                                                 }
                                             </Row>
                                         </div>
-                                    </div>) :
-                                    ('')
-                                }
-                            </div>
+                                    </div>
+                                </div>) :
+                                ('')
                     )
                 }
             </div>
