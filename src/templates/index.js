@@ -16,10 +16,12 @@ import Block_Calendrier from '../components/block_calendrier';
 import Block_Continuer from '../components/block_continuer';
 //import firebase from '../firebase.js';
 import cookie from 'react-cookies';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class IndexPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             currentItem: '',
             username: '',
@@ -29,6 +31,15 @@ class IndexPage extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
     }
 
     handleChange(e) {
@@ -94,18 +105,18 @@ class IndexPage extends Component {
 
         return (
             <div>
-                <Header />
+                <Header lang={this.props.pathContext.lang} />
 
                 <div className="equiv">
-                    <Link className="text-white" to="/en"><Button className="float-right" color="primary">En</Button></Link>
+                    <Link className="text-white" to={this.lang.other_lang_url}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
                 </div>
 
                 <Jumbotron fluid>
                     <Container fluid>
-                        <h1 className="display-3">L'Univers des Nouveaux Humains</h1>
-                        <p className="lead">L'Univers des Nouveaux Humains est un Univers fictif où 0.01% de la population mondiale possède des pouvoirs.</p>
-                        <p className="lead">Les pouvoirs sont détectables via un gène qui a été nommé le gène Drumel, au nom du scientifique qui a identifié les différents cas et possibilités de ce gène.</p>
-                        <Link className="btn btn-primary" to="/histoires">Entrer dans l'Univers</Link>
+                        <h1 className="display-3">{this.lang.accueil_jumbo_titre}</h1>
+                        <p className="lead">{this.lang.accueil_jumbo_parag_1}</p>
+                        <p className="lead">{this.lang.accueil_jumbo_parag_2}</p>
+                        <Link className="btn btn-primary" to={this.lang.header_histoires_url}>{this.lang.accueil_jumbo_btn_titre}</Link>
                     </Container>
                 </Jumbotron>
 
@@ -125,25 +136,25 @@ class IndexPage extends Component {
                 <Container fluid className="p-0">
                     <Row className="pb-5">
                         <Col sm="12" lg="8" >
-                            <h2 className="mb-4">Dernières nouvelles</h2>
-                            <Block_Nouvelles allNouvelles={data.allContentfulNouvelle} />
+                            <h2 className="mb-4">{this.lang.nouvelles_titre}</h2>
+                            <Block_Nouvelles allNouvelles={data.allContentfulNouvelle} lang={this.props.pathContext.lang} />
                         </Col>
                         <Col sm="12" lg="4" >
-                            <h2 className="mb-4">Prochaines sorties</h2>
-                            <Block_Calendrier allCalendrier={data.allContentfulCalendrier} />
+                            <h2 className="mb-4">{this.lang.calendrier_titre}</h2>
+                            <Block_Calendrier allCalendrier={data.allContentfulCalendrier} lang={this.props.pathContext.lang} />
                         </Col>
                     </Row>
                     <Row className="pb-5">
                         <Col>
-                            <h2 className="mb-4">La création de l'Univers</h2>
-                            <p>J'ai commencé à créer l'Univers autour de Janvier 2015, la première histoire que j'ai écrite était <a href="/histoires/le-premier-cyborg-tome-1">Le Premier Cyborg</a>, après le premier tome, j'ai commencé à écrire une suite.</p>
-                            <p>Rapidement, l'Univers a prit de l'expension, entraînant la création de plusieurs personnages, pouvoirs et groupes. Les concepts ce sont détaillés au fur et à mesure que le temps avançait.</p>
-                            <p>Éventuellement, tous les personnages auront leur histoire à raconter et l'Univers continuera de grandir encore et encore.</p>
+                            <h2 className="mb-4">{this.lang.block_info_titre}</h2>
+                            <p>{this.lang.block_info_parag_1_1}<a href={this.lang.block_info_parag_1_url}>{this.lang.block_info_parag_1_name}</a>{this.lang.block_info_parag_1_2}</p>
+                            <p>{this.lang.block_info_parag_2}</p>
+                            <p>{this.lang.block_info_parag_3}</p>
                         </Col>
                     </Row>
                 </Container>
 
-                <Footer />
+                <Footer lang={this.props.pathContext.lang} />
             </div >
         )
     }
@@ -155,8 +166,8 @@ IndexPage.propTypes = {
 
 export default IndexPage
 
-export const pageQuery = graphql`query listeNouvelleQueryFR {
-    allContentfulNouvelle (limit: 9, sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeNouvelleQueryFR ($lang: String!) {
+    allContentfulNouvelle (limit: 9, sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: $lang}}) {
       edges {
         node {
           id
@@ -172,7 +183,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
         }
       }
     }
-    allContentfulCalendrier (limit: 6, sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulCalendrier (limit: 6, sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
 			node {
 				id
@@ -189,7 +200,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR {
 			}
 		}
 	}
-	allContentfulChapitre(sort: {fields: [nomRoman, ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+	allContentfulChapitre(sort: {fields: [nomRoman, ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 	  edges {
 		node {
 		  id

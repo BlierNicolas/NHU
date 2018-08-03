@@ -20,6 +20,8 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
 import List_Histoire_Info from '../components/list_histoire_info';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class ListeDesHistoires extends Component {
 	constructor(props) {
@@ -29,6 +31,15 @@ class ListeDesHistoires extends Component {
 		this.state = {
 			activeTab: '1',
 		};
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
 	}
 
 	toggle(tab) {
@@ -46,23 +57,23 @@ class ListeDesHistoires extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Nos Histoires de l'Univers...</BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem active>{this.lang.header_histoires}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to="/en/stories"><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.equi_histoires}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="my-5">
 					<Container>
-						<h1 className="display-4">Nos Histoires de l'Univers...</h1>
-						<p className="lead">Voici tous les romans et mini-histoires qui se rapportent à l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">{this.lang.header_histoires}</h1>
+						<p className="lead">{this.lang.histoires_intro_text}</p>
 					</Container>
 				</div>
 
@@ -70,12 +81,12 @@ class ListeDesHistoires extends Component {
 					<Nav pills>
 						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
-								Les romans
+								{this.lang.type_roman_text}
 							</NavLink>
 						</NavItem>
 						<NavItem className="cursor-update">
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
-								Les mini-histoires
+								{this.lang.type_mini_histoire_text}
 							</NavLink>
 						</NavItem>
 					</Nav>
@@ -83,18 +94,18 @@ class ListeDesHistoires extends Component {
 					<TabContent activeTab={this.state.activeTab}>
 						<TabPane tabId="1">
 							<ListGroup>
-								<List_Histoire_Info allHistoires={data.allContentfulRoman} typeHistoire="Roman" />
+								<List_Histoire_Info allHistoires={data.allContentfulRoman} typeHistoire="Roman" lang={this.props.pathContext.lang} />
 							</ListGroup>
 						</TabPane>
 						<TabPane tabId="2">
 							<ListGroup>
-								<List_Histoire_Info allHistoires={data.allContentfulRoman} typeHistoire="Mini-histoire" />
+								<List_Histoire_Info allHistoires={data.allContentfulRoman} typeHistoire="Mini-histoire" lang={this.props.pathContext.lang} />
 							</ListGroup>
 						</TabPane>
 					</TabContent>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -106,8 +117,8 @@ ListeDesHistoires.propTypes = {
 
 export default ListeDesHistoires
 
-export const pageQuery = graphql`query listeHistoireQueryFR {
-    allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeHistoireQueryFR ($lang: String!) {
+    allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: $lang}}) {
       edges {
         node {
 			id

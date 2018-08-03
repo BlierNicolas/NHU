@@ -13,8 +13,23 @@ import {
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Block_Nouvelles from '../components/block_nouvelles';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class ListeDesNouvelles extends Component {
+	constructor(props) {
+		super(props);
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
+	}
+	
 	render() {
 		const {
 			data
@@ -22,37 +37,37 @@ class ListeDesNouvelles extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Quoi de nouveau&nbsp;?</BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem active>{this.lang.header_nouvelles}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to="/en/news"><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.equi_nouvelles}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Quoi de nouveau&nbsp;?</h1>
-						<p className="lead">Voici toutes les nouvelles par rapport au site et aux informations au sujet de l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">{this.lang.header_nouvelles}</h1>
+						<p className="lead">{this.lang.nouvelles_intro_text}</p>
 					</Container>
 				</div>
 
 				<Container fluid className="p-0">
 					<Row className="pb-5">
 						<Col sm="12" lg="9" >
-							<Block_Nouvelles allNouvelles={data.allContentfulNouvelle} />
+							<Block_Nouvelles allNouvelles={data.allContentfulNouvelle} lang={this.props.pathContext.lang} />
 						</Col>
 						<Col sm="12" lg="3" >
 						</Col>
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -64,8 +79,8 @@ ListeDesNouvelles.propTypes = {
 
 export default ListeDesNouvelles
 
-export const pageQuery = graphql`query listeNouvelleQueryFR2 {
-	allContentfulNouvelle (sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listeNouvelleQueryFR2 ($lang: String!) {
+	allContentfulNouvelle (sort: {fields: [date], order: DESC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
 			node {
 				id

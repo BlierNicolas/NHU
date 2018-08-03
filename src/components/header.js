@@ -15,6 +15,8 @@ import {
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
 //import { auth, provider } from '../firebase.js';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -30,30 +32,39 @@ export default class Header extends React.Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
 
+        this.lang = lang_fr;
+
+        if (this.props.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.lang == "en-US") {
+            this.lang = lang_en;
+        }
+
         this.state = {
             isOpen: false,
             nightMode: false,
-            status: 'inactif',
+            status: this.lang.btn_nuit_inactif,
             mounted: undefined,
             user: null
         };
     }
 
     onEntering() {
-        this.setState({ status: 'desactivation...' });
+        this.setState({ status: this.lang.btn_nuit_desactivation });
     }
 
     onEntered() {
-        this.setState({ status: 'inactif' });
+        this.setState({ status: this.lang.btn_nuit_inactif });
         cookie.save('c_nightMode', 'off', { path: '/' });
     }
 
     onExiting() {
-        this.setState({ status: 'activation...' });
+        this.setState({ status: this.lang.btn_nuit_activation });
     }
 
     onExited() {
-        this.setState({ status: 'actif' });
+        this.setState({ status: this.lang.btn_nuit_actif });
         cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
@@ -88,7 +99,7 @@ export default class Header extends React.Component {
         if (typeof document !== "undefined") {
             if (this.state.mounted == 'on') {
                 this.state.nightMode = true;
-                this.state.status = 'actif';
+                this.state.status = this.lang.btn_nuit_actif;
                 this.state.mounted = undefined;
             }
             if (this.state.nightMode) {
@@ -136,7 +147,7 @@ export default class Header extends React.Component {
                                         className='mr-2'
                                         style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                                     />
-                                    Mode nuit {this.state.status}
+                                    {this.lang.btn_nuit + this.state.status}
                                 </Button>
 
                                 <Collapse
@@ -149,49 +160,49 @@ export default class Header extends React.Component {
                                 </Collapse>
                             </NavItem>
                             <NavItem>
-                                <Link to="/" className="text-white nav-link">Accueil</Link>
+                                <Link to={this.lang.header_accueil_url} className="text-white nav-link">{this.lang.header_accueil}</Link>
                             </NavItem>
                             <NavItem>
-                                <Link to="/nouvelles" className="text-white nav-link">Quoi de nouveau&nbsp;?</Link>
+                                <Link to={this.lang.header_nouvelles_url} className="text-white nav-link">{this.lang.header_nouvelles}</Link>
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
-                                    Coin lecture
+                                    {this.lang.header_lecture}
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <Link to="/histoires">Nos Histoires de l'Univers...</Link>
+                                        <Link to={this.lang.header_histoires_url}>{this.lang.header_histoires}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to="/calendrier">Calendrier des sorties</Link>
+                                        <Link to={this.lang.header_calendrier_url}>{this.lang.header_calendrier}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to="/progression">Progression de l'Univers</Link>
+                                        <Link to={this.lang.header_progression_url}>{this.lang.header_progression}</Link>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
-                                    Wiki
+                                {this.lang.header_wiki}
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <Link to="/personnages">Nos personnages</Link>
+                                        <Link to={this.lang.header_personnages_url}>{this.lang.header_personnages}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to="/pouvoirs">Abilités des personnages</Link>
+                                        <Link to={this.lang.header_pouvoirs_url}>{this.lang.header_pouvoirs}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to="/groupes">Groupes, clans et organisations...</Link>
+                                        <Link to={this.lang.header_groupes_url}>{this.lang.header_groupes}</Link>
                                     </DropdownItem>
                                     {/* <DropdownItem>
-                                        <Link to="/giervia">Giervia</Link>
+                                        <Link to={this.lang.header_giervia_url}>{this.lang.header_giervia}</Link>
                                     </DropdownItem> */}
                                     <DropdownItem>
-                                        <Link to="/evenements">Événements majeurs</Link>
+                                        <Link to={this.lang.header_evenements_url}>{this.lang.header_evenements}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to="/encyclopedie">L'encyclopédie universelle</Link>
+                                        <Link to={this.lang.header_encyclopedie_url}>{this.lang.header_encyclopedie}</Link>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>

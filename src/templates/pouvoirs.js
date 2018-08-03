@@ -14,12 +14,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class ListeDesPouvoirs extends Component {
 	constructor(props) {
 		super(props);
 
 		this.firstLetter = '';
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
 	}
 
 	render() {
@@ -29,23 +40,23 @@ class ListeDesPouvoirs extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Abilités des personnages</BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem active>{this.lang.header_pouvoirs}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to="/en/powers"><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.equi_pouvoirs}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Abilités des personnages</h1>
-						<p className="lead">Voici tous les pouvoirs qui sont présents dans l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">{this.lang.header_pouvoirs}</h1>
+						<p className="lead">{this.lang.pouvoirs_intro_text}</p>
 					</Container>
 				</div>
 
@@ -68,7 +79,7 @@ class ListeDesPouvoirs extends Component {
 												('')
 										}
 										<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3">
-											<Link to={'/pouvoirs/' + edge.node.slug}>{edge.node.nomPouvoir}</Link>
+											<Link to={this.lang.pouvoirs_url + edge.node.slug}>{edge.node.nomPouvoir}</Link>
 										</Col>
 									</React.Fragment>
 							)
@@ -76,7 +87,7 @@ class ListeDesPouvoirs extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -88,8 +99,8 @@ ListeDesPouvoirs.propTypes = {
 
 export default ListeDesPouvoirs
 
-export const pageQuery = graphql`query listePouvoirQueryFR {
-    allContentfulPouvoir(sort: {fields: [nomPouvoir], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listePouvoirQueryFR ($lang: String!) {
+    allContentfulPouvoir(sort: {fields: [nomPouvoir], order: ASC}, filter: {node_locale: {eq: $lang}}) {
         edges {
             node {
 				id

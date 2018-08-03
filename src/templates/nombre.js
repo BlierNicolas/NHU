@@ -13,6 +13,8 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Nombre extends Component {
     constructor(props) {
@@ -20,6 +22,15 @@ class Nombre extends Component {
 
         this.histoireEnCours = 0;
         this.histoireTerminees = 0;
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
     }
 
     componentWillMount() {
@@ -34,30 +45,30 @@ class Nombre extends Component {
 
         return (
             <div id="page-wrapper">
-                <Header />
+                <Header lang={this.props.pathContext.lang} />
 
                 <div>
                     <Breadcrumb className="mb-0">
-                        <BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>L'Univers en nombre!</BreadcrumbItem>
+                        <BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{this.lang.header_nombre}</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
 
                 <div className="equiv">
-                    <Link className="text-white" to="/en/number"><Button className="float-right" color="primary">En</Button></Link>
+                    <Link className="text-white" to={this.lang.equi_nombre}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
                 </div>
 
                 <div className="my-5">
                     <Container>
-                        <h1 className="display-4">L'Univers en nombre!</h1>
-                        <p className="lead">Voici une petite page informationnelle au sujet de l'Univers en lui même!</p>
+                        <h1 className="display-4">{this.lang.header_nombre}</h1>
+                        <p className="lead">{this.lang.nombre_intro_text}</p>
                     </Container>
                 </div>
 
                 <Container className="pb-5">
                     <Row>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre d'histoires: {data.allContentfulRoman.totalCount}
+                            {this.lang.nombre_histoires + data.allContentfulRoman.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
                             {
@@ -74,7 +85,7 @@ class Nombre extends Component {
                                     }
                                 )
                             }
-                            Nombre d'histoires en cours: {this.histoireEnCours}
+                            {this.lang.nombre_en_cours + this.histoireEnCours}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
                             {
@@ -91,27 +102,27 @@ class Nombre extends Component {
                                     }
                                 )
                             }
-                            Nombre d'histoires terminées: {this.histoireTerminees}
+                            {this.lang.nombre_termines + this.histoireTerminees}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de chapitre: {data.allContentfulChapitre.totalCount}
+                            {this.lang.nombre_chapitre + data.allContentfulChapitre.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de groupe: {data.allContentfulGroupe.totalCount}
+                            {this.lang.nombre_groupes + data.allContentfulGroupe.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de théories: {data.allContentfulTheorie.totalCount}
+                            {this.lang.nombre_theories + data.allContentfulTheorie.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de personnages: {data.allContentfulPersonnage.totalCount}
+                            {this.lang.nombre_personnages + data.allContentfulPersonnage.totalCount}
                         </Col>
                         <Col sm="12" md="6" lg="4" className="mb-3">
-                            Nombre de pouvoirs: {data.allContentfulPouvoir.totalCount}
+                            {this.lang.nombre_pouvoirs + data.allContentfulPouvoir.totalCount}
                         </Col>
                     </Row>
                 </Container>
 
-                <Footer />
+                <Footer lang={this.props.pathContext.lang} />
             </div>
         )
     }
@@ -124,11 +135,11 @@ Nombre.propTypes = {
 export default Nombre
 
 export const pageQuery = graphql
-    `query nombreQueryFR {
-    allContentfulChapitre(filter: {node_locale: {eq: "fr-CA"}}) {
+    `query nombreQueryFR ($lang: String!) {
+    allContentfulChapitre(filter: {node_locale: {eq: $lang}}) {
         totalCount
     }
-    allContentfulRoman(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulRoman(filter: {node_locale: {eq: $lang}}) {
         totalCount
         edges {
             node {
@@ -139,16 +150,16 @@ export const pageQuery = graphql
             }
         }
     }
-    allContentfulGroupe(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulGroupe(filter: {node_locale: {eq: $lang}}) {
         totalCount
     }
-    allContentfulTheorie(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulTheorie(filter: {node_locale: {eq: $lang}}) {
         totalCount
     }
-    allContentfulPouvoir(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulPouvoir(filter: {node_locale: {eq: $lang}}) {
         totalCount
     }
-    allContentfulPersonnage(filter: {node_locale: {eq: "fr-CA"}}) {
+    allContentfulPersonnage(filter: {node_locale: {eq: $lang}}) {
         totalCount
     }
 }`

@@ -12,9 +12,9 @@ Pages:
 - [X] Une théorie
 - [X] Liste des personnages
 - [X] Un personnage (Ajouter l'image)
-- [ ] Liste des villes et lieux
+- [ ] Carte du monde
+- [ ] Infos d'un pays
 - [ ] Une ville
-- [ ] Un lieu
 - [X] Liste des pouvoirs
 - [X] Un pouvoir
 - [X] Liste des groupes
@@ -30,7 +30,7 @@ Fonctionnalités:
 - [X] Footer
 - [X] Navbar
 - [ ] Onesignal
-- [ ] PWA
+- [ ] Progressive Web App
 - [X] Login and like system
 - [X] Firebase
 - [ ] Typographie

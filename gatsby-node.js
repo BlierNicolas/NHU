@@ -3,6 +3,7 @@ const path = require('path')
 exports.createPages = ({ graphql, boundActionCreators }) => {
 	const { createPage } = boundActionCreators
 	return new Promise((resolve, reject) => {
+		const indexTemplate = path.resolve('src/templates/index.js')
 		const chapitreTemplate = path.resolve('src/templates/chapitre.js')
 		const romanTemplate = path.resolve('src/templates/roman.js')
 		const personnageTemplate = path.resolve('src/templates/personnage.js')
@@ -25,30 +26,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const villeTemplate = path.resolve('src/templates/ville.js')
 		const evenementsTemplate = path.resolve('src/templates/evenements.js');
 
-		const indexEnTemplate = path.resolve('src/templates/en.js')
-		const chapitreEnTemplate = path.resolve('src/templates/chapter.en.js')
-		const romanEnTemplate = path.resolve('src/templates/story.en.js')
-		const personnageEnTemplate = path.resolve('src/templates/character.en.js')
-		const pouvoirEnTemplate = path.resolve('src/templates/power.en.js')
-		const nouvelleEnTemplate = path.resolve('src/templates/new.en.js')
-		const groupeEnTemplate = path.resolve('src/templates/group.en.js')
-		const theorieEnTemplate = path.resolve('src/templates/theory.en.js')
-		const listeHistoireEnTemplate = path.resolve('src/templates/stories.en.js')
-		const progressionEnTemplate = path.resolve('src/templates/progression.en.js')
-		const listePersonnageEnTemplate = path.resolve('src/templates/characters.en.js')
-		const listePouvoirEnTemplate = path.resolve('src/templates/powers.en.js')
-		const listeNouvelleEnTemplate = path.resolve('src/templates/news.en.js')
-		const listeGroupeEnTemplate = path.resolve('src/templates/groups.en.js')
-		const listeTheorieEnTemplate = path.resolve('src/templates/encyclopedia.en.js')
-		const nombreEnTemplate = path.resolve('src/templates/number.en.js')
-		const calendrierEnTemplate = path.resolve('src/templates/calendar.en.js')
-		const contributeursEnTemplate = path.resolve('src/templates/contributors.en.js')
-		const mondeEnTemplate = path.resolve('src/templates/world.en.js')
-		const paysEnTemplate = path.resolve('src/templates/country.en.js')
-		const villeEnTemplate = path.resolve('src/templates/city.en.js')
-		const evenementsEnTemplate = path.resolve('src/templates/events.en.js');
-
 		resolve(
+			createPage({
+				path: '/',
+				component: indexTemplate,
+				context: {
+					lang: "fr-CA"
+				}
+			}),
 			graphql(
 				`{
 				allContentfulChapitre(filter: {node_locale: {eq: "fr-CA"}}) {
@@ -70,7 +55,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'histoires/chapitre/' + edge.node.slug,
 							component: chapitreTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -98,7 +84,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'histoires/' + edge.node.slug,
 							component: romanTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -107,35 +94,59 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'histoires',
-				component: listeHistoireTemplate
+				component: listeHistoireTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'progression',
-				component: progressionTemplate
+				component: progressionTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'personnages',
-				component: listePersonnageTemplate
+				component: listePersonnageTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'pouvoirs',
-				component: listePouvoirTemplate
+				component: listePouvoirTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'nouvelles',
-				component: listeNouvelleTemplate
+				component: listeNouvelleTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'groupes',
-				component: listeGroupeTemplate
+				component: listeGroupeTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'encyclopedie',
-				component: listeTheorieTemplate
+				component: listeTheorieTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'nombre',
-				component: nombreTemplate
+				component: nombreTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			graphql(
 				`{
@@ -158,7 +169,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'personnages/' + edge.node.slug,
 							component: personnageTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -186,7 +198,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'pouvoirs/' + edge.node.slug,
 							component: pouvoirTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -216,7 +229,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'nouvelles/' + edge.node.slug,
 							component: nouvelleTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -248,7 +262,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							component: groupeTemplate,
 							context: {
 								slug: edge.node.slug,
-								nomGroupe: edge.node.nomGroupe
+								nomGroupe: edge.node.nomGroupe,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -278,7 +293,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 							path: 'encyclopedie/' + edge.node.slug,
 							component: theorieTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "fr-CA"
 							}
 						})
 					}
@@ -287,11 +303,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'calendrier',
-				component: calendrierTemplate
+				component: calendrierTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'contributeurs',
-				component: contributeursTemplate
+				component: contributeursTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			// graphql(
 			// 	`{
@@ -316,7 +338,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 					path: edge.node.slug,
 			// 					component: mondeTemplate,
 			// 					context: {
-			// 						slug: edge.node.slug
+			// 						slug: edge.node.slug,
+			//						lang: "fr-CA"
 			// 					}
 			// 				})
 			// 			}
@@ -346,7 +369,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 				path: 'giervia/' + edge.node.slug,
 			// 				component: paysTemplate,
 			// 				context: {
-			// 					slug: edge.node.slug
+			// 					slug: edge.node.slug,
+			//					lang: "fr-CA"
 			// 				}
 			// 			})
 			// 		}
@@ -376,7 +400,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 				path: 'giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
 			// 				component: villeTemplate,
 			// 				context: {
-			// 					slug: edge.node.slug
+			// 					slug: edge.node.slug,
+			//					lang: "fr-CA"
 			// 				}
 			// 			})
 			// 		}
@@ -385,15 +410,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// }),
 			createPage({
 				path: 'evenements',
-				component: evenementsTemplate
+				component: evenementsTemplate,
+				context: {
+					lang: "fr-CA"
+				}
 			}),
 			createPage({
 				path: 'en',
-				component: indexEnTemplate
+				component: indexTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			createPage({
 				path: 'en/news',
-				component: listeNouvelleEnTemplate
+				component: listeNouvelleTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			graphql(
 				`{
@@ -416,9 +450,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Nouvelle') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/news/' + edge.node.slug,
-							component: nouvelleEnTemplate,
+							component: nouvelleTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "en-US"
 							}
 						})
 					}
@@ -427,7 +462,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'en/stories',
-				component: listeHistoireEnTemplate
+				component: listeHistoireTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			graphql(
 				`{
@@ -448,9 +486,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Roman') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/stories/' + edge.node.slug,
-							component: romanEnTemplate,
+							component: romanTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "en-US"
 							}
 						})
 					}
@@ -476,9 +515,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Chapitre') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/stories/chapter/' + edge.node.slug,
-							component: chapitreEnTemplate,
+							component: chapitreTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "en-US"
 							}
 						})
 					}
@@ -487,15 +527,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'en/calendar',
-				component: calendrierEnTemplate
+				component: calendrierTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			createPage({
 				path: 'en/progression',
-				component: progressionEnTemplate
+				component: progressionTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			createPage({
 				path: 'en/characters',
-				component: listePersonnageEnTemplate
+				component: listePersonnageTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			graphql(
 				`{
@@ -516,9 +565,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Personnage') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/characters/' + edge.node.slug,
-							component: personnageEnTemplate,
+							component: personnageTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "en-US"
 							}
 						})
 					}
@@ -527,7 +577,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'en/powers',
-				component: listePouvoirEnTemplate
+				component: listePouvoirTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			graphql(
 				`{
@@ -548,9 +601,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Pouvoir') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/powers/' + edge.node.slug,
-							component: pouvoirEnTemplate,
+							component: pouvoirTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "en-US"
 							}
 						})
 					}
@@ -559,7 +613,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'en/groups',
-				component: listeGroupeEnTemplate
+				component: listeGroupeTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			graphql(
 				`{
@@ -583,10 +640,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Groupe') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/groups/' + edge.node.slug,
-							component: groupeEnTemplate,
+							component: groupeTemplate,
 							context: {
 								slug: edge.node.slug,
-								nomGroupe: edge.node.nomGroupe
+								nomGroupe: edge.node.nomGroupe,
+								lang: "en-US"
 							}
 						})
 					}
@@ -614,9 +672,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 			if (edge.node.slug == 'giervia') {
 			// 				createPage({
 			// 					path: "en/" + edge.node.slug,
-			// 					component: mondeEnTemplate,
+			// 					component: mondeTemplate,
 			// 					context: {
-			// 						slug: edge.node.slug
+			// 						slug: edge.node.slug,
+			//						lang: "en-US"
 			// 					}
 			// 				})
 			// 			}
@@ -644,9 +703,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 		if ((edge.node.id = 'Pays') && (edge.node.slug != null)) {
 			// 			createPage({
 			// 				path: 'en/giervia/' + edge.node.slug,
-			// 				component: paysEnTemplate,
+			// 				component: paysTemplate,
 			// 				context: {
-			// 					slug: edge.node.slug
+			// 					slug: edge.node.slug,
+			//					lang: "en-US"
 			// 				}
 			// 			})
 			// 		}
@@ -674,9 +734,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 		if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
 			// 			createPage({
 			// 				path: 'en/giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
-			// 				component: villeEnTemplate,
+			// 				component: villeTemplate,
 			// 				context: {
-			// 					slug: edge.node.slug
+			// 					slug: edge.node.slug,
+			//					lang: "en-US"
 			// 				}
 			// 			})
 			// 		}
@@ -685,7 +746,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// }),
 			createPage({
 				path: 'en/encyclopedia',
-				component: listeTheorieEnTemplate
+				component: listeTheorieTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			graphql(
 				`{
@@ -708,9 +772,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 					if ((edge.node.id = 'Theorie') && (edge.node.slug != null)) {
 						createPage({
 							path: 'en/encyclopedia/' + edge.node.slug,
-							component: theorieEnTemplate,
+							component: theorieTemplate,
 							context: {
-								slug: edge.node.slug
+								slug: edge.node.slug,
+								lang: "en-US"
 							}
 						})
 					}
@@ -719,15 +784,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			}),
 			createPage({
 				path: 'en/events',
-				component: evenementsEnTemplate
+				component: evenementsTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			createPage({
 				path: 'en/number',
-				component: nombreEnTemplate
+				component: nombreTemplate,
+				context: {
+					lang: "en-US"
+				}
 			}),
 			createPage({
 				path: 'en/contributors',
-				component: contributeursEnTemplate
+				component: contributeursTemplate,
+				context: {
+					lang: "en-US"
+				}
 			})
 		)
 	})

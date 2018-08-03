@@ -15,8 +15,23 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Evenements extends Component {
+	constructor(props) {
+		super(props);
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
+	}
+	
 	render() {
 		const {
 			data
@@ -24,24 +39,24 @@ class Evenements extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Événements majeurs</BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem active>{this.lang.header_evenements}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en/events"}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.equi_evenements}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Événements majeurs</h1>
-						<p className="lead">Voici tous les événements majeurs qui se sont produits dans l'Univers des Nouveaux Humains.</p>
-						<p className="lead">Attention au spoil!</p>
+						<h1 className="display-4">{this.lang.header_evenements}</h1>
+						<p className="lead">{this.lang.evenements_intro_text}</p>
+						<p className="lead">{this.lang.encyclopedie_intro_warning}</p>
 					</Container>
 				</div>
 
@@ -60,7 +75,7 @@ class Evenements extends Component {
 												<h3 className="vertical-timeline-element-title">{edge.node.titre}</h3>
 												<div>
 													<div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-													<Link to={'histoires/' + edge.node.slugRoman}>{edge.node.nomRoman} - {edge.node.chapitres}</Link>
+													<Link to={this.lang.list_histoires_url + edge.node.slugRoman}>{edge.node.nomRoman} - {edge.node.chapitres}</Link>
 												</div>
 											</VerticalTimelineElement>
 									)
@@ -72,7 +87,7 @@ class Evenements extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -84,8 +99,8 @@ Evenements.propTypes = {
 
 export default Evenements
 
-export const pageQuery = graphql`query evenementsQueryFR {
-	allContentfulEvenements (sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query evenementsQueryFR ($lang: String!) {
+	allContentfulEvenements (sort: {fields: [date], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
 			node {
 				id
