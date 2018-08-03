@@ -130,7 +130,7 @@ class Chapitre extends Component {
 												('')
 										}
 									</Col>
-									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={this.lang.header_histoires_url + data.contentfulChapitre.nomRoman}>{this.lang.chapitre_btn_roman}</Link></Col>
+									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman}>{this.lang.chapitre_btn_roman}</Link></Col>
 									<Col xs="4" className="text-right pr-0">
 										{
 											data.contentfulChapitre.chapitreApres ?
