@@ -4,10 +4,21 @@ import {
     Row,
     Col
 } from 'reactstrap';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 export default class Block_Calendrier extends React.Component {
     constructor(props) {
         super(props);
+
+        this.lang = lang_fr;
+
+        if (this.props.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.lang == "en-US") {
+            this.lang = lang_en;
+        }
     }
 
     render() {
@@ -38,7 +49,7 @@ export default class Block_Calendrier extends React.Component {
                                                 {
                                                     edge.node.romanSlug ?
                                                         (<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                            <Link className="float-right mb-2" to={edge.node.romanSlug}>Aller voir l'histoire</Link>
+                                                            <Link className="float-right mb-2" to={this.lang.header_base + edge.node.romanSlug}>{this.lang.block_calendrier_lien}</Link>
                                                         </Col>) :
                                                         ('')
                                                 }

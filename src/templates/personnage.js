@@ -12,8 +12,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Personnage extends Component {
+	constructor(props) {
+		super(props);
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
+	}
+	
     render() {
         const {
             data
@@ -21,18 +36,18 @@ class Personnage extends Component {
 
         return (
             <div id="page-wrapper">
-                <Header />
+                <Header lang={this.props.pathContext.lang} />
 
                 <div>
                     <Breadcrumb className="mb-0">
-                        <BreadcrumbItem><Link to="/">Page d'accueil</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to="/personnages">Nos personnages</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to={this.lang.header_personnages_url}>{this.lang.header_personnages}</Link></BreadcrumbItem>
                         <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
 
                 <div className="equiv">
-                    <Link className="text-white" to={"/en" + data.contentfulPersonnage.equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+                    <Link className="text-white" to={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
                 </div>
 
                 <Container fluid>
@@ -45,13 +60,13 @@ class Personnage extends Component {
                                         {
                                             data.contentfulPersonnage.pouvoirNom ?
                                                 (<div>
-                                                    Pouvoir: {data.contentfulPersonnage.pouvoirNom}<br />
+                                                    {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
                                                 </div>) :
                                                 ('')
                                         }
-                                        Alignement: {data.contentfulPersonnage.alignement}<br />
-                                        Data de naissance: {data.contentfulPersonnage.dateNaissance}<br />
-                                        Âge: {data.contentfulPersonnage.age}
+                                        {this.lang.personnage_alignement_label + data.contentfulPersonnage.alignement}<br />
+                                        {this.lang.personnage_naissance_label + data.contentfulPersonnage.dateNaissance}<br />
+                                        {this.lang.personnage_age_label + data.contentfulPersonnage.age}
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +74,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.descriptionSommaire ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Description sommaire</h3>
+                                            <h3>{this.lang.personnage_desc_sommaire_titre}</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
                                             </div>
@@ -71,7 +86,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.descriptionPouvoir ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Description du pouvoir</h3>
+                                            <h3>{this.lang.personnage_desc_pouvoir_titre}</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
                                             </div>
@@ -83,7 +98,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.descriptionPhysique ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Description physique</h3>
+                                            <h3>{this.lang.personnage_desc_physique_titre}</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
                                             </div>
@@ -95,7 +110,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.relation ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Relations</h3>
+                                            <h3>{this.lang.personnage_relations_titre}</h3>
                                             <div>
                                                 <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.relation.childMarkdownRemark.html }} />
                                             </div>
@@ -107,7 +122,7 @@ class Personnage extends Component {
                                 data.contentfulPersonnage.apparition ?
                                     (<div className="my-3">
                                         <div>
-                                            <h3>Apparitions</h3>
+                                            <h3>{this.lang.personnage_apparitions_titre}</h3>
                                             <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
                                         </div>
                                     </div>) :
@@ -117,7 +132,7 @@ class Personnage extends Component {
                     </Row>
                 </Container>
 
-                <Footer />
+                <Footer lang={this.props.pathContext.lang} />
             </div>
         )
     }
@@ -129,8 +144,8 @@ Personnage.propTypes = {
 
 export default Personnage
 
-export const pageQuery = graphql`query personnageQueryFR ($slug: String!) {
-    contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query personnageQueryFR ($slug: String!, $lang: String!) {
+    contentfulPersonnage(slug: {eq: $slug}, node_locale: {eq: $lang}) {
       nomComplet
       dateNaissance
       age

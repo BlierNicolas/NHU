@@ -12,8 +12,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Theorie extends Component {
+	constructor(props) {
+		super(props);
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
+	}
+
 	render() {
 		const {
 			titre,
@@ -23,18 +38,18 @@ class Theorie extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/encyclopedie">L'encyclopédie universelle</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_encyclopedie_url}>{this.lang.header_encyclopedie}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{titre}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container fluid className="py-5">
@@ -46,7 +61,7 @@ class Theorie extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -58,8 +73,8 @@ Theorie.propTypes = {
 
 export default Theorie
 
-export const pageQuery = graphql`query theorieQueryFR ($slug: String!) {
-	contentfulTheorie(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query theorieQueryFR ($slug: String!, $lang: String!) {
+	contentfulTheorie(slug: {eq:$slug}, node_locale: {eq: $lang}) {
 		titre
 		texte {
 			childMarkdownRemark {

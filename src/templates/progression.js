@@ -21,6 +21,8 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
 import List_Histoire_Progression from '../components/list_histoire_progression';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Progression extends Component {
 	constructor(props) {
@@ -30,6 +32,15 @@ class Progression extends Component {
 		this.state = {
 			activeTab: '1',
 		};
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
 	}
 
 	toggle(tab) {
@@ -47,23 +58,23 @@ class Progression extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Progression de l'Univers</BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem active>{this.lang.header_progression}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to="/en/progression"><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.equi_progression}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="my-5">
 					<Container>
-						<h1 className="display-4">Progression de l'Univers</h1>
-						<p className="lead">Voici la progression de toutes les histoires de l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">{this.lang.header_progression}</h1>
+						<p className="lead">{this.lang.progression_intro_text}</p>
 					</Container>
 				</div>
 
@@ -71,12 +82,12 @@ class Progression extends Component {
 					<Nav pills>
 						<NavItem className="histoires-pills">
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
-								Histoires en cours
+								{this.lang.progression_en_cours}
 							</NavLink>
 						</NavItem>
 						<NavItem className="histoires-pills">
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
-								Histoires terminées
+							{this.lang.progression_termines}
 							</NavLink>
 						</NavItem>
 					</Nav>
@@ -91,7 +102,7 @@ class Progression extends Component {
 												{
 													edge.node.chapitreActuel < edge.node.maximumChapitre ?
 														(
-															<List_Histoire_Progression histoire_progression={edge.node} />
+															<List_Histoire_Progression histoire_progression={edge.node} lang={this.props.pathContext.lang} />
 														) :
 														('')
 												}
@@ -109,7 +120,7 @@ class Progression extends Component {
 												{
 													edge.node.chapitreActuel == edge.node.maximumChapitre ?
 														(
-															<List_Histoire_Progression histoire_progression={edge.node} />
+															<List_Histoire_Progression histoire_progression={edge.node} lang={this.props.pathContext.lang} />
 														) :
 														('')
 												}
@@ -121,7 +132,7 @@ class Progression extends Component {
 					</TabContent>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -134,8 +145,8 @@ Progression.propTypes = {
 export default Progression
 
 export const pageQuery = graphql
-	`query listeHistoireQueryFR2 {
-        allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: "fr-CA"}}) {
+	`query listeHistoireQueryFR2 ($lang: String!) {
+        allContentfulRoman(sort: {fields: [typeHistoire, titreRoman], order: DESC}, filter: {node_locale: {eq: $lang}}) {
           edges {
             node {
                 id

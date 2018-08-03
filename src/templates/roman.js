@@ -20,6 +20,8 @@ import cookie from 'react-cookies';
 import Btn_like from '../components/btn_like';
 import Btn_read from '../components/btn_read'
 import Btn_like_disconnect from '../components/btn_like_disconnect'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Roman extends Component {
 	constructor(props) {
@@ -31,6 +33,15 @@ class Roman extends Component {
 			user: null,
 			lecteur: null
 		};
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
 	}
 
 	componentWillMount() {
@@ -57,18 +68,18 @@ class Roman extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/histoires">Nos Histoires de l'Univers...</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_histoires_url}>{this.lang.header_histoires}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + data.contentfulRoman.equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulRoman.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="my-5">
@@ -95,7 +106,7 @@ class Roman extends Component {
 											{
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-														<Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link>
+														<Link to={this.lang.chapitre_btn_url + edge.node.slug}>{edge.node.titreChapitre}</Link>
 														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
@@ -127,7 +138,7 @@ class Roman extends Component {
 											{
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-														<Link to={'/histoires/chapitre/' + edge.node.slug}>{edge.node.titreChapitre}</Link>
+														<Link to={this.lang.chapitre_btn_url + edge.node.slug}>{edge.node.titreChapitre}</Link>
 														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
@@ -153,7 +164,7 @@ class Roman extends Component {
 					</Container>
 				</div>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -166,8 +177,8 @@ Roman.propTypes = {
 export default Roman
 
 export const pageQuery = graphql
-	`query romanQueryFR ($slug: String!) {
-  contentfulRoman(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
+	`query romanQueryFR ($slug: String!, $lang: String!) {
+  contentfulRoman(slug: {eq: $slug}, node_locale: {eq: $lang}) {
     titreRoman
     resume {
       childMarkdownRemark {
@@ -185,7 +196,7 @@ export const pageQuery = graphql
     slug
     equivalentUrl
 }
-  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomRoman: {eq: $slug}}) {
+  allContentfulChapitre(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: $lang}, nomRoman: {eq: $slug}}) {
     edges {
       node {
         id

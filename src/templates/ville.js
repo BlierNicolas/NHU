@@ -20,6 +20,8 @@ import {
 import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Ville extends Component {
 	constructor(props) {
@@ -29,6 +31,15 @@ class Ville extends Component {
 		this.state = {
 			activeTab: '1',
 		};
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
 	}
 
 	toggle(tab) {
@@ -46,19 +57,19 @@ class Ville extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/giervia">Giervia</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={"/en/giervia/" + data.contentfulVille.slugPaysParent}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_giervia_url}>{this.lang.header_giervia}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.equi_pays + data.contentfulVille.slugPaysParent}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulVille.nomVille}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + data.contentfulVille.equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulVille.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container className="pb-5">
@@ -66,12 +77,12 @@ class Ville extends Component {
 						<Col lg="12" md="12">
 							<div className="mt-5 mb-3">
 								<div>
-									<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={"/giervia/" + data.contentfulVille.slugPaysParent}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
+									<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
 									{
 										data.contentfulVille.description ?
 											(<div className="my-3">
 												<div>
-													<h3>Description</h3>
+													<h3>{this.lang.pays_description}</h3>
 													<div>
 														<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.description.childMarkdownRemark.html }} />
 													</div>
@@ -83,7 +94,7 @@ class Ville extends Component {
 										data.contentfulVille.histoire ?
 											(<div className="my-3">
 												<div>
-													<h3>Histoire</h3>
+													<h3>{this.lang.pays_histoire}</h3>
 													<div>
 														<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.histoire.childMarkdownRemark.html }} />
 													</div>
@@ -92,9 +103,9 @@ class Ville extends Component {
 											('')
 									}
 									<div>
-										Superficie: {data.contentfulVille.superficie} m<sup>2</sup><br />
-										Population: {data.contentfulVille.population}<br />
-										Quantité de Nouveaux Humains: {data.contentfulVille.quantiteNouvHumains}
+										{this.lang.ville_superficie + data.contentfulVille.superficie} m<sup>2</sup><br />
+										{this.lang.ville_population + data.contentfulVille.population}<br />
+										{this.lang.ville_nouv_humains + data.contentfulVille.quantiteNouvHumains}
 									</div>
 								</div>
 							</div>
@@ -102,7 +113,7 @@ class Ville extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -114,8 +125,8 @@ Ville.propTypes = {
 
 export default Ville
 
-export const pageQuery = graphql`query villeQueryFR ($slug: String!) {
-	contentfulVille(slug: {eq: $slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query villeQueryFR ($slug: String!, $lang: String!) {
+	contentfulVille(slug: {eq: $slug}, node_locale: {eq: $lang}) {
 		nomVille
 		slug
 				equivalentUrl

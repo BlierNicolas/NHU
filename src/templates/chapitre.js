@@ -18,6 +18,8 @@ import Btn_read from '../components/btn_read'
 import Btn_like_disconnect from '../components/btn_like_disconnect'
 import { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Chapitre extends Component {
 	constructor(props) {
@@ -29,6 +31,15 @@ class Chapitre extends Component {
 			user: null,
 			lecteur: null
 		};
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
 	}
 
 	componentWillMount() {
@@ -55,19 +66,19 @@ class Chapitre extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/histoires">Nos Histoires de l'Univers...</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={"/histoires/" + data.contentfulChapitre.nomRoman}>Roman</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_histoires_url}>{this.lang.header_histoires}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman}>{this.lang.bc_roman_label}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulChapitre.titreChapitre}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + data.contentfulChapitre.equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div>
@@ -115,15 +126,15 @@ class Chapitre extends Component {
 									<Col xs="4" className="text-left pl-0">
 										{
 											data.contentfulChapitre.chapitreAvant ?
-												(<Link className="btn btn-primary" to={data.contentfulChapitre.chapitreAvant}>Chapitre précédent</Link>) :
+												(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreAvant}>{this.lang.chapitre_btn_avant}</Link>) :
 												('')
 										}
 									</Col>
-									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={"/histoires/" + data.contentfulChapitre.nomRoman}>Retourner au roman</Link></Col>
+									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={this.lang.header_histoires_url + data.contentfulChapitre.nomRoman}>{this.lang.chapitre_btn_roman}</Link></Col>
 									<Col xs="4" className="text-right pr-0">
 										{
 											data.contentfulChapitre.chapitreApres ?
-												(<Link className="btn btn-primary" to={data.contentfulChapitre.chapitreApres}>Chapitre suivant</Link>) :
+												(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreApres}>{this.lang.chapitre_btn_apres}</Link>) :
 												('')
 										}
 									</Col>
@@ -133,7 +144,7 @@ class Chapitre extends Component {
 					</Container>
 				</div>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -145,8 +156,8 @@ Chapitre.propTypes = {
 
 export default Chapitre
 
-export const pageQuery = graphql`query chapitreQueryFR ($slug: String!) {
-	contentfulChapitre(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query chapitreQueryFR ($slug: String!, $lang: String!) {
+	contentfulChapitre(slug: {eq:$slug}, node_locale: {eq: $lang}) {
 		titreChapitre
 		texte {
 			childMarkdownRemark {

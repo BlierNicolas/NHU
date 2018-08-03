@@ -12,12 +12,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class ListeDesPersonnages extends Component {
 	constructor(props) {
 		super(props);
 
 		this.firstLetter = '';
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
 	}
 
 	render() {
@@ -27,23 +38,23 @@ class ListeDesPersonnages extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem active>Nos personnages</BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem active>{this.lang.header_personnages}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to="/en/characters"><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.equi_personnages}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Nos personnages</h1>
-						<p className="lead">Voici la liste de tous les personnages présents (ou presque) dans l'Univers des Nouveaux Humains.</p>
+						<h1 className="display-4">{this.lang.header_personnages}</h1>
+						<p className="lead">{this.lang.personnages_intro_text}</p>
 					</Container>
 				</div>
 
@@ -66,7 +77,7 @@ class ListeDesPersonnages extends Component {
 											('')
 									}
 									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3">
-										<Link to={"/personnages/" + edge.node.slug}>{edge.node.nomComplet}</Link>
+										<Link to={this.lang.personnages_url + edge.node.slug}>{edge.node.nomComplet}</Link>
 									</Col>
 								</React.Fragment>
 							)
@@ -74,7 +85,7 @@ class ListeDesPersonnages extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -86,8 +97,8 @@ ListeDesPersonnages.propTypes = {
 
 export default ListeDesPersonnages
 
-export const pageQuery = graphql`query listePersonnageQueryFR {
-    allContentfulPersonnage(sort: {fields: [nomComplet], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+export const pageQuery = graphql`query listePersonnageQueryFR ($lang: String!) {
+    allContentfulPersonnage(sort: {fields: [nomComplet], order: ASC}, filter: {node_locale: {eq: $lang}}) {
         edges {
             node {
 				id

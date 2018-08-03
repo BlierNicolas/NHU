@@ -15,12 +15,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Monde extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
 		this.state = { collapse: false };
+
+        this.lang = lang_fr;
+
+        if (this.props.pathContext.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pathContext.lang == "en-US") {
+            this.lang = lang_en;
+        }
 	}
 
 	toggle() {
@@ -34,29 +45,29 @@ class Monde extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulMonde.nomPlanete}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + data.contentfulMonde.equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
 					<Container fluid>
-						<h1 className="display-4">Giervia</h1>
-						<p className="lead">La planète sur laquelle les histoires se produisent sont sur la planète Giervia.</p>
+						<h1 className="display-4">{this.lang.header_giervia}</h1>
+						<p className="lead">{this.lang.monde_intro_text}</p>
 					</Container>
 				</div>
 
 				<Container fluid className="mb-5">
 					<div className="d-flex justify-content-center">
-						<Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Carte</Button>
+						<Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>{this.lang.monde_carte}</Button>
 					</div>
 					<Collapse isOpen={this.state.collapse}>
 						<Card>
@@ -84,7 +95,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={"giervia/" + edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -108,7 +119,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -132,7 +143,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -145,7 +156,7 @@ class Monde extends Component {
 						</Col>
 						<Col sm="12" md="6" lg="3">
 							<div className="">
-								<h3>Iles</h3>
+								<h3>{this.lang.monde_iles}</h3>
 							</div>
 							{
 								data.allContentfulPays.edges.map(
@@ -156,7 +167,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -170,7 +181,7 @@ class Monde extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -182,8 +193,8 @@ Monde.propTypes = {
 
 export default Monde
 
-export const pageQuery = graphql`query mondeQueryFR {
-	contentfulMonde(slug: {eq:"giervia"}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query mondeQueryFR ($lang: String!) {
+	contentfulMonde(slug: {eq:"giervia"}, node_locale: {eq: $lang}) {
 		nomPlanete
 		slug
 		equivalentUrl
@@ -193,7 +204,7 @@ export const pageQuery = graphql`query mondeQueryFR {
 		  }
 		}
 	}
-	allContentfulPays(sort: {fields: [nomPays], order: ASC}, filter: {node_locale: {eq: "fr-CA"}}) {
+	allContentfulPays(sort: {fields: [nomPays], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
 			node {
 				id

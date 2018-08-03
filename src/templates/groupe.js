@@ -14,8 +14,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Groupe extends Component {
+	constructor(props) {
+		super(props);
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
+	}
+	
 	render() {
 		const {
 			data
@@ -23,18 +38,18 @@ class Groupe extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/groupes">Groupes, clans et organisations...</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_groupes_url}>{this.lang.header_groupes}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulGroupe.nomGroupe}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + data.contentfulGroupe.equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulGroupe.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container fluid className="py-5">
@@ -53,7 +68,7 @@ class Groupe extends Component {
 												data.allContentfulMembreGroupe.edges.map(
 													(edge) =>
 														<ListGroupItem className="text-center">
-															<Link to={'/personnages/' + edge.node.slugMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
+															<Link to={this.lang.personnages_url + edge.node.slugMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
 														</ListGroupItem>)
 											}
 										</ListGroup>) :
@@ -63,7 +78,7 @@ class Groupe extends Component {
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -75,8 +90,8 @@ Groupe.propTypes = {
 
 export default Groupe
 
-export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe: String!) {
-	contentfulGroupe(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe: String!, $lang: String!) {
+	contentfulGroupe(slug: {eq:$slug}, node_locale: {eq: $lang}) {
 		nomGroupe
 		description {
 			childMarkdownRemark {
@@ -85,7 +100,7 @@ export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe
 		}
 		equivalentUrl
 	}
-	allContentfulMembreGroupe(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: "fr-CA"}, nomGroupe: {eq: $nomGroupe}}) {
+	allContentfulMembreGroupe(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: $lang}, nomGroupe: {eq: $nomGroupe}}) {
 		edges {
 		  node {
 			id

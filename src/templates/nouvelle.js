@@ -12,8 +12,23 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 class Nouvelle extends Component {
+	constructor(props) {
+		super(props);
+
+		this.lang = lang_fr;
+
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
+	}
+	
 	render() {
 		const {
 			titreNouvelle,
@@ -28,18 +43,18 @@ class Nouvelle extends Component {
 
 		return (
 			<div id="page-wrapper">
-				<Header />
+				<Header lang={this.props.pathContext.lang} />
 
 				<div>
 					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to="/">Accueil</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to="/nouvelles">Quoi de nouveau&nbsp;?</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_nouvelles_url}>{this.lang.header_nouvelles}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{titreNouvelle}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={"/en" + equivalentUrl}><Button className="float-right" color="primary">En</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container className="py-5">
@@ -54,14 +69,14 @@ class Nouvelle extends Component {
 
 							{
 								lienReference ?
-									(<Link to={lienReference}>Voir les détails</Link>) :
+									(<Link to={lienReference}>{this.lang.nouvelle_details}</Link>) :
 									('')
 							}
 						</Col>
 					</Row>
 				</Container>
 
-				<Footer />
+				<Footer lang={this.props.pathContext.lang} />
 			</div>
 		)
 	}
@@ -73,8 +88,8 @@ Nouvelle.propTypes = {
 
 export default Nouvelle
 
-export const pageQuery = graphql`query nouvelleQueryFR ($slug: String!) {
-	contentfulNouvelle(slug: {eq:$slug}, node_locale: {eq: "fr-CA"}) {
+export const pageQuery = graphql`query nouvelleQueryFR ($slug: String!, $lang: String!) {
+	contentfulNouvelle(slug: {eq:$slug}, node_locale: {eq: $lang}) {
 		titreNouvelle
 		description {
 			childMarkdownRemark {
