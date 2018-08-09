@@ -80,12 +80,12 @@ class Progression extends Component {
 
 				<Container className="my-5">
 					<Nav pills>
-						<NavItem className="histoires-pills">
+						<NavItem  className="cursor-update histoires-pills">
 							<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
 								{this.lang.progression_en_cours}
 							</NavLink>
 						</NavItem>
-						<NavItem className="histoires-pills">
+						<NavItem className="cursor-update histoires-pills">
 							<NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
 							{this.lang.progression_termines}
 							</NavLink>
