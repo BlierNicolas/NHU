@@ -25,7 +25,7 @@ Pages:
 - [X] Technologies utilisées
 
 Fonctionnalités:
-- [ ] Google analytics
+- [X] Google analytics
 - [X] Header
 - [X] Footer
 - [X] Navbar
