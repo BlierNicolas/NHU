@@ -67,7 +67,7 @@ class ListeDesPersonnages extends Component {
 									{
 										this.firstLetter != edge.node.nomComplet.charAt(0) ?
 											(
-												<Col lg="12" className="text-center my-3">
+												<Col lg="12" className="text-center my-3 anim-bounce-in">
 													<hr />
 													<h3>
 														{this.firstLetter = edge.node.nomComplet.charAt(0)}
@@ -76,7 +76,7 @@ class ListeDesPersonnages extends Component {
 											) :
 											('')
 									}
-									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3">
+									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3 anim-bounce-in">
 										<Link to={this.lang.personnages_url + edge.node.slug}>{edge.node.nomComplet}</Link>
 									</Col>
 								</React.Fragment>

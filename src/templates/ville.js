@@ -8,14 +8,7 @@ import {
 	Col,
 	Breadcrumb,
 	BreadcrumbItem,
-	Button,
-	Nav,
-	NavItem,
-	NavLink,
-	TabContent,
-	TabPane,
-	ListGroup,
-	Table
+	Button
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'

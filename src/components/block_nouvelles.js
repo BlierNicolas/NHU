@@ -27,7 +27,7 @@ export default class Block_Nouvelles extends React.Component {
                 {
                     this.props.allNouvelles.edges.map(
                         (edge) =>
-                            <div className="clearfix border-bottom mb-2" key={edge.node.id}>
+                            <div className="clearfix border-bottom mb-2 anim-bounce-in" key={edge.node.id}>
                                 <div className="">
                                     <Row className="no-gutters">
                                         <Col md="9" sm="12">
