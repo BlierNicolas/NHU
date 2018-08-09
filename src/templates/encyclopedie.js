@@ -102,7 +102,7 @@ ListeDesTheories.propTypes = {
 export default ListeDesTheories
 
 export const pageQuery = graphql`query listeTheorieQueryFR ($lang: String!) {
-	allContentfulTheorie (filter: {node_locale: {eq: $lang}}) {
+	allContentfulTheorie (sort: {fields: [titre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
 			node {
 				id
