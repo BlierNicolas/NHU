@@ -38,8 +38,8 @@ export default class Footer extends React.Component {
                                 </a>
 
                                 <div className="my-3 my-lg-0">
-                                    <Link to={this.lang.header_contributeurs_url} className="text-white nav-link d-inline">{this.lang.header_contributeurs}</Link>
-                                    <Link to={this.lang.header_nombre_url} className="text-white nav-link d-inline">{this.lang.header_nombre}</Link>
+                                    <Link to={this.lang.header_contributeurs_url + "/"} className="text-white nav-link d-inline">{this.lang.header_contributeurs}</Link>
+                                    <Link to={this.lang.header_nombre_url + "/"} className="text-white nav-link d-inline">{this.lang.header_nombre}</Link>
                                 </div>
 
                                 <p className="text-right text-white mb-0"><small>Venatus Universe ©{new Date().getFullYear()}</small></p>

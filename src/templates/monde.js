@@ -55,7 +55,7 @@ class Monde extends Component {
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
@@ -95,7 +95,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -119,7 +119,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -143,7 +143,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>
@@ -167,7 +167,7 @@ class Monde extends Component {
 													<div>
 														<Row className="no-gutters">
 															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug}>{edge.node.nomPays}</Link>
+																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
 															</Col>
 														</Row>
 													</div>

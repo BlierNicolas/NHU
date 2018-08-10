@@ -43,13 +43,13 @@ class Theorie extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_encyclopedie_url}>{this.lang.header_encyclopedie}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_encyclopedie_url + "/"}>{this.lang.header_encyclopedie}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{titre}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container fluid className="py-5">

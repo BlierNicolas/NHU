@@ -32,10 +32,10 @@ export default class List_Histoire_Info extends React.Component {
                                     edge.node.typeHistoire == this.props.typeHistoire ?
                                         (
                                             <ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0 anim-bounce-in">
-                                                <ListGroupItemHeading><Link to={this.lang.list_histoires_url + edge.node.slug}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
+                                                <ListGroupItemHeading><Link to={this.lang.list_histoires_url + edge.node.slug + "/"}>{edge.node.titreRoman}</Link></ListGroupItemHeading>
                                                 <div className="list-group-item-text">
                                                     <div className="text-justify" dangerouslySetInnerHTML={{ __html: edge.node.resume.childMarkdownRemark.html }} />
-                                                    <Link to={this.lang.list_histoires_url + edge.node.slug}>{this.lang.list_histoires_text}</Link>
+                                                    <Link to={this.lang.list_histoires_url + edge.node.slug + "/"}>{this.lang.list_histoires_text}</Link>
                                                 </div>
                                             </ListGroupItem>
                                         ) :

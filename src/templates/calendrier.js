@@ -47,7 +47,7 @@ class Calendrier extends Component {
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.equi_calendrier}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.equi_calendrier + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">

@@ -73,13 +73,13 @@ class Roman extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_histoires_url}>{this.lang.header_histoires}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_histoires_url + "/"}>{this.lang.header_histoires}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulRoman.titreRoman}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulRoman.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulRoman.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="my-5">
@@ -106,7 +106,7 @@ class Roman extends Component {
 											{
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-														<Link to={this.lang.chapitre_btn_url + edge.node.slug}>{edge.node.titreChapitre}</Link>
+														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link>
 														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
@@ -138,7 +138,7 @@ class Roman extends Component {
 											{
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-														<Link to={this.lang.chapitre_btn_url + edge.node.slug}>{edge.node.titreChapitre}</Link>
+														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link>
 														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>

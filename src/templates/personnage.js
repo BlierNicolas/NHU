@@ -41,13 +41,13 @@ class Personnage extends Component {
                 <div>
                     <Breadcrumb className="mb-0">
                         <BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to={this.lang.header_personnages_url}>{this.lang.header_personnages}</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to={this.lang.header_personnages_url + "/"}>{this.lang.header_personnages}</Link></BreadcrumbItem>
                         <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
 
                 <div className="equiv">
-                    <Link className="text-white" to={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+                    <Link className="text-white" to={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
                 </div>
 
                 <Container fluid>

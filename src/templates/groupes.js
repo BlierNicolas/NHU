@@ -46,7 +46,7 @@ class ListeDesGroupes extends Component {
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.equi_groupes}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.equi_groupes + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
@@ -66,7 +66,7 @@ class ListeDesGroupes extends Component {
 											<div className="">
 												<Row className="no-gutters">
 													<Col md="9" sm="12">
-														<Link to={this.lang.groupes_url + edge.node.slug}><h2><small>{edge.node.nomGroupe}</small></h2></Link>
+														<Link to={this.lang.groupes_url + edge.node.slug + "/"}><h2><small>{edge.node.nomGroupe}</small></h2></Link>
 													</Col>
 												</Row>
 											</div>
@@ -77,7 +77,7 @@ class ListeDesGroupes extends Component {
 													</Col>
 
 													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={this.lang.groupes_url + edge.node.slug}>{this.lang.nouvelle_details}</Link>
+														<Link className="float-right mb-2" to={this.lang.groupes_url + edge.node.slug + "/"}>{this.lang.nouvelle_details}</Link>
 													</Col>
 												</Row>
 											</div>

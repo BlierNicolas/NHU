@@ -43,13 +43,13 @@ class Groupe extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_groupes_url}>{this.lang.header_groupes}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_groupes_url + "/"}>{this.lang.header_groupes}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulGroupe.nomGroupe}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulGroupe.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulGroupe.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container fluid className="py-5">
@@ -68,7 +68,7 @@ class Groupe extends Component {
 												data.allContentfulMembreGroupe.edges.map(
 													(edge) =>
 														<ListGroupItem className="text-center">
-															<Link to={this.lang.personnages_url + edge.node.slugMembre}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
+															<Link to={this.lang.personnages_url + edge.node.slugMembre + "/"}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
 														</ListGroupItem>)
 											}
 										</ListGroup>) :

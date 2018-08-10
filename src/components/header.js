@@ -163,7 +163,7 @@ export default class Header extends React.Component {
                                 <Link to={this.lang.header_accueil_url} className="text-white nav-link">{this.lang.header_accueil}</Link>
                             </NavItem>
                             <NavItem>
-                                <Link to={this.lang.header_nouvelles_url} className="text-white nav-link">{this.lang.header_nouvelles}</Link>
+                                <Link to={this.lang.header_nouvelles_url + "/"} className="text-white nav-link">{this.lang.header_nouvelles}</Link>
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
@@ -171,13 +171,13 @@ export default class Header extends React.Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_histoires_url}>{this.lang.header_histoires}</Link>
+                                        <Link to={this.lang.header_histoires_url + "/"}>{this.lang.header_histoires}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_calendrier_url}>{this.lang.header_calendrier}</Link>
+                                        <Link to={this.lang.header_calendrier_url + "/"}>{this.lang.header_calendrier}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_progression_url}>{this.lang.header_progression}</Link>
+                                        <Link to={this.lang.header_progression_url + "/"}>{this.lang.header_progression}</Link>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
@@ -187,22 +187,22 @@ export default class Header extends React.Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_personnages_url}>{this.lang.header_personnages}</Link>
+                                        <Link to={this.lang.header_personnages_url + "/"}>{this.lang.header_personnages}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_pouvoirs_url}>{this.lang.header_pouvoirs}</Link>
+                                        <Link to={this.lang.header_pouvoirs_url + "/"}>{this.lang.header_pouvoirs}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_groupes_url}>{this.lang.header_groupes}</Link>
+                                        <Link to={this.lang.header_groupes_url + "/"}>{this.lang.header_groupes}</Link>
                                     </DropdownItem>
                                     {/* <DropdownItem>
-                                        <Link to={this.lang.header_giervia_url}>{this.lang.header_giervia}</Link>
+                                        <Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link>
                                     </DropdownItem> */}
                                     <DropdownItem>
-                                        <Link to={this.lang.header_evenements_url}>{this.lang.header_evenements}</Link>
+                                        <Link to={this.lang.header_evenements_url + "/"}>{this.lang.header_evenements}</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <Link to={this.lang.header_encyclopedie_url}>{this.lang.header_encyclopedie}</Link>
+                                        <Link to={this.lang.header_encyclopedie_url + "/"}>{this.lang.header_encyclopedie}</Link>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
