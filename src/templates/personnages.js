@@ -48,7 +48,7 @@ class ListeDesPersonnages extends Component {
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.equi_personnages}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.equi_personnages + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
@@ -77,7 +77,7 @@ class ListeDesPersonnages extends Component {
 											('')
 									}
 									<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3 anim-bounce-in">
-										<Link to={this.lang.personnages_url + edge.node.slug}>{edge.node.nomComplet}</Link>
+										<Link to={this.lang.personnages_url + edge.node.slug + "/"}>{edge.node.nomComplet}</Link>
 									</Col>
 								</React.Fragment>
 							)

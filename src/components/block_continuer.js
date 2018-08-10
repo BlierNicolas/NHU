@@ -124,7 +124,7 @@ export default class Block_Continuer extends React.Component {
                                         (<div className="clearfix border-bottom mb-2" key={edge.node.id}>
                                             <Row className="no-gutters">
                                                 <Col md="9" sm="12">
-                                                    <h3><small><Link className="float-left" to={"/histoires/chapitre/" + edge.node.slug}>{edge.node.titreChapitre}</Link></small></h3>
+                                                    <h3><small><Link className="float-left" to={"/histoires/chapitre/" + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link></small></h3>
                                                 </Col>
                                             </Row>
                                         </div>) :

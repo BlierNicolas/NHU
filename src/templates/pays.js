@@ -62,13 +62,13 @@ class Pays extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_giervia_url}>{this.lang.header_giervia}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulPays.nomPays}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.equi_pays + data.contentfulPays.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.equi_pays + data.contentfulPays.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container className="pb-5">
@@ -158,7 +158,7 @@ class Pays extends Component {
 									{
 										data.allContentfulVille.edges.map(
 											(edge) => <tr key={edge.node.id}>
-												<td><Link to={this.lang.monde_url + data.contentfulPays.nomPays + '/' + edge.node.slug}>{edge.node.nomVille}</Link></td>
+												<td><Link to={this.lang.monde_url + data.contentfulPays.nomPays + '/' + edge.node.slug + "/"}>{edge.node.nomVille}</Link></td>
 												<td>{edge.node.superficie} m<sup>2</sup></td>
 												<td>{edge.node.population}</td>
 												<td>{edge.node.quantiteNouvHumains}</td>

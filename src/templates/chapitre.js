@@ -71,14 +71,14 @@ class Chapitre extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_histoires_url}>{this.lang.header_histoires}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman}>{this.lang.bc_roman_label}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_histoires_url + "/"}>{this.lang.header_histoires}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman + "/"}>{this.lang.bc_roman_label}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulChapitre.titreChapitre}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div>
@@ -126,15 +126,15 @@ class Chapitre extends Component {
 									<Col xs="4" className="text-left pl-0">
 										{
 											data.contentfulChapitre.chapitreAvant ?
-												(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreAvant}>{this.lang.chapitre_btn_avant}</Link>) :
+												(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreAvant + "/"}>{this.lang.chapitre_btn_avant}</Link>) :
 												('')
 										}
 									</Col>
-									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman}>{this.lang.chapitre_btn_roman}</Link></Col>
+									<Col xs="4" className="text-center"><Link className="btn btn-primary" to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman + "/"}>{this.lang.chapitre_btn_roman}</Link></Col>
 									<Col xs="4" className="text-right pr-0">
 										{
 											data.contentfulChapitre.chapitreApres ?
-												(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreApres}>{this.lang.chapitre_btn_apres}</Link>) :
+												(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreApres + "/"}>{this.lang.chapitre_btn_apres}</Link>) :
 												('')
 										}
 									</Col>

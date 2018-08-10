@@ -48,13 +48,13 @@ class Nouvelle extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_nouvelles_url}>{this.lang.header_nouvelles}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_nouvelles_url + "/"}>{this.lang.header_nouvelles}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{titreNouvelle}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container className="py-5">
@@ -69,7 +69,7 @@ class Nouvelle extends Component {
 
 							{
 								lienReference ?
-									(<Link to={lienReference}>{this.lang.nouvelle_details}</Link>) :
+									(<Link to={lienReference + "/"}>{this.lang.nouvelle_details}</Link>) :
 									('')
 							}
 						</Col>

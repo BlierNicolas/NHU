@@ -49,7 +49,7 @@ class Evenements extends Component {
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.equi_evenements}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.equi_evenements + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<div className="py-5">
@@ -75,7 +75,7 @@ class Evenements extends Component {
 												<h3 className="vertical-timeline-element-title">{edge.node.titre}</h3>
 												<div>
 													<div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-													<Link to={this.lang.list_histoires_url + edge.node.slugRoman}>{edge.node.nomRoman} - {edge.node.chapitres}</Link>
+													<Link to={this.lang.list_histoires_url + edge.node.slugRoman + "/"}>{edge.node.nomRoman} - {edge.node.chapitres}</Link>
 												</div>
 											</VerticalTimelineElement>
 									)

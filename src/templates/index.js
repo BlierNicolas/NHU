@@ -116,7 +116,7 @@ class IndexPage extends Component {
                         <h1 className="display-3">{this.lang.accueil_jumbo_titre}</h1>
                         <p className="lead">{this.lang.accueil_jumbo_parag_1}</p>
                         <p className="lead">{this.lang.accueil_jumbo_parag_2}</p>
-                        <Link className="btn btn-primary" to={this.lang.header_histoires_url}>{this.lang.accueil_jumbo_btn_titre}</Link>
+                        <Link className="btn btn-primary" to={this.lang.header_histoires_url + "/"}>{this.lang.accueil_jumbo_btn_titre}</Link>
                     </Container>
                 </Jumbotron>
 

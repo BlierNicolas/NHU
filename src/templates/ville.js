@@ -55,14 +55,14 @@ class Ville extends Component {
 				<div>
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_giervia_url}>{this.lang.header_giervia}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.equi_pays + data.contentfulVille.slugPaysParent}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.equi_pays + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulVille.nomVille}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>
 
 				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulVille.equivalentUrl}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulVille.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 				</div>
 
 				<Container className="pb-5">
@@ -70,7 +70,7 @@ class Ville extends Component {
 						<Col lg="12" md="12">
 							<div className="mt-5 mb-3">
 								<div>
-									<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
+									<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
 									{
 										data.contentfulVille.description ?
 											(<div className="my-3">

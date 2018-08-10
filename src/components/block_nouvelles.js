@@ -31,7 +31,7 @@ export default class Block_Nouvelles extends React.Component {
                                 <div className="">
                                     <Row className="no-gutters">
                                         <Col md="9" sm="12">
-                                            <Link to={this.lang.block_nouvelle_url + edge.node.slug}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
+                                            <Link to={this.lang.block_nouvelle_url + edge.node.slug + "/"}><h3 className="float-left"><small>{edge.node.titreNouvelle}</small></h3></Link>
                                         </Col>
 
                                         <Col md="3" sm="12">
@@ -46,7 +46,7 @@ export default class Block_Nouvelles extends React.Component {
                                         </Col>
 
                                         <Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                            <Link className="float-right mb-2" to={this.lang.block_nouvelle_url + edge.node.slug}>{this.lang.block_nouvelle_lien}</Link>
+                                            <Link className="float-right mb-2" to={this.lang.block_nouvelle_url + edge.node.slug + "/"}>{this.lang.block_nouvelle_lien}</Link>
                                         </Col>
                                     </Row>
                                 </div>
