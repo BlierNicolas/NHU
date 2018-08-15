@@ -5,7 +5,7 @@
     "btn_nuit_activation": "activating",
     "btn_nuit_desactivation": "desactivating",
     "header_base": "/en",
-    "header_accueil_url": "/en",
+    "header_accueil_url": "/en/",
     "header_accueil": "Homepage",
     "header_nouvelles_url": "/en/news",
     "header_nouvelles": "What's new\u00a0?",
