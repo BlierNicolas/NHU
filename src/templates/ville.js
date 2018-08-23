@@ -56,7 +56,7 @@ class Ville extends Component {
 					<Breadcrumb className="mb-0">
 						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
 						<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.equi_pays + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
+						<BreadcrumbItem><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
 						<BreadcrumbItem active>{data.contentfulVille.nomVille}</BreadcrumbItem>
 					</Breadcrumb>
 				</div>

@@ -14,6 +14,7 @@ import Footer from '../components/footer'
 import Block_Nouvelles from '../components/block_nouvelles';
 import Block_Calendrier from '../components/block_calendrier';
 import Block_Continuer from '../components/block_continuer';
+import List_Projet_Panel from '../components/list_projet_panel';
 //import firebase from '../firebase.js';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
@@ -154,6 +155,15 @@ class IndexPage extends Component {
                     </Row>
                 </Container>
 
+                <Container fluid className="p-0">
+                    <Row>
+                        <Col lg="12">
+                            <h2 className="mb-4">{this.lang.header_projets}</h2>
+                        </Col>
+                    </Row>
+                    <List_Projet_Panel allProjets={data.allContentfulProject} lang={this.props.pathContext.lang} />
+                </Container>
+
                 <Footer lang={this.props.pathContext.lang} />
             </div >
         )
@@ -210,5 +220,22 @@ export const pageQuery = graphql`query listeNouvelleQueryFR ($lang: String!) {
 		  slug
 		}
 	  }
+    }
+    allContentfulProject (limit: 6, sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
+		edges {
+			node {
+				id
+				titre
+				resume {
+					childMarkdownRemark {
+						html
+					}
+				}
+				slug
+				afficher
+				terminer
+				ordre
+			}
+		}
 	}
   }`
