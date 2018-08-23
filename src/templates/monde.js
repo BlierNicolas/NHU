@@ -17,6 +17,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
+import Block_Pays_List from '../components/block_pays_list';
 
 class Monde extends Component {
 	constructor(props) {
@@ -24,14 +25,14 @@ class Monde extends Component {
 		this.toggle = this.toggle.bind(this);
 		this.state = { collapse: false };
 
-        this.lang = lang_fr;
+		this.lang = lang_fr;
 
-        if (this.props.pathContext.lang == "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.pathContext.lang == "en-US") {
-            this.lang = lang_en;
-        }
+		if (this.props.pathContext.lang == "fr-CA") {
+			this.lang = lang_fr;
+		}
+		if (this.props.pathContext.lang == "en-US") {
+			this.lang = lang_en;
+		}
 	}
 
 	toggle() {
@@ -82,102 +83,10 @@ class Monde extends Component {
 
 				<Container fluid className="p-0">
 					<Row className="pb-5">
-						<Col sm="12" md="6" lg="3">
-							<div className="">
-								<h3>Fontil</h3>
-							</div>
-							{
-								data.allContentfulPays.edges.map(
-									(edge) =>
-										<div className="clearfix mb-2" key={edge.node.id}>
-											{edge.node.nomContinent == "Fontil" ?
-												(<div>
-													<div>
-														<Row className="no-gutters">
-															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
-															</Col>
-														</Row>
-													</div>
-												</div>) :
-												('')
-											}
-										</div>
-								)
-							}
-						</Col>
-						<Col sm="12" md="6" lg="3">
-							<div className="">
-								<h3>Vactil</h3>
-							</div>
-							{
-								data.allContentfulPays.edges.map(
-									(edge) =>
-										<div className="clearfix mb-2" key={edge.node.id}>
-											{edge.node.nomContinent == "Vactil" ?
-												(<div>
-													<div>
-														<Row className="no-gutters">
-															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
-															</Col>
-														</Row>
-													</div>
-												</div>) :
-												('')
-											}
-										</div>
-								)
-							}
-						</Col>
-						<Col sm="12" md="6" lg="3">
-							<div className="">
-								<h3>Xentil</h3>
-							</div>
-							{
-								data.allContentfulPays.edges.map(
-									(edge) =>
-										<div className="clearfix mb-2" key={edge.node.id}>
-											{edge.node.nomContinent == "Xentil" ?
-												(<div>
-													<div>
-														<Row className="no-gutters">
-															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
-															</Col>
-														</Row>
-													</div>
-												</div>) :
-												('')
-											}
-										</div>
-								)
-							}
-						</Col>
-						<Col sm="12" md="6" lg="3">
-							<div className="">
-								<h3>{this.lang.monde_iles}</h3>
-							</div>
-							{
-								data.allContentfulPays.edges.map(
-									(edge) =>
-										<div className="clearfix mb-2" key={edge.node.id}>
-											{edge.node.nomContinent == "Iles" ?
-												(<div>
-													<div>
-														<Row className="no-gutters">
-															<Col md="3" sm="12">
-																<Link className="mb-2" to={this.lang.monde_url + edge.node.slug + "/"}>{edge.node.nomPays}</Link>
-															</Col>
-														</Row>
-													</div>
-												</div>) :
-												('')
-											}
-										</div>
-								)
-							}
-						</Col>
+						<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pathContext.lang} continent="Fontil" />
+						<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pathContext.lang} continent="Vactil" />
+						<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pathContext.lang} continent="Xentil" />
+						<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pathContext.lang} continent={this.lang.monde_iles} />
 					</Row>
 				</Container>
 

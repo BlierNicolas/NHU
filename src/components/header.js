@@ -179,6 +179,9 @@ export default class Header extends React.Component {
                                     <DropdownItem>
                                         <Link to={this.lang.header_progression_url + "/"}>{this.lang.header_progression}</Link>
                                     </DropdownItem>
+                                    <DropdownItem>
+                                        <Link to={this.lang.header_projets_url + "/"}>{this.lang.header_projets}</Link>
+                                    </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                             <UncontrolledDropdown nav inNavbar>

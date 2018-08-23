@@ -25,6 +25,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 		const paysTemplate = path.resolve('src/templates/pays.js')
 		const villeTemplate = path.resolve('src/templates/ville.js')
 		const evenementsTemplate = path.resolve('src/templates/evenements.js');
+		const listeProjetsTemplate = path.resolve('src/templates/projets.js')
+		const projetTemplate = path.resolve('src/templates/projet.js')
 
 		resolve(
 			createPage({
@@ -339,7 +341,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 					component: mondeTemplate,
 			// 					context: {
 			// 						slug: edge.node.slug,
-			//						lang: "fr-CA"
+			// 						lang: "fr-CA"
 			// 					}
 			// 				})
 			// 			}
@@ -370,7 +372,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 				component: paysTemplate,
 			// 				context: {
 			// 					slug: edge.node.slug,
-			//					lang: "fr-CA"
+			// 					lang: "fr-CA"
 			// 				}
 			// 			})
 			// 		}
@@ -401,7 +403,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 				component: villeTemplate,
 			// 				context: {
 			// 					slug: edge.node.slug,
-			//					lang: "fr-CA"
+			// 					lang: "fr-CA"
 			// 				}
 			// 			})
 			// 		}
@@ -414,6 +416,43 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				context: {
 					lang: "fr-CA"
 				}
+			}),
+			createPage({
+				path: 'projets',
+				component: listeProjetsTemplate,
+				context: {
+					lang: "fr-CA"
+				}
+			}),
+			graphql(
+				`{
+				allContentfulProject(filter: {node_locale: {eq: "fr-CA"}}) {
+					edges {
+						node {
+							id
+							slug
+							node_locale
+						}
+					}
+				}
+				}`
+			).then((result) => {
+				if (result.errors) {
+					reject(result.errors)
+				}
+				result.data.allContentfulProject.edges.forEach((edge) => {
+					if ((edge.node.id = 'Project') && (edge.node.slug != null)) {
+						createPage({
+							path: 'projets/' + edge.node.slug,
+							component: projetTemplate,
+							context: {
+								slug: edge.node.slug,
+								lang: "fr-CA"
+							}
+						})
+					}
+				})
+				return
 			}),
 			createPage({
 				path: 'en',
@@ -675,7 +714,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 					component: mondeTemplate,
 			// 					context: {
 			// 						slug: edge.node.slug,
-			//						lang: "en-US"
+			// 						lang: "en-US"
 			// 					}
 			// 				})
 			// 			}
@@ -706,7 +745,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 				component: paysTemplate,
 			// 				context: {
 			// 					slug: edge.node.slug,
-			//					lang: "en-US"
+			// 					lang: "en-US"
 			// 				}
 			// 			})
 			// 		}
@@ -737,7 +776,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			// 				component: villeTemplate,
 			// 				context: {
 			// 					slug: edge.node.slug,
-			//					lang: "en-US"
+			// 					lang: "en-US"
 			// 				}
 			// 			})
 			// 		}

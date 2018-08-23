@@ -158,7 +158,7 @@ class Pays extends Component {
 									{
 										data.allContentfulVille.edges.map(
 											(edge) => <tr key={edge.node.id}>
-												<td><Link to={this.lang.monde_url + data.contentfulPays.nomPays + '/' + edge.node.slug + "/"}>{edge.node.nomVille}</Link></td>
+												<td><Link to={this.lang.monde_url + edge.node.slugPaysParent + '/' + edge.node.slug + "/"}>{edge.node.nomVille}</Link></td>
 												<td>{edge.node.superficie} m<sup>2</sup></td>
 												<td>{edge.node.population}</td>
 												<td>{edge.node.quantiteNouvHumains}</td>
@@ -375,6 +375,7 @@ export const pageQuery = graphql`query paysQueryFR ($slug: String!, $lang: Strin
 				slug
 				superficie
 				population
+				slugPaysParent
 				quantiteNouvHumains
 			}
 		}
