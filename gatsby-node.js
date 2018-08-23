@@ -690,99 +690,99 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 				})
 				return
 			}),
-			graphql(
-				`{
-				allContentfulMonde(filter: {node_locale: {eq: "en-US"}}) {
-					edges {
-						node {
-							id
-							slug
-							node_locale
-						}
-					}
-				}
-				}`
-			).then((result) => {
-				if (result.errors) {
-					reject(result.errors)
-				}
-				result.data.allContentfulMonde.edges.forEach((edge) => {
-					if ((edge.node.id = 'Monde') && (edge.node.slug != null)) {
-						if (edge.node.slug == 'giervia') {
-							createPage({
-								path: "en/" + edge.node.slug,
-								component: mondeTemplate,
-								context: {
-									slug: edge.node.slug,
-									lang: "en-US"
-								}
-							})
-						}
-					}
-				})
-				return
-			}),
-			graphql(
-				`{
-				allContentfulPays(filter: {node_locale: {eq: "en-US"}}) {
-					edges {
-						node {
-							id
-							slug
-							node_locale
-						}
-					}
-				}
-				}`
-			).then((result) => {
-				if (result.errors) {
-					reject(result.errors)
-				}
-				result.data.allContentfulPays.edges.forEach((edge) => {
-					if ((edge.node.id = 'Pays') && (edge.node.slug != null)) {
-						createPage({
-							path: 'en/giervia/' + edge.node.slug,
-							component: paysTemplate,
-							context: {
-								slug: edge.node.slug,
-								lang: "en-US"
-							}
-						})
-					}
-				})
-				return
-			}),
-			graphql(
-				`{
-				allContentfulVille(filter: {node_locale: {eq: "en-US"}}) {
-					edges {
-						node {
-							id
-							slug
-							slugPaysParent
-							node_locale
-						}
-					}
-				}
-				}`
-			).then((result) => {
-				if (result.errors) {
-					reject(result.errors)
-				}
-				result.data.allContentfulVille.edges.forEach((edge) => {
-					if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
-						createPage({
-							path: 'en/giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
-							component: villeTemplate,
-							context: {
-								slug: edge.node.slug,
-								lang: "en-US"
-							}
-						})
-					}
-				})
-				return
-			}),
+			// graphql(
+			// 	`{
+			// 	allContentfulMonde(filter: {node_locale: {eq: "en-US"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulMonde.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Monde') && (edge.node.slug != null)) {
+			// 			if (edge.node.slug == 'giervia') {
+			// 				createPage({
+			// 					path: "en/" + edge.node.slug,
+			// 					component: mondeTemplate,
+			// 					context: {
+			// 						slug: edge.node.slug,
+			// 						lang: "en-US"
+			// 					}
+			// 				})
+			// 			}
+			// 		}
+			// 	})
+			// 	return
+			// }),
+			// graphql(
+			// 	`{
+			// 	allContentfulPays(filter: {node_locale: {eq: "en-US"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulPays.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Pays') && (edge.node.slug != null)) {
+			// 			createPage({
+			// 				path: 'en/giervia/' + edge.node.slug,
+			// 				component: paysTemplate,
+			// 				context: {
+			// 					slug: edge.node.slug,
+			// 					lang: "en-US"
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// 	return
+			// }),
+			// graphql(
+			// 	`{
+			// 	allContentfulVille(filter: {node_locale: {eq: "en-US"}}) {
+			// 		edges {
+			// 			node {
+			// 				id
+			// 				slug
+			// 				slugPaysParent
+			// 				node_locale
+			// 			}
+			// 		}
+			// 	}
+			// 	}`
+			// ).then((result) => {
+			// 	if (result.errors) {
+			// 		reject(result.errors)
+			// 	}
+			// 	result.data.allContentfulVille.edges.forEach((edge) => {
+			// 		if ((edge.node.id = 'Ville') && (edge.node.slug != null)) {
+			// 			createPage({
+			// 				path: 'en/giervia/' + edge.node.slugPaysParent + '/' + edge.node.slug,
+			// 				component: villeTemplate,
+			// 				context: {
+			// 					slug: edge.node.slug,
+			// 					lang: "en-US"
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// 	return
+			// }),
 			createPage({
 				path: 'en/encyclopedia',
 				component: listeTheorieTemplate,
