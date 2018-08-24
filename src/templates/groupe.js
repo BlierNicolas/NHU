@@ -30,7 +30,7 @@ class Groupe extends Component {
 			this.lang = lang_en;
 		}
 	}
-	
+
 	render() {
 		const {
 			data
@@ -67,9 +67,12 @@ class Groupe extends Component {
 											{
 												data.allContentfulMembreGroupe.edges.map(
 													(edge) =>
-														<ListGroupItem className="text-center">
-															<Link to={this.lang.personnages_url + edge.node.slugMembre + "/"}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
-														</ListGroupItem>)
+														edge.node.nomGroupe == data.contentfulGroupe.nomGroupe ?
+															(
+																<ListGroupItem className="text-center">
+																	<Link to={this.lang.personnages_url + edge.node.slugMembre + "/"}>{edge.node.nomMembre + " - " + edge.node.positionMembre + " ( " + edge.node.status + " )"}</Link>
+																</ListGroupItem>) :
+															(''))
 											}
 										</ListGroup>) :
 									('')
@@ -90,7 +93,7 @@ Groupe.propTypes = {
 
 export default Groupe
 
-export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe: String!, $lang: String!) {
+export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $lang: String!) {
 	contentfulGroupe(slug: {eq:$slug}, node_locale: {eq: $lang}) {
 		nomGroupe
 		description {
@@ -100,12 +103,13 @@ export const pageQuery = graphql`query groupeQueryFR ($slug: String!, $nomGroupe
 		}
 		equivalentUrl
 	}
-	allContentfulMembreGroupe(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: $lang}, nomGroupe: {eq: $nomGroupe}}) {
+	allContentfulMembreGroupe(sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
 		  node {
 			id
 			nomMembreGroupe
 			nomMembre
+			nomGroupe
 			slugMembre
 			positionMembre
 			status
