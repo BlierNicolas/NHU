@@ -106,7 +106,7 @@ class Roman extends Component {
 											{
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link>
+														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
 														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
@@ -138,7 +138,7 @@ class Roman extends Component {
 											{
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link>
+														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
 														{/* {
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
@@ -204,7 +204,8 @@ export const pageQuery = graphql
 		nomRoman
 		chapitreApres
 		codeChapitre
-        slug
+		slug
+		readTime
       }
     }
   }

@@ -75,6 +75,8 @@
     "chapitre_btn_roman": "Go back to the story",
     "chapitre_btn_apres": "Next chapter",
     "chapitre_btn_url": "/en/stories/chapter/",
+    "chapitre_read_time": "minutes",
+    "chapitre_read_time_label": "Estimated reading time: ",
     "histoires_intro_text": "Here are all the stories and mini-stories that relate to the New Human Universe.",
     "personnages_intro_text": "Here is the list of all the characters present (or almost) in the New Human Universe.",
     "pouvoirs_intro_text": "These are all the powers that are present in the New Human Universe.",

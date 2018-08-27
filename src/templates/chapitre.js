@@ -86,6 +86,7 @@ class Chapitre extends Component {
 						<Row>
 							<Col lg={{ size: 10, offset: 1 }} md="12">
 								<h1 className="page-header display-4 text-center my-5">{data.contentfulChapitre.titreChapitre}</h1>
+								<p className="lecture-texte temps_lecture">{this.lang.chapitre_read_time_label + "±" + data.contentfulChapitre.readTime + " " + this.lang.chapitre_read_time}</p>
 								<div className="text-justify lecture-texte" dangerouslySetInnerHTML={{ __html: data.contentfulChapitre.texte.childMarkdownRemark.html }} />
 							</Col>
 						</Row>
@@ -170,5 +171,6 @@ export const pageQuery = graphql`query chapitreQueryFR ($slug: String!, $lang: S
 		slug
 		codeChapitre
 		equivalentUrl
+		readTime
 	}
 }`

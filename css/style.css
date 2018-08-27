@@ -89,6 +89,10 @@ body {
     font-weight: 300;
 }
 
+.temps_lecture {
+    font-style: italic;
+}
+
 .lecture-mode-background {
     background-color: #343a40;
 }

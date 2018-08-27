@@ -75,6 +75,8 @@
     "chapitre_btn_roman": "Retourner au roman",
     "chapitre_btn_apres": "Chapitre suivant",
     "chapitre_btn_url": "/histoires/chapitre/",
+    "chapitre_read_time": "minutes",
+    "chapitre_read_time_label": "Temps de lecture: ",
     "histoires_intro_text": "Voici tous les romans et mini-histoires qui se rapportent à l'Univers des Nouveaux Humains.",
     "personnages_intro_text": "Voici la liste de tous les personnages présents (ou presque) dans l'Univers des Nouveaux Humains.",
     "pouvoirs_intro_text": "Voici tous les pouvoirs qui sont présents dans l'Univers des Nouveaux Humains.",
