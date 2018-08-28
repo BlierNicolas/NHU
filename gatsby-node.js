@@ -153,7 +153,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 			singlePage('groupes', listeGroupeTemplate, "fr-CA"),
 			singlePage('en/groups', listeGroupeTemplate, "en-US"),
 			multiPage(`{allContentfulGroupe(filter: {node_locale: {eq: "fr-CA"}}) {edges {node {id slug node_locale }}}}`, 'Groupe', 'groupes/', groupeTemplate, "fr-CA"),
-			multiPage(`{allContentfulGroupe(filter: {node_locale: {eq: "en-US"}}) {edges {node {id slug nomGroupe node_locale}}}}`, 'Groupe', 'en/groups/', groupeTemplate, "en-US"),
+			multiPage(`{allContentfulGroupe(filter: {node_locale: {eq: "en-US"}}) {edges {node {id slug node_locale}}}}`, 'Groupe', 'en/groups/', groupeTemplate, "en-US"),
 			// multiPageSpe(`{allContentfulMonde(filter: {node_locale: {eq: "fr-CA"}}) {edges {node { id slug node_locale}}}}`, 'Monde', '', mondeTemplate, "fr-CA"),
 			// multiPageSpe(`{allContentfulMonde(filter: {node_locale: {eq: "en-US"}}) {edges {node {id slug node_locale}}}}`, 'Monde', "en/", mondeTemplate, "en-US"),
 			// multiPage(`{allContentfulPays(filter: {node_locale: {eq: "fr-CA"}}) {edges {node {id slug node_locale}}}}`, 'Pays', 'giervia/', paysTemplate, "fr-CA"),
