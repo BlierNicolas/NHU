@@ -238,3 +238,7 @@ footer {
 .anim-bounce-in {
     animation: custom-animation-bounce-in 0.6s !important;
 }
+
+.breadcrumb {
+    margin-bottom: 0;
+}
