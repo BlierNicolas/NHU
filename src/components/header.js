@@ -14,7 +14,7 @@ import {
 } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
-//import { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -76,11 +76,11 @@ export default class Header extends React.Component {
     componentDidMount() {
         this.setState({ nightMode: !this.state.nightMode });
 
-        // auth.onAuthStateChanged((user) => {
-        //     if (user) {
-        //         this.setState({ user });
-        //     }
-        // });
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({ user });
+            }
+        });
     }
 
     toggle() {
@@ -111,26 +111,26 @@ export default class Header extends React.Component {
     }
 
     logout() {
-        // auth.signOut()
-        //     .then(() => {
-        //         this.setState({
-        //             user: null
-        //         });
-        //         cookie.save('lecteur', null, { path: '/' });
+        auth.signOut()
+            .then(() => {
+                this.setState({
+                    user: null
+                });
+                cookie.save('lecteur', null, { path: '/' });
 
-        //         window.location.reload();
-        //     });
+                window.location.reload();
+            });
     }
 
     login() {
-        // auth.signInWithPopup(provider)
-        //     .then((result) => {
-        //         const user = result.user;
-        //         this.setState({
-        //             user
-        //         });
-        //         cookie.save('lecteur', this.state.user, { path: '/' });
-        //     });
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                const user = result.user;
+                this.setState({
+                    user
+                });
+                cookie.save('lecteur', this.state.user, { path: '/' });
+            });
     }
 
     render() {
@@ -186,7 +186,7 @@ export default class Header extends React.Component {
                             </UncontrolledDropdown>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
-                                {this.lang.header_wiki}
+                                    {this.lang.header_wiki}
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
@@ -209,30 +209,26 @@ export default class Header extends React.Component {
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
-                            {/* <UncontrolledDropdown nav inNavbar>
+                            <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
                                     {this.state.user ?
-                                        <div>
-                                            {this.state.user.displayName}
-                                        </div>
+                                        this.state.user.displayName
                                         :
-                                        <div>
-                                            Connexion
-                                        </div>
+                                        <span>{this.lang.header_connexion}</span>
                                     }
                                 </DropdownToggle>
-                                <DropdownMenu right>
+                                <DropdownMenu right className="no-padding">
                                     {this.state.user ?
                                         <div>
-                                            <button onClick={this.logout}>Log Out</button>
+                                            <Button color="primary" onClick={this.logout}>{this.lang.header_logout}</Button>
                                         </div>
                                         :
                                         <div>
-                                            <button onClick={this.login}>Log In</button>
+                                            <Button color="primary" onClick={this.login}>{this.lang.header_login}</Button>
                                         </div>
                                     }
                                 </DropdownMenu>
-                            </UncontrolledDropdown> */}
+                            </UncontrolledDropdown>
                         </Nav>
                     </Collapse>
                 </Navbar>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import {
     Button,
     Collapse
 } from 'reactstrap';
-//import firebase, { auth, provider } from '../firebase.js';
+import firebase, { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 export default class Btn_read extends React.Component {
     constructor(props) {
@@ -21,6 +22,15 @@ export default class Btn_read extends React.Component {
 
         this.login = this.login.bind(this);
 
+        this.lang = lang_fr;
+
+        if (this.props.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.lang == "en-US") {
+            this.lang = lang_en;
+        }
+
         this.state = {
             user: null,
             lecteur: null,
@@ -28,7 +38,7 @@ export default class Btn_read extends React.Component {
             items: [],
             itemsLu: [],
             readStatus: false,
-            readText: "Lu",
+            readText: this.lang.btn_read_1,
             btn_class_read: "success",
 			likeAutorise: true,
             loaded: false
@@ -48,11 +58,11 @@ export default class Btn_read extends React.Component {
         if ((this.state.lecteur) && (this.state.loaded)) {
             if (!this.state.readStatus) {
                 this.setState({ readStatus: true });
-                this.setState({ readText: "Non lu" });
+                this.setState({ readText: this.lang.btn_read_2 });
                 this.setState({ btn_class_read: "danger" });
             } else {
                 this.setState({ readStatus: false });
-                this.setState({ readText: "Lu" });
+                this.setState({ readText: this.lang.btn_read_1 });
                 this.setState({ btn_class_read: "success" });
 
                 this.state.itemsLu.map((item) => {
@@ -69,28 +79,28 @@ export default class Btn_read extends React.Component {
     }
 
     componentDidMount() {
-        // const itemsRefLu = firebase.database().ref('reads');
-        // itemsRefLu.on('value', (snapshot) => {
-        //     let itemsLu = snapshot.val();
-        //     let newState = [];
-        //     for (let item in itemsLu) {
-        //         newState.push({
-        //             id: item,
-        //             chapitre: itemsLu[item].chapitre,
-        //             chapitreSlug: itemsLu[item].slug,
-        //             user: itemsLu[item].user,
-        //             nomRoman: itemsLu[item].nomRoman
-        //         });
-        //     }
-        //     this.setState({
-        //         itemsLu: newState
-        //     });
+        const itemsRefLu = firebase.database().ref('reads');
+        itemsRefLu.on('value', (snapshot) => {
+            let itemsLu = snapshot.val();
+            let newState = [];
+            for (let item in itemsLu) {
+                newState.push({
+                    id: item,
+                    chapitre: itemsLu[item].chapitre,
+                    chapitreSlug: itemsLu[item].slug,
+                    user: itemsLu[item].user,
+                    nomRoman: itemsLu[item].nomRoman
+                });
+            }
+            this.setState({
+                itemsLu: newState
+            });
 
-        //     if (!this.state.loaded) {
-        //         this.checkUpReads();
-        //         this.setState({ loaded: true });
-        //     }
-        // });
+            if (!this.state.loaded) {
+                this.checkUpReads();
+                this.setState({ loaded: true });
+            }
+        });
     }
 
     checkUpReads() {
@@ -98,7 +108,7 @@ export default class Btn_read extends React.Component {
             this.state.itemsLu.map((item) => {
                 if ((item.chapitre == this.props.contentChapitre.titreChapitre) && (item.user == this.state.lecteur.email)) {
                     this.setState({ readStatus: true });
-                    this.setState({ readText: "Non lu" });
+                    this.setState({ readText: this.lang.btn_read_2 });
                     this.setState({ btn_class_read: "danger" });
                 };
             })
@@ -106,36 +116,36 @@ export default class Btn_read extends React.Component {
     }
 
     handleSubmitRead(e) {
-        // // Empêche le refresh
-        // e.preventDefault();
+        // Empêche le refresh
+        e.preventDefault();
 
-        // // Met la référence vers la database
-        // const itemsRef = firebase.database().ref('reads');
+        // Met la référence vers la database
+        const itemsRef = firebase.database().ref('reads');
 
-        // if ((!this.state.readStatus) && (this.state.loaded)) {
-        //     this.state.items.map((itemLu) => {
-        //         if ((itemLu.chapitre == this.props.contentChapitre.titreChapitre) && (itemLu.user == this.state.lecteur.email)) {
-        //             this.setState({ likeAutorise: false });
-        //         };
-        //     })
+        if ((!this.state.readStatus) && (this.state.loaded)) {
+            this.state.items.map((itemLu) => {
+                if ((itemLu.chapitre == this.props.contentChapitre.titreChapitre) && (itemLu.user == this.state.lecteur.email)) {
+                    this.setState({ likeAutorise: false });
+                };
+            })
 
-        //     if (this.state.likeAutorise) {
-        //         // Popule les champs dans une collection "item"
-        //         const itemLu = {
-        //             user: this.state.lecteur.email,
-        //             chapitre: this.props.contentChapitre.titreChapitre,
-        //             chapitreSlug: this.props.contentChapitre.slug,
-        //             nomRoman: this.props.contentChapitre.nomRoman,
-        //             chapitreApres: this.props.contentChapitre.chapitreApres,
-        //             codeChapitre: this.props.contentChapitre.codeChapitre
-        //         }
+            if (this.state.likeAutorise) {
+                // Popule les champs dans une collection "item"
+                const itemLu = {
+                    user: this.state.lecteur.email,
+                    chapitre: this.props.contentChapitre.titreChapitre,
+                    chapitreSlug: this.props.contentChapitre.slug,
+                    nomRoman: this.props.contentChapitre.nomRoman,
+                    chapitreApres: this.props.contentChapitre.chapitreApres,
+                    codeChapitre: this.props.contentChapitre.codeChapitre
+                }
 
-        //         // Pousse l'item créé dans la collection
-        //         itemsRef.push(itemLu);
-        //     }
-        // }
+                // Pousse l'item créé dans la collection
+                itemsRef.push(itemLu);
+            }
+        }
 
-        // this.toggleRead();
+        this.toggleRead();
     }
 
     login() {
@@ -152,10 +162,10 @@ export default class Btn_read extends React.Component {
     }
 
     removeItem(itemId) {
-        // if (this.state.readText == "Non lu") {
-        //     const itemRef = firebase.database().ref(`/reads/${itemId}`);
-        //     itemRef.remove();
-        // }
+        if (this.state.readText == this.lang.btn_read_2) {
+            const itemRef = firebase.database().ref(`/reads/${itemId}`);
+            itemRef.remove();
+        }
     }
 
     render() {

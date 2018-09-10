@@ -15,7 +15,6 @@ import Block_Nouvelles from '../components/block_nouvelles';
 import Block_Calendrier from '../components/block_calendrier';
 import Block_Continuer from '../components/block_continuer';
 import List_Projet_Panel from '../components/list_projet_panel';
-//import firebase from '../firebase.js';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -27,7 +26,7 @@ class IndexPage extends Component {
             currentItem: '',
             username: '',
             items: [],
-            connectedUser: 'Nico',
+            connectedUser: null,
             lecteur: null
         }
         this.handleChange = this.handleChange.bind(this);
@@ -121,18 +120,18 @@ class IndexPage extends Component {
                     </Container>
                 </Jumbotron>
 
-                {/* {
+                {
                     this.state.lecteur != "null" ?
                         (<Container fluid className="p-0">
                             <Row className="pb-5">
                                 <Col sm="12">
-                                    <h2 className="mb-4">Continuer à lire</h2>
-                                    <Block_Continuer allChapitre={data.allContentfulChapitre} />
+                                    <h2 className="mb-4">{this.lang.continuer_titre}</h2>
+                                    <Block_Continuer allChapitre={data.allContentfulChapitre} lang={this.props.pathContext.lang} />
                                 </Col>
                             </Row>
                         </Container>) :
                         ('')
-                } */}
+                }
 
                 <Container fluid className="p-0">
                     <Row className="pb-5">

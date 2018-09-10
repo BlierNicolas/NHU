@@ -4,8 +4,10 @@ import {
     Row,
     Col
 } from 'reactstrap';
-//import firebase from '../firebase.js';
+import firebase from '../firebase.js';
 import cookie from 'react-cookies';
+import lang_fr from '../langues/lang_fr.json';
+import lang_en from '../langues/lang_en.json';
 
 export default class Block_Continuer extends React.Component {
     constructor(props) {
@@ -13,16 +15,21 @@ export default class Block_Continuer extends React.Component {
 
         this.checkUpReads = this.checkUpReads.bind(this);
 
+        this.lang = lang_fr;
+
+        if (this.props.lang == "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.lang == "en-US") {
+            this.lang = lang_en;
+        }
+
         this.state = {
             user: null,
             lecteur: null,
             nomRoman: "",
             items: [],
             itemsLu: [],
-            readStatus: false,
-            readText: "Lu",
-            btn_class_read: "success",
-            likeAutorise: true,
             loaded: false,
             dernierChapitreLu: "",
             chapitres: []
@@ -34,39 +41,39 @@ export default class Block_Continuer extends React.Component {
     }
 
     componentDidMount() {
-        // if (this.state.lecteur != null) {
-        //     let itemsRefLu = firebase.database().ref('reads');
-        //     itemsRefLu = itemsRefLu.orderByChild("codeChapitre").startAt("H0001C000").endAt("H9999C999");
-        //     itemsRefLu.on('value', (snapshot) => {
-        //         let itemsLu = snapshot.val();
-        //         let newState = [];
-        //         for (let item in itemsLu) {
-        //             if (itemsLu[item].user == this.state.lecteur.email) {
-        //                 newState.push({
-        //                     id: item,
-        //                     chapitre: itemsLu[item].chapitre,
-        //                     chapitreSlug: itemsLu[item].chapitreSlug,
-        //                     user: itemsLu[item].user,
-        //                     nomRoman: itemsLu[item].nomRoman,
-        //                     chapitreApres: itemsLu[item].chapitreApres,
-        //                     codeChapitre: itemsLu[item].codeChapitre,
-        //                     traite: "non"
-        //                 });
-        //             }
-        //         }
+        if (this.state.lecteur != null) {
+            let itemsRefLu = firebase.database().ref('reads');
+            itemsRefLu = itemsRefLu.orderByChild("codeChapitre").startAt("H0001C000").endAt("H9999C999");
+            itemsRefLu.on('value', (snapshot) => {
+                let itemsLu = snapshot.val();
+                let newState = [];
+                for (let item in itemsLu) {
+                    if (itemsLu[item].user == this.state.lecteur.email) {
+                        newState.push({
+                            id: item,
+                            chapitre: itemsLu[item].chapitre,
+                            chapitreSlug: itemsLu[item].chapitreSlug,
+                            user: itemsLu[item].user,
+                            nomRoman: itemsLu[item].nomRoman,
+                            chapitreApres: itemsLu[item].chapitreApres,
+                            codeChapitre: itemsLu[item].codeChapitre,
+                            traite: "non"
+                        });
+                    }
+                }
 
-        //         const myData = [].concat(newState).sort((a, b) => a.codeChapitre > b.codeChapitre)
+                const myData = [].concat(newState).sort((a, b) => a.codeChapitre > b.codeChapitre)
 
-        //         this.setState({
-        //             itemsLu: myData
-        //         });
+                this.setState({
+                    itemsLu: myData
+                });
 
-        //         if (!this.state.loaded) {
-        //             this.checkUpReads();
-        //             this.setState({ loaded: true });
-        //         }
-        //     });
-        // }
+                if (!this.state.loaded) {
+                    this.checkUpReads();
+                    this.setState({ loaded: true });
+                }
+            });
+        }
     }
 
     checkUpReads() {
@@ -124,7 +131,7 @@ export default class Block_Continuer extends React.Component {
                                         (<div className="clearfix border-bottom mb-2" key={edge.node.id}>
                                             <Row className="no-gutters">
                                                 <Col md="9" sm="12">
-                                                    <h3><small><Link className="float-left" to={"/histoires/chapitre/" + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link></small></h3>
+                                                    <h3><small><Link className="float-left" to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link></small></h3>
                                                 </Col>
                                             </Row>
                                         </div>) :
@@ -132,7 +139,7 @@ export default class Block_Continuer extends React.Component {
                                 )
                             )
                         ) :
-                        ("Vous n'avez rien lu ou rien à continuer pour l'instant.")
+                        (this.lang.continuer_rien)
                 }
             </div>
         );

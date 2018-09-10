@@ -15,7 +15,7 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
-//import { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
 import cookie from 'react-cookies';
 import Btn_like from '../components/btn_like';
 import Btn_read from '../components/btn_read'
@@ -107,20 +107,20 @@ class Roman extends Component {
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
 														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
-														{/* {
+														{
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
 																	<span>
-																		&nbsp;<Btn_read contentChapitre={edge.node} />
+																		&nbsp;<Btn_read contentChapitre={edge.node} lang={this.props.pathContext.lang} />
 																	</span>
 																	<span>
-																		&nbsp;<Btn_like contentChapitre={edge.node} />
+																		&nbsp;<Btn_like contentChapitre={edge.node} lang={this.props.pathContext.lang} />
 																	</span>
 																</React.Fragment>) :
 																(<span>
-																	&nbsp;<Btn_like_disconnect contentChapitre={edge.node} />
+																	&nbsp;<Btn_like_disconnect contentChapitre={edge.node} lang={this.props.pathContext.lang} />
 																</span>)
-														} */}
+														}
 													</ListGroupItem>)
 											}
 										</ListGroup>
@@ -139,20 +139,20 @@ class Roman extends Component {
 												data.allContentfulChapitre.edges.map(
 													(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
 														<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
-														{/* {
+														{
 															this.state.lecteur != "null" ?
 																(<React.Fragment>
 																	<span>
-																		&nbsp;<Btn_read contentChapitre={edge.node} />
+																		&nbsp;<Btn_read contentChapitre={edge.node} lang={this.props.pathContext.lang} />
 																	</span>
 																	<span>
-																		&nbsp;<Btn_like contentChapitre={edge.node} />
+																		&nbsp;<Btn_like contentChapitre={edge.node} lang={this.props.pathContext.lang} />
 																	</span>
 																</React.Fragment>) :
 																(<span>
-																	&nbsp;<Btn_like_disconnect contentChapitre={edge.node} />
+																	&nbsp;<Btn_like_disconnect contentChapitre={edge.node} lang={this.props.pathContext.lang} />
 																</span>)
-														} */}
+														}
 													</ListGroupItem>)
 											}
 										</ListGroup>

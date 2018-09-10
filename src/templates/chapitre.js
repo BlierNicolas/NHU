@@ -10,7 +10,6 @@ import {
 	BreadcrumbItem,
 	Button
 } from 'reactstrap';
-import classnames from 'classnames';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Btn_like from '../components/btn_like'
@@ -93,7 +92,7 @@ class Chapitre extends Component {
 					</Container>
 				</div>
 
-				{/* <div className="py-5">
+				<div className="py-5">
 					<Container>
 						<Row>
 							<Col lg={{ size: 10, offset: 1 }} md="12">
@@ -101,15 +100,15 @@ class Chapitre extends Component {
 									this.state.lecteur != "null" ?
 										(<Row>
 											<Col xs="6" className="text-center">
-												<Btn_read contentChapitre={data.contentfulChapitre} />
+												<Btn_read contentChapitre={data.contentfulChapitre} lang={this.props.pathContext.lang} />
 											</Col>
 											<Col xs="6" className="text-center">
-												<Btn_like contentChapitre={data.contentfulChapitre} />
+												<Btn_like contentChapitre={data.contentfulChapitre} lang={this.props.pathContext.lang} />
 											</Col>
 										</Row>) :
 										(<Row>
 											<Col xs="12" className="text-center">
-												<Btn_like_disconnect contentChapitre={data.contentfulChapitre} />
+												<Btn_like_disconnect contentChapitre={data.contentfulChapitre} lang={this.props.pathContext.lang} />
 											</Col>
 										</Row>)
 
@@ -117,7 +116,7 @@ class Chapitre extends Component {
 							</Col>
 						</Row>
 					</Container>
-				</div> */}
+				</div>
 
 				<div className="py-5">
 					<Container>
