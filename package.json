@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "venatusuniverse",
+  "description": "New Humans Universe website",
+  "version": "1.0.80",
+  "author": "Nicolas Blier",
   "dependencies": {
     "aws-sdk": "^2.283.1",
     "bootstrap": "^4.1.1",
@@ -28,7 +28,6 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
