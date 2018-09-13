@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import {
     ListGroupItem,
@@ -15,10 +15,10 @@ export default class List_Projet_Panel extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
     }

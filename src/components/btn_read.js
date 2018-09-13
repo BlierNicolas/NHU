@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     Button,
     Collapse
 } from 'reactstrap';
-import firebase, { auth, provider } from '../firebase.js';
+import firebase, { auth, provider } from 'firebase/app';
+import 'firebase/database';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -24,10 +25,10 @@ export default class Btn_read extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
 
@@ -40,7 +41,7 @@ export default class Btn_read extends React.Component {
             readStatus: false,
             readText: this.lang.btn_read_1,
             btn_class_read: "success",
-			likeAutorise: true,
+            likeAutorise: true,
             loaded: false
         };
         this.handleSubmitRead = this.handleSubmitRead.bind(this);
@@ -65,106 +66,113 @@ export default class Btn_read extends React.Component {
                 this.setState({ readText: this.lang.btn_read_1 });
                 this.setState({ btn_class_read: "success" });
 
-                this.state.itemsLu.map((item) => {
-                    if ((item.user == this.state.lecteur.email) && (item.chapitre == this.props.contentChapitre.titreChapitre)) {
-                        this.removeItem(item.id);
-                    };
-                })
+                this.state.itemsLu.map((item) =>
+                    ((item.user === this.state.lecteur.email) && (item.chapitre === this.props.contentChapitre.titreChapitre)) ?
+                        this.removeItem(item.id) : ''
+                )
             }
         }
     }
 
-    componentWillMount() {
-        this.state.lecteur = cookie.load('lecteur');
+    UNSAFE_componentWillMount() {
+        this.setState({ lecteur: cookie.load('lecteur') });
     }
 
     componentDidMount() {
-        const itemsRefLu = firebase.database().ref('reads');
-        itemsRefLu.on('value', (snapshot) => {
-            let itemsLu = snapshot.val();
-            let newState = [];
-            for (let item in itemsLu) {
-                newState.push({
-                    id: item,
-                    chapitre: itemsLu[item].chapitre,
-                    chapitreSlug: itemsLu[item].slug,
-                    user: itemsLu[item].user,
-                    nomRoman: itemsLu[item].nomRoman
+        if (typeof window !== "undefined") {
+            const itemsRefLu = firebase.database().ref('reads');
+            itemsRefLu.on('value', (snapshot) => {
+                let itemsLu = snapshot.val();
+                let newState = [];
+                for (let item in itemsLu) {
+                    newState.push({
+                        id: item,
+                        chapitre: itemsLu[item].chapitre,
+                        chapitreSlug: itemsLu[item].slug,
+                        user: itemsLu[item].user,
+                        nomRoman: itemsLu[item].nomRoman
+                    });
+                }
+                this.setState({
+                    itemsLu: newState
                 });
-            }
-            this.setState({
-                itemsLu: newState
-            });
 
-            if (!this.state.loaded) {
-                this.checkUpReads();
-                this.setState({ loaded: true });
-            }
-        });
+                if (!this.state.loaded) {
+                    this.checkUpReads();
+                    this.setState({ loaded: true });
+                }
+            });
+        }
     }
 
     checkUpReads() {
         if (this.state.lecteur) {
-            this.state.itemsLu.map((item) => {
-                if ((item.chapitre == this.props.contentChapitre.titreChapitre) && (item.user == this.state.lecteur.email)) {
-                    this.setState({ readStatus: true });
-                    this.setState({ readText: this.lang.btn_read_2 });
-                    this.setState({ btn_class_read: "danger" });
-                };
-            })
+            this.state.itemsLu.map((item) =>
+                ((item.chapitre === this.props.contentChapitre.titreChapitre) && (item.user === this.state.lecteur.email)) ?
+                    (
+                        this.setState({ readStatus: true }),
+                        this.setState({ readText: this.lang.btn_read_2 }),
+                        this.setState({ btn_class_read: "danger" })
+                    ) : ''
+            )
         }
     }
 
     handleSubmitRead(e) {
-        // Empêche le refresh
-        e.preventDefault();
+        if (typeof window !== "undefined") {
+            // Empêche le refresh
+            e.preventDefault();
 
-        // Met la référence vers la database
-        const itemsRef = firebase.database().ref('reads');
+            // Met la référence vers la database
+            const itemsRef = firebase.database().ref('reads');
 
-        if ((!this.state.readStatus) && (this.state.loaded)) {
-            this.state.items.map((itemLu) => {
-                if ((itemLu.chapitre == this.props.contentChapitre.titreChapitre) && (itemLu.user == this.state.lecteur.email)) {
-                    this.setState({ likeAutorise: false });
-                };
-            })
+            if ((!this.state.readStatus) && (this.state.loaded)) {
+                this.state.items.map((itemLu) =>
+                    ((itemLu.chapitre === this.props.contentChapitre.titreChapitre) && (itemLu.user === this.state.lecteur.email)) ?
+                        this.setState({ likeAutorise: false }) : ''
+                )
 
-            if (this.state.likeAutorise) {
-                // Popule les champs dans une collection "item"
-                const itemLu = {
-                    user: this.state.lecteur.email,
-                    chapitre: this.props.contentChapitre.titreChapitre,
-                    chapitreSlug: this.props.contentChapitre.slug,
-                    nomRoman: this.props.contentChapitre.nomRoman,
-                    chapitreApres: this.props.contentChapitre.chapitreApres,
-                    codeChapitre: this.props.contentChapitre.codeChapitre
+                if (this.state.likeAutorise) {
+                    // Popule les champs dans une collection "item"
+                    const itemLu = {
+                        user: this.state.lecteur.email,
+                        chapitre: this.props.contentChapitre.titreChapitre,
+                        chapitreSlug: this.props.contentChapitre.slug,
+                        nomRoman: this.props.contentChapitre.nomRoman,
+                        chapitreApres: this.props.contentChapitre.chapitreApres,
+                        codeChapitre: this.props.contentChapitre.codeChapitre
+                    }
+
+                    // Pousse l'item créé dans la collection
+                    itemsRef.push(itemLu);
                 }
-
-                // Pousse l'item créé dans la collection
-                itemsRef.push(itemLu);
             }
-        }
 
-        this.toggleRead();
+            this.toggleRead();
+        }
     }
 
     login() {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                const user = result.user;
-                this.setState({
-                    user
-                });
-                cookie.save('lecteur', this.state.user, { path: '/' });
+        if (typeof window !== "undefined") {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    this.setState({
+                        user
+                    });
+                    cookie.save('lecteur', this.state.user, { path: '/' });
 
-                window.location.reload();
-            });
+                    window.location.reload();
+                });
+        }
     }
 
     removeItem(itemId) {
-        if (this.state.readText == this.lang.btn_read_2) {
-            const itemRef = firebase.database().ref(`/reads/${itemId}`);
-            itemRef.remove();
+        if (typeof window !== "undefined") {
+            if (this.state.readText === this.lang.btn_read_2) {
+                const itemRef = firebase.database().ref(`/reads/${itemId}`);
+                itemRef.remove();
+            }
         }
     }
 

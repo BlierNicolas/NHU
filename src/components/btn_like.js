@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     Button,
     Collapse
 } from 'reactstrap';
-import firebase, { auth, provider } from '../firebase.js';
+import firebase, { auth, provider } from 'firebase/app';
+import 'firebase/database';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -24,10 +25,10 @@ export default class Btn_like extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
 
@@ -40,7 +41,7 @@ export default class Btn_like extends React.Component {
             likeStatus: false,
             likeText: this.lang.btn_like_1,
             btn_class_like: "success",
-			likeAutorise: true,
+            likeAutorise: true,
             loaded: false
         };
         this.handleSubmitLike = this.handleSubmitLike.bind(this);
@@ -67,106 +68,114 @@ export default class Btn_like extends React.Component {
                 this.setState({ nombreLike: this.state.nombreLike - 1 });
                 this.setState({ btn_class_like: "success" });
 
-                this.state.items.map((item) => {
-                    if ((item.user == this.state.lecteur.email) && (item.chapitre == this.props.contentChapitre.titreChapitre)) {
-                        this.removeItem(item.id);
-                    };
-                })
+                this.state.items.map((item) =>
+                    ((item.user === this.state.lecteur.email) && (item.chapitre === this.props.contentChapitre.titreChapitre)) ?
+                        this.removeItem(item.id) : ''
+                )
             }
         }
     }
 
-    componentWillMount() {
-        this.state.lecteur = cookie.load('lecteur');
+    UNSAFE_componentWillMount() {
+        this.setState({ lecteur: cookie.load('lecteur') });
     }
 
     componentDidMount() {
-        const itemsRef = firebase.database().ref('likes');
-        itemsRef.on('value', (snapshot) => {
-            let items = snapshot.val();
-            let newState = [];
-            for (let item in items) {
-                newState.push({
-                    id: item,
-                    chapitre: items[item].chapitre,
-                    user: items[item].user
+        if (typeof window !== "undefined") {
+            const itemsRef = firebase.database().ref('likes');
+            itemsRef.on('value', (snapshot) => {
+                let items = snapshot.val();
+                let newState = [];
+                for (let item in items) {
+                    newState.push({
+                        id: item,
+                        chapitre: items[item].chapitre,
+                        user: items[item].user
+                    });
+                }
+                this.setState({
+                    items: newState
                 });
-            }
-            this.setState({
-                items: newState
-            });
 
-            if (!this.state.loaded) {
-                this.checkUpLikes();
-                this.setState({ loaded: true });
-            }
-        });
+                if (!this.state.loaded) {
+                    this.checkUpLikes();
+                    this.setState({ loaded: true });
+                }
+            });
+        }
     }
 
     checkUpLikes() {
         this.setState({ nombreLike: 0 });
         if (this.state.lecteur) {
-            this.state.items.map((item) => {
-                if (item.chapitre == this.props.contentChapitre.titreChapitre) {
-                    if (item.user == this.state.lecteur.email) {
-                        this.setState({ likeStatus: true });
-                        this.setState({ likeText: this.lang.btn_like_2 });
-                        this.setState({ btn_class_like: "danger" });
-                    };
+            this.state.items.map((item) =>
+                (item.chapitre === this.props.contentChapitre.titreChapitre) ?
+                    (
+                        (item.user === this.state.lecteur.email) ?
+                            (
+                                this.setState({ likeStatus: true }),
+                                this.setState({ likeText: this.lang.btn_like_2 }),
+                                this.setState({ btn_class_like: "danger" })
+                            ) : '',
 
-                    this.setState({ nombreLike: this.state.nombreLike + 1 });
-                };
-            })
+                        this.setState({ nombreLike: this.state.nombreLike + 1 })
+                    ) : ''
+            )
         }
     }
 
     handleSubmitLike(e) {
-        // Empêche le refresh
-        e.preventDefault();
+        if (typeof window !== "undefined") {
+            // Empêche le refresh
+            e.preventDefault();
 
-        // Met la référence vers la database
-        const itemsRef = firebase.database().ref('likes');
+            // Met la référence vers la database
+            const itemsRef = firebase.database().ref('likes');
 
-        if ((!this.state.likeStatus) && (this.state.loaded)) {
-            this.state.items.map((item) => {
-                if ((item.chapitre == this.props.contentChapitre.titreChapitre) && (item.user == this.state.lecteur.email)) {
-                    this.setState({ likeAutorise: false });
-                };
-            })
+            if ((!this.state.likeStatus) && (this.state.loaded)) {
+                this.state.items.map((item) =>
+                    ((item.chapitre === this.props.contentChapitre.titreChapitre) && (item.user === this.state.lecteur.email)) ?
+                        this.setState({ likeAutorise: false }) : ''
+                )
 
-            if (this.state.likeAutorise) {
-                // Popule les champs dans une collection "item"
-                const item = {
-                    user: this.state.lecteur.email,
-                    chapitre: this.props.contentChapitre.titreChapitre,
-                    nomRoman: this.props.contentChapitre.nomRoman
+                if (this.state.likeAutorise) {
+                    // Popule les champs dans une collection "item"
+                    const item = {
+                        user: this.state.lecteur.email,
+                        chapitre: this.props.contentChapitre.titreChapitre,
+                        nomRoman: this.props.contentChapitre.nomRoman
+                    }
+
+                    // Pousse l'item créé dans la collection
+                    itemsRef.push(item);
                 }
-
-                // Pousse l'item créé dans la collection
-                itemsRef.push(item);
             }
-        }
 
-        this.toggleLike();
+            this.toggleLike();
+        }
     }
 
     login() {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                const user = result.user;
-                this.setState({
-                    user
-                });
-                cookie.save('lecteur', this.state.user, { path: '/' });
+        if (typeof window !== "undefined") {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    this.setState({
+                        user
+                    });
+                    cookie.save('lecteur', this.state.user, { path: '/' });
 
-                window.location.reload();
-            });
+                    window.location.reload();
+                });
+        }
     }
 
     removeItem(itemId) {
-        if (this.state.likeText == this.lang.btn_like_2) {
-            const itemRef = firebase.database().ref(`/likes/${itemId}`);
-            itemRef.remove();
+        if (typeof window !== "undefined") {
+            if (this.state.likeText === this.lang.btn_like_2) {
+                const itemRef = firebase.database().ref(`/likes/${itemId}`);
+                itemRef.remove();
+            }
         }
     }
 

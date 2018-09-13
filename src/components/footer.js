@@ -15,10 +15,10 @@ export default class Footer extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
     }
@@ -27,13 +27,13 @@ export default class Footer extends React.Component {
         return (
             <footer>
                 <Alert color="primary">
-                    {this.lang.footer_alert_text}<a href={this.lang.footer_alert_url} target="_blank">{this.lang.accueil_jumbo_titre}</a>
+                    {this.lang.footer_alert_text}<a href={this.lang.footer_alert_url} target="_blank" rel="noopener noreferrer">{this.lang.accueil_jumbo_titre}</a>
                 </Alert>
                 <div className="py-5">
                     <Container fluid>
                         <Row>
                             <Col sm="12" className="text-white d-flex flex-column flex-lg-row align-items-center justify-content-between text-center">
-                                <a href="https://www.contentful.com/" rel="nofollow" target="_blank" className="mx-3 text-white">
+                                <a href="https://www.contentful.com/" rel="nofollow noopener noreferrer" target="_blank" className="mx-3 text-white">
                                     <img src="https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg" className="contentful-logo" alt="Powered by Contentful" />
                                 </a>
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { graphql } from "gatsby";
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +17,8 @@ import classnames from 'classnames';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
+import Layout from '../components/layout'
+
 class Ville extends Component {
 	constructor(props) {
 		super(props);
@@ -27,10 +30,10 @@ class Ville extends Component {
 
 		this.lang = lang_fr;
 
-		if (this.props.pathContext.lang == "fr-CA") {
+		if (this.props.pageContext.lang == "fr-CA") {
 			this.lang = lang_fr;
 		}
-		if (this.props.pathContext.lang == "en-US") {
+		if (this.props.pageContext.lang == "en-US") {
 			this.lang = lang_en;
 		}
 	}
@@ -49,65 +52,67 @@ class Ville extends Component {
 		} = this.props
 
 		return (
-			<div id="page-wrapper">
-				<Header lang={this.props.pathContext.lang} />
+			<Layout>
+				<div id="page-wrapper">
+					<Header lang={this.props.pageContext.lang} />
 
-				<div>
-					<Breadcrumb className="mb-0">
-						<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
-						<BreadcrumbItem><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
-						<BreadcrumbItem active>{data.contentfulVille.nomVille}</BreadcrumbItem>
-					</Breadcrumb>
-				</div>
+					<div>
+						<Breadcrumb className="mb-0">
+							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+							<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
+							<BreadcrumbItem><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
+							<BreadcrumbItem active>{data.contentfulVille.nomVille}</BreadcrumbItem>
+						</Breadcrumb>
+					</div>
 
-				<div className="equiv">
-					<Link className="text-white" to={this.lang.other_lang_url + data.contentfulVille.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-				</div>
+					<div className="equiv">
+						<Link className="text-white" to={this.lang.other_lang_url + data.contentfulVille.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+					</div>
 
-				<Container className="pb-5">
-					<Row>
-						<Col lg="12" md="12">
-							<div className="mt-5 mb-3">
-								<div>
-									<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
-									{
-										data.contentfulVille.description ?
-											(<div className="my-3">
-												<div>
-													<h3>{this.lang.pays_description}</h3>
-													<div>
-														<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.description.childMarkdownRemark.html }} />
-													</div>
-												</div>
-											</div>) :
-											('')
-									}
-									{
-										data.contentfulVille.histoire ?
-											(<div className="my-3">
-												<div>
-													<h3>{this.lang.pays_histoire}</h3>
-													<div>
-														<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.histoire.childMarkdownRemark.html }} />
-													</div>
-												</div>
-											</div>) :
-											('')
-									}
+					<Container className="pb-5">
+						<Row>
+							<Col lg="12" md="12">
+								<div className="mt-5 mb-3">
 									<div>
-										{this.lang.ville_superficie + data.contentfulVille.superficie} m<sup>2</sup><br />
-										{this.lang.ville_population + data.contentfulVille.population}<br />
-										{this.lang.ville_nouv_humains + data.contentfulVille.quantiteNouvHumains}
+										<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
+										{
+											data.contentfulVille.description ?
+												(<div className="my-3">
+													<div>
+														<h3>{this.lang.pays_description}</h3>
+														<div>
+															<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.description.childMarkdownRemark.html }} />
+														</div>
+													</div>
+												</div>) :
+												('')
+										}
+										{
+											data.contentfulVille.histoire ?
+												(<div className="my-3">
+													<div>
+														<h3>{this.lang.pays_histoire}</h3>
+														<div>
+															<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.histoire.childMarkdownRemark.html }} />
+														</div>
+													</div>
+												</div>) :
+												('')
+										}
+										<div>
+											{this.lang.ville_superficie + data.contentfulVille.superficie} m<sup>2</sup><br />
+											{this.lang.ville_population + data.contentfulVille.population}<br />
+											{this.lang.ville_nouv_humains + data.contentfulVille.quantiteNouvHumains}
+										</div>
 									</div>
 								</div>
-							</div>
-						</Col>
-					</Row>
-				</Container>
+							</Col>
+						</Row>
+					</Container>
 
-				<Footer lang={this.props.pathContext.lang} />
-			</div>
+					<Footer lang={this.props.pageContext.lang} />
+				</div>
+			</Layout>
 		)
 	}
 }

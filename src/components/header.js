@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import {
     Collapse,
@@ -15,6 +15,8 @@ import {
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
 import { auth, provider } from '../firebase.js';
+import 'firebase/database';
+import 'firebase/auth';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -34,10 +36,10 @@ export default class Header extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
 
@@ -68,19 +70,21 @@ export default class Header extends React.Component {
         cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
-    componentWillMount() {
-        this.state.mounted = cookie.load('c_nightMode');
+    UNSAFE_componentWillMount() {
+        this.setState({ mounted: cookie.load('c_nightMode') });
         this.checkActif();
     }
 
     componentDidMount() {
         this.setState({ nightMode: !this.state.nightMode });
 
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ user });
-            }
-        });
+        if (typeof window !== "undefined") {
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    this.setState({ user });
+                }
+            });
+        }
     }
 
     toggle() {
@@ -97,10 +101,10 @@ export default class Header extends React.Component {
 
     checkActif() {
         if (typeof document !== "undefined") {
-            if (this.state.mounted == 'on') {
-                this.state.nightMode = true;
-                this.state.status = this.lang.btn_nuit_actif;
-                this.state.mounted = undefined;
+            if (this.state.mounted === 'on') {
+                this.setState({ nightMode: true });
+                this.setState({ status: this.lang.btn_nuit_actif });
+                this.setState({ mounted: undefined });
             }
             if (this.state.nightMode) {
                 document.body.classList.add('darkClass')
@@ -111,26 +115,30 @@ export default class Header extends React.Component {
     }
 
     logout() {
-        auth.signOut()
-            .then(() => {
-                this.setState({
-                    user: null
-                });
-                cookie.save('lecteur', null, { path: '/' });
+        if (typeof window !== "undefined") {
+            auth.signOut()
+                .then(() => {
+                    this.setState({
+                        user: null
+                    });
+                    cookie.save('lecteur', null, { path: '/' });
 
-                window.location.reload();
-            });
+                    window.location.reload();
+                });
+        }
     }
 
     login() {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                const user = result.user;
-                this.setState({
-                    user
+        if (typeof window !== "undefined") {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    this.setState({
+                        user
+                    });
+                    cookie.save('lecteur', this.state.user, { path: '/' });
                 });
-                cookie.save('lecteur', this.state.user, { path: '/' });
-            });
+        }
     }
 
     render() {
