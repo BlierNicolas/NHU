@@ -35,6 +35,9 @@
     "header_nombre": "L'Univers en nombre",
     "header_projets_url": "/projets",
     "header_projets": "Projets de l'Univers",
+    "header_connexion": "Connexion",
+    "header_login": "Se connecter",
+    "header_logout": "Se déconnecter",
     "other_lang_label": "En",
     "other_lang_url": "/en",
     "equi_histoires": "/en/stories",
@@ -153,5 +156,12 @@
     "projet_en_cours": "En préparation ou en cours",
     "projet_histoires_text": "Histoires",
     "projet_wiki_text": "Wiki",
-    "projet_site_text": "Site web"
+    "projet_site_text": "Site web",
+    "continuer_titre": "Continuer à lire",
+    "continuer_rien": "Vous n'avez rien lu ou rien à continuer pour l'instant.",
+    "btn_like_1": "J'aime",
+    "btn_like_2": "Je n'aime plus",
+    "btn_like_3": " | Connectez-vous pour donner un j'aime",
+    "btn_read_1": "Lu",
+    "btn_read_2": "Non lu"
 }

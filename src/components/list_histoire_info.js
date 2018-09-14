@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import {
     ListGroupItem,
@@ -13,10 +13,10 @@ export default class List_Histoire_Info extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
     }
@@ -29,7 +29,7 @@ export default class List_Histoire_Info extends React.Component {
                         (edge) =>
                             <div key={edge.node.id}>
                                 {
-                                    edge.node.typeHistoire == this.props.typeHistoire ?
+                                    edge.node.typeHistoire === this.props.typeHistoire ?
                                         (
                                             <ListGroupItem className="mb-4 border-top-0 border-right-0 border-left-0 pt-0 pr-0 pl-0 anim-bounce-in">
                                                 <ListGroupItemHeading><Link to={this.lang.list_histoires_url + edge.node.slug + "/"}>{edge.node.titreRoman}</Link></ListGroupItemHeading>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import {
     Collapse,
@@ -14,7 +14,9 @@ import {
 } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import cookie from 'react-cookies';
-//import { auth, provider } from '../firebase.js';
+import { auth, provider } from '../firebase.js';
+import 'firebase/database';
+import 'firebase/auth';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -34,53 +36,61 @@ export default class Header extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
 
         this.state = {
             isOpen: false,
-            nightMode: false,
-            status: this.lang.btn_nuit_inactif,
-            mounted: undefined,
             user: null
         };
+
+        this.nightMode = false
+        this.status = this.lang.btn_nuit_inactif
+        this.mounted = undefined
+
+        if (cookie.load('c_nightMode') !== "null") {
+            this.mounted = cookie.load('c_nightMode');
+            this.checkActif();
+        }
     }
 
     onEntering() {
-        this.setState({ status: this.lang.btn_nuit_desactivation });
+        this.status = this.lang.btn_nuit_desactivation;
     }
 
     onEntered() {
-        this.setState({ status: this.lang.btn_nuit_inactif });
+        this.status = this.lang.btn_nuit_inactif;
         cookie.save('c_nightMode', 'off', { path: '/' });
     }
 
     onExiting() {
-        this.setState({ status: this.lang.btn_nuit_activation });
+        this.status = this.lang.btn_nuit_activation;
     }
 
     onExited() {
-        this.setState({ status: this.lang.btn_nuit_actif });
+        this.status = this.lang.btn_nuit_actif;
         cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
-    componentWillMount() {
-        this.state.mounted = cookie.load('c_nightMode');
-        this.checkActif();
-    }
+    // UNSAFE_componentWillMount() {
+    //     this.mounted = cookie.load('c_nightMode');
+    //     this.checkActif();
+    // }
 
     componentDidMount() {
-        this.setState({ nightMode: !this.state.nightMode });
+        this.nightMode = !this.nightMode;
 
-        // auth.onAuthStateChanged((user) => {
-        //     if (user) {
-        //         this.setState({ user });
-        //     }
-        // });
+        if (typeof window !== "undefined") {
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    this.setState({ user });
+                }
+            });
+        }
     }
 
     toggle() {
@@ -90,19 +100,19 @@ export default class Header extends React.Component {
     }
 
     toggleNight() {
-        this.setState({ nightMode: !this.state.nightMode });
+        this.nightMode = !this.nightMode;
 
         this.checkActif();
     }
 
     checkActif() {
         if (typeof document !== "undefined") {
-            if (this.state.mounted == 'on') {
-                this.state.nightMode = true;
-                this.state.status = this.lang.btn_nuit_actif;
-                this.state.mounted = undefined;
+            if (this.mounted === 'on') {
+                this.nightMode = true;
+                this.status = this.lang.btn_nuit_actif;
+                this.mounted = undefined;
             }
-            if (this.state.nightMode) {
+            if (this.nightMode) {
                 document.body.classList.add('darkClass')
             } else {
                 document.body.classList.remove('darkClass')
@@ -111,26 +121,30 @@ export default class Header extends React.Component {
     }
 
     logout() {
-        // auth.signOut()
-        //     .then(() => {
-        //         this.setState({
-        //             user: null
-        //         });
-        //         cookie.save('lecteur', null, { path: '/' });
+        if (typeof window !== "undefined") {
+            auth.signOut()
+                .then(() => {
+                    this.setState({
+                        user: null
+                    });
+                    cookie.save('lecteur', null, { path: '/' });
 
-        //         window.location.reload();
-        //     });
+                    window.location.reload();
+                });
+        }
     }
 
     login() {
-        // auth.signInWithPopup(provider)
-        //     .then((result) => {
-        //         const user = result.user;
-        //         this.setState({
-        //             user
-        //         });
-        //         cookie.save('lecteur', this.state.user, { path: '/' });
-        //     });
+        if (typeof window !== "undefined") {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    this.setState({
+                        user
+                    });
+                    cookie.save('lecteur', this.state.user, { path: '/' });
+                });
+        }
     }
 
     render() {
@@ -147,11 +161,11 @@ export default class Header extends React.Component {
                                         className='mr-2'
                                         style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                                     />
-                                    {this.lang.btn_nuit + this.state.status}
+                                    {this.lang.btn_nuit + this.status}
                                 </Button>
 
                                 <Collapse
-                                    isOpen={this.state.nightMode}
+                                    isOpen={this.nightMode}
                                     onEntering={this.onEntering}
                                     onEntered={this.onEntered}
                                     onExiting={this.onExiting}
@@ -186,7 +200,7 @@ export default class Header extends React.Component {
                             </UncontrolledDropdown>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
-                                {this.lang.header_wiki}
+                                    {this.lang.header_wiki}
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
@@ -209,30 +223,26 @@ export default class Header extends React.Component {
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
-                            {/* <UncontrolledDropdown nav inNavbar>
+                            <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className="text-white">
                                     {this.state.user ?
-                                        <div>
-                                            {this.state.user.displayName}
-                                        </div>
+                                        this.state.user.displayName
                                         :
-                                        <div>
-                                            Connexion
-                                        </div>
+                                        <span>{this.lang.header_connexion}</span>
                                     }
                                 </DropdownToggle>
-                                <DropdownMenu right>
+                                <DropdownMenu right className="no-padding">
                                     {this.state.user ?
                                         <div>
-                                            <button onClick={this.logout}>Log Out</button>
+                                            <Button color="primary" onClick={this.logout}>{this.lang.header_logout}</Button>
                                         </div>
                                         :
                                         <div>
-                                            <button onClick={this.login}>Log In</button>
+                                            <Button color="primary" onClick={this.login}>{this.lang.header_login}</Button>
                                         </div>
                                     }
                                 </DropdownMenu>
-                            </UncontrolledDropdown> */}
+                            </UncontrolledDropdown>
                         </Nav>
                     </Collapse>
                 </Navbar>

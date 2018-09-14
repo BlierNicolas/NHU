@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { graphql } from "gatsby";
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,14 +12,15 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Block_Nouvelles from '../components/block_nouvelles';
-import Block_Calendrier from '../components/block_calendrier';
-import Block_Continuer from '../components/block_continuer';
-import List_Projet_Panel from '../components/list_projet_panel';
-//import firebase from '../firebase.js';
+import BlockNouvelles from '../components/block_nouvelles';
+import BlockCalendrier from '../components/block_calendrier';
+import BlockContinuer from '../components/block_continuer';
+import ListProjetPanel from '../components/list_projet_panel';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
+
+import Layout from '../components/layout'
 
 class IndexPage extends Component {
     constructor(props) {
@@ -27,7 +29,7 @@ class IndexPage extends Component {
             currentItem: '',
             username: '',
             items: [],
-            connectedUser: 'Nico',
+            connectedUser: null,
             lecteur: null
         }
         this.handleChange = this.handleChange.bind(this);
@@ -35,10 +37,10 @@ class IndexPage extends Component {
 
         this.lang = lang_fr;
 
-        if (this.props.pathContext.lang == "fr-CA") {
+        if (this.props.pageContext.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.pathContext.lang == "en-US") {
+        if (this.props.pageContext.lang === "en-US") {
             this.lang = lang_en;
         }
     }
@@ -90,8 +92,8 @@ class IndexPage extends Component {
         // });
     }
 
-    componentWillMount() {
-        this.state.lecteur = cookie.load('lecteur');
+    UNSAFE_componentWillMount() {
+		this.setState({lecteur: cookie.load('lecteur')});
     }
 
     removeItem(itemId) {
@@ -105,67 +107,69 @@ class IndexPage extends Component {
         } = this.props
 
         return (
-            <div>
-                <Header lang={this.props.pathContext.lang} />
+            <Layout>
+                <div>
+                    <Header lang={this.props.pageContext.lang} />
 
-                <div className="equiv">
-                    <Link className="text-white" to={this.lang.other_lang_url}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-                </div>
+                    <div className="equiv">
+                        <Link className="text-white" to={this.lang.other_lang_url}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+                    </div>
 
-                <Jumbotron fluid>
-                    <Container fluid>
-                        <h1 className="display-3">{this.lang.accueil_jumbo_titre}</h1>
-                        <p className="lead">{this.lang.accueil_jumbo_parag_1}</p>
-                        <p className="lead">{this.lang.accueil_jumbo_parag_2}</p>
-                        <Link className="btn btn-primary" to={this.lang.header_histoires_url + "/"}>{this.lang.accueil_jumbo_btn_titre}</Link>
+                    <Jumbotron fluid>
+                        <Container fluid>
+                            <h1 className="display-3">{this.lang.accueil_jumbo_titre}</h1>
+                            <p className="lead">{this.lang.accueil_jumbo_parag_1}</p>
+                            <p className="lead">{this.lang.accueil_jumbo_parag_2}</p>
+                            <Link className="btn btn-primary" to={this.lang.header_histoires_url + "/"}>{this.lang.accueil_jumbo_btn_titre}</Link>
+                        </Container>
+                    </Jumbotron>
+
+                    {
+                        this.state.lecteur !== "null" ?
+                            (<Container fluid className="p-0">
+                                <Row className="pb-5">
+                                    <Col sm="12">
+                                        <h2 className="mb-4">{this.lang.continuer_titre}</h2>
+                                        <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
+                                    </Col>
+                                </Row>
+                            </Container>) :
+                            ('')
+                    }
+
+                    <Container fluid className="p-0">
+                        <Row className="pb-5">
+                            <Col sm="12" lg="8" >
+                                <h2 className="mb-4">{this.lang.nouvelles_titre}</h2>
+                                <BlockNouvelles allNouvelles={data.allContentfulNouvelle} lang={this.props.pageContext.lang} />
+                            </Col>
+                            <Col sm="12" lg="4" >
+                                <h2 className="mb-4">{this.lang.calendrier_titre}</h2>
+                                <BlockCalendrier allCalendrier={data.allContentfulCalendrier} lang={this.props.pageContext.lang} />
+                            </Col>
+                        </Row>
+                        <Row className="pb-5">
+                            <Col>
+                                <h2 className="mb-4">{this.lang.block_info_titre}</h2>
+                                <p>{this.lang.block_info_parag_1_1}<a href={this.lang.block_info_parag_1_url}>{this.lang.block_info_parag_1_name}</a>{this.lang.block_info_parag_1_2}</p>
+                                <p>{this.lang.block_info_parag_2}</p>
+                                <p>{this.lang.block_info_parag_3}</p>
+                            </Col>
+                        </Row>
                     </Container>
-                </Jumbotron>
 
-                {/* {
-                    this.state.lecteur != "null" ?
-                        (<Container fluid className="p-0">
-                            <Row className="pb-5">
-                                <Col sm="12">
-                                    <h2 className="mb-4">Continuer à lire</h2>
-                                    <Block_Continuer allChapitre={data.allContentfulChapitre} />
-                                </Col>
-                            </Row>
-                        </Container>) :
-                        ('')
-                } */}
+                    <Container fluid className="p-0">
+                        <Row>
+                            <Col lg="12">
+                                <h2 className="mb-4">{this.lang.header_projets}</h2>
+                            </Col>
+                        </Row>
+                        <ListProjetPanel allProjets={data.allContentfulProject} lang={this.props.pageContext.lang} />
+                    </Container>
 
-                <Container fluid className="p-0">
-                    <Row className="pb-5">
-                        <Col sm="12" lg="8" >
-                            <h2 className="mb-4">{this.lang.nouvelles_titre}</h2>
-                            <Block_Nouvelles allNouvelles={data.allContentfulNouvelle} lang={this.props.pathContext.lang} />
-                        </Col>
-                        <Col sm="12" lg="4" >
-                            <h2 className="mb-4">{this.lang.calendrier_titre}</h2>
-                            <Block_Calendrier allCalendrier={data.allContentfulCalendrier} lang={this.props.pathContext.lang} />
-                        </Col>
-                    </Row>
-                    <Row className="pb-5">
-                        <Col>
-                            <h2 className="mb-4">{this.lang.block_info_titre}</h2>
-                            <p>{this.lang.block_info_parag_1_1}<a href={this.lang.block_info_parag_1_url}>{this.lang.block_info_parag_1_name}</a>{this.lang.block_info_parag_1_2}</p>
-                            <p>{this.lang.block_info_parag_2}</p>
-                            <p>{this.lang.block_info_parag_3}</p>
-                        </Col>
-                    </Row>
-                </Container>
-
-                <Container fluid className="p-0">
-                    <Row>
-                        <Col lg="12">
-                            <h2 className="mb-4">{this.lang.header_projets}</h2>
-                        </Col>
-                    </Row>
-                    <List_Projet_Panel allProjets={data.allContentfulProject} lang={this.props.pathContext.lang} />
-                </Container>
-
-                <Footer lang={this.props.pathContext.lang} />
-            </div >
+                    <Footer lang={this.props.pageContext.lang} />
+                </div >
+            </Layout>
         )
     }
 }
@@ -210,7 +214,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR ($lang: String!) {
 			}
 		}
 	}
-	allContentfulChapitre(sort: {fields: [nomRoman, ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
+	allContentfulChapitre(sort: {fields: [codeChapitre, ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 	  edges {
 		node {
 		  id

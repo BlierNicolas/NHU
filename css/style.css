@@ -242,3 +242,11 @@ footer {
 .breadcrumb {
     margin-bottom: 0;
 }
+
+.no-padding {
+    padding: 0;
+}
+
+.no-padding div button {
+    width: 100%;
+}

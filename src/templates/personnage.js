@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { graphql } from "gatsby";
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,125 +16,129 @@ import Footer from '../components/footer'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
+import Layout from '../components/layout'
+
 class Personnage extends Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.lang = lang_fr;
+        this.lang = lang_fr;
 
-		if (this.props.pathContext.lang == "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pathContext.lang == "en-US") {
-			this.lang = lang_en;
-		}
-	}
-	
+        if (this.props.pageContext.lang === "fr-CA") {
+            this.lang = lang_fr;
+        }
+        if (this.props.pageContext.lang === "en-US") {
+            this.lang = lang_en;
+        }
+    }
+
     render() {
         const {
             data
         } = this.props
 
         return (
-            <div id="page-wrapper">
-                <Header lang={this.props.pathContext.lang} />
+            <Layout>
+                <div id="page-wrapper">
+                    <Header lang={this.props.pageContext.lang} />
 
-                <div>
-                    <Breadcrumb className="mb-0">
-                        <BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to={this.lang.header_personnages_url + "/"}>{this.lang.header_personnages}</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
-                    </Breadcrumb>
-                </div>
+                    <div>
+                        <Breadcrumb className="mb-0">
+                            <BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
+                            <BreadcrumbItem><Link to={this.lang.header_personnages_url + "/"}>{this.lang.header_personnages}</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>{data.contentfulPersonnage.nomComplet}</BreadcrumbItem>
+                        </Breadcrumb>
+                    </div>
 
-                <div className="equiv">
-                    <Link className="text-white" to={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-                </div>
+                    <div className="equiv">
+                        <Link className="text-white" to={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+                    </div>
 
-                <Container fluid>
-                    <Row className="pb-5">
-                        <Col lg={{ size: 8, offset: 2 }} md="12">
-                            <div className="mt-5 mb-3">
-                                <div>
-                                    <h1 className="display-4">{data.contentfulPersonnage.nomComplet}</h1>
+                    <Container fluid>
+                        <Row className="pb-5">
+                            <Col lg={{ size: 8, offset: 2 }} md="12">
+                                <div className="mt-5 mb-3">
                                     <div>
-                                        {
-                                            data.contentfulPersonnage.pouvoirNom ?
-                                                (<div>
-                                                    {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
-                                                </div>) :
-                                                ('')
-                                        }
-                                        {this.lang.personnage_alignement_label + data.contentfulPersonnage.alignement}<br />
-                                        {this.lang.personnage_naissance_label + data.contentfulPersonnage.dateNaissance}<br />
-                                        {this.lang.personnage_age_label + data.contentfulPersonnage.age}
+                                        <h1 className="display-4">{data.contentfulPersonnage.nomComplet}</h1>
+                                        <div>
+                                            {
+                                                data.contentfulPersonnage.pouvoirNom ?
+                                                    (<div>
+                                                        {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
+                                                    </div>) :
+                                                    ('')
+                                            }
+                                            {this.lang.personnage_alignement_label + data.contentfulPersonnage.alignement}<br />
+                                            {this.lang.personnage_naissance_label + data.contentfulPersonnage.dateNaissance}<br />
+                                            {this.lang.personnage_age_label + data.contentfulPersonnage.age}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            {
-                                data.contentfulPersonnage.descriptionSommaire ?
-                                    (<div className="my-3">
-                                        <div>
-                                            <h3>{this.lang.personnage_desc_sommaire_titre}</h3>
+                                {
+                                    data.contentfulPersonnage.descriptionSommaire ?
+                                        (<div className="my-3">
                                             <div>
-                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
+                                                <h3>{this.lang.personnage_desc_sommaire_titre}</h3>
+                                                <div>
+                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>) :
-                                    ('')
-                            }
-                            {
-                                data.contentfulPersonnage.descriptionPouvoir ?
-                                    (<div className="my-3">
-                                        <div>
-                                            <h3>{this.lang.personnage_desc_pouvoir_titre}</h3>
+                                        </div>) :
+                                        ('')
+                                }
+                                {
+                                    data.contentfulPersonnage.descriptionPouvoir ?
+                                        (<div className="my-3">
                                             <div>
-                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
+                                                <h3>{this.lang.personnage_desc_pouvoir_titre}</h3>
+                                                <div>
+                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>) :
-                                    ('')
-                            }
-                            {
-                                data.contentfulPersonnage.descriptionPhysique ?
-                                    (<div className="my-3">
-                                        <div>
-                                            <h3>{this.lang.personnage_desc_physique_titre}</h3>
+                                        </div>) :
+                                        ('')
+                                }
+                                {
+                                    data.contentfulPersonnage.descriptionPhysique ?
+                                        (<div className="my-3">
                                             <div>
-                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
+                                                <h3>{this.lang.personnage_desc_physique_titre}</h3>
+                                                <div>
+                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>) :
-                                    ('')
-                            }
-                            {
-                                data.contentfulPersonnage.relation ?
-                                    (<div className="my-3">
-                                        <div>
-                                            <h3>{this.lang.personnage_relations_titre}</h3>
+                                        </div>) :
+                                        ('')
+                                }
+                                {
+                                    data.contentfulPersonnage.relation ?
+                                        (<div className="my-3">
                                             <div>
-                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.relation.childMarkdownRemark.html }} />
+                                                <h3>{this.lang.personnage_relations_titre}</h3>
+                                                <div>
+                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.relation.childMarkdownRemark.html }} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>) :
-                                    ('')
-                            }
-                            {
-                                data.contentfulPersonnage.apparition ?
-                                    (<div className="my-3">
-                                        <div>
-                                            <h3>{this.lang.personnage_apparitions_titre}</h3>
-                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
-                                        </div>
-                                    </div>) :
-                                    ('')
-                            }
-                        </Col>
-                    </Row>
-                </Container>
+                                        </div>) :
+                                        ('')
+                                }
+                                {
+                                    data.contentfulPersonnage.apparition ?
+                                        (<div className="my-3">
+                                            <div>
+                                                <h3>{this.lang.personnage_apparitions_titre}</h3>
+                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
+                                            </div>
+                                        </div>) :
+                                        ('')
+                                }
+                            </Col>
+                        </Row>
+                    </Container>
 
-                <Footer lang={this.props.pathContext.lang} />
-            </div>
+                    <Footer lang={this.props.pageContext.lang} />
+                </div>
+            </Layout>
         )
     }
 }

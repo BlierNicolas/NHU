@@ -1,22 +1,25 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "venatusuniverse",
+  "description": "New Humans Universe website",
+  "version": "1.0.80",
+  "author": "Nicolas Blier",
   "dependencies": {
-    "aws-sdk": "^2.283.1",
+    "aws-sdk": "^2.312.0",
+    "bluebird": "^3.5.2",
     "bootstrap": "^4.1.1",
-    "gatsby": "^1.9.277",
-    "gatsby-link": "^1.6.40",
+    "firebase": "^5.4.2",
+    "gatsby": "next",
+    "gatsby-cli": "next",
     "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-i18n": "^0.4.2",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-source-contentful": "^1.3.50",
-    "gatsby-transformer-remark": "^1.7.40",
-    "query-string": "^6.1.0",
-    "react": "^16.3.2",
+    "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-source-contentful": "^1.3.54",
+    "gatsby-transformer-remark": "^1.7.44",
+    "react": "^16.5.0",
     "react-cookies": "^0.1.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^16.5.0",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-marked": "^0.3.1",
@@ -31,11 +34,14 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
+    "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "gatsby-plugin-remove-trailing-slashes": "^1.0.9",
-    "prettier": "^1.12.0"
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
