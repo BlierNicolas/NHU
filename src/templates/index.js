@@ -214,7 +214,7 @@ export const pageQuery = graphql`query listeNouvelleQueryFR ($lang: String!) {
 			}
 		}
 	}
-	allContentfulChapitre(sort: {fields: [nomRoman, ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
+	allContentfulChapitre(sort: {fields: [codeChapitre, ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 	  edges {
 		node {
 		  id

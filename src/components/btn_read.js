@@ -37,14 +37,19 @@ export default class Btn_read extends React.Component {
             lecteur: null,
             nomRoman: "",
             items: [],
-            itemsLu: [],
-            readStatus: false,
-            readText: this.lang.btn_read_1,
-            btn_class_read: "success",
             likeAutorise: true,
             loaded: false
         };
+        this.itemsLu = []
+        this.readStatus = false
+        this.readText = this.lang.btn_read_1
+        this.btn_class_read = "success"
+
         this.handleSubmitRead = this.handleSubmitRead.bind(this);
+
+        if (cookie.load('lecteur') !== "null") {
+            this.state.lecteur = cookie.load('lecteur')
+        }
     }
 
     onEntering() { }
@@ -57,16 +62,16 @@ export default class Btn_read extends React.Component {
 
     toggleRead() {
         if ((this.state.lecteur) && (this.state.loaded)) {
-            if (!this.state.readStatus) {
-                this.setState({ readStatus: true });
-                this.setState({ readText: this.lang.btn_read_2 });
-                this.setState({ btn_class_read: "danger" });
+            if (!this.readStatus) {
+                this.readStatus = true;
+                this.readText = this.lang.btn_read_2;
+                this.btn_class_read = "danger";
             } else {
-                this.setState({ readStatus: false });
-                this.setState({ readText: this.lang.btn_read_1 });
-                this.setState({ btn_class_read: "success" });
+                this.readStatus = false;
+                this.readText = this.lang.btn_read_1;
+                this.btn_class_read = "success";
 
-                this.state.itemsLu.map((item) =>
+                this.itemsLu.map((item) =>
                     ((item.user === this.state.lecteur.email) && (item.chapitre === this.props.contentChapitre.titreChapitre)) ?
                         this.removeItem(item.id) : ''
                 )
@@ -74,9 +79,9 @@ export default class Btn_read extends React.Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
-        this.setState({ lecteur: cookie.load('lecteur') });
-    }
+    // UNSAFE_componentWillMount() {
+    //     this.setState({ lecteur: cookie.load('lecteur') });
+    // }
 
     componentDidMount() {
         if (typeof window !== "undefined") {
@@ -93,9 +98,8 @@ export default class Btn_read extends React.Component {
                         nomRoman: itemsLu[item].nomRoman
                     });
                 }
-                this.setState({
-                    itemsLu: newState
-                });
+
+                this.itemsLu = newState
 
                 if (!this.state.loaded) {
                     this.checkUpReads();
@@ -107,12 +111,12 @@ export default class Btn_read extends React.Component {
 
     checkUpReads() {
         if (this.state.lecteur) {
-            this.state.itemsLu.map((item) =>
+            this.itemsLu.map((item) =>
                 ((item.chapitre === this.props.contentChapitre.titreChapitre) && (item.user === this.state.lecteur.email)) ?
                     (
-                        this.setState({ readStatus: true }),
-                        this.setState({ readText: this.lang.btn_read_2 }),
-                        this.setState({ btn_class_read: "danger" })
+                        this.readStatus = true,
+                        this.readText = this.lang.btn_read_2,
+                        this.btn_class_read = "danger"
                     ) : ''
             )
         }
@@ -126,7 +130,7 @@ export default class Btn_read extends React.Component {
             // Met la référence vers la database
             const itemsRef = firebase.database().ref('reads');
 
-            if ((!this.state.readStatus) && (this.state.loaded)) {
+            if ((!this.readStatus) && (this.state.loaded)) {
                 this.state.items.map((itemLu) =>
                     ((itemLu.chapitre === this.props.contentChapitre.titreChapitre) && (itemLu.user === this.state.lecteur.email)) ?
                         this.setState({ likeAutorise: false }) : ''
@@ -169,7 +173,7 @@ export default class Btn_read extends React.Component {
 
     removeItem(itemId) {
         if (typeof window !== "undefined") {
-            if (this.state.readText === this.lang.btn_read_2) {
+            if (this.readText === this.lang.btn_read_2) {
                 const itemRef = firebase.database().ref(`/reads/${itemId}`);
                 itemRef.remove();
             }
@@ -179,10 +183,10 @@ export default class Btn_read extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmitRead} className="float-left d-content">
-                <Button color={this.state.btn_class_read}>{this.state.readText}</Button>
+                <Button color={this.btn_class_read}>{this.readText}</Button>
 
                 <Collapse
-                    isOpen={this.state.readStatus}
+                    isOpen={this.readStatus}
                     onEntering={this.onEntering}
                     onEntered={this.onEntered}
                     onExiting={this.onExiting}

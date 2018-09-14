@@ -32,14 +32,19 @@ export default class Block_Continuer extends React.Component {
             items: [],
             itemsLu: [],
             loaded: false,
-            dernierChapitreLu: "",
             chapitres: []
         };
+
+        this.dernierChapitreLu= ""
+
+        if (cookie.load('lecteur') !== "null") {
+            this.state.lecteur = cookie.load('lecteur')
+        }
     }
 
-    UNSAFE_componentWillMount() {
-        this.setState({ lecteur: cookie.load('lecteur') });
-    }
+    // UNSAFE_componentWillMount() {
+    //     this.setState({ lecteur: cookie.load('lecteur') });
+    // }
 
     componentDidMount() {
         if (typeof window !== "undefined") {
@@ -66,9 +71,9 @@ export default class Block_Continuer extends React.Component {
 
                     const myData = [].concat(newState).sort((a, b) => a.codeChapitre > b.codeChapitre)
 
-                    this.setState({
-                        itemsLu: myData
-                    });
+                    myData.map(
+                        (item) => this.state.itemsLu.push(item)
+                    )
 
                     if (!this.state.loaded) {
                         this.checkUpReads();
@@ -83,9 +88,10 @@ export default class Block_Continuer extends React.Component {
         let slugChapitre = "";
 
         if (this.state.lecteur) {
-            this.state.itemsLu.map((item) =>
-                console.log(item.codeChapitre)
-            )
+            // this.state.itemsLu.map((item) =>
+            //     console.log(item.codeChapitre)
+            // )
+            //console.log(this.state.itemsLu)
 
             this.props.allChapitre.edges.map((edge) =>
                 this.state.itemsLu.map((item) =>
@@ -93,16 +99,24 @@ export default class Block_Continuer extends React.Component {
                         (
                             ((item.chapitre === edge.node.titreChapitre) && (item.user === this.state.lecteur.email)) ?
                                 (
-                                    (this.state.dernierChapitreLu !== item.chapitreApres) ?
+                                    //console.log("---" + item.chapitre + " --- " + this.dernierChapitreLu + " / " + item.chapitreApres),
+                                    (this.dernierChapitreLu === "") ?
                                         (
-                                            this.setState({ dernierChapitreLu: item.chapitreApres }),
-                                            item.traite = "oui"
-                                        ) : '',
-                                    (this.state.dernierChapitreLu === edge.node.slug) ?
-                                        (
-                                            slugChapitre = edge.node.slug,
-                                            this.state.chapitres.push({ slugChapitre })
-                                        ) : ''
+                                            this.dernierChapitreLu = item.chapitreApres
+                                            //console.log("Dernier chap était vide " + item.chapitre + " / " + item.chapitreApres + " / " + this.dernierChapitreLu)
+                                        ) : (
+                                            ((this.dernierChapitreLu === edge.node.slug) && (edge.node.chapitreApres === item.chapitreApres)) ?
+                                                (
+                                                    this.dernierChapitreLu = item.chapitreApres,
+                                                    //console.log("Suite trouvée " + item.chapitre + " / " + item.chapitreApres + " / " + this.dernierChapitreLu),
+                                                    item.traite = "oui"
+                                                ) : (
+                                                    slugChapitre = this.dernierChapitreLu,
+                                                    this.state.chapitres.push({ slugChapitre }),
+                                                    this.dernierChapitreLu = item.chapitreApres
+                                                    //console.log("Dernier chap différent " + item.chapitre + " / " + item.chapitreApres + " / " + this.dernierChapitreLu)
+                                                )
+                                        )
                                 ) : ''
                         ) : ''
                 )
@@ -110,7 +124,7 @@ export default class Block_Continuer extends React.Component {
 
             //Traitement du dernier élément lu
             this.props.allChapitre.edges.map((edge) =>
-                (this.state.dernierChapitreLu === edge.node.slug) ?
+                (this.dernierChapitreLu === edge.node.slug) ?
                     (
                         slugChapitre = edge.node.slug,
                         this.state.chapitres.push({ slugChapitre })

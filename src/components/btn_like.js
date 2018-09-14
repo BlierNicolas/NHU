@@ -36,15 +36,20 @@ export default class Btn_like extends React.Component {
             user: null,
             lecteur: null,
             nomRoman: "",
-            items: [],
-            nombreLike: 0,
-            likeStatus: false,
-            likeText: this.lang.btn_like_1,
-            btn_class_like: "success",
             likeAutorise: true,
             loaded: false
         };
+        this.items = []
+        this.likeStatus = false
+        this.likeText = this.lang.btn_like_1
+        this.btn_class_like = "success"
+        this.nombreLike = 0
+
         this.handleSubmitLike = this.handleSubmitLike.bind(this);
+
+        if (cookie.load('lecteur') !== "null") {
+            this.state.lecteur = cookie.load('lecteur')
+        }
     }
 
     onEntering() { }
@@ -57,18 +62,18 @@ export default class Btn_like extends React.Component {
 
     toggleLike() {
         if ((this.state.lecteur) && (this.state.loaded)) {
-            if (!this.state.likeStatus) {
-                this.setState({ likeStatus: true });
-                this.setState({ likeText: this.lang.btn_like_2 });
-                this.setState({ nombreLike: this.state.nombreLike + 1 });
-                this.setState({ btn_class_like: "danger" });
+            if (!this.likeStatus) {
+                this.likeStatus = true;
+                this.likeText = this.lang.btn_like_2;
+                this.nombreLike = this.nombreLike + 1;
+                this.btn_class_like = "danger";
             } else {
-                this.setState({ likeStatus: false });
-                this.setState({ likeText: this.lang.btn_like_1 });
-                this.setState({ nombreLike: this.state.nombreLike - 1 });
-                this.setState({ btn_class_like: "success" });
+                this.likeStatus = false;
+                this.likeText = this.lang.btn_like_1;
+                this.nombreLike = this.state.nombreLike - 1;
+                this.btn_class_like = "success";
 
-                this.state.items.map((item) =>
+                this.items.map((item) =>
                     ((item.user === this.state.lecteur.email) && (item.chapitre === this.props.contentChapitre.titreChapitre)) ?
                         this.removeItem(item.id) : ''
                 )
@@ -76,9 +81,9 @@ export default class Btn_like extends React.Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
-        this.setState({ lecteur: cookie.load('lecteur') });
-    }
+    // UNSAFE_componentWillMount() {
+    //     this.setState({ lecteur: cookie.load('lecteur') });
+    // }
 
     componentDidMount() {
         if (typeof window !== "undefined") {
@@ -93,9 +98,8 @@ export default class Btn_like extends React.Component {
                         user: items[item].user
                     });
                 }
-                this.setState({
-                    items: newState
-                });
+
+                this.items = newState
 
                 if (!this.state.loaded) {
                     this.checkUpLikes();
@@ -106,19 +110,19 @@ export default class Btn_like extends React.Component {
     }
 
     checkUpLikes() {
-        this.setState({ nombreLike: 0 });
+        this.nombreLike= 0;
         if (this.state.lecteur) {
-            this.state.items.map((item) =>
+            this.items.map((item) =>
                 (item.chapitre === this.props.contentChapitre.titreChapitre) ?
                     (
                         (item.user === this.state.lecteur.email) ?
                             (
-                                this.setState({ likeStatus: true }),
-                                this.setState({ likeText: this.lang.btn_like_2 }),
-                                this.setState({ btn_class_like: "danger" })
+                                this.likeStatus = true,
+                                this.likeText = this.lang.btn_like_2,
+                                this.btn_class_like = "danger"
                             ) : '',
 
-                        this.setState({ nombreLike: this.state.nombreLike + 1 })
+                        this.nombreLike = this.nombreLike + 1
                     ) : ''
             )
         }
@@ -132,8 +136,8 @@ export default class Btn_like extends React.Component {
             // Met la référence vers la database
             const itemsRef = firebase.database().ref('likes');
 
-            if ((!this.state.likeStatus) && (this.state.loaded)) {
-                this.state.items.map((item) =>
+            if ((!this.likeStatus) && (this.state.loaded)) {
+                this.items.map((item) =>
                     ((item.chapitre === this.props.contentChapitre.titreChapitre) && (item.user === this.state.lecteur.email)) ?
                         this.setState({ likeAutorise: false }) : ''
                 )
@@ -172,7 +176,7 @@ export default class Btn_like extends React.Component {
 
     removeItem(itemId) {
         if (typeof window !== "undefined") {
-            if (this.state.likeText === this.lang.btn_like_2) {
+            if (this.likeText === this.lang.btn_like_2) {
                 const itemRef = firebase.database().ref(`/likes/${itemId}`);
                 itemRef.remove();
             }
@@ -182,10 +186,10 @@ export default class Btn_like extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmitLike} className="float-left d-content">
-                <Button color={this.state.btn_class_like}>{this.state.nombreLike + " | " + this.state.likeText}</Button>
+                <Button color={this.btn_class_like}>{this.nombreLike + " | " + this.likeText}</Button>
 
                 <Collapse
-                    isOpen={this.state.likeStatus}
+                    isOpen={this.likeStatus}
                     onEntering={this.onEntering}
                     onEntered={this.onEntered}
                     onExiting={this.onExiting}

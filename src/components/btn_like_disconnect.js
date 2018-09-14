@@ -2,7 +2,9 @@ import React from 'react'
 import {
     Button
 } from 'reactstrap';
-import firebase, { auth, provider } from 'firebase/app';
+import firebase, { auth, provider } from '../firebase.js';
+import 'firebase/database';
+import 'firebase/auth';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -27,17 +29,22 @@ export default class Btn_like_disconnect extends React.Component {
             user: null,
             lecteur: null,
             nomRoman: "",
-            items: [],
-            nombreLike: 0,
-            btn_class_like: "success",
             likeAutorise: false,
             loaded: false
         };
+
+        this.items = []
+        this.nombreLike = 0
+        this.btn_class_like = "success"
+
+        if (cookie.load('lecteur') !== "null") {
+            this.state.lecteur = cookie.load('lecteur')
+        }
     }
 
-    UNSAFE_componentWillMount() {
-        this.setState({ lecteur: cookie.load('lecteur') });
-    }
+    // UNSAFE_componentWillMount() {
+    //     this.setState({ lecteur: cookie.load('lecteur') });
+    // }
 
     componentDidMount() {
         if (typeof window !== "undefined") {
@@ -52,9 +59,11 @@ export default class Btn_like_disconnect extends React.Component {
                         user: items[item].user
                     });
                 }
-                this.setState({
-                    items: newState
-                });
+
+                this.items = newState
+
+                console.log("Test ")
+                console.log(this.items);
 
                 if (!this.state.loaded) {
                     this.checkUpLikes();
@@ -65,22 +74,15 @@ export default class Btn_like_disconnect extends React.Component {
     }
 
     checkUpLikes() {
-        this.setState({ nombreLike: 0 });
-        if (this.state.lecteur) {
-            this.state.items.map((item) =>
-                (item.chapitre === this.props.contentChapitre.titreChapitre) ?
-                    (
-                        (item.user === this.state.lecteur.email) ?
-                            (
-                                this.setState({ likeStatus: true }),
-                                this.setState({ likeText: this.lang.btn_like_2 }),
-                                this.setState({ btn_class_like: "danger" })
-                            ) : '',
+        this.nombreLike = 0;
+        this.items.map((item) =>
+            (item.chapitre === this.props.contentChapitre.titreChapitre) ?
+                (
+                    console.log(this.items),
 
-                        this.setState({ nombreLike: this.state.nombreLike + 1 })
-                    ) : ''
-            )
-        }
+                    this.nombreLike = this.nombreLike + 1
+                ) : ''
+        )
     }
 
     login() {
@@ -100,7 +102,7 @@ export default class Btn_like_disconnect extends React.Component {
 
     render() {
         return (
-            <Button color={this.state.btn_class_like} onClick={this.login}>{this.state.nombreLike + this.lang.btn_like_3}</Button>
+            <Button color={this.btn_class_like} onClick={this.login}>{this.nombreLike + this.lang.btn_like_3}</Button>
         );
     }
 }

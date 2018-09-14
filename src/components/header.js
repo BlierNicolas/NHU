@@ -45,38 +45,44 @@ export default class Header extends React.Component {
 
         this.state = {
             isOpen: false,
-            nightMode: false,
-            status: this.lang.btn_nuit_inactif,
-            mounted: undefined,
             user: null
         };
+
+        this.nightMode = false
+        this.status = this.lang.btn_nuit_inactif
+        this.mounted = undefined
+
+        if (cookie.load('c_nightMode') !== "null") {
+            this.mounted = cookie.load('c_nightMode');
+            this.checkActif();
+        }
     }
 
     onEntering() {
-        this.setState({ status: this.lang.btn_nuit_desactivation });
+        this.status = this.lang.btn_nuit_desactivation;
     }
 
     onEntered() {
-        this.setState({ status: this.lang.btn_nuit_inactif });
+        this.status = this.lang.btn_nuit_inactif;
         cookie.save('c_nightMode', 'off', { path: '/' });
     }
 
     onExiting() {
-        this.setState({ status: this.lang.btn_nuit_activation });
+        this.status = this.lang.btn_nuit_activation;
     }
 
     onExited() {
-        this.setState({ status: this.lang.btn_nuit_actif });
+        this.status = this.lang.btn_nuit_actif;
         cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
-    UNSAFE_componentWillMount() {
-        this.setState({ mounted: cookie.load('c_nightMode') });
-        this.checkActif();
-    }
+    // UNSAFE_componentWillMount() {
+    //     this.mounted = cookie.load('c_nightMode');
+    //     this.checkActif();
+    // }
 
     componentDidMount() {
-        this.setState({ nightMode: !this.state.nightMode });
+        this.nightMode = !this.nightMode;
 
         if (typeof window !== "undefined") {
             auth.onAuthStateChanged((user) => {
@@ -94,19 +100,19 @@ export default class Header extends React.Component {
     }
 
     toggleNight() {
-        this.setState({ nightMode: !this.state.nightMode });
+        this.nightMode = !this.nightMode;
 
         this.checkActif();
     }
 
     checkActif() {
         if (typeof document !== "undefined") {
-            if (this.state.mounted === 'on') {
-                this.setState({ nightMode: true });
-                this.setState({ status: this.lang.btn_nuit_actif });
-                this.setState({ mounted: undefined });
+            if (this.mounted === 'on') {
+                this.nightMode = true;
+                this.status = this.lang.btn_nuit_actif;
+                this.mounted = undefined;
             }
-            if (this.state.nightMode) {
+            if (this.nightMode) {
                 document.body.classList.add('darkClass')
             } else {
                 document.body.classList.remove('darkClass')
@@ -155,11 +161,11 @@ export default class Header extends React.Component {
                                         className='mr-2'
                                         style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                                     />
-                                    {this.lang.btn_nuit + this.state.status}
+                                    {this.lang.btn_nuit + this.status}
                                 </Button>
 
                                 <Collapse
-                                    isOpen={this.state.nightMode}
+                                    isOpen={this.nightMode}
                                     onEntering={this.onEntering}
                                     onEntered={this.onEntered}
                                     onExiting={this.onExiting}
