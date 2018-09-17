@@ -37,7 +37,8 @@ export default class Btn_like extends React.Component {
             lecteur: "vide",
             nomRoman: "",
             likeAutorise: true,
-            loaded: false
+            loaded: false,
+            update: ""
         };
         this.items = []
         this.likeStatus = false
@@ -69,12 +70,12 @@ export default class Btn_like extends React.Component {
             if (!this.likeStatus) {
                 this.likeStatus = true;
                 this.likeText = this.lang.btn_like_2;
-                this.nombreLike = this.nombreLike + 1;
+                this.nombreLike += 1;
                 this.btn_class_like = "danger";
             } else {
                 this.likeStatus = false;
                 this.likeText = this.lang.btn_like_1;
-                this.nombreLike = this.state.nombreLike - 1;
+                this.nombreLike -= 1;
                 this.btn_class_like = "success";
 
                 this.items.map((item) =>
@@ -82,6 +83,8 @@ export default class Btn_like extends React.Component {
                         this.removeItem(item.id) : ''
                 )
             }
+
+            this.forceUpdate();
         }
     }
 
@@ -180,7 +183,7 @@ export default class Btn_like extends React.Component {
 
     removeItem(itemId) {
         if (typeof window !== "undefined") {
-            if (this.likeText === this.lang.btn_like_2) {
+            if (this.likeText === this.lang.btn_like_1) {
                 const itemRef = firebase.database().ref(`/likes/${itemId}`);
                 itemRef.remove();
             }
