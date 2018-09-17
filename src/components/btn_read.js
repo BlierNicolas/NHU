@@ -80,6 +80,8 @@ export default class Btn_read extends React.Component {
                         this.removeItem(item.id) : ''
                 )
             }
+            
+            this.forceUpdate();
         }
     }
 
@@ -177,7 +179,7 @@ export default class Btn_read extends React.Component {
 
     removeItem(itemId) {
         if (typeof window !== "undefined") {
-            if (this.readText === this.lang.btn_read_2) {
+            if (this.readText === this.lang.btn_read_1) {
                 const itemRef = firebase.database().ref(`/reads/${itemId}`);
                 itemRef.remove();
             }
