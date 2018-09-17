@@ -27,7 +27,7 @@ export default class Btn_like_disconnect extends React.Component {
 
         this.state = {
             user: null,
-            lecteur: null,
+            lecteur: "vide",
             nomRoman: "",
             likeAutorise: false,
             loaded: false
@@ -37,8 +37,12 @@ export default class Btn_like_disconnect extends React.Component {
         this.nombreLike = 0
         this.btn_class_like = "success"
 
-        if (cookie.load('lecteur') !== "null") {
-            this.state.lecteur = cookie.load('lecteur')
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+        if (cookie.load('lecteur_connect') !== "vide") {
+            this.state.lecteur = cookie.load('lecteur_connect')
         }
     }
 
@@ -62,9 +66,6 @@ export default class Btn_like_disconnect extends React.Component {
 
                 this.items = newState
 
-                console.log("Test ")
-                console.log(this.items);
-
                 if (!this.state.loaded) {
                     this.checkUpLikes();
                     this.setState({ loaded: true });
@@ -77,11 +78,7 @@ export default class Btn_like_disconnect extends React.Component {
         this.nombreLike = 0;
         this.items.map((item) =>
             (item.chapitre === this.props.contentChapitre.titreChapitre) ?
-                (
-                    console.log(this.items),
-
-                    this.nombreLike = this.nombreLike + 1
-                ) : ''
+                (this.nombreLike = this.nombreLike + 1) : ''
         )
     }
 
@@ -93,7 +90,7 @@ export default class Btn_like_disconnect extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur', this.state.user, { path: '/' });
+                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
 
                     window.location.reload();
                 });

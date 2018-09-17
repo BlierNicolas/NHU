@@ -45,11 +45,19 @@ class Roman extends Component {
 		if (this.props.pageContext.lang === "en-US") {
 			this.lang = lang_en;
 		}
+
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+        if (cookie.load('lecteur_connect') !== null) {
+            this.state.lecteur = cookie.load('lecteur_connect')
+        }
 	}
 
-	UNSAFE_componentWillMount() {
-		this.setState({ lecteur: cookie.load('lecteur') });
-	}
+	// UNSAFE_componentWillMount() {
+	// 	this.setState({ lecteur: cookie.load('lecteur') });
+	// }
 
 	login() {
 		if (typeof window !== "undefined") {
@@ -59,7 +67,7 @@ class Roman extends Component {
 					this.setState({
 						user
 					});
-					cookie.save('lecteur', this.state.user, { path: '/' });
+					cookie.save('lecteur_connect', this.state.user, { path: '/' });
 
 					window.location.reload();
 				});
@@ -114,7 +122,7 @@ class Roman extends Component {
 														(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
 															<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
 														{
-																this.state.lecteur !== "null" ?
+																this.state.lecteur !== "vide" ?
 																	(<React.Fragment>
 																		<span>
 																			&nbsp;<BtnRead contentChapitre={edge.node} lang={this.props.pageContext.lang} />
@@ -146,7 +154,7 @@ class Roman extends Component {
 														(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
 															<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
 														{
-																this.state.lecteur !== "null" ?
+																this.state.lecteur !== "vide" ?
 																	(<React.Fragment>
 																		<span>
 																			&nbsp;<BtnRead contentChapitre={edge.node} lang={this.props.pageContext.lang} />

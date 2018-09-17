@@ -30,7 +30,7 @@ class IndexPage extends Component {
             username: '',
             items: [],
             connectedUser: null,
-            lecteur: null
+            lecteur: "vide"
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,6 +42,14 @@ class IndexPage extends Component {
         }
         if (this.props.pageContext.lang === "en-US") {
             this.lang = lang_en;
+        }
+
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+        if (cookie.load('lecteur_connect') !== "vide") {
+            this.state.lecteur = cookie.load('lecteur_connect')
         }
     }
 
@@ -92,9 +100,9 @@ class IndexPage extends Component {
         // });
     }
 
-    UNSAFE_componentWillMount() {
-		this.setState({lecteur: cookie.load('lecteur')});
-    }
+    // UNSAFE_componentWillMount() {
+	// 	this.setState({lecteur: cookie.load('lecteur')});
+    // }
 
     removeItem(itemId) {
         // const itemRef = firebase.database().ref(`/items/${itemId}`);
@@ -125,7 +133,7 @@ class IndexPage extends Component {
                     </Jumbotron>
 
                     {
-                        this.state.lecteur !== "null" ?
+                        this.state.lecteur !== "vide" ?
                             (<Container fluid className="p-0">
                                 <Row className="pb-5">
                                     <Col sm="12">

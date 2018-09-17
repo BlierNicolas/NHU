@@ -31,7 +31,7 @@ class Chapitre extends Component {
 
 		this.state = {
 			user: null,
-			lecteur: null
+			lecteur: "vide"
 		};
 
 		this.lang = lang_fr;
@@ -42,11 +42,19 @@ class Chapitre extends Component {
 		if (this.props.pageContext.lang === "en-US") {
 			this.lang = lang_en;
 		}
+
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+		if (cookie.load('lecteur_connect') !== "vide") {
+			this.state.lecteur = cookie.load('lecteur_connect')
+		}
 	}
 
-	UNSAFE_componentWillMount() {
-		this.setState({ lecteur: cookie.load('lecteur') });
-	}
+	// UNSAFE_componentWillMount() {
+	// 	this.setState({ lecteur: cookie.load('lecteur') });
+	// }
 
 	login() {
 		if (typeof window !== "undefined") {
@@ -56,7 +64,7 @@ class Chapitre extends Component {
 					this.setState({
 						user
 					});
-					cookie.save('lecteur', this.state.user, { path: '/' });
+					cookie.save('lecteur_connect', this.state.user, { path: '/' });
 
 					window.location.reload();
 				});
@@ -103,7 +111,7 @@ class Chapitre extends Component {
 							<Row>
 								<Col lg={{ size: 10, offset: 1 }} md="12">
 									{
-										this.state.lecteur !== "null" ?
+										this.state.lecteur !== "vide" ?
 											(<Row>
 												<Col xs="6" className="text-center">
 													<BtnRead contentChapitre={data.contentfulChapitre} lang={this.props.pageContext.lang} />

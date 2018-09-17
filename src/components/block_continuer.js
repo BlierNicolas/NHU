@@ -27,7 +27,7 @@ export default class Block_Continuer extends React.Component {
 
         this.state = {
             user: null,
-            lecteur: null,
+            lecteur: "vide",
             nomRoman: "",
             items: [],
             itemsLu: [],
@@ -37,8 +37,12 @@ export default class Block_Continuer extends React.Component {
 
         this.dernierChapitreLu= ""
 
-        if (cookie.load('lecteur') !== "null") {
-            this.state.lecteur = cookie.load('lecteur')
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+        if (cookie.load('lecteur_connect') !== "vide") {
+            this.state.lecteur = cookie.load('lecteur_connect')
         }
     }
 
@@ -48,7 +52,7 @@ export default class Block_Continuer extends React.Component {
 
     componentDidMount() {
         if (typeof window !== "undefined") {
-            if (this.state.lecteur != null) {
+            if (this.state.lecteur !== "vide") {
                 let itemsRefLu = firebase.database().ref('reads');
                 itemsRefLu = itemsRefLu.orderByChild("codeChapitre").startAt("H0001C000").endAt("H9999C999");
                 itemsRefLu.on('value', (snapshot) => {
@@ -87,7 +91,7 @@ export default class Block_Continuer extends React.Component {
     checkUpReads() {
         let slugChapitre = "";
 
-        if (this.state.lecteur) {
+        if (this.state.lecteur !== "vide") {
             // this.state.itemsLu.map((item) =>
             //     console.log(item.codeChapitre)
             // )
