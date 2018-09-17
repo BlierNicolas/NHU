@@ -34,7 +34,7 @@ export default class Btn_like extends React.Component {
 
         this.state = {
             user: null,
-            lecteur: null,
+            lecteur: "vide",
             nomRoman: "",
             likeAutorise: true,
             loaded: false
@@ -47,8 +47,12 @@ export default class Btn_like extends React.Component {
 
         this.handleSubmitLike = this.handleSubmitLike.bind(this);
 
-        if (cookie.load('lecteur') !== "null") {
-            this.state.lecteur = cookie.load('lecteur')
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+        if (cookie.load('lecteur_connect') !== "vide") {
+            this.state.lecteur = cookie.load('lecteur_connect')
         }
     }
 
@@ -61,7 +65,7 @@ export default class Btn_like extends React.Component {
     onExited() { }
 
     toggleLike() {
-        if ((this.state.lecteur) && (this.state.loaded)) {
+        if ((this.state.lecteur !== "vide") && (this.state.loaded)) {
             if (!this.likeStatus) {
                 this.likeStatus = true;
                 this.likeText = this.lang.btn_like_2;
@@ -111,7 +115,7 @@ export default class Btn_like extends React.Component {
 
     checkUpLikes() {
         this.nombreLike= 0;
-        if (this.state.lecteur) {
+        if (this.state.lecteur !== "vide") {
             this.items.map((item) =>
                 (item.chapitre === this.props.contentChapitre.titreChapitre) ?
                     (
@@ -167,7 +171,7 @@ export default class Btn_like extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur', this.state.user, { path: '/' });
+                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
 
                     window.location.reload();
                 });

@@ -34,7 +34,7 @@ export default class Btn_read extends React.Component {
 
         this.state = {
             user: null,
-            lecteur: null,
+            lecteur: "vide",
             nomRoman: "",
             items: [],
             likeAutorise: true,
@@ -47,8 +47,12 @@ export default class Btn_read extends React.Component {
 
         this.handleSubmitRead = this.handleSubmitRead.bind(this);
 
-        if (cookie.load('lecteur') !== "null") {
-            this.state.lecteur = cookie.load('lecteur')
+        if (cookie.load('lecteur_connect') == null) {
+            cookie.save('lecteur_connect', "vide", { path: '/' });
+        }
+
+        if (cookie.load('lecteur_connect') !== "vide") {
+            this.state.lecteur = cookie.load('lecteur_connect')
         }
     }
 
@@ -61,7 +65,7 @@ export default class Btn_read extends React.Component {
     onExited() { }
 
     toggleRead() {
-        if ((this.state.lecteur) && (this.state.loaded)) {
+        if ((this.state.lecteur !== "vide") && (this.state.loaded)) {
             if (!this.readStatus) {
                 this.readStatus = true;
                 this.readText = this.lang.btn_read_2;
@@ -110,7 +114,7 @@ export default class Btn_read extends React.Component {
     }
 
     checkUpReads() {
-        if (this.state.lecteur) {
+        if (this.state.lecteur !== "vide") {
             this.itemsLu.map((item) =>
                 ((item.chapitre === this.props.contentChapitre.titreChapitre) && (item.user === this.state.lecteur.email)) ?
                     (
@@ -164,7 +168,7 @@ export default class Btn_read extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur', this.state.user, { path: '/' });
+                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
 
                     window.location.reload();
                 });

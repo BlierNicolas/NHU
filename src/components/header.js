@@ -127,7 +127,7 @@ export default class Header extends React.Component {
                     this.setState({
                         user: null
                     });
-                    cookie.save('lecteur', null, { path: '/' });
+                    cookie.save('lecteur_connect', "vide", { path: '/' });
 
                     window.location.reload();
                 });
@@ -142,7 +142,7 @@ export default class Header extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur', this.state.user, { path: '/' });
+                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
                 });
         }
     }
