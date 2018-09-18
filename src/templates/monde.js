@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
 	Breadcrumb,
 	BreadcrumbItem,
 	Button,
@@ -18,7 +17,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
-import Block_Pays_List from '../components/block_pays_list';
+import BlockPaysList from '../components/block_pays_list';
 
 import Layout from '../components/layout'
 
@@ -30,10 +29,10 @@ class Monde extends Component {
 
 		this.lang = lang_fr;
 
-		if (this.props.pageContext.lang == "fr-CA") {
+		if (this.props.pageContext.lang === "fr-CA") {
 			this.lang = lang_fr;
 		}
-		if (this.props.pageContext.lang == "en-US") {
+		if (this.props.pageContext.lang === "en-US") {
 			this.lang = lang_en;
 		}
 	}
@@ -78,7 +77,7 @@ class Monde extends Component {
 							<Card>
 								<CardBody>
 									<div className="d-flex justify-content-center">
-										<img className="img-fluid" src={data.contentfulMonde.carte.file.url} />
+										<img className="img-fluid" src={data.contentfulMonde.carte.file.url} alt="Carte"/>
 									</div>
 								</CardBody>
 							</Card>
@@ -87,10 +86,10 @@ class Monde extends Component {
 
 					<Container fluid className="p-0">
 						<Row className="pb-5">
-							<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent="Fontil" />
-							<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent="Vactil" />
-							<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent="Xentil" />
-							<Block_Pays_List allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent={this.lang.monde_iles} />
+							<BlockPaysList allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent="Fontil" />
+							<BlockPaysList allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent="Vactil" />
+							<BlockPaysList allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent="Xentil" />
+							<BlockPaysList allPays={data.allContentfulPays} lang={this.props.pageContext.lang} continent={this.lang.monde_iles} />
 						</Row>
 					</Container>
 

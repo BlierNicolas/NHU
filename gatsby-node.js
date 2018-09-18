@@ -107,17 +107,17 @@ exports.createPages = ({ graphql, actions }) => {
 		}
 
 		function detectKindOfData(res) {
-			if (res.data.allContentfulChapitre != null) {return res.data.allContentfulChapitre}
-			if (res.data.allContentfulRoman != null) {return res.data.allContentfulRoman}
-			if (res.data.allContentfulPersonnage != null) {return res.data.allContentfulPersonnage}
-			if (res.data.allContentfulGroupe != null) {return res.data.allContentfulGroupe}
-			if (res.data.allContentfulNouvelle != null) {return res.data.allContentfulNouvelle}
-			if (res.data.allContentfulPouvoir != null) {return res.data.allContentfulPouvoir}
-			if (res.data.allContentfulProject != null) {return res.data.allContentfulProject}
-			if (res.data.allContentfulTheorie != null) {return res.data.allContentfulTheorie}
-			if (res.data.allContentfulMonde != null) {return res.data.allContentfulMonde}
-			if (res.data.allContentfulPays != null) {return res.data.allContentfulPays}
-			if (res.data.allContenfulVille != null) {return res.data.allContenfulVille}
+			if (res.data.allContentfulChapitre != null) { return res.data.allContentfulChapitre }
+			if (res.data.allContentfulRoman != null) { return res.data.allContentfulRoman }
+			if (res.data.allContentfulPersonnage != null) { return res.data.allContentfulPersonnage }
+			if (res.data.allContentfulGroupe != null) { return res.data.allContentfulGroupe }
+			if (res.data.allContentfulNouvelle != null) { return res.data.allContentfulNouvelle }
+			if (res.data.allContentfulPouvoir != null) { return res.data.allContentfulPouvoir }
+			if (res.data.allContentfulProject != null) { return res.data.allContentfulProject }
+			if (res.data.allContentfulTheorie != null) { return res.data.allContentfulTheorie }
+			if (res.data.allContentfulMonde != null) { return res.data.allContentfulMonde }
+			if (res.data.allContentfulPays != null) { return res.data.allContentfulPays }
+			if (res.data.allContentfulVille != null) { return res.data.allContentfulVille }
 			return null
 		}
 
