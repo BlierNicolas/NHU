@@ -43,7 +43,7 @@ export default class Btn_like extends React.Component {
         this.items = []
         this.likeStatus = false
         this.likeText = this.lang.btn_like_1
-        this.btn_class_like = "success"
+        this.btn_class_like = "secondary"
         this.nombreLike = 0
 
         this.handleSubmitLike = this.handleSubmitLike.bind(this);
@@ -71,12 +71,12 @@ export default class Btn_like extends React.Component {
                 this.likeStatus = true;
                 this.likeText = this.lang.btn_like_2;
                 this.nombreLike += 1;
-                this.btn_class_like = "danger";
+                this.btn_class_like = "success";
             } else {
                 this.likeStatus = false;
                 this.likeText = this.lang.btn_like_1;
                 this.nombreLike -= 1;
-                this.btn_class_like = "success";
+                this.btn_class_like = "secondary";
 
                 this.items.map((item) =>
                     ((item.user === this.state.lecteur.email) && (item.chapitre === this.props.contentChapitre.titreChapitre)) ?
@@ -126,7 +126,7 @@ export default class Btn_like extends React.Component {
                             (
                                 this.likeStatus = true,
                                 this.likeText = this.lang.btn_like_2,
-                                this.btn_class_like = "danger"
+                                this.btn_class_like = "success"
                             ) : '',
 
                         this.nombreLike = this.nombreLike + 1

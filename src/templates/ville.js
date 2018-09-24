@@ -13,7 +13,6 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
-import classnames from 'classnames';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -30,10 +29,10 @@ class Ville extends Component {
 
 		this.lang = lang_fr;
 
-		if (this.props.pageContext.lang == "fr-CA") {
+		if (this.props.pageContext.lang === "fr-CA") {
 			this.lang = lang_fr;
 		}
-		if (this.props.pageContext.lang == "en-US") {
+		if (this.props.pageContext.lang === "en-US") {
 			this.lang = lang_en;
 		}
 	}

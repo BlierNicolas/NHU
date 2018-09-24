@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import {
     Row,
@@ -13,10 +13,10 @@ export default class Block_Pays_List extends React.Component {
 
         this.lang = lang_fr;
 
-        if (this.props.lang == "fr-CA") {
+        if (this.props.lang === "fr-CA") {
             this.lang = lang_fr;
         }
-        if (this.props.lang == "en-US") {
+        if (this.props.lang === "en-US") {
             this.lang = lang_en;
         }
     }
@@ -31,7 +31,7 @@ export default class Block_Pays_List extends React.Component {
                     this.props.allPays.edges.map(
                         (edge) =>
                             <div className="clearfix mb-2" key={edge.node.id}>
-                                {edge.node.nomContinent == this.props.continent ?
+                                {edge.node.nomContinent === this.props.continent ?
                                     (<div>
                                         <div>
                                             <Row className="no-gutters">

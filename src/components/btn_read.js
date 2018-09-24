@@ -43,7 +43,7 @@ export default class Btn_read extends React.Component {
         this.itemsLu = []
         this.readStatus = false
         this.readText = this.lang.btn_read_1
-        this.btn_class_read = "success"
+        this.btn_class_read = "secondary"
 
         this.handleSubmitRead = this.handleSubmitRead.bind(this);
 
@@ -69,11 +69,11 @@ export default class Btn_read extends React.Component {
             if (!this.readStatus) {
                 this.readStatus = true;
                 this.readText = this.lang.btn_read_2;
-                this.btn_class_read = "danger";
+                this.btn_class_read = "success";
             } else {
                 this.readStatus = false;
                 this.readText = this.lang.btn_read_1;
-                this.btn_class_read = "success";
+                this.btn_class_read = "secondary";
 
                 this.itemsLu.map((item) =>
                     ((item.user === this.state.lecteur.email) && (item.chapitre === this.props.contentChapitre.titreChapitre)) ?
@@ -122,7 +122,7 @@ export default class Btn_read extends React.Component {
                     (
                         this.readStatus = true,
                         this.readText = this.lang.btn_read_2,
-                        this.btn_class_read = "danger"
+                        this.btn_class_read = "success"
                     ) : ''
             )
         }

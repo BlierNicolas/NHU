@@ -37,10 +37,10 @@ class Pays extends Component {
 
 		this.lang = lang_fr;
 
-		if (this.props.pageContext.lang == "fr-CA") {
+		if (this.props.pageContext.lang === "fr-CA") {
 			this.lang = lang_fr;
 		}
-		if (this.props.pageContext.lang == "en-US") {
+		if (this.props.pageContext.lang === "en-US") {
 			this.lang = lang_en;
 		}
 	}

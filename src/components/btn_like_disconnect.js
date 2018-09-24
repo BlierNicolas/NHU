@@ -35,7 +35,7 @@ export default class Btn_like_disconnect extends React.Component {
 
         this.items = []
         this.nombreLike = 0
-        this.btn_class_like = "success"
+        this.btn_class_like = "secondary"
 
         if (cookie.load('lecteur_connect') == null) {
             cookie.save('lecteur_connect', "vide", { path: '/' });
