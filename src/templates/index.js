@@ -136,7 +136,7 @@ class IndexPage extends Component {
                         this.state.lecteur !== "vide" ?
                             (<Container fluid className="p-0">
                                 <Row className="pb-5">
-                                    <Col sm="12">
+                                    <Col sm="12" lg="12">
                                         <h2 className="mb-4">{this.lang.continuer_titre}</h2>
                                         <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
                                     </Col>
