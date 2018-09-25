@@ -101,7 +101,7 @@ class IndexPage extends Component {
     }
 
     // UNSAFE_componentWillMount() {
-	// 	this.setState({lecteur: cookie.load('lecteur')});
+    // 	this.setState({lecteur: cookie.load('lecteur')});
     // }
 
     removeItem(itemId) {
@@ -132,20 +132,18 @@ class IndexPage extends Component {
                         </Container>
                     </Jumbotron>
 
-                    {
-                        this.state.lecteur !== "vide" ?
-                            (<Container fluid className="p-0">
-                                <Row className="pb-5">
-                                    <Col sm="12" lg="12">
-                                        <h2 className="mb-4">{this.lang.continuer_titre}</h2>
-                                        <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
-                                    </Col>
-                                </Row>
-                            </Container>) :
-                            ('')
-                    }
-
                     <Container fluid className="p-0">
+                        {
+                            this.state.lecteur !== "vide" ?
+                                (<Row className="pb-5">
+                                        <Col sm="12">
+                                            <h2 className="mb-4">{this.lang.continuer_titre}</h2>
+                                            <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
+                                        </Col>
+                                    </Row>) :
+                                ('')
+                        }
+
                         <Row className="pb-5">
                             <Col sm="12" lg="8" >
                                 <h2 className="mb-4">{this.lang.nouvelles_titre}</h2>
