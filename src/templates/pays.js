@@ -21,6 +21,7 @@ import {
 import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -71,9 +72,7 @@ class Pays extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.equi_pays + data.contentfulPays.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.equi_pays + data.contentfulPays.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
 					<Container className="pb-5">
 						<Row>

@@ -12,14 +12,14 @@ import {
 	Breadcrumb,
 	BreadcrumbItem,
 	TabContent,
-	TabPane,
-	Button
+	TabPane
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
 import ListHistoireProgression from '../components/list_histoire_progression';
 import BlockIntro from '../components/block_intro';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -69,9 +69,7 @@ class Progression extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.equi_progression + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.equi_progression + "/"} label={this.lang.other_lang_label} />
 
 					<BlockIntro full={false} titre={this.lang.header_progression} first={this.lang.progression_intro_text} />
 

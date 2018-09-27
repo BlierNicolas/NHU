@@ -8,7 +8,6 @@ import {
 	ListGroup,
 	Breadcrumb,
 	BreadcrumbItem,
-	Button,
 	Nav,
 	NavItem,
 	NavLink,
@@ -20,6 +19,7 @@ import Footer from '../components/footer'
 import classnames from 'classnames';
 import ListProjetInfo from '../components/list_projet_info';
 import BlockIntro from '../components/block_intro';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -69,9 +69,7 @@ class ListeDesProjets extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.equi_projets + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.equi_projets + "/"} label={this.lang.other_lang_label} />
 
 					<BlockIntro full={false} titre={this.lang.header_projets} first={this.lang.header_projets} />
 

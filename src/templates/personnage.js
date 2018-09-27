@@ -8,11 +8,11 @@ import {
     Row,
     Col,
     Breadcrumb,
-    BreadcrumbItem,
-    Button
+    BreadcrumbItem
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -50,9 +50,7 @@ class Personnage extends Component {
                         </Breadcrumb>
                     </div>
 
-                    <div className="equiv">
-                        <Link className="text-white" to={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-                    </div>
+                    <EquivURL url={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
                     <Container fluid>
                         <Row className="pb-5">
