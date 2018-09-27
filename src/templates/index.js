@@ -7,8 +7,7 @@ import {
     Container,
     Row,
     Col,
-    Jumbotron,
-    Button
+    Jumbotron
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -16,6 +15,7 @@ import BlockNouvelles from '../components/block_nouvelles';
 import BlockCalendrier from '../components/block_calendrier';
 import BlockContinuer from '../components/block_continuer';
 import ListProjetPanel from '../components/list_projet_panel';
+import EquivURL from '../components/equivURL';
 import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -119,9 +119,7 @@ class IndexPage extends Component {
                 <div>
                     <Header lang={this.props.pageContext.lang} />
 
-                    <div className="equiv">
-                        <Link className="text-white" to={this.lang.other_lang_url + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-                    </div>
+                    <EquivURL url={this.lang.other_lang_url + "/"} label={this.lang.other_lang_label} />
 
                     <Jumbotron fluid>
                         <Container fluid>

@@ -66,9 +66,6 @@ class Nombre extends Component {
                     </div>
 
                     <EquivURL url={this.lang.equi_nombre + "/"} label={this.lang.other_lang_label} />
-                    {/* <div className="equiv">
-                        <Link className="text-white" to={this.lang.equi_nombre + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-                    </div> */}
 
                     <BlockIntro full={false} titre={this.lang.header_nombre} first={this.lang.nombre_intro_text} />
 

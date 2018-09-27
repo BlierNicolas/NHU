@@ -8,13 +8,13 @@ import {
 	Row,
 	Col,
 	Breadcrumb,
-	BreadcrumbItem,
-	Button
+	BreadcrumbItem
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BtnLike from '../components/btn_like'
 import BtnRead from '../components/btn_read'
+import EquivURL from '../components/equivURL';
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
 import { auth, provider } from 'firebase/app';
 import cookie from 'react-cookies';
@@ -90,9 +90,7 @@ class Chapitre extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
 					<div>
 						<Container>

@@ -8,13 +8,13 @@ import {
 	Row,
 	Col,
 	Breadcrumb,
-	BreadcrumbItem,
-	Button
+	BreadcrumbItem
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockCalendrier from '../components/block_calendrier';
 import BlockIntro from '../components/block_intro';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -51,9 +51,7 @@ class Calendrier extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.equi_calendrier + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.equi_calendrier + "/"} label={this.lang.other_lang_label} />
 
 					<BlockIntro full={true} titre={this.lang.header_calendrier} first={this.lang.calendrier_intro_text}/>
 

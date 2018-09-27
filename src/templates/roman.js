@@ -11,8 +11,7 @@ import {
 	ListGroupItem,
 	Breadcrumb,
 	BreadcrumbItem,
-	Progress,
-	Button
+	Progress
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -21,6 +20,7 @@ import cookie from 'react-cookies';
 import BtnLike from '../components/btn_like';
 import BtnRead from '../components/btn_read'
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -92,9 +92,7 @@ class Roman extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.other_lang_url + data.contentfulRoman.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.other_lang_url + data.contentfulRoman.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
 					<div className="my-5">
 						<Container>

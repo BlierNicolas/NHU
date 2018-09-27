@@ -8,12 +8,12 @@ import {
 	Row,
 	Col,
 	Breadcrumb,
-	BreadcrumbItem,
-	Button
+	BreadcrumbItem
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockIntro from '../components/block_intro';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -50,9 +50,7 @@ class ListeDesTheories extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.equi_encyclopedie + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.equi_encyclopedie + "/"} label={this.lang.other_lang_label} />
 
 					<BlockIntro full={true} titre={this.lang.header_encyclopedie} first={this.lang.encyclopedie_intro_text} second={this.lang.encyclopedie_intro_warning} />
 

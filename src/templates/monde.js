@@ -17,6 +17,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockPaysList from '../components/block_pays_list';
 import BlockIntro from '../components/block_intro';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -59,9 +60,7 @@ class Monde extends Component {
 						</Breadcrumb>
 					</div>
 
-					<div className="equiv">
-						<Link className="text-white" to={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-					</div>
+					<EquivURL url={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
 					<BlockIntro full={true} titre={this.lang.header_giervia} first={this.lang.monde_intro_text} />
 
