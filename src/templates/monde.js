@@ -15,9 +15,10 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import BlockPaysList from '../components/block_pays_list';
+import BlockIntro from '../components/block_intro';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
-import BlockPaysList from '../components/block_pays_list';
 
 import Layout from '../components/layout'
 
@@ -62,12 +63,7 @@ class Monde extends Component {
 						<Link className="text-white" to={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 					</div>
 
-					<div className="py-5">
-						<Container fluid>
-							<h1 className="display-4">{this.lang.header_giervia}</h1>
-							<p className="lead">{this.lang.monde_intro_text}</p>
-						</Container>
-					</div>
+					<BlockIntro full={true} titre={this.lang.header_giervia} first={this.lang.monde_intro_text} />
 
 					<Container fluid className="mb-5">
 						<div className="d-flex justify-content-center">

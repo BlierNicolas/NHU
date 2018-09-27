@@ -120,7 +120,7 @@ class IndexPage extends Component {
                     <Header lang={this.props.pageContext.lang} />
 
                     <div className="equiv">
-                        <Link className="text-white" to={this.lang.other_lang_url}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
+                        <Link className="text-white" to={this.lang.other_lang_url + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
                     </div>
 
                     <Jumbotron fluid>

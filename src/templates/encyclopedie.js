@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import BlockIntro from '../components/block_intro';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -53,13 +54,7 @@ class ListeDesTheories extends Component {
 						<Link className="text-white" to={this.lang.equi_encyclopedie + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 					</div>
 
-					<div className="py-5">
-						<Container fluid>
-							<h1 className="display-4">{this.lang.header_encyclopedie}</h1>
-							<p className="lead">{this.lang.encyclopedie_intro_text}</p>
-							<p className="lead">{this.lang.encyclopedie_intro_warning}</p>
-						</Container>
-					</div>
+					<BlockIntro full={true} titre={this.lang.header_encyclopedie} first={this.lang.encyclopedie_intro_text} second={this.lang.encyclopedie_intro_warning} />
 
 					<Container fluid className="p-0">
 						<Row className="pb-5">

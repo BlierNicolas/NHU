@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import BlockIntro from '../components/block_intro';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import lang_fr from '../langues/lang_fr.json';
@@ -55,16 +56,10 @@ class Evenements extends Component {
 						<Link className="text-white" to={this.lang.equi_evenements + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 					</div>
 
-					<div className="py-5">
-						<Container fluid>
-							<h1 className="display-4">{this.lang.header_evenements}</h1>
-							<p className="lead">{this.lang.evenements_intro_text}</p>
-							<p className="lead">{this.lang.encyclopedie_intro_warning}</p>
-						</Container>
-					</div>
-
-					<Container fluid className="p-0">
-						<Row className="pb-5">
+					<BlockIntro full={true} titre={this.lang.header_evenements} first={this.lang.evenements_intro_text} second={this.lang.encyclopedie_intro_warning} />
+					
+					<Container fluid className="py-5">
+						<Row>
 							<Col lg="12" >
 								<VerticalTimeline>
 									{

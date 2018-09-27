@@ -8,12 +8,12 @@ import {
     Row,
     Col,
     Breadcrumb,
-    BreadcrumbItem,
-    Input,
-    Button
+    BreadcrumbItem
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import BlockIntro from '../components/block_intro';
+import EquivURL from '../components/equivURL';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -34,11 +34,18 @@ class Nombre extends Component {
         if (this.props.pageContext.lang === "en-US") {
             this.lang = lang_en;
         }
-    }
 
-    UNSAFE_componentWillMount() {
-        this.histoireEnCours = 0;
-        this.histoireTerminees = 0;
+        this.props.data.allContentfulRoman.edges.map(
+            (edge) =>
+                edge.node.chapitreActuel < edge.node.maximumChapitre ?
+                    this.histoireEnCours += 1 : ''
+        )
+
+        this.props.data.allContentfulRoman.edges.map(
+            (edge) =>
+                edge.node.chapitreActuel === edge.node.maximumChapitre ?
+                    this.histoireTerminees += 1 : ''
+        )
     }
 
     render() {
@@ -58,16 +65,12 @@ class Nombre extends Component {
                         </Breadcrumb>
                     </div>
 
-                    <div className="equiv">
+                    <EquivURL url={this.lang.equi_nombre + "/"} label={this.lang.other_lang_label} />
+                    {/* <div className="equiv">
                         <Link className="text-white" to={this.lang.equi_nombre + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
-                    </div>
+                    </div> */}
 
-                    <div className="my-5">
-                        <Container>
-                            <h1 className="display-4">{this.lang.header_nombre}</h1>
-                            <p className="lead">{this.lang.nombre_intro_text}</p>
-                        </Container>
-                    </div>
+                    <BlockIntro full={false} titre={this.lang.header_nombre} first={this.lang.nombre_intro_text} />
 
                     <Container className="pb-5">
                         <Row>
@@ -75,28 +78,9 @@ class Nombre extends Component {
                                 {this.lang.nombre_histoires + data.allContentfulRoman.totalCount}
                             </Col>
                             <Col sm="12" md="6" lg="4" className="mb-3">
-                                <Input type="hidden" name="" hidden value={this.histoireEnCours = 0} />
-                                {
-                                    data.allContentfulRoman.edges.map(
-                                        (edge) =>
-                                            edge.node.chapitreActuel < edge.node.maximumChapitre ?
-                                                this.histoireEnCours += 1 : ''
-                                    )
-                                }
                                 {this.lang.nombre_en_cours + this.histoireEnCours}
                             </Col>
                             <Col sm="12" md="6" lg="4" className="mb-3">
-                                {
-                                    <Input type="hidden" name="" hidden value={this.histoireTerminees = 0} />
-                                }
-                                {
-                                    data.allContentfulRoman.edges.map(
-                                        (edge) =>
-                                            edge.node.chapitreActuel === edge.node.maximumChapitre ?
-                                                this.histoireTerminees += 1 : ''
-                                        
-                                    )
-                                }
                                 {this.lang.nombre_termines + this.histoireTerminees}
                             </Col>
                             <Col sm="12" md="6" lg="4" className="mb-3">
