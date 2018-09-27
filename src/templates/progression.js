@@ -19,6 +19,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
 import ListHistoireProgression from '../components/list_histoire_progression';
+import BlockIntro from '../components/block_intro';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -72,14 +73,9 @@ class Progression extends Component {
 						<Link className="text-white" to={this.lang.equi_progression + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 					</div>
 
-					<div className="my-5">
-						<Container>
-							<h1 className="display-4">{this.lang.header_progression}</h1>
-							<p className="lead">{this.lang.progression_intro_text}</p>
-						</Container>
-					</div>
+					<BlockIntro full={false} titre={this.lang.header_progression} first={this.lang.progression_intro_text} />
 
-					<Container className="my-5">
+					<Container className="py-5">
 						<Nav pills>
 							<NavItem className="cursor-update histoires-pills">
 								<NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>

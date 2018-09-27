@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import BlockIntro from '../components/block_intro';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -55,19 +56,14 @@ class ListeDesPersonnages extends Component {
 						<Link className="text-white" to={this.lang.equi_personnages + "/"}><Button className="float-right" color="primary">{this.lang.other_lang_label}</Button></Link>
 					</div>
 
-					<div className="py-5">
-						<Container fluid>
-							<h1 className="display-4">{this.lang.header_personnages}</h1>
-							<p className="lead">{this.lang.personnages_intro_text}</p>
-						</Container>
-					</div>
+					<BlockIntro full={true} titre={this.lang.header_personnages} first={this.lang.personnages_intro_text} />
 
-					<Container fluid className="p-0">
-						<Row className="pb-5">
+					<Container fluid className="py-5">
+						<Row>
 							{
 								data.allContentfulPersonnage.edges.map(
 									(edge) =>
-										<React.Fragment>
+										<React.Fragment key={edge.node.id}>
 											{
 												this.firstLetter !== edge.node.nomComplet.charAt(0) ?
 													(
@@ -80,7 +76,7 @@ class ListeDesPersonnages extends Component {
 													) :
 													('')
 											}
-											<Col lg="3" md="4" sm="6" key={edge.node.id} className="text-center my-3 anim-bounce-in">
+											<Col lg="3" md="4" sm="6" className="text-center my-3 anim-bounce-in">
 												<Link to={this.lang.personnages_url + edge.node.slug + "/"}>{edge.node.nomComplet}</Link>
 											</Col>
 										</React.Fragment>

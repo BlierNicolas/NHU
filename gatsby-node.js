@@ -123,7 +123,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 		resolve(
 			singlePage('/', indexTemplate, "fr-CA"),
-			singlePage('en', indexTemplate, "en-US"),
+			singlePage('en/', indexTemplate, "en-US"),
 			multiPage(`{allContentfulChapitre(filter: {node_locale: {eq: "fr-CA"}}) {edges {node {id slug}}}}`, 'Chapitre', 'histoires/chapitre/', chapitreTemplate, "fr-CA"),
 			multiPage(`{allContentfulChapitre(filter: {node_locale: {eq: "en-US"}}) {edges {node {id slug}}}}`, 'Chapitre', 'en/stories/chapter/', chapitreTemplate, "en-US"),
 			multiPage(`{allContentfulRoman(filter: {node_locale: {eq: "fr-CA"}}) {edges {node {id slug}}}}`, 'Roman', 'histoires/', romanTemplate, "fr-CA"),
