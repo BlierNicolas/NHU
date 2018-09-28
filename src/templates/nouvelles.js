@@ -15,6 +15,7 @@ import Footer from '../components/footer'
 import BlockNouvelles from '../components/block_nouvelles';
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
+import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -42,6 +43,8 @@ class ListeDesNouvelles extends Component {
 		return (
 			<Layout>
 				<div id="page-wrapper">
+					<Helmet title={this.lang.header_nouvelles + this.lang.meta_title}></Helmet>
+
 					<Header lang={this.props.pageContext.lang} />
 
 					<div>

@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
 					htmlAttributes={{ lang: "fr" }}
 					title="L'Univers des Nouveaux Humains"
 					meta={[
-						{ name: 'description', content: 'L\'Univers des Nouveaux Humains' },
+						{ name: 'description', content: 'Site web de l\'Univers des Nouveaux Humains' },
 						{ name: 'msapplication-TileColor', content: '#da532c' },
 						{ name: 'theme-color', content: '#007bff' },
 					]}

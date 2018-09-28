@@ -16,6 +16,7 @@ import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -43,6 +44,8 @@ class Evenements extends Component {
 		return (
 			<Layout>
 				<div id="page-wrapper">
+					<Helmet title={this.lang.header_evenements + this.lang.meta_title}></Helmet>
+
 					<Header lang={this.props.pageContext.lang} />
 
 					<div>
@@ -55,7 +58,7 @@ class Evenements extends Component {
 					<EquivURL url={this.lang.equi_evenements + "/"} label={this.lang.other_lang_label} />
 
 					<BlockIntro full={true} titre={this.lang.header_evenements} first={this.lang.evenements_intro_text} second={this.lang.encyclopedie_intro_warning} />
-					
+
 					<Container fluid className="py-5">
 						<Row>
 							<Col lg="12" >
