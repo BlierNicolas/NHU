@@ -21,6 +21,7 @@ import BtnLike from '../components/btn_like';
 import BtnRead from '../components/btn_read'
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
 import EquivURL from '../components/equivURL';
+import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -46,13 +47,13 @@ class Roman extends Component {
 			this.lang = lang_en;
 		}
 
-        if (cookie.load('lecteur_connect') == null) {
-            cookie.save('lecteur_connect', "vide", { path: '/' });
-        }
+		if (cookie.load('lecteur_connect') == null) {
+			cookie.save('lecteur_connect', "vide", { path: '/' });
+		}
 
-        if (cookie.load('lecteur_connect') !== null) {
-            this.state.lecteur = cookie.load('lecteur_connect')
-        }
+		if (cookie.load('lecteur_connect') !== null) {
+			this.state.lecteur = cookie.load('lecteur_connect')
+		}
 	}
 
 	// UNSAFE_componentWillMount() {
@@ -82,6 +83,8 @@ class Roman extends Component {
 		return (
 			<Layout>
 				<div id="page-wrapper">
+					<Helmet title={data.contentfulRoman.titreRoman + this.lang.meta_title}></Helmet>
+
 					<Header lang={this.props.pageContext.lang} />
 
 					<div>

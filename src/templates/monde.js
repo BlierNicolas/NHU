@@ -18,6 +18,7 @@ import Footer from '../components/footer'
 import BlockPaysList from '../components/block_pays_list';
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
+import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -51,6 +52,8 @@ class Monde extends Component {
 		return (
 			<Layout>
 				<div id="page-wrapper">
+					<Helmet title={data.contentfulMonde.nomPlanete + this.lang.meta_title}></Helmet>
+
 					<Header lang={this.props.pageContext.lang} />
 
 					<div>
@@ -72,7 +75,7 @@ class Monde extends Component {
 							<Card>
 								<CardBody>
 									<div className="d-flex justify-content-center">
-										<img className="img-fluid" src={data.contentfulMonde.carte.file.url} alt="Carte"/>
+										<img className="img-fluid" src={data.contentfulMonde.carte.file.url} alt="Carte" />
 									</div>
 								</CardBody>
 							</Card>

@@ -22,6 +22,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
 import EquivURL from '../components/equivURL';
+import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -62,6 +63,8 @@ class Pays extends Component {
 		return (
 			<Layout>
 				<div id="page-wrapper">
+					<Helmet title={data.contentfulPays.nomPays + this.lang.meta_title}></Helmet>
+
 					<Header lang={this.props.pageContext.lang} />
 
 					<div>

@@ -17,6 +17,7 @@ import BlockContinuer from '../components/block_continuer';
 import ListProjetPanel from '../components/list_projet_panel';
 import EquivURL from '../components/equivURL';
 import cookie from 'react-cookies';
+import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -117,6 +118,8 @@ class IndexPage extends Component {
         return (
             <Layout>
                 <div>
+                    <Helmet title={this.lang.header_accueil + this.lang.meta_title}></Helmet>
+
                     <Header lang={this.props.pageContext.lang} />
 
                     <EquivURL url={this.lang.other_lang_url + "/"} label={this.lang.other_lang_label} />
@@ -134,11 +137,11 @@ class IndexPage extends Component {
                         {
                             this.state.lecteur !== "vide" ?
                                 (<Row className="pb-5">
-                                        <Col sm="12">
-                                            <h2 className="mb-4">{this.lang.continuer_titre}</h2>
-                                            <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
-                                        </Col>
-                                    </Row>) :
+                                    <Col sm="12">
+                                        <h2 className="mb-4">{this.lang.continuer_titre}</h2>
+                                        <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
+                                    </Col>
+                                </Row>) :
                                 ('')
                         }
 
