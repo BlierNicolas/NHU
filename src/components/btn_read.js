@@ -23,14 +23,12 @@ export default class Btn_read extends React.Component {
 
         this.login = this.login.bind(this);
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 
         this.state = {
             user: null,
@@ -84,11 +82,7 @@ export default class Btn_read extends React.Component {
             this.forceUpdate();
         }
     }
-
-    // UNSAFE_componentWillMount() {
-    //     this.setState({ lecteur: cookie.load('lecteur') });
-    // }
-
+    
     componentDidMount() {
         if (typeof window !== "undefined") {
             const itemsRefLu = firebase.database().ref('reads');

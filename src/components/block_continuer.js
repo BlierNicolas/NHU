@@ -16,14 +16,12 @@ export default class Block_Continuer extends React.Component {
 
         this.checkUpReads = this.checkUpReads.bind(this);
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 
         this.state = {
             user: null,
@@ -45,10 +43,6 @@ export default class Block_Continuer extends React.Component {
             this.state.lecteur = cookie.load('lecteur_connect')
         }
     }
-
-    // UNSAFE_componentWillMount() {
-    //     this.setState({ lecteur: cookie.load('lecteur') });
-    // }
 
     componentDidMount() {
         if (typeof window !== "undefined") {
@@ -92,33 +86,24 @@ export default class Block_Continuer extends React.Component {
         let slugChapitre = "";
 
         if (this.state.lecteur !== "vide") {
-            // this.state.itemsLu.map((item) =>
-            //     console.log(item.codeChapitre)
-            // )
-            //console.log(this.state.itemsLu)
-
             this.props.allChapitre.edges.map((edge) =>
                 this.state.itemsLu.map((item) =>
                     (item.traite === "non") ?
                         (
                             ((item.chapitre === edge.node.titreChapitre) && (item.user === this.state.lecteur.email)) ?
                                 (
-                                    //console.log("---" + item.chapitre + " --- " + this.dernierChapitreLu + " / " + item.chapitreApres),
                                     (this.dernierChapitreLu === "") ?
                                         (
                                             this.dernierChapitreLu = item.chapitreApres
-                                            //console.log("Dernier chap était vide " + item.chapitre + " / " + item.chapitreApres + " / " + this.dernierChapitreLu)
                                         ) : (
                                             ((this.dernierChapitreLu === edge.node.slug) && (edge.node.chapitreApres === item.chapitreApres)) ?
                                                 (
                                                     this.dernierChapitreLu = item.chapitreApres,
-                                                    //console.log("Suite trouvée " + item.chapitre + " / " + item.chapitreApres + " / " + this.dernierChapitreLu),
                                                     item.traite = "oui"
                                                 ) : (
                                                     slugChapitre = this.dernierChapitreLu,
                                                     this.state.chapitres.push({ slugChapitre }),
                                                     this.dernierChapitreLu = item.chapitreApres
-                                                    //console.log("Dernier chap différent " + item.chapitre + " / " + item.chapitreApres + " / " + this.dernierChapitreLu)
                                                 )
                                         )
                                 ) : ''

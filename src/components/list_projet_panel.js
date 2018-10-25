@@ -13,14 +13,12 @@ export default class List_Projet_Panel extends React.Component {
     constructor(props) {
         super(props);
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
     }
 
     render() {

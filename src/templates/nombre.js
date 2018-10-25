@@ -27,14 +27,12 @@ class Nombre extends Component {
         this.histoireEnCours = 0;
         this.histoireTerminees = 0;
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.pageContext.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.pageContext.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 
         this.props.data.allContentfulRoman.edges.map(
             (edge) =>
@@ -74,30 +72,14 @@ class Nombre extends Component {
 
                     <Container className="pb-5">
                         <Row>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_histoires + data.allContentfulRoman.totalCount}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_en_cours + this.histoireEnCours}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_termines + this.histoireTerminees}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_chapitre + data.allContentfulChapitre.totalCount}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_groupes + data.allContentfulGroupe.totalCount}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_theories + data.allContentfulTheorie.totalCount}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_personnages + data.allContentfulPersonnage.totalCount}
-                            </Col>
-                            <Col sm="12" md="6" lg="4" className="mb-3">
-                                {this.lang.nombre_pouvoirs + data.allContentfulPouvoir.totalCount}
-                            </Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_histoires + data.allContentfulRoman.totalCount}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_en_cours + this.histoireEnCours}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_termines + this.histoireTerminees}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_chapitre + data.allContentfulChapitre.totalCount}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_groupes + data.allContentfulGroupe.totalCount}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_theories + data.allContentfulTheorie.totalCount}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_personnages + data.allContentfulPersonnage.totalCount}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_pouvoirs + data.allContentfulPouvoir.totalCount}</Col>
                         </Row>
                     </Container>
 

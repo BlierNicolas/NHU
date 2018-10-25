@@ -23,14 +23,12 @@ class Personnage extends Component {
     constructor(props) {
         super(props);
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.pageContext.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.pageContext.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+        if (this.props.lang === "en-US") { this.lang = lang_en; }
     }
 
     render() {
@@ -78,58 +76,40 @@ class Personnage extends Component {
                                 {
                                     data.contentfulPersonnage.descriptionSommaire ?
                                         (<div className="my-3">
-                                            <div>
-                                                <h3>{this.lang.personnage_desc_sommaire_titre}</h3>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
-                                                </div>
-                                            </div>
+                                            <h3>{this.lang.personnage_desc_sommaire_titre}</h3>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionSommaire.childMarkdownRemark.html }} />
                                         </div>) :
                                         ('')
                                 }
                                 {
                                     data.contentfulPersonnage.descriptionPouvoir ?
                                         (<div className="my-3">
-                                            <div>
-                                                <h3>{this.lang.personnage_desc_pouvoir_titre}</h3>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
-                                                </div>
-                                            </div>
+                                            <h3>{this.lang.personnage_desc_pouvoir_titre}</h3>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPouvoir.childMarkdownRemark.html }} />
                                         </div>) :
                                         ('')
                                 }
                                 {
                                     data.contentfulPersonnage.descriptionPhysique ?
                                         (<div className="my-3">
-                                            <div>
-                                                <h3>{this.lang.personnage_desc_physique_titre}</h3>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
-                                                </div>
-                                            </div>
+                                            <h3>{this.lang.personnage_desc_physique_titre}</h3>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.descriptionPhysique.childMarkdownRemark.html }} />
                                         </div>) :
                                         ('')
                                 }
                                 {
                                     data.contentfulPersonnage.relation ?
                                         (<div className="my-3">
-                                            <div>
-                                                <h3>{this.lang.personnage_relations_titre}</h3>
-                                                <div>
-                                                    <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.relation.childMarkdownRemark.html }} />
-                                                </div>
-                                            </div>
+                                            <h3>{this.lang.personnage_relations_titre}</h3>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.relation.childMarkdownRemark.html }} />
                                         </div>) :
                                         ('')
                                 }
                                 {
                                     data.contentfulPersonnage.apparition ?
                                         (<div className="my-3">
-                                            <div>
-                                                <h3>{this.lang.personnage_apparitions_titre}</h3>
-                                                <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
-                                            </div>
+                                            <h3>{this.lang.personnage_apparitions_titre}</h3>
+                                            <div dangerouslySetInnerHTML={{ __html: data.contentfulPersonnage.apparition.childMarkdownRemark.html }} />
                                         </div>) :
                                         ('')
                                 }

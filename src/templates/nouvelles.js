@@ -25,14 +25,12 @@ class ListeDesNouvelles extends Component {
 	constructor(props) {
 		super(props);
 
-		this.lang = lang_fr;
+		/** Buffer de la langue par défaut */
+        this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 	}
 
 	render() {
@@ -62,8 +60,6 @@ class ListeDesNouvelles extends Component {
 						<Row className="pb-5">
 							<Col sm="12" lg="9" >
 								<BlockNouvelles allNouvelles={data.allContentfulNouvelle} lang={this.props.pageContext.lang} />
-							</Col>
-							<Col sm="12" lg="3" >
 							</Col>
 						</Row>
 					</Container>

@@ -28,6 +28,11 @@ exports.createPages = ({ graphql, actions }) => {
 		const listeProjetsTemplate = path.resolve('src/templates/projets.js')
 		const projetTemplate = path.resolve('src/templates/projet.js')
 
+		/** Cette fonction s'occupe de créer des pages qui ne seront présentes qu'une seule fois dans le site. 
+		 * pat: Paramètre qui contient la portion de l'url de la page
+		 * temp: Paramètre qui contient la constante du template
+		 * lang: Paramètre qui contient le string qui sera utilisé pour détecté la langue de la page
+		*/
 		function singlePage(pat, temp, lang) {
 			createPage({
 				path: pat,
@@ -38,10 +43,17 @@ exports.createPages = ({ graphql, actions }) => {
 			})
 		}
 
+		/** Cette fonction s'occupe de créer des pages.
+		 * graphQL: Paramètre qui contient la section de code graphQL pour le fetch des datas
+		 * kindData: Paramètre qui sert à savoir quel genre de data on cherche
+		 * pat: Paramètre qui contient la portion de l'url de la page
+		 * temp: Paramètre qui contient la constante du template
+		 * lang: Paramètre qui contient le string qui sera utilisé pour détecté la langue de la page
+		*/
 		function multiPage(graphQL, kindData, pat, temp, lang) {
 			graphql(graphQL).then((result) => {
 				if (result.errors) { reject(result.errors) }
-				dat = detectKindOfData(result)
+				dat = extractKindOfData(result)
 				if (dat != null) {
 					dat.edges.forEach((edge) => {
 						if ((edge.node.id = kindData) && (edge.node.slug != null)) {
@@ -60,10 +72,18 @@ exports.createPages = ({ graphql, actions }) => {
 			})
 		}
 
+		/** Cette fonction s'occupe de créer des pages
+		 * variante... elle vérifie qu'on génère la bonne source de donnée
+		 * graphQL: Paramètre qui contient la section de code graphQL pour le fetch des datas
+		 * kindData: Paramètre qui sert à savoir quel genre de data on cherche
+		 * pat: Paramètre qui contient la portion de l'url de la page
+		 * temp: Paramètre qui contient la constante du template
+		 * lang: Paramètre qui contient le string qui sera utilisé pour détecté la langue de la page
+		*/
 		function multiPageSpe(graphQL, kindData, pat, temp, lang) {
 			graphql(graphQL).then((result) => {
 				if (result.errors) { reject(result.errors) }
-				dat = detectKindOfData(result)
+				dat = extractKindOfData(result)
 				if (dat != null) {
 					dat.edges.forEach((edge) => {
 						if ((edge.node.id = kindData) && (edge.node.slug != null)) {
@@ -84,10 +104,18 @@ exports.createPages = ({ graphql, actions }) => {
 			})
 		}
 
+		/** Cette fonction s'occupe de créer des pages
+		 * variante... elle ajoute une nouvelle section au path 
+		 * graphQL: Paramètre qui contient la section de code graphQL pour le fetch des datas
+		 * kindData: Paramètre qui sert à savoir quel genre de data on cherche
+		 * pat: Paramètre qui contient la portion de l'url de la page
+		 * temp: Paramètre qui contient la constante du template
+		 * lang: Paramètre qui contient le string qui sera utilisé pour détecté la langue de la page
+		*/
 		function multiPageSpe2(graphQL, kindData, pat, temp, lang) {
 			graphql(graphQL).then((result) => {
 				if (result.errors) { reject(result.errors) }
-				dat = detectKindOfData(result)
+				dat = extractKindOfData(result)
 				if (dat != null) {
 					dat.edges.forEach((edge) => {
 						if ((edge.node.id = kindData) && (edge.node.slug != null)) {
@@ -106,21 +134,16 @@ exports.createPages = ({ graphql, actions }) => {
 			})
 		}
 
-		function detectKindOfData(res) {
-			if (res.data.allContentfulChapitre != null) { return res.data.allContentfulChapitre }
-			if (res.data.allContentfulRoman != null) { return res.data.allContentfulRoman }
-			if (res.data.allContentfulPersonnage != null) { return res.data.allContentfulPersonnage }
-			if (res.data.allContentfulGroupe != null) { return res.data.allContentfulGroupe }
-			if (res.data.allContentfulNouvelle != null) { return res.data.allContentfulNouvelle }
-			if (res.data.allContentfulPouvoir != null) { return res.data.allContentfulPouvoir }
-			if (res.data.allContentfulProject != null) { return res.data.allContentfulProject }
-			if (res.data.allContentfulTheorie != null) { return res.data.allContentfulTheorie }
-			if (res.data.allContentfulMonde != null) { return res.data.allContentfulMonde }
-			if (res.data.allContentfulPays != null) { return res.data.allContentfulPays }
-			if (res.data.allContentfulVille != null) { return res.data.allContentfulVille }
-			return null
+		/** Cette fonction s'occupe de créer des pages
+		 * variante... elle vérifie qu'on génère la bonne source de donnée
+		 * res: Paramètre qui contient le résultat de graphQL
+		*/
+		function extractKindOfData(res) {
+			var x = Object.keys(res.data);
+			return x != null ? res.data[x[0]] : null;
 		}
 
+		/** S'occupe de générer toutes les sortes de pages sous les deux langues disponibles */
 		resolve(
 			singlePage('/', indexTemplate, "fr-CA"),
 			singlePage('en/', indexTemplate, "en-US"),
