@@ -33,8 +33,6 @@ class IndexPage extends Component {
             connectedUser: null,
             lecteur: "vide"
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
 
         /** Buffer de la langue par défaut */
         this.lang = lang_fr;
@@ -50,12 +48,6 @@ class IndexPage extends Component {
         if (cookie.load('lecteur_connect') !== "vide") {
             this.state.lecteur = cookie.load('lecteur_connect')
         }
-    }
-
-    handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
     }
 
     render() {
