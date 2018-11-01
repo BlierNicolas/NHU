@@ -33,17 +33,13 @@ class IndexPage extends Component {
             connectedUser: null,
             lecteur: "vide"
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.pageContext.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.pageContext.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 
         if (cookie.load('lecteur_connect') == null) {
             cookie.save('lecteur_connect', "vide", { path: '/' });
@@ -52,62 +48,6 @@ class IndexPage extends Component {
         if (cookie.load('lecteur_connect') !== "vide") {
             this.state.lecteur = cookie.load('lecteur_connect')
         }
-    }
-
-    handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    }
-
-    handleSubmit(e) {
-        // // Empêche le refresh
-        // e.preventDefault();
-
-        // // Met la référence vers la database
-        // const itemsRef = firebase.database().ref('items');
-
-        // // Popule les champs dans une collection "item"
-        // const item = {
-        //     title: this.state.currentItem,
-        //     user: this.state.username
-        // }
-
-        // // Pousse l'item créé dans la collection
-        // itemsRef.push(item);
-
-        // // Remet les champs vides
-        // this.setState({
-        //     currentItem: '',
-        //     username: ''
-        // });
-    }
-
-    componentDidMount() {
-        // const itemsRef = firebase.database().ref('items');
-        // itemsRef.on('value', (snapshot) => {
-        //     let items = snapshot.val();
-        //     let newState = [];
-        //     for (let item in items) {
-        //         newState.push({
-        //             id: item,
-        //             title: items[item].title,
-        //             user: items[item].user
-        //         });
-        //     }
-        //     this.setState({
-        //         items: newState
-        //     });
-        // });
-    }
-
-    // UNSAFE_componentWillMount() {
-    // 	this.setState({lecteur: cookie.load('lecteur')});
-    // }
-
-    removeItem(itemId) {
-        // const itemRef = firebase.database().ref(`/items/${itemId}`);
-        // itemRef.remove();
     }
 
     render() {

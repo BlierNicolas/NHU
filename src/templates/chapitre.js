@@ -35,14 +35,12 @@ class Chapitre extends Component {
 			lecteur: "vide"
 		};
 
-		this.lang = lang_fr;
+		/** Buffer de la langue par défaut */
+        this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 
 		if (cookie.load('lecteur_connect') == null) {
 			cookie.save('lecteur_connect', "vide", { path: '/' });
@@ -52,10 +50,6 @@ class Chapitre extends Component {
 			this.state.lecteur = cookie.load('lecteur_connect')
 		}
 	}
-
-	// UNSAFE_componentWillMount() {
-	// 	this.setState({ lecteur: cookie.load('lecteur') });
-	// }
 
 	login() {
 		if (typeof window !== "undefined") {

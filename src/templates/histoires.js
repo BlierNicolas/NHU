@@ -35,14 +35,12 @@ class ListeDesHistoires extends Component {
 			activeTab: '1',
 		};
 
-		this.lang = lang_fr;
+		/** Buffer de la langue par défaut */
+        this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 	}
 
 	toggle(tab) {

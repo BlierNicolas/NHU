@@ -178,7 +178,7 @@ footer {
 @media (max-width: 700px) {
     .nav-center li div {
         left: 0;
-        right: auto;
+        /* right: auto; */
     }
 }
 
@@ -249,4 +249,14 @@ footer {
 
 .no-padding div button {
     width: 100%;
+}
+
+@media (max-width: 700px) {
+    .navbar-collapse ul li {
+        text-align: center;
+    }
+
+    .navbar-collapse ul li div button {
+        text-align: center;
+    }
 }

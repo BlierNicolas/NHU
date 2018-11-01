@@ -34,14 +34,12 @@ export default class Header extends React.Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
 
+        /** Buffer de la langue par défaut */
         this.lang = lang_fr;
 
-        if (this.props.lang === "fr-CA") {
-            this.lang = lang_fr;
-        }
-        if (this.props.lang === "en-US") {
-            this.lang = lang_en;
-        }
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 
         this.state = {
             isOpen: false,
@@ -76,14 +74,8 @@ export default class Header extends React.Component {
         cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
-    // UNSAFE_componentWillMount() {
-    //     this.mounted = cookie.load('c_nightMode');
-    //     this.checkActif();
-    // }
-
     componentDidMount() {
         this.nightMode = !this.nightMode;
-
         if (typeof window !== "undefined") {
             auth.onAuthStateChanged((user) => {
                 if (user) {
@@ -101,6 +93,14 @@ export default class Header extends React.Component {
 
     toggleNight() {
         this.nightMode = !this.nightMode;
+
+        if (this.nightMode === true) {
+            this.status = this.lang.btn_nuit_actif;
+            cookie.save('c_nightMode', 'on', { path: '/' });
+        } else {
+            this.status = this.lang.btn_nuit_inactif;
+            cookie.save('c_nightMode', 'off', { path: '/' });
+        }
 
         this.checkActif();
     }

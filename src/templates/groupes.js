@@ -24,14 +24,12 @@ class ListeDesGroupes extends Component {
 	constructor(props) {
 		super(props);
 
+		/** Buffer de la langue par défaut */
 		this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+		/** Trouve la bonne langue */
+		if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	render() {
@@ -64,29 +62,20 @@ class ListeDesGroupes extends Component {
 									data.allContentfulGroupe.edges.map(
 										(edge) =>
 											<div className="clearfix border-bottom mb-2 anim-bounce-in" key={edge.node.id}>
-												<div className="">
-													<Row className="no-gutters">
-														<Col md="9" sm="12">
-															<Link to={this.lang.groupes_url + edge.node.slug + "/"}><h2><small>{edge.node.nomGroupe}</small></h2></Link>
-														</Col>
-													</Row>
-												</div>
-												<div>
-													<Row className="no-gutters">
-														<Col md="9" sm="12">
-															<div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-														</Col>
-
-														<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-															<Link className="float-right mb-2" to={this.lang.groupes_url + edge.node.slug + "/"}>{this.lang.nouvelle_details}</Link>
-														</Col>
-													</Row>
-												</div>
+												<Row className="no-gutters">
+													<Col md="9" sm="12">
+														<Link to={this.lang.groupes_url + edge.node.slug + "/"}><h2><small>{edge.node.nomGroupe}</small></h2></Link>
+													</Col>
+													<Col md="9" sm="12">
+														<div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
+													</Col>
+													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
+														<Link className="float-right mb-2" to={this.lang.groupes_url + edge.node.slug + "/"}>{this.lang.nouvelle_details}</Link>
+													</Col>
+												</Row>
 											</div>
 									)
 								}
-							</Col>
-							<Col sm="12" lg="3" >
 							</Col>
 						</Row>
 					</Container>

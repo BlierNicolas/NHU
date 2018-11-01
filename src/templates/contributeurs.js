@@ -23,14 +23,12 @@ class Contributeurs extends Component {
 	constructor(props) {
 		super(props);
 
-		this.lang = lang_fr;
+		/** Buffer de la langue par défaut */
+        this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 	}
 
 	render() {
@@ -59,8 +57,8 @@ class Contributeurs extends Component {
 								<div className="clearfix mb-2">
 									<Row className="no-gutters">
 										<Col lg="12">
-											<div><a href="https://thomas-desfossez.com">Thomas Desfossez</a> - {this.lang.contributeurs_design}</div>
-											<div><a href="http://sarahbourque.ca">Sarah Bourque</a> - {this.lang.contributeurs_illustration}</div>
+											<div><a href="https://thomas-desfossez.com/">Thomas Desfossez</a> - {this.lang.contributeurs_design}</div>
+											<div><a href="https://www.artstation.com/sarahbourque">Sarah Bourque</a> - {this.lang.contributeurs_illustration}</div>
 											<div>Maeva G - {this.lang.contributeurs_creation}</div>
 											<div>Marie-Josée Cloutier - {this.lang.contributeurs_correction}</div>
 										</Col>

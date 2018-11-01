@@ -28,14 +28,12 @@ class Ville extends Component {
 			activeTab: '1',
 		};
 
+		/** Buffer de la langue par défaut */
 		this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+		/** Trouve la bonne langue */
+		if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	toggle(tab) {
@@ -78,24 +76,16 @@ class Ville extends Component {
 										{
 											data.contentfulVille.description ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_description}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.description.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_description}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.description.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
 										{
 											data.contentfulVille.histoire ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_histoire}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.histoire.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_histoire}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulVille.histoire.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}

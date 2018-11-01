@@ -9,7 +9,6 @@ import {
 	Col,
 	Breadcrumb,
 	BreadcrumbItem,
-	Button,
 	Nav,
 	NavItem,
 	NavLink,
@@ -37,14 +36,12 @@ class Pays extends Component {
 			activeTab: '1',
 		};
 
+		/** Buffer de la langue par défaut */
 		this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+		/** Trouve la bonne langue */
+		if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	toggle(tab) {
@@ -188,36 +185,24 @@ class Pays extends Component {
 										{
 											data.contentfulPays.climat ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_climat}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.climat.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_climat}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.climat.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
 										{
 											data.contentfulPays.ressources ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_ressources}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.ressources.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_ressources}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.ressources.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
 										{
 											data.contentfulPays.typeTerrain ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_terrain}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.typeTerrain.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_terrain}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.typeTerrain.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
@@ -231,36 +216,24 @@ class Pays extends Component {
 										{
 											data.contentfulPays.dirigeants ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_dirigeant}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.dirigeants.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_dirigeant}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.dirigeants.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
 										{
 											data.contentfulPays.reputation ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_reputation}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.reputation.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_reputation}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.reputation.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
 										{
 											data.contentfulPays.conflit ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_conflit}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.conflit.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_conflit}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.conflit.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
@@ -274,24 +247,16 @@ class Pays extends Component {
 										{
 											data.contentfulPays.langueCulture ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_culture}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.langueCulture.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_culture}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.langueCulture.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}
 										{
 											data.contentfulPays.religion ?
 												(<div className="my-3">
-													<div>
-														<h3>{this.lang.pays_religion}</h3>
-														<div>
-															<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.religion.childMarkdownRemark.html }} />
-														</div>
-													</div>
+													<h3>{this.lang.pays_religion}</h3>
+													<div dangerouslySetInnerHTML={{ __html: data.contentfulPays.religion.childMarkdownRemark.html }} />
 												</div>) :
 												('')
 										}

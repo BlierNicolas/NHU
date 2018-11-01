@@ -26,14 +26,12 @@ class ListeDesPouvoirs extends Component {
 
 		this.firstLetter = '';
 
-		this.lang = lang_fr;
+		/** Buffer de la langue par défaut */
+        this.lang = lang_fr;
 
-		if (this.props.pageContext.lang === "fr-CA") {
-			this.lang = lang_fr;
-		}
-		if (this.props.pageContext.lang === "en-US") {
-			this.lang = lang_en;
-		}
+        /** Trouve la bonne langue */
+        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
+        if (this.props.lang === "en-US") {this.lang = lang_en;}
 	}
 
 	render() {
@@ -70,9 +68,7 @@ class ListeDesPouvoirs extends Component {
 													(
 														<Col lg="12" className="text-center my-3 anim-bounce-in">
 															<hr />
-															<h3>
-																{this.firstLetter = edge.node.nomPouvoir.charAt(0)}
-															</h3>
+															<h3>{this.firstLetter = edge.node.nomPouvoir.charAt(0)}</h3>
 														</Col>
 													) :
 													('')
