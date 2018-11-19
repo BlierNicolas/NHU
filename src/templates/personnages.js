@@ -101,11 +101,6 @@ export const pageQuery = graphql`query listePersonnageQueryFR ($lang: String!) {
             node {
 				id
                 nomComplet
-                image {
-                    file {
-                        url
-                    }
-                }
                 alignement
                 slug
             }
