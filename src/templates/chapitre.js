@@ -36,11 +36,11 @@ class Chapitre extends Component {
 		};
 
 		/** Buffer de la langue par défaut */
-        this.lang = lang_fr;
+		this.lang = lang_fr;
 
-        /** Trouve la bonne langue */
-        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
-        if (this.props.lang === "en-US") {this.lang = lang_en;}
+		/** Trouve la bonne langue */
+		if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.lang === "en-US") { this.lang = lang_en; }
 
 		if (cookie.load('lecteur_connect') == null) {
 			cookie.save('lecteur_connect', "vide", { path: '/' });
@@ -143,7 +143,11 @@ class Chapitre extends Component {
 										<Col xs="4" className="text-right pr-0">
 											{
 												data.contentfulChapitre.chapitreApres ?
-													(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreApres + "/"}>{this.lang.chapitre_btn_apres}</Link>) :
+													(
+														data.contentfulChapitre.chapitreApres !== data.contentfulChapitre.slug ?
+															(<Link className="btn btn-primary" to={this.lang.chapitre_btn_url + data.contentfulChapitre.chapitreApres + "/"}>{this.lang.chapitre_btn_apres}</Link>) :
+															('')
+													) :
 													('')
 											}
 										</Col>

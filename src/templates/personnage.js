@@ -62,10 +62,15 @@ class Personnage extends Component {
                                         <div>
                                             {
                                                 data.contentfulPersonnage.pouvoirNom ?
-                                                    (<div>
-                                                        {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
-                                                    </div>) :
-                                                    ('')
+                                                    (
+                                                        data.contentfulPersonnage.pouvoirUrl ?
+                                                            (<div>
+                                                                {this.lang.personnage_pouvoir_label}<Link to={data.contentfulPersonnage.pouvoirUrl + "/"}>{data.contentfulPersonnage.pouvoirNom}</Link>{" (" + data.contentfulPersonnage.pouvoirGroupe + ")"}<br />
+                                                            </div>) : 
+                                                            (<div>
+                                                                {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
+                                                            </div>)
+                                                    ) : ('')
                                             }
                                             {this.lang.personnage_alignement_label + data.contentfulPersonnage.alignement}<br />
                                             {this.lang.personnage_naissance_label + data.contentfulPersonnage.dateNaissance}<br />
@@ -136,6 +141,8 @@ export const pageQuery = graphql`query personnageQueryFR ($slug: String!, $lang:
       dateNaissance
       age
       pouvoirNom
+      pouvoirUrl
+      pouvoirGroupe
       alignement
       descriptionSommaire {
         childMarkdownRemark {
