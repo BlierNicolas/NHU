@@ -15,6 +15,7 @@ import BlockNouvelles from '../components/block_nouvelles';
 import BlockCalendrier from '../components/block_calendrier';
 import BlockContinuer from '../components/block_continuer';
 import ListProjetPanel from '../components/list_projet_panel';
+// import Survey from '../components/survey';
 import EquivURL from '../components/equivURL';
 import cookie from 'react-cookies';
 import Helmet from 'react-helmet'
@@ -38,8 +39,8 @@ class IndexPage extends Component {
         this.lang = lang_fr;
 
         /** Trouve la bonne langue */
-        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
-        if (this.props.lang === "en-US") {this.lang = lang_en;}
+        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
         if (cookie.load('lecteur_connect') == null) {
             cookie.save('lecteur_connect', "vide", { path: '/' });
@@ -72,6 +73,14 @@ class IndexPage extends Component {
                             <Link className="btn btn-primary" to={this.lang.header_histoires_url + "/"}>{this.lang.accueil_jumbo_btn_titre}</Link>
                         </Container>
                     </Jumbotron>
+
+                    {/* <Container fluid className="p-0">
+                        <Row className="pb-5">
+                            <Col sm="12">
+                                <Survey lang={this.props.pageContext.lang} />
+                            </Col>
+                        </Row>
+                    </Container> */}
 
                     <Container fluid className="p-0">
                         {
@@ -116,7 +125,7 @@ class IndexPage extends Component {
 
                     <Footer lang={this.props.pageContext.lang} />
                 </div >
-            </Layout>
+            </Layout >
         )
     }
 }

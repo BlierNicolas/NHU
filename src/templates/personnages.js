@@ -30,8 +30,8 @@ class ListeDesPersonnages extends Component {
         this.lang = lang_fr;
 
         /** Trouve la bonne langue */
-        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
-        if (this.props.lang === "en-US") {this.lang = lang_en;}
+        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	render() {
