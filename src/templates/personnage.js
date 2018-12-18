@@ -65,7 +65,7 @@ class Personnage extends Component {
                                                     (
                                                         data.contentfulPersonnage.pouvoirUrl ?
                                                             (<div>
-                                                                {this.lang.personnage_pouvoir_label}<Link to={data.contentfulPersonnage.pouvoirUrl + "/"}>{data.contentfulPersonnage.pouvoirNom}</Link>{" (" + data.contentfulPersonnage.pouvoirGroupe + ")"}<br />
+                                                                {this.lang.personnage_pouvoir_label}<Link to={this.lang.header_base + data.contentfulPersonnage.pouvoirUrl + "/"}>{data.contentfulPersonnage.pouvoirNom}</Link>{" (" + data.contentfulPersonnage.pouvoirGroupe + ")"}<br />
                                                             </div>) : 
                                                             (<div>
                                                                 {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
