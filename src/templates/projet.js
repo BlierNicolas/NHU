@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { graphql } from "gatsby";
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -43,13 +41,7 @@ class Projet extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.header_projets_url + "/"}>{this.lang.header_projets}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{data.contentfulProject.titre}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={3} un_url={this.lang.header_projets_url} un={this.lang.header_projets} active={data.contentfulProject.titre} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulProject.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
@@ -57,7 +49,7 @@ class Projet extends Component {
 						<Container>
 							<Row>
 								<Col lg={{ size: 10, offset: 1 }} md="12">
-									<h1 className="display-4 page-header text-center">{data.contentfulProject.titre}</h1>
+									<h1 className="display-4 page-header text-center display-title">{data.contentfulProject.titre}</h1>
 									<p>
 										{this.lang.projet_categorie + data.contentfulProject.typeProjet}
 									</p>

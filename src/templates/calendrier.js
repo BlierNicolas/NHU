@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockCalendrier from '../components/block_calendrier';
 import BlockIntro from '../components/block_intro';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import EquivURL from '../components/equivURL';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
@@ -26,11 +24,11 @@ class Calendrier extends Component {
 		super(props);
 
 		/** Buffer de la langue par défaut */
-        this.lang = lang_fr;
+		this.lang = lang_fr;
 
-        /** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		/** Trouve la bonne langue */
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	render() {
@@ -45,12 +43,7 @@ class Calendrier extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{this.lang.header_calendrier}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={2} active={this.lang.header_calendrier} />
 
 					<EquivURL url={this.lang.equi_calendrier + "/"} label={this.lang.other_lang_label} />
 

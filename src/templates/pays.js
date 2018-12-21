@@ -7,8 +7,6 @@ import {
 	Container,
 	Row,
 	Col,
-	Breadcrumb,
-	BreadcrumbItem,
 	Nav,
 	NavItem,
 	NavLink,
@@ -21,6 +19,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import classnames from 'classnames';
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -64,13 +63,7 @@ class Pays extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{data.contentfulPays.nomPays}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={3} un_url={this.lang.header_giervia_url} un={this.lang.header_giervia} active={data.contentfulPays.nomPays} />
 
 					<EquivURL url={this.lang.equi_pays + data.contentfulPays.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
@@ -79,7 +72,7 @@ class Pays extends Component {
 							<Col lg="12" md="12">
 								<div className="mt-5 mb-3">
 									<div>
-										<h1 className="display-4">{data.contentfulPays.nomPays} - <small className="font-weight-300">{data.contentfulPays.nomContinent}</small></h1>
+										<h1 className="display-4 display-title">{data.contentfulPays.nomPays} - <small className="font-weight-300">{data.contentfulPays.nomContinent}</small></h1>
 										{
 											data.contentfulPays.description ?
 												(<div className="my-3">

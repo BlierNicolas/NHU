@@ -6,14 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import Helmet from 'react-helmet'
@@ -46,12 +45,7 @@ class Evenements extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{this.lang.header_evenements}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={2} active={this.lang.header_evenements} />
 
 					<EquivURL url={this.lang.equi_evenements + "/"} label={this.lang.other_lang_label} />
 

@@ -6,14 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -44,12 +43,7 @@ class ListeDesGroupes extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{this.lang.header_groupes}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={2} active={this.lang.header_groupes} />
 
 					<EquivURL url={this.lang.equi_groupes + "/"} label={this.lang.other_lang_label} />
 

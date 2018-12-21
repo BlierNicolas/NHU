@@ -6,15 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BtnLike from '../components/btn_like'
 import BtnRead from '../components/btn_read'
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
 import { auth, provider } from 'firebase/app';
 import cookie from 'react-cookies';
@@ -39,8 +38,8 @@ class Chapitre extends Component {
 		this.lang = lang_fr;
 
 		/** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
 		if (cookie.load('lecteur_connect') == null) {
 			cookie.save('lecteur_connect', "vide", { path: '/' });
@@ -78,14 +77,7 @@ class Chapitre extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.header_histoires_url + "/"}>{this.lang.header_histoires}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman + "/"}>{this.lang.bc_roman_label}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{data.contentfulChapitre.titreChapitre}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={4} un_url={this.lang.header_histoires_url} un={this.lang.header_histoires} deux_url={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman} deux={this.lang.bc_roman_label} active={data.contentfulChapitre.titreChapitre} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
@@ -93,7 +85,7 @@ class Chapitre extends Component {
 						<Container>
 							<Row>
 								<Col lg={{ size: 10, offset: 1 }} md="12">
-									<h1 className="page-header display-4 text-center my-5">{data.contentfulChapitre.titreChapitre}</h1>
+									<h1 className="page-header display-4 text-center my-5 display-title">{data.contentfulChapitre.titreChapitre}</h1>
 									<p className="lecture-texte temps_lecture">{this.lang.chapitre_read_time_label + "±" + data.contentfulChapitre.readTime + " " + this.lang.chapitre_read_time}</p>
 									<div className="text-justify lecture-texte" dangerouslySetInnerHTML={{ __html: data.contentfulChapitre.texte.childMarkdownRemark.html }} />
 								</Col>

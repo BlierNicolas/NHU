@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { graphql } from "gatsby";
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	ListGroup,
-	Breadcrumb,
-	BreadcrumbItem,
 	Nav,
 	NavItem,
 	NavLink,
@@ -20,6 +17,7 @@ import classnames from 'classnames';
 import ListProjetInfo from '../components/list_projet_info';
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -63,12 +61,7 @@ class ListeDesProjets extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{this.lang.header_projets}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={2} active={this.lang.header_projets} />
 
 					<EquivURL url={this.lang.equi_projets + "/"} label={this.lang.other_lang_label} />
 
