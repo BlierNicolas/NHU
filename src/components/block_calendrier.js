@@ -1,9 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import {
-    Row,
-    Col
-} from 'reactstrap';
+import Teaser from '../components/teaser';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -27,26 +23,7 @@ export default class Block_Calendrier extends React.Component {
                         (edge) =>
                             edge.node.affiche ?
                                 (<div className="clearfix border-bottom mb-2 anim-bounce-in" key={edge.node.id}>
-                                    <Row className="no-gutters">
-                                        <Col md="9" sm="12">
-                                            <h3 className="float-left"><small>{edge.node.titre}</small></h3>
-                                        </Col>
-                                        <Col md="3" sm="12">
-                                            <span className="float-right"><small>{edge.node.dateSpe} / {edge.node.date}</small></span>
-                                        </Col>
-                                    </Row>
-                                    <Row className="no-gutters">
-                                        <Col md="9" sm="12">
-                                            <div dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-                                        </Col>
-                                        {
-                                            edge.node.romanSlug ?
-                                                (<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-                                                    <Link className="float-right mb-2" to={this.lang.header_base + edge.node.romanSlug + "/"}>{this.lang.block_calendrier_lien}</Link>
-                                                </Col>) :
-                                                ('')
-                                        }
-                                    </Row>
+                                    <Teaser haveHeader={false} titre={edge.node.titre} haveDate={true} dateSpe={edge.node.dateSpe} date={edge.node.date} description={edge.node.description} haveLink={true} link_url={this.lang.header_base + edge.node.romanSlug} link_label={this.lang.block_calendrier_lien} />
                                 </div>) :
                                 ('')
                     )
