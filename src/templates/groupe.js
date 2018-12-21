@@ -8,13 +8,12 @@ import {
 	Row,
 	Col,
 	ListGroup,
-	ListGroupItem,
-	Breadcrumb,
-	BreadcrumbItem
+	ListGroupItem
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -45,20 +44,14 @@ class Groupe extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.header_groupes_url + "/"}>{this.lang.header_groupes}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{data.contentfulGroupe.nomGroupe}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={3} un_url={this.lang.header_groupes_url} un={this.lang.header_groupes} active={data.contentfulGroupe.nomGroupe} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulGroupe.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
 					<Container fluid className="py-5">
 						<Row className="pb-5">
 							<Col lg={{ size: 8, offset: 2 }} md="12">
-								<h1 className="display-4 page-header text-center">{data.contentfulGroupe.nomGroupe}</h1>
+								<h1 className="display-4 page-header text-center display-title">{data.contentfulGroupe.nomGroupe}</h1>
 								<div className="text-justify" dangerouslySetInnerHTML={{ __html: data.contentfulGroupe.description.childMarkdownRemark.html }} />
 							</Col>
 

@@ -6,13 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -32,8 +31,8 @@ class Ville extends Component {
 		this.lang = lang_fr;
 
 		/** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	toggle(tab) {
@@ -56,14 +55,7 @@ class Ville extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link></BreadcrumbItem>
-							<BreadcrumbItem><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{data.contentfulVille.nomVille}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={4} un_url={this.lang.header_giervia_url} un={this.lang.header_giervia} deux_url={this.lang.monde_url + data.contentfulVille.slugPaysParent} deux={data.contentfulVille.nomPaysParent} active={data.contentfulVille.nomVille} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulVille.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
@@ -72,7 +64,7 @@ class Ville extends Component {
 							<Col lg="12" md="12">
 								<div className="mt-5 mb-3">
 									<div>
-										<h1 className="display-4">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
+										<h1 className="display-4 display-title">{data.contentfulVille.nomVille} - <small className="font-weight-300"><Link to={this.lang.monde_url + data.contentfulVille.slugPaysParent + "/"}>{data.contentfulVille.nomPaysParent}</Link></small></h1>
 										{
 											data.contentfulVille.description ?
 												(<div className="my-3">

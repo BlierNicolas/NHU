@@ -255,8 +255,25 @@ footer {
     .navbar-collapse ul li {
         text-align: center;
     }
-
     .navbar-collapse ul li div button {
         text-align: center;
+    }
+}
+
+@media (min-width: 1224px) {
+    .display-title {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 1224px) {
+    .display-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .display-title {
+        font-size: 2.5rem;
     }
 }

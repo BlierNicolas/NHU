@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { graphql } from "gatsby";
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
 	Container,
 	Row,
-	Col,
-	Breadcrumb,
-	BreadcrumbItem
+	Col
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
+import BreadcrumbCompo from '../components/breadcrumb_compo';
+import Teaser from '../components/teaser';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -28,8 +27,8 @@ class ListeDesTheories extends Component {
 		this.lang = lang_fr;
 
 		/** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	render() {
@@ -44,12 +43,7 @@ class ListeDesTheories extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<div>
-						<Breadcrumb className="mb-0">
-							<BreadcrumbItem><Link to={this.lang.header_accueil_url}>{this.lang.header_accueil}</Link></BreadcrumbItem>
-							<BreadcrumbItem active>{this.lang.header_encyclopedie}</BreadcrumbItem>
-						</Breadcrumb>
-					</div>
+					<BreadcrumbCompo number={2} active={this.lang.header_encyclopedie} />
 
 					<EquivURL url={this.lang.equi_encyclopedie + "/"} label={this.lang.other_lang_label} />
 
@@ -62,17 +56,7 @@ class ListeDesTheories extends Component {
 									data.allContentfulTheorie.edges.map(
 										(edge) =>
 											<div className="clearfix border-bottom mb-2 anim-bounce-in" key={edge.node.id}>
-												<Row className="no-gutters">
-													<Col md="9" sm="12">
-														<Link to={this.lang.encyclopedie_url + edge.node.slug + "/"}><h2><small>{edge.node.titre}</small></h2></Link>
-													</Col>
-													<Col md="9" sm="12">
-														<div className="card-text" dangerouslySetInnerHTML={{ __html: edge.node.description.childMarkdownRemark.html }} />
-													</Col>
-													<Col md="3" sm="12" className="d-flex justify-content-end align-items-end">
-														<Link className="float-right mb-2" to={this.lang.encyclopedie_url + edge.node.slug + "/"}>{this.lang.nouvelle_details}</Link>
-													</Col>
-												</Row>
+												<Teaser haveHeader={true} titre_url={this.lang.encyclopedie_url + edge.node.slug} titre={edge.node.titre} haveDate={false} description={edge.node.description} haveLink={true} link_url={this.lang.encyclopedie_url + edge.node.slug} link_label={this.lang.nouvelle_details} />
 											</div>
 									)
 								}
