@@ -39,8 +39,8 @@ class Pays extends Component {
 		this.lang = lang_fr;
 
 		/** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	toggle(tab) {
@@ -152,13 +152,16 @@ class Pays extends Component {
 									</thead>
 									<tbody>
 										{
-											data.allContentfulVille.edges.map(
-												(edge) => <tr key={edge.node.id}>
-													<td><Link to={this.lang.monde_url + edge.node.slugPaysParent + '/' + edge.node.slug + "/"}>{edge.node.nomVille}</Link></td>
-													<td>{edge.node.superficie} m<sup>2</sup></td>
-													<td>{edge.node.population}</td>
-													<td>{edge.node.quantiteNouvHumains}</td>
-												</tr>)
+											data.allContentfulVille ? (
+												data.allContentfulVille.edges.map(
+													(edge) => <tr key={edge.node.id}>
+														<td><Link to={this.lang.monde_url + edge.node.slugPaysParent + '/' + edge.node.slug + "/"}>{edge.node.nomVille}</Link></td>
+														<td>{edge.node.superficie} m<sup>2</sup></td>
+														<td>{edge.node.population}</td>
+														<td>{edge.node.quantiteNouvHumains}</td>
+													</tr>)
+											) : 
+											('')
 										}
 									</tbody>
 								</Table>

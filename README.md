@@ -12,9 +12,9 @@ Pages:
 - [X] Une théorie
 - [X] Liste des personnages
 - [X] Un personnage (Ajouter l'image)
-- [ ] Carte du monde
-- [ ] Infos d'un pays
-- [ ] Une ville
+- [X] Carte du monde
+- [X] Infos d'un pays
+- [X] Une ville
 - [X] Liste des pouvoirs
 - [X] Un pouvoir
 - [X] Liste des groupes
@@ -22,17 +22,19 @@ Pages:
 - [X] Progression de l'Univers
 - [X] L'Univers en nombres
 - [X] Contributeurs
-- [X] Technologies utilisées
+- [X] Liste des projets
+- [X] Un projet
+- [ ] Liste des sondages
 
 Fonctionnalités:
 - [X] Google analytics
 - [X] Header
 - [X] Footer
 - [X] Navbar
-- [ ] Onesignal
-- [ ] Progressive Web App
 - [X] Login and like system
 - [X] Firebase
-- [ ] Typographie
 - [X] Favicon
 - [X] Bilingual site
+- [ ] Onesignal
+- [ ] Progressive Web App
+- [ ] Typographie
