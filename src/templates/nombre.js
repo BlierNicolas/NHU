@@ -73,6 +73,7 @@ class Nombre extends Component {
                             <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_theories + data.allContentfulTheorie.totalCount}</Col>
                             <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_personnages + data.allContentfulPersonnage.totalCount}</Col>
                             <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_pouvoirs + data.allContentfulPouvoir.totalCount}</Col>
+                            <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_projets + data.allContentfulProject.totalCount}</Col>
                         </Row>
                     </Container>
 
@@ -114,6 +115,9 @@ export const pageQuery = graphql`query nombreQueryFR ($lang: String!) {
         totalCount
     }
     allContentfulPersonnage(filter: {node_locale: {eq: $lang}}) {
+        totalCount
+    }
+    allContentfulProject(filter: {node_locale: {eq: $lang}}) {
         totalCount
     }
 }`
