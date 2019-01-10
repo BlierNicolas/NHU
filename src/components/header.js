@@ -212,9 +212,9 @@ export default class Header extends React.Component {
                                     <DropdownItem>
                                         <Link to={this.lang.header_groupes_url + "/"}>{this.lang.header_groupes}</Link>
                                     </DropdownItem>
-                                    {/* <DropdownItem>
+                                    <DropdownItem>
                                         <Link to={this.lang.header_giervia_url + "/"}>{this.lang.header_giervia}</Link>
-                                    </DropdownItem> */}
+                                    </DropdownItem>
                                     <DropdownItem>
                                         <Link to={this.lang.header_evenements_url + "/"}>{this.lang.header_evenements}</Link>
                                     </DropdownItem>

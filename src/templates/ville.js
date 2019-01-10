@@ -82,9 +82,21 @@ class Ville extends Component {
 												('')
 										}
 										<div>
-											{this.lang.ville_superficie + data.contentfulVille.superficie} m<sup>2</sup><br />
-											{this.lang.ville_population + data.contentfulVille.population}<br />
-											{this.lang.ville_nouv_humains + data.contentfulVille.quantiteNouvHumains}
+											{this.lang.ville_superficie}
+											{data.contentfulVille.superficie > 0 ?
+												(<span>{data.contentfulVille.superficie} m<sup>2</sup></span>) :
+												(this.lang.valeur_inconnue)
+											} <br />
+											{this.lang.ville_population}
+											{data.contentfulVille.population > 0 ?
+												(data.contentfulVille.population) :
+												(this.lang.valeur_inconnue)
+											} <br />
+											{this.lang.ville_nouv_humains}
+											{data.contentfulVille.quantiteNouvHumains > 0 ?
+												(data.contentfulVille.quantiteNouvHumains) :
+												(this.lang.valeur_inconnue)
+											}
 										</div>
 									</div>
 								</div>

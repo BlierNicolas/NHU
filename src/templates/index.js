@@ -74,23 +74,22 @@ class IndexPage extends Component {
                         </Container>
                     </Jumbotron>
 
-                    {/* <Container fluid className="p-0">
-                        <Row className="pb-5">
-                            <Col sm="12">
-                                <Survey lang={this.props.pageContext.lang} />
-                            </Col>
-                        </Row>
-                    </Container> */}
-
                     <Container fluid className="p-0">
                         {
                             this.state.lecteur !== "vide" ?
-                                (<Row className="pb-5">
-                                    <Col sm="12">
-                                        <h2 className="mb-4">{this.lang.continuer_titre}</h2>
-                                        <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
-                                    </Col>
-                                </Row>) :
+                                (<React.Fragment>
+                                    {/* <Row className="pb-5">
+                                        <Col sm="12">
+                                            <Survey lang={this.props.pageContext.lang} />
+                                        </Col>
+                                    </Row> */}
+                                    <Row className="pb-5">
+                                        <Col sm="12">
+                                            <h2 className="mb-4">{this.lang.continuer_titre}</h2>
+                                            <BlockContinuer allChapitre={data.allContentfulChapitre} lang={this.props.pageContext.lang} />
+                                        </Col>
+                                    </Row>
+                                </React.Fragment>) :
                                 ('')
                         }
 
