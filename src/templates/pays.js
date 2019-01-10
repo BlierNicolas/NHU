@@ -156,12 +156,21 @@ class Pays extends Component {
 												data.allContentfulVille.edges.map(
 													(edge) => <tr key={edge.node.id}>
 														<td><Link to={this.lang.monde_url + edge.node.slugPaysParent + '/' + edge.node.slug + "/"}>{edge.node.nomVille}</Link></td>
-														<td>{edge.node.superficie} m<sup>2</sup></td>
-														<td>{edge.node.population}</td>
-														<td>{edge.node.quantiteNouvHumains}</td>
+														<td>{edge.node.superficie > 0 ?
+															(<span>{edge.node.superficie} m<sup>2</sup></span>) :
+															(this.lang.valeur_inconnue)
+														}</td>
+														<td>{edge.node.population > 0 ?
+															(edge.node.population) :
+															(this.lang.valeur_inconnue)
+														}</td>
+														<td>{edge.node.quantiteNouvHumains > 0 ?
+															(edge.node.quantiteNouvHumains) :
+															(this.lang.valeur_inconnue)
+														}</td>
 													</tr>)
-											) : 
-											('')
+											) :
+												('')
 										}
 									</tbody>
 								</Table>
@@ -169,9 +178,21 @@ class Pays extends Component {
 							<TabPane tabId="3">
 								<ListGroup>
 									<div>
-										{this.lang.ville_superficie + data.contentfulPays.superficie} m<sup>2</sup><br />
-										{this.lang.ville_population + data.contentfulPays.population}<br />
-										{this.lang.ville_nouv_humains + data.contentfulPays.quantiteNouvHumains}
+										{this.lang.ville_superficie}
+										{data.contentfulPays.superficie > 0 ?
+											(<span>{data.contentfulPays.superficie} m<sup>2</sup></span>) :
+											(this.lang.valeur_inconnue)
+										} <br />
+										{this.lang.ville_population}
+										{data.contentfulPays.population > 0 ?
+											(data.contentfulPays.population) :
+											(this.lang.valeur_inconnue)
+										} <br />
+										{this.lang.ville_nouv_humains}
+										{data.contentfulPays.quantiteNouvHumains > 0 ?
+											(data.contentfulPays.quantiteNouvHumains) :
+											(this.lang.valeur_inconnue)
+										}
 									</div>
 								</ListGroup>
 							</TabPane>
