@@ -151,6 +151,7 @@
     "ville_superficie": "Superficie: ",
     "ville_population": "Population: ",
     "ville_nouv_humains": "Quantité de nouveaux humains: ",
+    "valeur_inconnue": "Inconnu",
     "list_projet_url": "/projets/",
     "projet_categorie": "Catégories: ",
     "projet_status": "Status: ",
