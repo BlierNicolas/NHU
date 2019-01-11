@@ -50,8 +50,8 @@ class Contributeurs extends Component {
 								<div className="clearfix mb-2">
 									<Row className="no-gutters">
 										<Col lg="12">
-											<div><a href="https://thomas-desfossez.com/" target="_blank">Thomas Desfossez</a> - {this.lang.contributeurs_design}</div>
-											<div><a href="https://www.artstation.com/sarahbourque" target="_blank">Sarah Bourque</a> - {this.lang.contributeurs_illustration}</div>
+											<div><a href="https://thomas-desfossez.com/" target="_blank" rel="noopener noreferrer">Thomas Desfossez</a> - {this.lang.contributeurs_design}</div>
+											<div><a href="https://www.artstation.com/sarahbourque" target="_blank" rel="noopener noreferrer">Sarah Bourque</a> - {this.lang.contributeurs_illustration}</div>
 											<div>Maeva G - {this.lang.contributeurs_creation}</div>
 											<div>Marie-Josée Cloutier - {this.lang.contributeurs_correction}</div>
 										</Col>
