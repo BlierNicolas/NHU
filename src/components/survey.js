@@ -120,8 +120,6 @@ export default class Survey extends React.Component {
             <div>
                 <Row>
                     <h2>Survey</h2>
-                </Row>
-                <Row>
                     <form onSubmit={this.handleSubmitSurvey}>
                         <FormGroup>
                             <Label for="question1">Question 1</Label>
@@ -129,6 +127,11 @@ export default class Survey extends React.Component {
                         </FormGroup>
                         <Button>Submit</Button>
                     </form>
+
+                    {/* 
+                    Si la personne n'a jamais répondu au survey, il voit l'affichage vide
+                    Si la personna a répondu au survey, il voit sa réponse et l'option de changer sa réponse ou de la supprimer
+                    */}
                 </Row>
             </div>
         );
