@@ -38,11 +38,11 @@ class Roman extends Component {
 		};
 
 		/** Buffer de la langue par défaut */
-        this.lang = lang_fr;
+		this.lang = lang_fr;
 
-        /** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		/** Trouve la bonne langue */
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
 		if (cookie.load('lecteur_connect') == null) {
 			cookie.save('lecteur_connect', "vide", { path: '/' });
@@ -96,76 +96,42 @@ class Roman extends Component {
 								</Col>
 							</Row>
 
-							{data.contentfulRoman.imageCouverture ?
-								(
-									<Row>
-										<Col lg="4">
-											<img className="img-fluid mb-5" src={data.contentfulRoman.imageCouverture.file.url} alt="cover" />
-										</Col>
+							<Row>
+								{data.contentfulRoman.imageCouverture ?
+									(<Col lg="4">
+										<img className="img-fluid mb-5" src={data.contentfulRoman.imageCouverture.file.url} alt="cover" />
+									</Col>) : ('')
+								}
 
-										<Col lg="8">
-											<div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
+								<Col>
+									<div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
 
-											<Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
+									<Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
 
-											<ListGroup className="pt-5">
-												{
-													data.allContentfulChapitre.edges.map(
-														(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-															<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
+									<ListGroup className="pt-5">
+										{
+											data.allContentfulChapitre.edges.map(
+												(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
+													<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
 														{
-																this.state.lecteur !== "vide" ?
-																	(<React.Fragment>
-																		<span>
-																			&nbsp;<BtnRead contentChapitre={edge.node} lang={this.props.pageContext.lang} />
-																		</span>
-																		<span>
-																			&nbsp;<BtnLike contentChapitre={edge.node} lang={this.props.pageContext.lang} />
-																		</span>
-																	</React.Fragment>) :
-																	(<span>
-																		&nbsp;<BtnLikeDisconnect contentChapitre={edge.node} lang={this.props.pageContext.lang} />
-																	</span>)
-															}
-														</ListGroupItem>)
-												}
-											</ListGroup>
-										</Col>
-									</Row>
-								) :
-								(
-									<Row>
-										<Col lg="12">
-											<div className="lead" dangerouslySetInnerHTML={{ __html: data.contentfulRoman.resume.childMarkdownRemark.html }} />
-
-											<Progress animated value={(data.contentfulRoman.chapitreActuel / data.contentfulRoman.maximumChapitre) * 100}>{data.contentfulRoman.chapitreActuel + "/" + data.contentfulRoman.maximumChapitre}</Progress>
-
-											<ListGroup className="pt-5">
-												{
-													data.allContentfulChapitre.edges.map(
-														(edge) => <ListGroupItem className="border-0 pl-0 pt-0" key={edge.node.id}>
-															<Link to={this.lang.chapitre_btn_url + edge.node.slug + "/"}>{edge.node.titreChapitre}</Link> ({this.lang.chapitre_read_time_label + "±" + edge.node.readTime + " " + this.lang.chapitre_read_time})
-														{
-																this.state.lecteur !== "vide" ?
-																	(<React.Fragment>
-																		<span>
-																			&nbsp;<BtnRead contentChapitre={edge.node} lang={this.props.pageContext.lang} />
-																		</span>
-																		<span>
-																			&nbsp;<BtnLike contentChapitre={edge.node} lang={this.props.pageContext.lang} />
-																		</span>
-																	</React.Fragment>) :
-																	(<span>
-																		&nbsp;<BtnLikeDisconnect contentChapitre={edge.node} lang={this.props.pageContext.lang} />
-																	</span>)
-															}
-														</ListGroupItem>)
-												}
-											</ListGroup>
-										</Col>
-									</Row>
-								)
-							}
+														this.state.lecteur !== "vide" ?
+															(<React.Fragment>
+																<span>
+																	&nbsp;<BtnRead contentChapitre={edge.node} lang={this.props.pageContext.lang} />
+																</span>
+																<span>
+																	&nbsp;<BtnLike contentChapitre={edge.node} lang={this.props.pageContext.lang} />
+																</span>
+															</React.Fragment>) :
+															(<span>
+																&nbsp;<BtnLikeDisconnect contentChapitre={edge.node} lang={this.props.pageContext.lang} />
+															</span>)
+													}
+												</ListGroupItem>)
+										}
+									</ListGroup>
+								</Col>
+							</Row>
 							<br />
 						</Container>
 					</div>

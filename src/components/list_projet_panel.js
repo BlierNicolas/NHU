@@ -28,9 +28,7 @@ export default class List_Projet_Panel extends React.Component {
                             <Col sm="12" md="6" lg="4" key={edge.node.id}>
                                 {
                                     edge.node.afficher ?
-                                        (
-                                            <Teaser haveHeader={true} titre_url={this.lang.list_projet_url + edge.node.slug} titre={edge.node.titre} haveDate={false} description={edge.node.resume} haveLink={true} link_url={this.lang.list_projet_url + edge.node.slug} link_label={this.lang.nouvelle_details} />
-                                        ) :
+                                        (<Teaser haveHeader={true} titre_url={this.lang.list_projet_url + edge.node.slug} titre={edge.node.titre} haveDate={false} description={edge.node.resume} haveLink={true} link_url={this.lang.list_projet_url + edge.node.slug} link_label={this.lang.nouvelle_details} />) :
                                         ('')
                                 }
                             </Col>
