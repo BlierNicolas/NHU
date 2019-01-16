@@ -114,12 +114,14 @@ class IndexPage extends Component {
                     </Container>
 
                     <Container fluid className="p-0">
-                        <Row>
-                            <Col lg="12">
-                                <h2 className="mb-4">{this.lang.header_projets}</h2>
-                            </Col>
-                        </Row>
-                        <ListProjetPanel allProjets={data.allContentfulProject} lang={this.props.pageContext.lang} />
+                        <div className="pb-5">
+                            <Row>
+                                <Col lg="12">
+                                    <h2 className="mb-4">{this.lang.header_projets}</h2>
+                                </Col>
+                            </Row>
+                            <ListProjetPanel allProjets={data.allContentfulProject} lang={this.props.pageContext.lang} />
+                        </div>
                     </Container>
 
                     <Footer lang={this.props.pageContext.lang} />
