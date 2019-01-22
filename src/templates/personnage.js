@@ -12,6 +12,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
+import BackToTop from '../components/back_to_top';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -42,8 +43,8 @@ class Personnage extends Component {
 
                     <Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={3} un_url={this.lang.header_personnages_url} un={this.lang.header_personnages} active={data.contentfulPersonnage.nomComplet} />
-                    
+                    <BreadcrumbCompo number={3} un_url={this.lang.header_personnages_url} un={this.lang.header_personnages} active={data.contentfulPersonnage.nomComplet} />
+
                     <EquivURL url={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
                     <Container fluid>
@@ -59,7 +60,7 @@ class Personnage extends Component {
                                                         data.contentfulPersonnage.pouvoirUrl ?
                                                             (<div>
                                                                 {this.lang.personnage_pouvoir_label}<Link to={this.lang.header_base + data.contentfulPersonnage.pouvoirUrl + "/"}>{data.contentfulPersonnage.pouvoirNom}</Link>{" (" + data.contentfulPersonnage.pouvoirGroupe + ")"}<br />
-                                                            </div>) : 
+                                                            </div>) :
                                                             (<div>
                                                                 {this.lang.personnage_pouvoir_label + data.contentfulPersonnage.pouvoirNom}<br />
                                                             </div>)
@@ -113,6 +114,12 @@ class Personnage extends Component {
                                 }
                             </Col>
                         </Row>
+                    </Container>
+
+                    <Container fluid>
+                        <div className="pb-5">
+                            <BackToTop lang={this.props.pageContext.lang} />
+                        </div>
                     </Container>
 
                     <Footer lang={this.props.pageContext.lang} />

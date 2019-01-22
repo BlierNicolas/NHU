@@ -18,6 +18,7 @@ import ListProjetInfo from '../components/list_projet_info';
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
+import BackToTop from '../components/back_to_top';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -34,11 +35,11 @@ class ListeDesProjets extends Component {
 		};
 
 		/** Buffer de la langue par défaut */
-        this.lang = lang_fr;
+		this.lang = lang_fr;
 
-        /** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		/** Trouve la bonne langue */
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	toggle(tab) {
@@ -103,6 +104,12 @@ class ListeDesProjets extends Component {
 								</ListGroup>
 							</TabPane>
 						</TabContent>
+					</Container>
+
+					<Container fluid>
+						<div className="pb-5">
+							<BackToTop lang={this.props.pageContext.lang} />
+						</div>
 					</Container>
 
 					<Footer lang={this.props.pageContext.lang} />

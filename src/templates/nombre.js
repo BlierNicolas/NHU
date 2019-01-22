@@ -12,6 +12,7 @@ import Footer from '../components/footer'
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
+import BackToTop from '../components/back_to_top';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -57,7 +58,7 @@ class Nombre extends Component {
 
                     <Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_nombre} />
+                    <BreadcrumbCompo number={2} active={this.lang.header_nombre} />
 
                     <EquivURL url={this.lang.equi_nombre + "/"} label={this.lang.other_lang_label} />
 
@@ -75,6 +76,12 @@ class Nombre extends Component {
                             <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_pouvoirs + data.allContentfulPouvoir.totalCount}</Col>
                             <Col sm="12" md="6" lg="4" className="mb-3">{this.lang.nombre_projets + data.allContentfulProject.totalCount}</Col>
                         </Row>
+                    </Container>
+
+                    <Container fluid>
+                        <div className="pb-5">
+                            <BackToTop lang={this.props.pageContext.lang} />
+                        </div>
                     </Container>
 
                     <Footer lang={this.props.pageContext.lang} />
