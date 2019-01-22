@@ -15,6 +15,7 @@ import BlockNouvelles from '../components/block_nouvelles';
 import BlockCalendrier from '../components/block_calendrier';
 import BlockContinuer from '../components/block_continuer';
 import ListProjetPanel from '../components/list_projet_panel';
+import BackToTop from '../components/back_to_top';
 // import Survey from '../components/survey';
 import EquivURL from '../components/equivURL';
 import cookie from 'react-cookies';
@@ -121,6 +122,12 @@ class IndexPage extends Component {
                                 </Col>
                             </Row>
                             <ListProjetPanel allProjets={data.allContentfulProject} lang={this.props.pageContext.lang} />
+                        </div>
+                    </Container>
+
+                    <Container fluid>
+                        <div className="pb-5">
+                            <BackToTop lang={this.props.pageContext.lang} />
                         </div>
                     </Container>
 

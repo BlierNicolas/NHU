@@ -20,6 +20,7 @@ import BtnRead from '../components/btn_read'
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
+import BackToTop from '../components/back_to_top';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -135,6 +136,12 @@ class Roman extends Component {
 							<br />
 						</Container>
 					</div>
+
+					<Container fluid>
+						<div className="pb-5">
+							<BackToTop lang={this.props.pageContext.lang} />
+						</div>
+					</Container>
 
 					<Footer lang={this.props.pageContext.lang} />
 				</div>

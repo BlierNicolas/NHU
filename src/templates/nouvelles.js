@@ -13,6 +13,7 @@ import BlockNouvelles from '../components/block_nouvelles';
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
+import BackToTop from '../components/back_to_top';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -24,11 +25,11 @@ class ListeDesNouvelles extends Component {
 		super(props);
 
 		/** Buffer de la langue par défaut */
-        this.lang = lang_fr;
+		this.lang = lang_fr;
 
-        /** Trouve la bonne langue */
-        if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
-        if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
+		/** Trouve la bonne langue */
+		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
+		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 	}
 
 	render() {
@@ -55,6 +56,12 @@ class ListeDesNouvelles extends Component {
 								<BlockNouvelles allNouvelles={data.allContentfulNouvelle} lang={this.props.pageContext.lang} />
 							</Col>
 						</Row>
+					</Container>
+
+					<Container fluid>
+						<div className="pb-5">
+							<BackToTop lang={this.props.pageContext.lang} />
+						</div>
 					</Container>
 
 					<Footer lang={this.props.pageContext.lang} />
