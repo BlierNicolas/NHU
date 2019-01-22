@@ -5,7 +5,6 @@ import {
 } from 'reactstrap';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
-import { URL } from 'url';
 
 export default class Block_Calendrier extends React.Component {
     constructor(props) {
