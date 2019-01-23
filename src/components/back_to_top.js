@@ -6,7 +6,7 @@ import {
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
-export default class Block_Calendrier extends React.Component {
+export default class Back_To_Top extends React.Component {
     constructor(props) {
         super(props);
 
