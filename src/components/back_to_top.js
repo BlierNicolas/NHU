@@ -6,7 +6,7 @@ import {
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
-export default class Block_Calendrier extends React.Component {
+export default class Back_To_Top extends React.Component {
     constructor(props) {
         super(props);
 
@@ -16,11 +16,19 @@ export default class Block_Calendrier extends React.Component {
         /** Trouve la bonne langue */
         if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
         if (this.props.lang === "en-US") { this.lang = lang_en; }
+
+        this.pat = "";
+    }
+
+    componentDidMount() {
+        if (typeof window !== "undefined") {
+            this.pat = window.location.pathname;
+        }
     }
 
     render() {
         return (
-            <Link className="text-white float-right mr-1" to={window.location.pathname + "#top"}>
+            <Link className="text-white float-right mr-1" to={this.pat + "#top"}>
                 <Button className="" color="primary">{this.lang.back_to_top}</Button>
             </Link>
         );
