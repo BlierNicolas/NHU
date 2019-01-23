@@ -17,17 +17,19 @@ export default class Back_To_Top extends React.Component {
         if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
         if (this.props.lang === "en-US") { this.lang = lang_en; }
 
-        this.pat = "";
-        if (typeof window !== "undefined") {
-            this.pat = window.location.pathname;
-        }
+        // this.pat = "";
+        // if (typeof window !== "undefined") {
+        //     this.pat = window.location.pathname;
+        // }
     }
 
     render() {
         return (
-            <Link className="text-white float-right mr-1" to={this.pat + "#top"}>
+            <div>
+                {/* <Link className="text-white float-right mr-1" to={this.pat + "#top"}>
                 <Button className="" color="primary">{this.lang.back_to_top}</Button>
-            </Link>
+                </Link> */}
+            </div>
         );
     }
 }
