@@ -16,11 +16,16 @@ export default class Block_Calendrier extends React.Component {
         /** Trouve la bonne langue */
         if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
         if (this.props.lang === "en-US") { this.lang = lang_en; }
+
+        this.pathname = "";
+        if (typeof window !== "undefined") {
+            this.pathname = window.location.pathname;
+        }
     }
 
     render() {
         return (
-            <Link className="text-white float-right mr-1" to={window.location.pathname + "#top"}>
+            <Link className="text-white float-right mr-1" to={this.pathname + "#top"}>
                 <Button className="" color="primary">{this.lang.back_to_top}</Button>
             </Link>
         );
