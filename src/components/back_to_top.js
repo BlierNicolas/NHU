@@ -18,6 +18,9 @@ export default class Back_To_Top extends React.Component {
         if (this.props.lang === "en-US") { this.lang = lang_en; }
 
         this.pat = "";
+    }
+
+    componentDidMount() {
         if (typeof window !== "undefined") {
             this.pat = window.location.pathname;
         }
