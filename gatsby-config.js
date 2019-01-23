@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Gatsby Default Starter',
+		title: 'VenatusUniverse',
 	},
 	plugins: [
 		{
@@ -24,7 +24,7 @@ module.exports = {
 				respectDNT: true,
 				// Avoids sending pageview hits from custom paths
 				exclude: ["/preview/**", "/do-not-track/me/too/"],
-			}
+			},
 		},
 		{
 			resolve: `gatsby-plugin-manifest`,
