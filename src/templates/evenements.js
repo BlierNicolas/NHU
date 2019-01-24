@@ -13,7 +13,7 @@ import Footer from '../components/footer'
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
-import BackToTop from '../components/back_to_top';
+// import BackToTop from '../components/back_to_top';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import Helmet from 'react-helmet'
@@ -77,11 +77,11 @@ class Evenements extends Component {
 						</Row>
 					</Container>
 
-					<Container fluid>
+					{/* <Container fluid>
 						<div className="pb-5">
 							<BackToTop lang={this.props.pageContext.lang} />
 						</div>
-					</Container>
+					</Container> */}
 
 					<Footer lang={this.props.pageContext.lang} />
 				</div>
