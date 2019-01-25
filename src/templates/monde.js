@@ -16,7 +16,7 @@ import BlockPaysList from '../components/block_pays_list';
 import BlockIntro from '../components/block_intro';
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
-// import BackToTop from '../components/back_to_top';
+import BackToTop from '../components/back_to_top';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -83,11 +83,11 @@ class Monde extends Component {
 						</Row>
 					</Container>
 
-					{/* <Container fluid>
+					<Container fluid>
 						<div className="pb-5">
 							<BackToTop lang={this.props.pageContext.lang} />
 						</div>
-					</Container> */}
+					</Container>
 
 					<Footer lang={this.props.pageContext.lang} />
 				</div>

@@ -15,7 +15,7 @@ import BtnRead from '../components/btn_read'
 import EquivURL from '../components/equivURL';
 import BreadcrumbCompo from '../components/breadcrumb_compo';
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
-// import BackToTop from '../components/back_to_top';
+import BackToTop from '../components/back_to_top';
 import { auth, provider } from 'firebase/app';
 import cookie from 'react-cookies';
 import Helmet from 'react-helmet'
@@ -150,11 +150,11 @@ class Chapitre extends Component {
 						</Container>
 					</div>
 
-					{/* <Container fluid>
+					<Container fluid>
 						<div className="pb-5">
 							<BackToTop lang={this.props.pageContext.lang} />
 						</div>
-					</Container> */}
+					</Container>
 
 					<Footer lang={this.props.pageContext.lang} />
 				</div>
