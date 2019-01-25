@@ -8,7 +8,7 @@
     "bluebird": "^3.5.2",
     "bootstrap": "^4.1.1",
     "firebase": "^5.4.2",
-    "gatsby": "^2.0.0-rc.28",
+    "gatsby": "^2.0.0",
     "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-manifest": "next",
