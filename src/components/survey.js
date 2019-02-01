@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     Row,
+    Col,
     Input,
     Label,
     FormGroup,
@@ -119,14 +120,18 @@ export default class Survey extends React.Component {
         return (
             <div>
                 <Row>
-                    <h2>Survey</h2>
-                    <form onSubmit={this.handleSubmitSurvey}>
-                        <FormGroup>
-                            <Label for="question1">Question 1</Label>
-                            <Input type="text" name="question1" id="question1" onChange={this.handleChange} placeholder="Réponse question 1" />
-                        </FormGroup>
-                        <Button>Submit</Button>
-                    </form>
+                    <Col lg="12" className="p-0">
+                        <h2>Survey</h2>
+                    </Col>
+                    <Col lg="3" className="p-0">
+                        <form onSubmit={this.handleSubmitSurvey}>
+                            <FormGroup>
+                                <Label for="question1">Question 1</Label>
+                                <Input type="text" name="question1" id="question1" onChange={this.handleChange} placeholder="Réponse question 1" />
+                            </FormGroup>
+                            <Button>Submit</Button>
+                        </form>
+                    </Col>
 
                     {/* 
                     Si la personne n'a jamais répondu au survey, il voit l'affichage vide
