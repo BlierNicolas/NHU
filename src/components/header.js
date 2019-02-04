@@ -77,7 +77,7 @@ export default class Header extends React.Component {
 
     componentDidMount() {
         //this.nightMode = !this.nightMode;
-        console.log("CompotDidMount: " + this.nightMode)
+        //console.log("CompotDidMount: " + this.nightMode)
         if (typeof window !== "undefined") {
             auth.onAuthStateChanged((user) => {
                 if (user) {
