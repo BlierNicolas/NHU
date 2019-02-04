@@ -38,16 +38,17 @@ export default class Header extends React.Component {
         this.lang = lang_fr;
 
         /** Trouve la bonne langue */
-        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
-        if (this.props.lang === "en-US") {this.lang = lang_en;}
+        if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+        if (this.props.lang === "en-US") { this.lang = lang_en; }
 
         this.state = {
             isOpen: false,
-            user: null
+            user: null,
+            status: this.lang.btn_nuit_inactif
         };
 
         this.nightMode = false
-        this.status = this.lang.btn_nuit_inactif
+        //this.status = this.lang.btn_nuit_inactif
         this.mounted = undefined
 
         if (cookie.load('c_nightMode') !== "null") {
@@ -57,25 +58,26 @@ export default class Header extends React.Component {
     }
 
     onEntering() {
-        this.status = this.lang.btn_nuit_desactivation;
+        this.setState({status: this.lang.btn_nuit_desactivation});
     }
 
     onEntered() {
-        this.status = this.lang.btn_nuit_inactif;
-        cookie.save('c_nightMode', 'off', { path: '/' });
+        this.setState({status: this.lang.btn_nuit_inactif});
+        //cookie.save('c_nightMode', 'off', { path: '/' });
     }
 
     onExiting() {
-        this.status = this.lang.btn_nuit_activation;
+        this.setState({status: this.lang.btn_nuit_activation});
     }
 
     onExited() {
-        this.status = this.lang.btn_nuit_actif;
-        cookie.save('c_nightMode', 'on', { path: '/' });
+        this.setState({status: this.lang.btn_nuit_actif});
+        //cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
     componentDidMount() {
-        this.nightMode = !this.nightMode;
+        //this.nightMode = !this.nightMode;
+        console.log("CompotDidMount: " + this.nightMode)
         if (typeof window !== "undefined") {
             auth.onAuthStateChanged((user) => {
                 if (user) {
@@ -92,14 +94,22 @@ export default class Header extends React.Component {
     }
 
     toggleNight() {
+        //(this.nightMode === true) ? (this.nightMode = false) : (this.nightMode = true)
         this.nightMode = !this.nightMode;
+        //console.log(this.nightMode);
 
         if (this.nightMode === true) {
-            this.status = this.lang.btn_nuit_actif;
+            this.setState({status: this.lang.btn_nuit_actif});
+            //console.log(this.state.status);
+            this.nightMode = true
             cookie.save('c_nightMode', 'on', { path: '/' });
+            //console.log("ToggleNight: Actif");
         } else {
-            this.status = this.lang.btn_nuit_inactif;
+            this.setState({status: this.lang.btn_nuit_inactif});
+            //console.log(this.state.status);
+            this.nightMode = false
             cookie.save('c_nightMode', 'off', { path: '/' });
+            //console.log("ToggleNight: Inactif");
         }
 
         this.checkActif();
@@ -109,7 +119,7 @@ export default class Header extends React.Component {
         if (typeof document !== "undefined") {
             if (this.mounted === 'on') {
                 this.nightMode = true;
-                this.status = this.lang.btn_nuit_actif;
+                this.setState({status: this.lang.btn_nuit_actif});
                 this.mounted = undefined;
             }
             if (this.nightMode) {
@@ -117,6 +127,7 @@ export default class Header extends React.Component {
             } else {
                 document.body.classList.remove('darkClass')
             }
+            //console.log("CheckActif: " + this.status);
         }
     }
 
@@ -161,7 +172,7 @@ export default class Header extends React.Component {
                                         className='mr-2'
                                         style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                                     />
-                                    {this.lang.btn_nuit + this.status}
+                                    {this.lang.btn_nuit + ((this.nightMode) ? (this.lang.btn_nuit_actif) : (this.lang.btn_nuit_inactif))}
                                 </Button>
 
                                 <Collapse
