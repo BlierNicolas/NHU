@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import Header from '../components/header'
 import Footer from '../components/footer'
+import FeateredHistoires from '../components/featured_histoires'
 import BlockNouvelles from '../components/block_nouvelles';
 import BlockCalendrier from '../components/block_calendrier';
 import BlockContinuer from '../components/block_continuer';
@@ -93,7 +94,12 @@ class IndexPage extends Component {
                                 </React.Fragment>) :
                                 ('')
                         }
-
+                        <Row className="pb-5">
+                            <Col lg="12" >
+                                <h2 className="mb-4">{this.lang.accueil_featured_stories}</h2>
+                                <FeateredHistoires allHistoires={data.allContentfulRoman} lang={this.props.pageContext.lang}/>
+                            </Col>
+                        </Row>
                         <Row className="pb-5">
                             <Col sm="12" lg="8" >
                                 <h2 className="mb-4">{this.lang.nouvelles_titre}</h2>
@@ -177,17 +183,32 @@ export const pageQuery = graphql`query listeNouvelleQueryFR ($lang: String!) {
                 affiche
 			}
 		}
-	}
+    }
+    allContentfulRoman(sort: {fields: [titreRoman], order: ASC}, filter: {node_locale: {eq: $lang}, featured: {eq: true}}) {
+        edges {
+            node {
+                id
+                titreRoman
+                resume {
+                    childMarkdownRemark {
+                        html
+                    }
+                }
+                slug
+                featured
+            }
+        }
+    }
 	allContentfulChapitre(sort: {fields: [codeChapitre, ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
-	  edges {
-		node {
-		  id
-		  titreChapitre
-		  nomRoman
-		  chapitreApres
-		  slug
-		}
-	  }
+	    edges {
+		    node {
+		        id
+		        titreChapitre
+		        nomRoman
+		        chapitreApres
+		        slug
+		    }
+	    }
     }
     allContentfulProject (limit: 6, sort: {fields: [ordre], order: ASC}, filter: {node_locale: {eq: $lang}}) {
 		edges {
