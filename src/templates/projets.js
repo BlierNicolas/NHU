@@ -62,7 +62,7 @@ class ListeDesProjets extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_projets} />
+					<BreadcrumbCompo number={2} active={this.lang.header_projets} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_projets + "/"} label={this.lang.other_lang_label} />
 

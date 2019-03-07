@@ -46,7 +46,7 @@ class ListeDesPouvoirs extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_pouvoirs} />
+					<BreadcrumbCompo number={2} active={this.lang.header_pouvoirs} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_pouvoirs + "/"} label={this.lang.other_lang_label} />
 

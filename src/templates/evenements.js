@@ -46,7 +46,7 @@ class Evenements extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_evenements} />
+					<BreadcrumbCompo number={2} active={this.lang.header_evenements} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_evenements + "/"} label={this.lang.other_lang_label} />
 

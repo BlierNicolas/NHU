@@ -44,7 +44,7 @@ class ListeDesNouvelles extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_nouvelles} />
+					<BreadcrumbCompo number={2} active={this.lang.header_nouvelles} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_nouvelles + "/"} label={this.lang.other_lang_label} />
 

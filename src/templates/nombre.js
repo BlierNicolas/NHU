@@ -58,7 +58,7 @@ class Nombre extends Component {
 
                     <Header lang={this.props.pageContext.lang} />
 
-                    <BreadcrumbCompo number={2} active={this.lang.header_nombre} />
+                    <BreadcrumbCompo number={2} active={this.lang.header_nombre} lang={this.props.pageContext.lang} />
 
                     <EquivURL url={this.lang.equi_nombre + "/"} label={this.lang.other_lang_label} />
 

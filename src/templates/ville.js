@@ -56,7 +56,7 @@ class Ville extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={4} un_url={this.lang.header_giervia_url} un={this.lang.header_giervia} deux_url={this.lang.monde_url + data.contentfulVille.slugPaysParent} deux={data.contentfulVille.nomPaysParent} active={data.contentfulVille.nomVille} />
+					<BreadcrumbCompo number={4} un_url={this.lang.header_giervia_url} un={this.lang.header_giervia} deux_url={this.lang.monde_url + data.contentfulVille.slugPaysParent} deux={data.contentfulVille.nomPaysParent} active={data.contentfulVille.nomVille} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulVille.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

@@ -62,7 +62,7 @@ class Progression extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_progression} />
+					<BreadcrumbCompo number={2} active={this.lang.header_progression} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_progression + "/"} label={this.lang.other_lang_label} />
 

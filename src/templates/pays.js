@@ -64,7 +64,7 @@ class Pays extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={3} un_url={this.lang.header_giervia_url} un={this.lang.header_giervia} active={data.contentfulPays.nomPays} />
+					<BreadcrumbCompo number={3} un_url={this.lang.header_giervia_url} un={this.lang.header_giervia} active={data.contentfulPays.nomPays} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_pays + data.contentfulPays.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

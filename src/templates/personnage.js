@@ -43,7 +43,7 @@ class Personnage extends Component {
 
                     <Header lang={this.props.pageContext.lang} />
 
-                    <BreadcrumbCompo number={3} un_url={this.lang.header_personnages_url} un={this.lang.header_personnages} active={data.contentfulPersonnage.nomComplet} />
+                    <BreadcrumbCompo number={3} un_url={this.lang.header_personnages_url} un={this.lang.header_personnages} active={data.contentfulPersonnage.nomComplet} lang={this.props.pageContext.lang} />
 
                     <EquivURL url={this.lang.other_lang_url + data.contentfulPersonnage.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

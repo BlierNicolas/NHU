@@ -44,7 +44,7 @@ class ListeDesTheories extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_encyclopedie} />
+					<BreadcrumbCompo number={2} active={this.lang.header_encyclopedie} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_encyclopedie + "/"} label={this.lang.other_lang_label} />
 

@@ -44,7 +44,7 @@ class Calendrier extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_calendrier} />
+					<BreadcrumbCompo number={2} active={this.lang.header_calendrier} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_calendrier + "/"} label={this.lang.other_lang_label} />
 
