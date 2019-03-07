@@ -85,7 +85,7 @@ class Roman extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={3} un_url={this.lang.header_histoires_url} un={this.lang.header_histoires} active={data.contentfulRoman.titreRoman} />
+					<BreadcrumbCompo number={3} un_url={this.lang.header_histoires_url} un={this.lang.header_histoires} active={data.contentfulRoman.titreRoman} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulRoman.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

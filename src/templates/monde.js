@@ -53,7 +53,7 @@ class Monde extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={data.contentfulMonde.nomPlanete} />
+					<BreadcrumbCompo number={2} active={data.contentfulMonde.nomPlanete} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulMonde.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

@@ -45,7 +45,7 @@ class Groupe extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={3} un_url={this.lang.header_groupes_url} un={this.lang.header_groupes} active={data.contentfulGroupe.nomGroupe} />
+					<BreadcrumbCompo number={3} un_url={this.lang.header_groupes_url} un={this.lang.header_groupes} active={data.contentfulGroupe.nomGroupe} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulGroupe.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

@@ -42,7 +42,7 @@ class Projet extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={3} un_url={this.lang.header_projets_url} un={this.lang.header_projets} active={data.contentfulProject.titre} />
+					<BreadcrumbCompo number={3} un_url={this.lang.header_projets_url} un={this.lang.header_projets} active={data.contentfulProject.titre} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulProject.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

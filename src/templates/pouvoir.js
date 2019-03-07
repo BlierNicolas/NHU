@@ -44,7 +44,7 @@ class Pouvoir extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={3} un_url={this.lang.header_pouvoirs_url} un={this.lang.header_pouvoirs} active={nomPouvoir} />
+					<BreadcrumbCompo number={3} un_url={this.lang.header_pouvoirs_url} un={this.lang.header_pouvoirs} active={nomPouvoir} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + equivalentUrl + "/"} label={this.lang.other_lang_label} />
 

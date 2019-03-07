@@ -46,7 +46,7 @@ class ListeDesPersonnages extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={2} active={this.lang.header_personnages} />
+					<BreadcrumbCompo number={2} active={this.lang.header_personnages} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.equi_personnages + "/"} label={this.lang.other_lang_label} />
 

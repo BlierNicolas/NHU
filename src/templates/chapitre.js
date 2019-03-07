@@ -78,7 +78,7 @@ class Chapitre extends Component {
 
 					<Header lang={this.props.pageContext.lang} />
 
-					<BreadcrumbCompo number={4} un_url={this.lang.header_histoires_url} un={this.lang.header_histoires} deux_url={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman} deux={this.lang.bc_roman_label} active={data.contentfulChapitre.titreChapitre} />
+					<BreadcrumbCompo number={4} un_url={this.lang.header_histoires_url} un={this.lang.header_histoires} deux_url={this.lang.list_histoires_url + data.contentfulChapitre.nomRoman} deux={this.lang.bc_roman_label} active={data.contentfulChapitre.titreChapitre} lang={this.props.pageContext.lang} />
 
 					<EquivURL url={this.lang.other_lang_url + data.contentfulChapitre.equivalentUrl + "/"} label={this.lang.other_lang_label} />
 
