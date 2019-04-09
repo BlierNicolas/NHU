@@ -5,7 +5,6 @@ import {
 } from 'reactstrap';
 import firebase, { auth, provider } from 'firebase/app';
 import 'firebase/database';
-import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -45,12 +44,12 @@ export default class Btn_read extends React.Component {
 
         this.handleSubmitRead = this.handleSubmitRead.bind(this);
 
-        if (cookie.load('lecteur_connect') == null) {
-            cookie.save('lecteur_connect', "vide", { path: '/' });
+        if (localStorage.getItem('lecteur_connect') == null) {
+            localStorage.setItem('lecteur_connect', "vide");
         }
 
-        if (cookie.load('lecteur_connect') !== "vide") {
-            this.state.lecteur = cookie.load('lecteur_connect')
+        if (localStorage.getItem('lecteur_connect') !== "vide") {
+            this.state.lecteur = localStorage.getItem('lecteur_connect')
         }
     }
 
@@ -164,7 +163,7 @@ export default class Btn_read extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
+                    localStorage.setItem('lecteur_connect', this.state.user);
 
                     window.location.reload();
                 });

@@ -17,7 +17,6 @@ import BreadcrumbCompo from '../components/breadcrumb_compo';
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
 import BackToTop from '../components/back_to_top';
 import { auth, provider } from 'firebase/app';
-import cookie from 'react-cookies';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -42,12 +41,12 @@ class Chapitre extends Component {
 		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
 		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
-		if (cookie.load('lecteur_connect') == null) {
-			cookie.save('lecteur_connect', "vide", { path: '/' });
+		if (localStorage.getItem('lecteur_connect') == null) {
+			localStorage.setItem('lecteur_connect', "vide");
 		}
 
-		if (cookie.load('lecteur_connect') !== "vide") {
-			this.state.lecteur = cookie.load('lecteur_connect')
+		if (localStorage.getItem('lecteur_connect') !== "vide") {
+			this.state.lecteur = localStorage.getItem('lecteur_connect')
 		}
 	}
 
@@ -59,7 +58,7 @@ class Chapitre extends Component {
 					this.setState({
 						user
 					});
-					cookie.save('lecteur_connect', this.state.user, { path: '/' });
+					localStorage.setItem('lecteur_connect', this.state.user);
 
 					window.location.reload();
 				});

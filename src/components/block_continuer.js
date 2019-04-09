@@ -6,7 +6,6 @@ import {
 } from 'reactstrap';
 import firebase from 'firebase/app';
 import 'firebase/database';
-import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -35,12 +34,12 @@ export default class Block_Continuer extends React.Component {
 
         this.dernierChapitreLu= ""
 
-        if (cookie.load('lecteur_connect') == null) {
-            cookie.save('lecteur_connect', "vide", { path: '/' });
+        if (localStorage.getItem('lecteur_connect') == null) {
+            localStorage.setItem('lecteur_connect', "vide");
         }
 
-        if (cookie.load('lecteur_connect') !== "vide") {
-            this.state.lecteur = cookie.load('lecteur_connect')
+        if (localStorage.getItem('lecteur_connect') !== "vide") {
+            this.state.lecteur = localStorage.getItem('lecteur_connect')
         }
     }
 

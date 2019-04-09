@@ -13,7 +13,6 @@ import {
     Button
 } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
-import cookie from 'react-cookies';
 import { auth, provider } from '../firebase.js';
 import 'firebase/database';
 import 'firebase/auth';
@@ -51,8 +50,8 @@ export default class Header extends React.Component {
         //this.status = this.lang.btn_nuit_inactif
         this.mounted = undefined
 
-        if (cookie.load('c_nightMode') !== "null") {
-            this.mounted = cookie.load('c_nightMode');
+        if (localStorage.getItem('c_nightMode') !== "null") {
+            this.mounted = localStorage.getItem('c_nightMode');
             this.checkActif();
         }
     }
@@ -63,7 +62,6 @@ export default class Header extends React.Component {
 
     onEntered() {
         this.setState({status: this.lang.btn_nuit_inactif});
-        //cookie.save('c_nightMode', 'off', { path: '/' });
     }
 
     onExiting() {
@@ -72,7 +70,6 @@ export default class Header extends React.Component {
 
     onExited() {
         this.setState({status: this.lang.btn_nuit_actif});
-        //cookie.save('c_nightMode', 'on', { path: '/' });
     }
 
     componentDidMount() {
@@ -102,13 +99,13 @@ export default class Header extends React.Component {
             this.setState({status: this.lang.btn_nuit_actif});
             //console.log(this.state.status);
             this.nightMode = true
-            cookie.save('c_nightMode', 'on', { path: '/' });
+            localStorage.setItem('c_nightMode', 'on');
             //console.log("ToggleNight: Actif");
         } else {
             this.setState({status: this.lang.btn_nuit_inactif});
             //console.log(this.state.status);
             this.nightMode = false
-            cookie.save('c_nightMode', 'off', { path: '/' });
+            localStorage.setItem('c_nightMode', 'off');
             //console.log("ToggleNight: Inactif");
         }
 
@@ -138,7 +135,7 @@ export default class Header extends React.Component {
                     this.setState({
                         user: null
                     });
-                    cookie.save('lecteur_connect', "vide", { path: '/' });
+                    localStorage.setItem('lecteur_connect', "vide");
 
                     window.location.reload();
                 });
@@ -153,7 +150,7 @@ export default class Header extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
+                    localStorage.setItem('lecteur_connect', this.state.user);
                 });
         }
     }
