@@ -26,8 +26,8 @@ export default class Btn_read extends React.Component {
         this.lang = lang_fr;
 
         /** Trouve la bonne langue */
-        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
-        if (this.props.lang === "en-US") {this.lang = lang_en;}
+        if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+        if (this.props.lang === "en-US") { this.lang = lang_en; }
 
         this.state = {
             user: null,
@@ -44,12 +44,14 @@ export default class Btn_read extends React.Component {
 
         this.handleSubmitRead = this.handleSubmitRead.bind(this);
 
-        if (localStorage.getItem('lecteur_connect') == null) {
-            localStorage.setItem('lecteur_connect', "vide");
-        }
+        if (typeof window !== "undefined") {
+            if (localStorage.getItem('lecteur_connect') == null) {
+                localStorage.setItem('lecteur_connect', "vide");
+            }
 
-        if (localStorage.getItem('lecteur_connect') !== "vide") {
-            this.state.lecteur = localStorage.getItem('lecteur_connect')
+            if (localStorage.getItem('lecteur_connect') !== "vide") {
+                this.state.lecteur = localStorage.getItem('lecteur_connect')
+            }
         }
     }
 
@@ -77,11 +79,11 @@ export default class Btn_read extends React.Component {
                         this.removeItem(item.id) : ''
                 )
             }
-            
+
             this.forceUpdate();
         }
     }
-    
+
     componentDidMount() {
         if (typeof window !== "undefined") {
             const itemsRefLu = firebase.database().ref('reads');

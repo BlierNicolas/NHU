@@ -44,12 +44,14 @@ class Roman extends Component {
 		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
 		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
-		if (localStorage.getItem('lecteur_connect') == null) {
-			localStorage.setItem('lecteur_connect', "vide");
-		}
+		if (typeof window !== "undefined") {
+			if (localStorage.getItem('lecteur_connect') == null) {
+				localStorage.setItem('lecteur_connect', "vide");
+			}
 
-		if (localStorage.getItem('lecteur_connect') !== null) {
-			this.state.lecteur = localStorage.getItem('lecteur_connect')
+			if (localStorage.getItem('lecteur_connect') !== null) {
+				this.state.lecteur = localStorage.getItem('lecteur_connect')
+			}
 		}
 	}
 
