@@ -5,7 +5,6 @@ import {
 import firebase, { auth, provider } from '../firebase.js';
 import 'firebase/database';
 import 'firebase/auth';
-import cookie from 'react-cookies';
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
 
@@ -35,12 +34,12 @@ export default class Btn_like_disconnect extends React.Component {
         this.nombreLike = 0
         this.btn_class_like = "secondary"
 
-        if (cookie.load('lecteur_connect') == null) {
-            cookie.save('lecteur_connect', "vide", { path: '/' });
+        if (localStorage.getItem('lecteur_connect') == null) {
+            localStorage.setItem('lecteur_connect', "vide");
         }
 
-        if (cookie.load('lecteur_connect') !== "vide") {
-            this.state.lecteur = cookie.load('lecteur_connect')
+        if (localStorage.getItem('lecteur_connect') !== "vide") {
+            this.state.lecteur = localStorage.getItem('lecteur_connect')
         }
     }
 
@@ -84,7 +83,7 @@ export default class Btn_like_disconnect extends React.Component {
                     this.setState({
                         user
                     });
-                    cookie.save('lecteur_connect', this.state.user, { path: '/' });
+                    localStorage.setItem('lecteur_connect', this.state.user);
 
                     window.location.reload();
                 });

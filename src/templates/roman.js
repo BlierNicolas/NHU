@@ -14,7 +14,6 @@ import {
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { auth, provider } from 'firebase/app';
-import cookie from 'react-cookies';
 import BtnLike from '../components/btn_like';
 import BtnRead from '../components/btn_read'
 import BtnLikeDisconnect from '../components/btn_like_disconnect'
@@ -45,17 +44,17 @@ class Roman extends Component {
 		if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
 		if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
-		if (cookie.load('lecteur_connect') == null) {
-			cookie.save('lecteur_connect', "vide", { path: '/' });
+		if (localStorage.getItem('lecteur_connect') == null) {
+			localStorage.setItem('lecteur_connect', "vide");
 		}
 
-		if (cookie.load('lecteur_connect') !== null) {
-			this.state.lecteur = cookie.load('lecteur_connect')
+		if (localStorage.getItem('lecteur_connect') !== null) {
+			this.state.lecteur = localStorage.getItem('lecteur_connect')
 		}
 	}
 
 	// UNSAFE_componentWillMount() {
-	// 	this.setState({ lecteur: cookie.load('lecteur') });
+	// 	this.setState({ lecteur: localStorage.getItem('lecteur') });
 	// }
 
 	login() {
@@ -66,7 +65,7 @@ class Roman extends Component {
 					this.setState({
 						user
 					});
-					cookie.save('lecteur_connect', this.state.user, { path: '/' });
+					localStorage.setItem('lecteur_connect', this.state.user);
 
 					window.location.reload();
 				});

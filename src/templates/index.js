@@ -19,7 +19,6 @@ import ListProjetPanel from '../components/list_projet_panel';
 import BackToTop from '../components/back_to_top';
 // import Survey from '../components/survey';
 import EquivURL from '../components/equivURL';
-import cookie from 'react-cookies';
 import Helmet from 'react-helmet'
 import lang_fr from '../langues/lang_fr.json';
 import lang_en from '../langues/lang_en.json';
@@ -44,12 +43,12 @@ class IndexPage extends Component {
         if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
         if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
-        if (cookie.load('lecteur_connect') == null) {
-            cookie.save('lecteur_connect', "vide", { path: '/' });
+        if (localStorage.getItem('lecteur_connect') == null) {
+            localStorage.setItem('lecteur_connect', "vide");
         }
 
-        if (cookie.load('lecteur_connect') !== "vide") {
-            this.state.lecteur = cookie.load('lecteur_connect')
+        if (localStorage.getItem('lecteur_connect') !== "vide") {
+            this.state.lecteur = localStorage.getItem('lecteur_connect')
         }
     }
 
