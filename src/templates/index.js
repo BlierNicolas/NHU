@@ -43,12 +43,14 @@ class IndexPage extends Component {
         if (this.props.pageContext.lang === "fr-CA") { this.lang = lang_fr; }
         if (this.props.pageContext.lang === "en-US") { this.lang = lang_en; }
 
-        if (localStorage.getItem('lecteur_connect') == null) {
-            localStorage.setItem('lecteur_connect', "vide");
-        }
+        if (typeof window !== "undefined") {
+            if (localStorage.getItem('lecteur_connect') == null) {
+                localStorage.setItem('lecteur_connect', "vide");
+            }
 
-        if (localStorage.getItem('lecteur_connect') !== "vide") {
-            this.state.lecteur = localStorage.getItem('lecteur_connect')
+            if (localStorage.getItem('lecteur_connect') !== "vide") {
+                this.state.lecteur = localStorage.getItem('lecteur_connect')
+            }
         }
     }
 
@@ -96,7 +98,7 @@ class IndexPage extends Component {
                         <Row className="pb-5">
                             <Col lg="12" >
                                 <h2 className="mb-4">{this.lang.accueil_featured_stories}</h2>
-                                <FeateredHistoires allHistoires={data.allContentfulRoman} lang={this.props.pageContext.lang}/>
+                                <FeateredHistoires allHistoires={data.allContentfulRoman} lang={this.props.pageContext.lang} />
                             </Col>
                         </Row>
                         <Row className="pb-5">

@@ -50,26 +50,28 @@ export default class Header extends React.Component {
         //this.status = this.lang.btn_nuit_inactif
         this.mounted = undefined
 
-        if (localStorage.getItem('c_nightMode') !== "null") {
-            this.mounted = localStorage.getItem('c_nightMode');
-            this.checkActif();
+        if (typeof window !== "undefined") {
+            if (localStorage.getItem('c_nightMode') !== "null") {
+                this.mounted = localStorage.getItem('c_nightMode');
+                this.checkActif();
+            }
         }
     }
 
     onEntering() {
-        this.setState({status: this.lang.btn_nuit_desactivation});
+        this.setState({ status: this.lang.btn_nuit_desactivation });
     }
 
     onEntered() {
-        this.setState({status: this.lang.btn_nuit_inactif});
+        this.setState({ status: this.lang.btn_nuit_inactif });
     }
 
     onExiting() {
-        this.setState({status: this.lang.btn_nuit_activation});
+        this.setState({ status: this.lang.btn_nuit_activation });
     }
 
     onExited() {
-        this.setState({status: this.lang.btn_nuit_actif});
+        this.setState({ status: this.lang.btn_nuit_actif });
     }
 
     componentDidMount() {
@@ -96,13 +98,13 @@ export default class Header extends React.Component {
         //console.log(this.nightMode);
 
         if (this.nightMode === true) {
-            this.setState({status: this.lang.btn_nuit_actif});
+            this.setState({ status: this.lang.btn_nuit_actif });
             //console.log(this.state.status);
             this.nightMode = true
             localStorage.setItem('c_nightMode', 'on');
             //console.log("ToggleNight: Actif");
         } else {
-            this.setState({status: this.lang.btn_nuit_inactif});
+            this.setState({ status: this.lang.btn_nuit_inactif });
             //console.log(this.state.status);
             this.nightMode = false
             localStorage.setItem('c_nightMode', 'off');
@@ -116,7 +118,7 @@ export default class Header extends React.Component {
         if (typeof document !== "undefined") {
             if (this.mounted === 'on') {
                 this.nightMode = true;
-                this.setState({status: this.lang.btn_nuit_actif});
+                this.setState({ status: this.lang.btn_nuit_actif });
                 this.mounted = undefined;
             }
             if (this.nightMode) {

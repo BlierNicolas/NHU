@@ -26,8 +26,8 @@ export default class Btn_like extends React.Component {
         this.lang = lang_fr;
 
         /** Trouve la bonne langue */
-        if (this.props.lang === "fr-CA") {this.lang = lang_fr;}
-        if (this.props.lang === "en-US") {this.lang = lang_en;}
+        if (this.props.lang === "fr-CA") { this.lang = lang_fr; }
+        if (this.props.lang === "en-US") { this.lang = lang_en; }
 
         this.state = {
             user: null,
@@ -45,12 +45,14 @@ export default class Btn_like extends React.Component {
 
         this.handleSubmitLike = this.handleSubmitLike.bind(this);
 
-        if (localStorage.getItem('lecteur_connect') == null) {
-            localStorage.setItem('lecteur_connect', "vide");
-        }
+        if (typeof window !== "undefined") {
+            if (localStorage.getItem('lecteur_connect') == null) {
+                localStorage.setItem('lecteur_connect', "vide");
+            }
 
-        if (localStorage.getItem('lecteur_connect') !== "vide") {
-            this.state.lecteur = localStorage.getItem('lecteur_connect')
+            if (localStorage.getItem('lecteur_connect') !== "vide") {
+                this.state.lecteur = localStorage.getItem('lecteur_connect')
+            }
         }
     }
 
@@ -110,7 +112,7 @@ export default class Btn_like extends React.Component {
     }
 
     checkUpLikes() {
-        this.nombreLike= 0;
+        this.nombreLike = 0;
         if (this.state.lecteur !== "vide") {
             this.items.map((item) =>
                 (item.chapitre === this.props.contentChapitre.titreChapitre) ?
