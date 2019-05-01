@@ -102,9 +102,13 @@ export default class Block_Continuer extends React.Component {
                                                     this.dernierChapitreLu = item.chapitreApres,
                                                     item.traite = "oui"
                                                 ) : (
-                                                    slugChapitre = this.dernierChapitreLu,
-                                                    this.state.chapitres.push({ slugChapitre }),
-                                                    this.dernierChapitreLu = item.chapitreApres
+                                                    (item.chapitreApres !== undefined) ?
+                                                        (
+                                                            slugChapitre = this.dernierChapitreLu,
+                                                            this.state.chapitres.push({ slugChapitre }),
+                                                            this.dernierChapitreLu = item.chapitreApres
+                                                        ) :
+                                                        ('')
                                                 )
                                         )
                                 ) : ''
@@ -116,8 +120,11 @@ export default class Block_Continuer extends React.Component {
             this.props.allChapitre.edges.map((edge) =>
                 (this.dernierChapitreLu === edge.node.slug) ?
                     (
-                        slugChapitre = edge.node.slug,
-                        this.state.chapitres.push({ slugChapitre })
+                        (edge.node.slug == edge.node.chapitreApres) ?
+                            (
+                                slugChapitre = edge.node.slug,
+                                this.state.chapitres.push({ slugChapitre })
+                            ) : ('')
                     ) : ''
             )
         }
